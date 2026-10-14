@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-14T20:53:51",
+ "generated": "2026-10-14T22:06:00",
  "review": "program",
  "title": "CTFYS VT27 vs VT26",
  "term": "VT27",
@@ -93,6 +93,109 @@
   "CTFYS2: study plan cohort HT2025 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2025.json)",
   "CTFYS3: study plan cohort HT2024 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2024.json)"
  ],
+ "year_status": {
+  "CTFYS1": [
+   {
+    "check": "Study-plan courses",
+    "status": "ok",
+    "text": "All 5 courses in the HT2026 study plan for VT27 are scheduled."
+   },
+   {
+    "check": "Exams scheduled",
+    "status": "ok",
+    "text": "Every course with an exam has an ordinary exam and a re-exam."
+   },
+   {
+    "check": "Exam spacing (ordinary exams and KS)",
+    "status": "ok",
+    "text": "7 exams checked: none on the same day; none on consecutive days."
+   },
+   {
+    "check": "Re-exam spacing",
+    "status": "info",
+    "text": "6 exams checked: none on the same day; 2 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 2 info."
+   },
+   {
+    "check": "Retaken by year 2",
+    "status": "warning",
+    "text": "15 exam pair(s) close in time for year 2 students retaking CTFYS1 courses (6 warning, 9 info)."
+   },
+   {
+    "check": "Structure vs VT26",
+    "status": "review",
+    "text": "6 courses compared with VT26: 3 with differences to judge (SF1922, SG1112, SK1105)."
+   }
+  ],
+  "CTFYS2": [
+   {
+    "check": "Study-plan courses",
+    "status": "ok",
+    "text": "All 5 courses in the HT2025 study plan for VT27 are scheduled."
+   },
+   {
+    "check": "Exams scheduled",
+    "status": "error",
+    "text": "1 missing exam/re-exam (1 error)."
+   },
+   {
+    "check": "Exam spacing (ordinary exams and KS)",
+    "status": "warning",
+    "text": "7 exams checked: none on the same day; 1 pair(s) on consecutive days. Reported: 1 warning."
+   },
+   {
+    "check": "Re-exam spacing",
+    "status": "info",
+    "text": "9 exams checked: none on the same day; 4 pair(s) on consecutive days; 2 pair(s) two days apart. Reported: 4 info."
+   },
+   {
+    "check": "Retaking year 1 courses",
+    "status": "warning",
+    "text": "15 exam pair(s) close in time with year 1 courses that CTFYS2 students may be retaking (6 warning, 9 info)."
+   },
+   {
+    "check": "Retaken by year 3",
+    "status": "warning",
+    "text": "4 exam pair(s) close in time for year 3 students retaking CTFYS2 courses (1 warning, 3 info)."
+   },
+   {
+    "check": "Structure vs VT26",
+    "status": "review",
+    "text": "9 courses compared with VT26: 6 with differences to judge (DD1327, DD132U, SE1055, SF1544, SI1155, SI1200)."
+   }
+  ],
+  "CTFYS3": [
+   {
+    "check": "Study-plan courses",
+    "status": "info",
+    "text": "1 of 22 study-plan courses/groups not scheduled (1 info)."
+   },
+   {
+    "check": "Exams scheduled",
+    "status": "error",
+    "text": "3 missing exam/re-exam (1 error, 2 warning)."
+   },
+   {
+    "check": "Exam spacing (ordinary exams and KS)",
+    "status": "warning",
+    "text": "22 exams checked: 9 pair(s) on the same day; 3 pair(s) on consecutive days; 16 pair(s) two days apart. Reported: 4 warning, 6 info."
+   },
+   {
+    "check": "Re-exam spacing",
+    "status": "info",
+    "text": "16 exams checked: 5 pair(s) on the same day; 10 pair(s) on consecutive days; 8 pair(s) two days apart. Reported: 2 info."
+   },
+   {
+    "check": "Retaking year 2 courses",
+    "status": "warning",
+    "text": "4 exam pair(s) close in time with year 2 courses that CTFYS3 students may be retaking (1 warning, 3 info)."
+   },
+   {
+    "check": "Structure vs VT26",
+    "status": "review",
+    "text": "30 courses compared with VT26: 22 with differences to judge (AK2011, AK2014, DD232V, DD2352, DD2421, EQ1120, FDD3431, MH1023, SA114X, SA115X, SA118X, SA120X, SF1691, SF1861, SF1904, SF1926, SF2701, SH2404, SI1142, SI1336, SI2360, SK2712)."
+   }
+  ]
+ },
  "summary": {
   "error": 2,
   "warning": 14,

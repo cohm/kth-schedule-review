@@ -101,3 +101,13 @@ class StudyPlanParsing(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Links(unittest.TestCase):
+    def test_linkify_codes_not_terms(self):
+        from schedcheck.report.html import linkify
+        out = linkify("DD2352 and FDD3431 in the HT2025 plan, VT2027, TEN1, FB42")
+        self.assertIn("kurs/DD2352", out)
+        self.assertIn("kurs/FDD3431", out)
+        for not_code in ("HT2025", "VT2027", "TEN1", "FB42"):
+            self.assertNotIn(f"kurs/{not_code}", out)

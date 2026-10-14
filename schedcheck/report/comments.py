@@ -157,7 +157,8 @@ def render(res: ReviewResult, lang: str = "sv") -> str:
 
     lines = [f"# {t['title']}: {res.title}", "", f"_{t['intro']}_", ""]
     for code in sorted(by_course, key=order):
-        lines.append(f"## {code or t['general']}")
+        lines.append(f"## [{code}](https://www.kth.se/student/kurser/kurs/{code})" if code
+                     else f"## {t['general']}")
         lines.append("")
         for i in by_course[code]:
             lines.append(f"- [{i.severity}] {render_issue(i, lang)}")

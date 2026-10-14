@@ -13,6 +13,7 @@ fixed order and always carry a text label, so colour is never the only cue.
 from __future__ import annotations
 
 import html
+import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -20,11 +21,12 @@ from ..checks.structure import abbrev, occasions, week_label
 from ..model import SEVERITIES, severity_rank
 from ..reviews.program import ReviewResult
 from ..term import TermData
+from .status import year_status
 
 LOGO_SVG = (Path(__file__).parent / "assets" / "kth_logo.svg").read_text(encoding="utf-8").strip()
 
-SEV_ICON = {"error": "✖", "warning": "▲", "review": "◆", "info": "●"}
-SEV_LABEL = {"error": "Error", "warning": "Warning", "review": "Review", "info": "Info"}
+SEV_ICON = {"error": "✖", "warning": "▲", "review": "◆", "info": "●", "ok": "✔"}
+SEV_LABEL = {"error": "Error", "warning": "Warning", "review": "Review", "info": "Info", "ok": "OK"}
 
 # Activity -> categorical slot (fixed order; anything else is neutral).
 ACT_SLOT = {"F": 1, "Ö": 2, "L": 3, "DL": 3, "S": 4, "Le": 5, "W": 5, "P": 6, "Red": 7,
@@ -135,6 +137,21 @@ details.course summary .cnt { font-weight: 400; color: var(--text-secondary); ma
 .a5 { border-bottom-color: var(--s5); } .a6 { border-bottom-color: var(--s6); }
 .a7 { border-bottom-color: var(--s7); } .a8 { border-bottom-color: var(--s8); }
 .hidden { display: none; }
+a.cl { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 50%, transparent);
+  text-underline-offset: 2px; }
+a.cl:hover { color: var(--accent); text-decoration-color: var(--accent); }
+a.cl .ext { font-size: .8em; margin-left: 1px; color: var(--accent); }
+.chip a.cl { text-decoration: none; }
+.status { background: var(--surface-1); border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  border-radius: 8px; padding: 10px 16px; margin: 12px 0; }
+.status h3 { margin: 0 0 6px; }
+.status ul { list-style: none; margin: 0; padding: 0; }
+.status li { display: grid; grid-template-columns: 7.5em 15em 1fr; gap: 8px; padding: 3px 0;
+  border-top: 1px solid var(--border); }
+.status li:first-child { border-top: 0; }
+.status .chk { color: var(--text-secondary); font-weight: 500; }
+.sev-ok .i { color: #4DA060; }
+@media (max-width: 640px) { .status li { grid-template-columns: 1fr; gap: 0; } }
 .yearbar { position: sticky; top: 0; z-index: 5; background: var(--surface-0);
   padding: 8px 0; margin: 0 0 8px; border-bottom: 1px solid var(--border);
   display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
@@ -220,6 +237,23 @@ JS = """
 
 def esc(x) -> str:
     return html.escape(str(x), quote=True)
+
+
+COURSE_URL = "https://www.kth.se/student/kurser/kurs/{code}"
+# Course codes, but not term/cohort names such as HT2025 or VT2027.
+_CODE_RE = re.compile(r"\b(?!(?:HT|VT)\d{4}\b)(F?[A-Z]{2}\d{3}[0-9A-Z])\b")
+
+
+def course_link(code: str, arrow: bool = True) -> str:
+    """A course code linking to its KTH course page (new tab)."""
+    a = "<span class='ext' aria-hidden='true'>↗</span>" if arrow else ""
+    return (f"<a class='cl' href='{COURSE_URL.format(code=esc(code))}' target='_blank' rel='noopener' "
+            f"title='Course page for {esc(code)} on kth.se'>{esc(code)}{a}</a>")
+
+
+def linkify(text: str) -> str:
+    """Escape text and turn course codes in it into links (no arrow, to keep prose readable)."""
+    return _CODE_RE.sub(lambda m: course_link(m.group(1), arrow=False), esc(text))
 
 
 def sev_badge(sev: str) -> str:
@@ -332,7 +366,7 @@ def exam_calendar(td: TermData, flags: dict | None = None, courses: set[str] | N
                     icon = f'<span class="fi" aria-label="{f}">{SEV_ICON[f]}</span>' if f in ("error", "warning") else ""
                     title = f"{x.course} {x.kind} {x.event.start:%H:%M}-{x.event.end:%H:%M} {x.event.activity}"
                     cell.append(f'<span class="chip {x.kind}{fcls}" title="{esc(title)}">{icon}'
-                                f'{esc(x.course)} <span class="ev">{x.event.start:%H}</span></span>')
+                                f'{course_link(x.course)} <span class="ev">{x.event.start:%H}</span></span>')
                 h.append(f"<td>{''.join(cell)}</td>")
         h.append("</tr>")
     h.append("</tbody></table></div>")
@@ -408,6 +442,12 @@ def render(res: ReviewResult) -> str:
         out.append(f"<div class='tile'><div class='n' id='n-{s}'>{counts.get(s, 0)}</div>"
                    f"<div class='l'>{sev_badge(s)}</div></div>")
     out.append(f"<div class='tile'><div class='n' id='n-accepted'>{n_acc}</div><div class='l'>Accepted</div></div></div>")
+    for key in ctx.new.years():
+        lb = year_label(key)
+        items = "".join(f"<li>{sev_badge(l['status'])}<span class='chk'>{esc(l['check'])}</span>"
+                        f"<span>{linkify(l['text'])}</span></li>" for l in year_status(res, key))
+        out.append(f"<section class='status' data-course-years='{esc(lb)}'>"
+                   f"<h3>What was checked: {esc(lb)}</h3><ul>{items}</ul></section>")
     if res.notes:
         out.append("<ul class='notes'>" + "".join(f"<li>{esc(n)}</li>" for n in res.notes) + "</ul>")
     cal = ctx.new.calendar
@@ -430,8 +470,9 @@ def render(res: ReviewResult) -> str:
         out.append(f"<tr data-sev='{i.severity}' data-years='{esc(issue_years(i, label_set, cy, cy_new))}' "
                    f"data-acc='{1 if i.accepted else 0}'"
                    f"{' class=accepted' if i.accepted else ''}><td>{sev_badge(i.severity)}</td>"
-                   f"<td><code>{esc(i.check)}</code></td><td>{esc(i.scope)}</td><td>{esc(i.course or '')}</td>"
-                   f"<td class='msg'>{esc(i.message)}{ev}{acc}</td></tr>")
+                   f"<td><code>{esc(i.check)}</code></td><td>{esc(i.scope)}</td>"
+                   f"<td>{course_link(i.course) if i.course and _CODE_RE.fullmatch(i.course) else esc(i.course or '')}</td>"
+                   f"<td class='msg'>{linkify(i.message)}{ev}{acc}</td></tr>")
     out.append("</tbody></table></div>")
 
     # Exam calendars
@@ -477,9 +518,10 @@ def render(res: ReviewResult) -> str:
             yrs = " ".join(sorted(cy.get(code, set()) & label_set)) or "*"
             out.append(f"<details class='course' data-course-years='{esc(yrs)}'"
                        f"{' open' if n and ctx.review == 'course' else ''}>"
-                       f"<summary>{esc(code)}{cnt}</summary>")
+                       f"<summary>{esc(code)}{cnt}</summary>"
+                       f"<p class='sub'>{course_link(code)} course page on kth.se</p>")
             for i in per_course.get(code, []):
-                out.append(f"<p>{sev_badge(i.severity)} {esc(i.message)}</p>")
+                out.append(f"<p>{sev_badge(i.severity)} {linkify(i.message)}</p>")
             out.append(week_table(res, code))
             out.append("</details>")
 

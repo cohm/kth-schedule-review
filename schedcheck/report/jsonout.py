@@ -7,6 +7,7 @@ from collections import Counter
 from pathlib import Path
 
 from ..reviews.program import ReviewResult
+from .status import all_year_status
 
 SCHEMA_VERSION = 1
 
@@ -30,6 +31,7 @@ def to_dict(res: ReviewResult) -> dict:
             "reexam_windows": [[w.label, str(w.start), str(w.end)] for w in ctx.new.calendar.reexam_windows],
         },
         "notes": res.notes,
+        "year_status": all_year_status(res),
         "summary": dict(Counter(i.severity for i in issues if not i.accepted)),
         "accepted_count": sum(1 for i in issues if i.accepted),
         "issues": [i.to_dict() for i in issues],
