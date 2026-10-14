@@ -32,7 +32,9 @@ Requires Python ≥ 3.11 and nothing else.
 
 1. Export the schedules from TimeEdit as .xlsx, one file per programme year,
    for the term under review and for the reference term (see
-   [docs/EXPORTING.md](docs/EXPORTING.md)). Put them in two folders, e.g.
+   [docs/EXPORTING.md](docs/EXPORTING.md)), or let `schedcheck fetch` open the
+   exports in your browser and `schedcheck collect` file them (see
+   [docs/FETCHING.md](docs/FETCHING.md)). Put them in two folders, e.g.
 
    ```
    VT27/remiss/      TimeEdit_….xlsx  (CTFYS1, CTFYS2, CTFYS3)

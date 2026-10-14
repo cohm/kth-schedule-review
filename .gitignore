@@ -6,6 +6,7 @@
 # Generated output and per-review state
 reports/
 workspace/
+.schedcheck-fetch.json
 
 # Python
 __pycache__/

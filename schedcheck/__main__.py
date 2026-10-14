@@ -76,6 +76,46 @@ def cmd_dump(args) -> None:
                   f"{', '.join(e.groups)[:40]:40} {', '.join(e.exam_modules)}")
 
 
+def cmd_fetch(args) -> None:
+    from .io import fetch
+    cfg = fetch.load_config(args.config)
+    labels = args.programs or list(cfg.objects)
+    sets = []
+    for spec, dest in ((args.new, args.new_dir), (args.old, args.old_dir)):
+        if not spec:
+            continue
+        term, _, view = spec.partition(":")
+        if not view:
+            sys.exit(f"error: '{spec}': use TERM:VIEW, e.g. VT27:remiss")
+        sets.append((term, view, dest or f"{term}_{view}"))
+    try:
+        reqs = fetch.plan_requests(cfg, labels, sets)
+    except ValueError as e:
+        sys.exit(f"error: {e}")
+    for r in reqs:
+        print(f"{r['label']:8} {r['term']} {r['view']:7} -> {r['dest']}\n  {r['url']}")
+    if args.print_only:
+        return
+    m = fetch.write_manifest(reqs, args.manifest)
+    print(f"\nopening {len(reqs)} export(s) in your browser (log in to TimeEdit there if asked)…")
+    fetch.open_in_browser([r["url"] for r in reqs])
+    print(f"wrote {m}. When the downloads are done, run:\n"
+          f"  python3 -m schedcheck collect --from <your download folder>")
+
+
+def cmd_collect(args) -> None:
+    from .io import fetch
+    res = fetch.collect(args.src, args.manifest, copy=args.copy)
+    for src, dest in res.filed:
+        print(f"filed   {src.name} -> {dest}")
+    for p, why in res.ignored:
+        print(f"ignored {p.name}: {why}")
+    for r in res.missing:
+        print(f"MISSING {r['label']} {r['term']} {r['view']} ({r['start']}..{r['end']})")
+    if res.missing:
+        sys.exit(1)
+
+
 def main(argv=None) -> None:
     ap = argparse.ArgumentParser(prog="schedcheck", description="Review KTH TimeEdit schedule exports.")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -101,6 +141,23 @@ def main(argv=None) -> None:
     p.add_argument("codes", nargs="+", help="course codes, e.g. SF1674")
     common(p)
     p.set_defaults(func=cmd_course)
+
+    p = sub.add_parser("fetch", help="open TimeEdit exports in your browser (you stay logged in there)")
+    p.add_argument("--config", required=True, help="TOML with base URL, views, object ids and term dates")
+    p.add_argument("--new", required=True, metavar="TERM:VIEW", help="e.g. VT27:remiss")
+    p.add_argument("--old", metavar="TERM:VIEW", help="reference, e.g. VT26:final")
+    p.add_argument("--new-dir", help="folder for the new exports (default TERM_VIEW)")
+    p.add_argument("--old-dir", help="folder for the reference exports (default TERM_VIEW)")
+    p.add_argument("--programs", nargs="*", help="only these programme years (default: all in config)")
+    p.add_argument("--manifest", default=".schedcheck-fetch.json", help="where to record the request")
+    p.add_argument("--print-only", action="store_true", help="only print the URLs")
+    p.set_defaults(func=cmd_fetch)
+
+    p = sub.add_parser("collect", help="file downloaded exports requested by 'fetch'")
+    p.add_argument("--from", dest="src", required=True, help="download folder")
+    p.add_argument("--manifest", default=".schedcheck-fetch.json")
+    p.add_argument("--copy", action="store_true", help="copy instead of move")
+    p.set_defaults(func=cmd_collect)
 
     p = sub.add_parser("dump", help="print parsed events per course (debugging)")
     p.add_argument("folder")

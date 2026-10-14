@@ -1,5 +1,7 @@
 # Exporting schedules from TimeEdit
 
+(For a scripted alternative, see [FETCHING.md](FETCHING.md).)
+
 The tool reads TimeEdit's **Excel (.xlsx) export** of a schedule view.
 
 What the export must contain:
