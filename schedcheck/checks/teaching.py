@@ -22,8 +22,10 @@ clash for students taking both. Severity:
   step (a known pattern rather than a new problem).
 
 Overlaps are reported once per course pair, with all overlapping sessions.
-Not clashes: one session listed under several codes (shared teaching) and
-re-exams (those students are not taking the course this term).
+Not clashes: one session listed under several codes (shared teaching),
+re-exams (those students are not taking the course this term), and courses
+that are alternatives in a pick-one group of the study plan (e.g. degree
+projects).
 """
 from __future__ import annotations
 
@@ -32,7 +34,7 @@ from collections import defaultdict
 from ..model import Event, Issue
 from ..term import REEXAM_ACTIVITY_PREFIXES, course_prefix
 from . import Context, register
-from .exams import LADDER, _category, _eligibility, soften
+from .exams import LADDER, _category, _eligibility, alternatives, soften
 
 OPTIONAL_ACTIVITIES = ("räknestuga", "övrigt", "projektarbete", "eget arbete", "frivillig",
                        "öppet hus", "mässa")
@@ -130,6 +132,8 @@ def check_teaching(ctx: Context) -> list[Issue]:
                     pairs[(x, y)].append((ex, ey, base))
 
         for (x, y), sessions in sorted(pairs.items()):
+            if alternatives(yp, x, y):
+                continue  # pick-one alternatives (e.g. degree projects): nobody takes both
             cx, cy = cat(x), cat(y)
             mand = {"mandatory", "programme"}
             shared = [m for m, cs in elig.items() if x in cs and y in cs]

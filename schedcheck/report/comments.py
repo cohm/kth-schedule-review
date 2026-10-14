@@ -219,4 +219,43 @@ def write(res: ReviewResult, out_dir: Path, lang: str = "sv") -> Path:
     suffix = "kommentarer" if lang == "sv" else "comments"
     p = out_dir / f"{stem}_{suffix}.md"
     p.write_text(render(res, lang), encoding="utf-8")
+    (out_dir / f"{stem}_{suffix}.html").write_text(render_html(res, lang), encoding="utf-8")
     return p
+
+
+def render_html(res: ReviewResult, lang: str = "sv") -> str:
+    """The same drafts as a KTH-styled page (for sharing via a web link).
+    Converts the small Markdown subset render() produces."""
+    import re
+    from .html import CSS, LOGO_SVG, SEV_LABEL, esc, linkify, sev_badge
+    md = render(res, lang)
+    out, in_list, in_sub = [], False, False
+    for line in md.splitlines():
+        if line.startswith("# "):
+            out.append(f"<div class='kthhead'>{LOGO_SVG}<h1>{esc(line[2:])}</h1></div>")
+        elif line.startswith("## "):
+            if in_sub: out.append("</ul>"); in_sub = False
+            if in_list: out.append("</ul>"); in_list = False
+            m = re.match(r"## \[(.+?)\]\((.+?)\)", line)
+            out.append(f"<h2><a class='cl' href='{esc(m.group(2))}' target='_blank' rel='noopener'>"
+                       f"{esc(m.group(1))}<span class='ext'>↗</span></a></h2>" if m else f"<h2>{esc(line[3:])}</h2>")
+        elif line.startswith("- "):
+            if in_sub: out.append("</ul>"); in_sub = False
+            if not in_list: out.append("<ul class='cm'>"); in_list = True
+            m = re.match(r"- \[(\w+)\] (.*)", line)
+            sev, text = (m.group(1), m.group(2)) if m else ("", line[2:])
+            badge = sev_badge(sev) if sev in SEV_LABEL else esc(sev)
+            out.append(f"<li>{badge} {linkify(text)}")
+        elif line.startswith("  - "):
+            if not in_sub: out.append("<ul class='ev'>"); in_sub = True
+            out.append(f"<li><code>{esc(line[4:].strip('`'))}</code></li>")
+        elif line.startswith("_") and line.endswith("_"):
+            out.append(f"<p class='sub'><em>{esc(line.strip('_'))}</em></p>")
+    if in_sub: out.append("</ul>")
+    if in_list: out.append("</ul>")
+    css = CSS + ".cm { padding-left: 18px; } .cm > li { margin: 6px 0; } .ev { list-style: none; padding-left: 8px; }"
+    return ("<!doctype html><html lang='sv'><head><meta charset='utf-8'>"
+            "<meta name='viewport' content='width=device-width, initial-scale=1'>"
+            "<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap'>"
+            f"<title>{esc(T[lang]['title'])}</title><style>{css}</style></head><body><main>"
+            + "".join(out) + "</main></body></html>")

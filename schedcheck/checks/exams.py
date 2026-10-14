@@ -42,6 +42,23 @@ def base_severity(a: Exam, b: Exam, thresholds: dict[str, str]) -> tuple[str | N
     return None, f"{gap} days apart"
 
 
+def alternatives(yp: YearPlan | None, a: str, b: str) -> bool:
+    """True if no student can take both a and b: they are options of the same
+    pick-one group (e.g. alternative degree projects) and neither can be taken
+    through any other group of the plan. (In CTMAT, SF1677/SF1678 form a
+    pick-one group but are also electives elsewhere, so both can be taken.)"""
+    if yp is None or yp.plan is None:
+        return False
+    groups = yp.plan.groups
+    shared = [g for g in groups
+              if (g.pick_n == 1 or (g.kind == "pickN" and (g.pick_n or 1) == 1))
+              and a in g.options and b in g.options]
+    if not shared:
+        return False
+    elsewhere = any((a in g.options or b in g.options) for g in groups if g not in shared)
+    return not elsewhere
+
+
 def same_sitting(a: Exam, b: Exam) -> bool:
     """Co-listed courses on one row (e.g. DD2421 + FDD3431) are one exam sitting."""
     return a.event.start == b.event.start and b.course in a.event.codes
@@ -116,6 +133,8 @@ def check_exams(ctx: Context) -> list[Issue]:
             # Re-exams are compared with re-exams; ordinary/partial with each other.
             if (a.kind == "reexam") != (b.kind == "reexam"):
                 continue
+            if alternatives(yp, a.course, b.course):
+                continue  # pick-one alternatives: nobody takes both
             sev, why = base_severity(a, b, th)
             if sev is None:
                 continue

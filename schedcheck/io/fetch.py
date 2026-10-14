@@ -2,7 +2,8 @@
 
 TimeEdit's staff views need a KTH login, so this module never downloads
 anything itself and never handles credentials: `fetch` builds the export
-URLs and opens them in the default browser (where the user is logged in);
+URLs and opens them in the default (or a chosen) browser, where the user is
+logged in;
 `collect` then picks the downloaded files up, identifies each one from its
 header (programme year and date range) and files it.
 
@@ -30,6 +31,8 @@ from __future__ import annotations
 import datetime as dt
 import json
 import shutil
+import subprocess
+import sys
 import time
 import tomllib
 import webbrowser
@@ -80,8 +83,27 @@ def export_url(cfg: FetchConfig, label: str, term: str, view: str) -> str:
     return f"{cfg.base}?{urlencode(q, safe='.')}"
 
 
+def select_labels(cfg: FetchConfig, wanted: list[str] | None) -> list[str]:
+    """Programme years to fetch: exact labels (CTMAT2) or programme codes (CTMAT
+    = all its years in the config). None/empty means everything in the config."""
+    if not wanted:
+        return list(cfg.objects)
+    out = []
+    for w in wanted:
+        hits = [lb for lb in cfg.objects if lb == w or lb.rstrip("0123456789") == w]
+        if not hits:
+            raise ValueError(f"'{w}' matches nothing in the config (has: {', '.join(cfg.objects)})")
+        out += [h for h in hits if h not in out]
+    return out
+
+
+def program_of(label: str) -> str:
+    return label.rstrip("0123456789")
+
+
 def plan_requests(cfg: FetchConfig, labels: list[str], sets: list[tuple[str, str, str]]) -> list[dict]:
-    """sets: [(term, view, destination folder)] -> one request per label and set."""
+    """sets: [(term, view, destination folder)] -> one request per label and set.
+    The destination may contain {program}, {term} and {view} placeholders."""
     terms = [t for t, _, _ in sets]
     if len(set(terms)) != len(terms):
         raise ValueError("each term may be requested once: files are told apart by their date range")
@@ -89,7 +111,8 @@ def plan_requests(cfg: FetchConfig, labels: list[str], sets: list[tuple[str, str
     for term, view, dest in sets:
         start, end = cfg.terms[term] if term in cfg.terms else (None, None)
         for label in labels:
-            out.append({"label": label, "term": term, "view": view, "dest": str(dest),
+            folder = str(dest).format(program=program_of(label), term=term, view=view)
+            out.append({"label": label, "term": term, "view": view, "dest": folder,
                         "start": str(start), "end": str(end),
                         "url": export_url(cfg, label, term, view)})
     return out
@@ -102,9 +125,16 @@ def write_manifest(requests: list[dict], path: str | Path = MANIFEST) -> Path:
     return p
 
 
-def open_in_browser(urls: list[str], pause: float = 1.5) -> None:
+def open_in_browser(urls: list[str], pause: float = 1.5, browser: str | None = None) -> None:
+    """Open URLs in the default browser, or in a named one (e.g. "Safari",
+    "Google Chrome", "Firefox"). The user must be logged in to TimeEdit there."""
     for u in urls:
-        webbrowser.open_new_tab(u)
+        if browser and sys.platform == "darwin":
+            subprocess.run(["open", "-a", browser, u], check=True)
+        elif browser:
+            webbrowser.get(browser).open_new_tab(u)
+        else:
+            webbrowser.open_new_tab(u)
         time.sleep(pause)  # be gentle with the server and the browser
 
 

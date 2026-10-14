@@ -1,7 +1,8 @@
 # Fetching exports from TimeEdit
 
 Instead of exporting each programme year by hand, `schedcheck fetch` opens the
-right export links in your browser, and `schedcheck collect` files the
+right export links in your default browser (or the one given with
+`--browser`, e.g. `--browser Safari`), and `schedcheck collect` files the
 downloads. TimeEdit's staff views need a KTH login; the tool never sees it:
 the downloads happen in your own, logged-in browser.
 
@@ -21,9 +22,10 @@ VT27 = ["2027-01-12", "2027-08-29"]
 ```
 
 The object id of a programme year is the same in all views and terms. To find
-it: export the year once by hand, then copy the download link (in Chrome:
+it: export the year once by hand, then copy the download link (Chrome:
 `chrome://downloads`, right-click the link under the file name, *Copy link
-address*) and read the `objects=` value. The keys (`CTFYS1`, …) must match the
+address*; Safari: open the downloads list with ⌥⌘L, right-click the file,
+*Copy Address*) and read the `objects=` value. The keys (`CTFYS1`, …) must match the
 programme line in the export header.
 
 What the URL parameters mean, as far as we know (observed 2026-10):
@@ -38,7 +40,7 @@ What the URL parameters mean, as far as we know (observed 2026-10):
 ## Each review
 
 ```sh
-# 1. Open the exports (log in to TimeEdit in the browser if asked)
+# 1. Open the exports in your default browser (log in to TimeEdit there if asked)
 python3 -m schedcheck fetch --config workspace/timeedit.toml \
     --new VT27:remiss --old VT26:final \
     --new-dir VT27/remiss --old-dir VT27/reference
@@ -50,7 +52,9 @@ python3 -m schedcheck collect --from ~/Downloads
 python3 -m schedcheck program --new VT27/remiss --old VT27/reference --out VT27/reports
 ```
 
-`fetch --print-only` just prints the links. `collect` only looks at files
+Without `--programs`, every programme year in the config is fetched; use e.g.
+`--programs CTFYS` (all its years) or `--programs CTMAT2`. `fetch --print-only`
+just prints the links. `collect` only looks at files
 downloaded after the fetch, identifies each by the programme year and date
 range in its header, renames it (`CTFYS1_VT27_remiss.xlsx`), reports files it
 ignored, and exits with an error if a requested export is missing.

@@ -98,3 +98,38 @@ class SelfOverlap(unittest.TestCase):
             row(H, "2027-04-20", "09:00", "12:00", "Laboration", "AA1001", "AA1001 grupp A", "XPROG1"),
             row(H, "2027-04-20", "11:00", "12:00", "Seminarium", "AA1001", "AA1001 grupp A", "XPROG1")])
         self.assertEqual(len(self_overlaps(evs, "AA1001")), 1)
+
+
+class Alternatives(unittest.TestCase):
+    def test_pick_one_options_are_not_paired(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        t = Path(tmp.name)
+        group = {"type": "optionGroup", "name": "Degree project", "year": 3, "category": "conditionallyElective",
+                 "kind": "pickN", "pickN": 1, "options": ["XX130X", "XX135X"],
+                 "periodCredits": {"P3": 7.5, "P4": 7.5}, "exams": []}
+        src = write_plan_source(t / "pv", "XPROG", {"HT2024": [
+            course("XX130X", 3, "conditionallyElective", P3), course("XX135X", 3, "conditionallyElective", P3),
+            group]})
+        d = t / "new"
+        d.mkdir()
+        make_export(d / "y3.xlsx", "XPROG3, Test", "2027-01-12 - 2027-08-29", calendar_markers(H, 2027) + [
+            row(H, "2027-01-18", "08:00", "10:00", "Seminarium", "XX130X", "", "XPROG3"),
+            row(H, "2027-01-18", "08:00", "10:00", "Föreläsning", "XX135X", "", "XPROG3")])
+        res = program_review(load_term(read_folder(d)), None, Config(), PlanSource(str(src)))
+        self.assertEqual([i for i in res.issues if i.check == "teaching.overlap"], [])
+
+
+class AlternativesAlsoElective(unittest.TestCase):
+    def test_pick_one_options_that_are_also_electives_are_paired(self):
+        from schedcheck.checks.exams import alternatives
+        from schedcheck.checks import YearPlan
+        from schedcheck.io.studyplan import parse_cohort
+        pick = {"type": "optionGroup", "name": "Pick one", "year": 3, "category": "conditionallyElective",
+                "kind": "pickN", "pickN": 1, "options": ["SF1677", "SF1678"], "periodCredits": {}, "exams": []}
+        elect = {"type": "optionGroup", "name": "Electives", "year": 3, "category": "electivePlaceholder",
+                 "kind": "minCredits", "options": ["SF1677", "SF1678", "XX1000"], "periodCredits": {}, "exams": []}
+        only_pick = parse_cohort([pick])
+        both = parse_cohort([pick, elect])
+        self.assertTrue(alternatives(YearPlan("X", 3, None, "HT2024", only_pick), "SF1677", "SF1678"))
+        self.assertFalse(alternatives(YearPlan("X", 3, None, "HT2024", both), "SF1677", "SF1678"))

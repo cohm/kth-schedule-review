@@ -1,0 +1,45 @@
+# Remisskommentarer (utkast): COPEN VT27 vs VT26
+
+_Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och formulera om innan det skickas till schemaläggarna._
+
+## [DD1310](https://www.kth.se/student/kurser/kurs/DD1310)
+
+- [warning] DD1310 (ordinarie tentamen 2027-03-11 14:00-15:00) och SF1546 (ordinarie tentamen 2027-03-12 14:00-17:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Går det att sprida ut dem mer?
+  - `COPEN1_VT27_remiss.xlsx:120 2027-03-11 14:00-15:00 Kontrollskrivning`
+  - `COPEN1_VT27_remiss.xlsx:122 2027-03-12 14:00-17:00 Tentamen`
+- [review] DD1310 är ny jämfört med . Stämmer det att den ska ingå?
+
+## [SG1133](https://www.kth.se/student/kurser/kurs/SG1133)
+
+- [warning] SG1133: ingen omtentamen är schemalagd. VT26: 2026-08-21 08:00 Omtenta. Ska den läggas in?
+- [review] SG1133: antalet tillfällen skiljer sig från VT26 (Kontrollskrivning 2→1; Räknestuga 3→0; Tentamen 1→2; Övning 9→11; Övrigt 0→1). Sekvens (VT26 → nu): P3 v1–7: [F Ö F F F R F F Ö S F F Ö F R W KS] F F … → [–] F F …; P3 v3: … F Ö [–] F Ö … → … F Ö [F] F Ö …; P3 v6: … F F [F R W S F KS] F F … → … F F [Ö W] F F …; P4 v2–P4 tentaperiod: … F F [TEN] → … F F [Ö S F F Ö F F Ö F Ö F F F S W F KS Övr F TEN TEN]. Är detta avsiktligt?
+- [review] SG1133: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P4 w1→P3 w1; Föreläsning P4 w1→P3 w1; Övning P4 w1→P3 w1; Föreläsning P4 w2→P3 w2; Föreläsning P4 w3→P3 w2; Övning P4 w3→P3 w2 (+17 more)). Är detta avsiktligt?
+  - `COPEN1_VT27_remiss.xlsx:10 2027-01-12 15:00-17:00 Föreläsning`
+  - `COPEN1_VT27_remiss.xlsx:14 2027-01-14 10:00-12:00 Föreläsning`
+
+## [SA1007](https://www.kth.se/student/kurser/kurs/SA1007)
+
+- [review] SA1007: antalet tillfällen skiljer sig från VT26 (Föreläsning 7→8; Seminarium 5→4). Sekvens (VT26 → nu): P4 v4: … Mässa Red [S] Red S … → … Mässa Red [F] Red S …. Är detta avsiktligt?
+
+## [SF1546](https://www.kth.se/student/kurser/kurs/SF1546)
+
+- [review] SF1546: antalet tillfällen skiljer sig från VT26 (Redovisning 6→5). Sekvens (VT26 → nu): P4 v4: … DL Red [Red] DL Red … → … DL Red [–] DL Red …. Är detta avsiktligt?
+
+## [SF1626](https://www.kth.se/student/kurser/kurs/SF1626)
+
+- [review] SF1626: antalet tillfällen skiljer sig från VT26 (Föreläsning 24→21). Sekvens (VT26 → nu): P3 v1–3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 v5–7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W …. Är detta avsiktligt?
+- [review] SF1626: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Seminarium P3 w4→P3 w2 (+22 more)). Är detta avsiktligt?
+  - `COPEN1_VT27_remiss.xlsx:8 2027-01-12 10:00-12:00 Föreläsning`
+  - `COPEN1_VT27_remiss.xlsx:9 2027-01-12 13:00-15:00 Workshop`
+
+## [SG1130](https://www.kth.se/student/kurser/kurs/SG1130)
+
+- [review] SG1130: antalet tillfällen skiljer sig från VT26 (Tentamen 0→2; Övrigt 0→1). Sekvens (VT26 → nu): P4 v8–P4 tentaperiod: KS [–] → KS [Övr TEN TEN]. Är detta avsiktligt?
+- [review] SG1130: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Kontrollskrivning P3 w7→P4 w8). Är detta avsiktligt?
+  - `COPEN1_VT27_remiss.xlsx:217 2027-05-13 08:00-10:00 Kontrollskrivning`
+
+## [SG1132](https://www.kth.se/student/kurser/kurs/SG1132)
+
+- [review] SG1132: antalet tillfällen skiljer sig från VT26 (Tentamen 0→2; Övrigt 0→1). Sekvens (VT26 → nu): P4 v8–P4 tentaperiod: KS [–] → KS [Övr TEN TEN]. Är detta avsiktligt?
+- [review] SG1132: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Kontrollskrivning P3 w7→P4 w8). Är detta avsiktligt?
+  - `COPEN1_VT27_remiss.xlsx:217 2027-05-13 08:00-10:00 Kontrollskrivning`

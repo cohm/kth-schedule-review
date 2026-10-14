@@ -67,3 +67,16 @@ class Fetch(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Selection(unittest.TestCase):
+    def test_programme_codes_and_placeholders(self):
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "te.toml").write_text(CFG.replace('XPROG2 = "222.16"', 'XPROG2 = "222.16", YPROG1 = "333.16"'))
+            cfg = fetch.load_config(Path(d) / "te.toml")
+        self.assertEqual(fetch.select_labels(cfg, ["XPROG"]), ["XPROG1", "XPROG2"])
+        self.assertEqual(fetch.select_labels(cfg, ["YPROG1", "XPROG2"]), ["YPROG1", "XPROG2"])
+        with self.assertRaises(ValueError):
+            fetch.select_labels(cfg, ["ZPROG"])
+        reqs = fetch.plan_requests(cfg, ["XPROG1", "YPROG1"], [("VT27", "remiss", "out/{program}/{term}_{view}")])
+        self.assertEqual([r["dest"] for r in reqs], ["out/XPROG/VT27_remiss", "out/YPROG/VT27_remiss"])
