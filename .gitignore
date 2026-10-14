@@ -1,0 +1,16 @@
+# Real schedule exports name teachers and rooms: never commit them.
+*.xlsx
+*.xls
+*.csv
+
+# Generated output and per-review state
+reports/
+workspace/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv/

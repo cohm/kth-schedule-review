@@ -113,30 +113,77 @@ details.course summary .cnt { font-weight: 400; color: var(--text-secondary); ma
 .a5 { border-bottom-color: var(--s5); } .a6 { border-bottom-color: var(--s6); }
 .a7 { border-bottom-color: var(--s7); } .a8 { border-bottom-color: var(--s8); }
 .hidden { display: none; }
+.yearbar { position: sticky; top: 0; z-index: 5; background: var(--surface-0);
+  padding: 8px 0; margin: 0 0 8px; border-bottom: 1px solid var(--border);
+  display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.yearbar .lbl { font-weight: 600; }
+.seg { display: inline-flex; flex-wrap: wrap; max-width: 100%; border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label { padding: 5px 12px; cursor: pointer; background: var(--surface-1); border-left: 1px solid var(--border); }
+.seg label:first-of-type { border-left: 0; }
+.seg input:checked + label { background: var(--text-primary); color: var(--surface-1); font-weight: 600; }
+.seg input:focus-visible + label { outline: 2px solid var(--review); outline-offset: -2px; }
+.cal tr.sel td { background: var(--hl); }
+.cal tr.sel td.y::before { content: "▶ "; }
+.cal tr.dim td { opacity: .45; }
 .themebtn { float: right; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px;
   background: var(--surface-1); color: var(--text-primary); cursor: pointer; }
-@media (max-width: 640px) { td.msg { min-width: 240px; } .tile { min-width: 96px; } }
+h1 { overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  td.msg { min-width: 240px; } .tile { min-width: 0; flex: 1 1 28%; padding: 8px 10px; }
+  .tile .n { font-size: 20px; } .themebtn { float: none; margin-bottom: 8px; }
+  .yearbar .sub { display: none; }
+}
 """
 
 JS = """
 (function () {
   const rows = Array.from(document.querySelectorAll('#issues tbody tr'));
-  const q = document.getElementById('q'), scope = document.getElementById('scope'),
-        acc = document.getElementById('acc');
+  const q = document.getElementById('q'), acc = document.getElementById('acc');
   const sev = Array.from(document.querySelectorAll('input[name=sev]'));
+  const years = Array.from(document.querySelectorAll('input[name=year]'));
+  const ALL = '*';
+  // Default: the first programme year; a choice made earlier is remembered.
+  let year = years.length > 1 ? years[1].value : ALL;
+  try { const saved = localStorage.getItem('schedcheck-year');
+        if (saved && years.some(y => y.value === saved)) year = saved; } catch (e) {}
+  years.forEach(y => { y.checked = y.value === year; });
+
+  const inYear = el => year === ALL || el.dataset.years === ALL
+    || el.dataset.years.split(' ').includes(year);
+
   function apply() {
     const on = new Set(sev.filter(s => s.checked).map(s => s.value));
     const text = q.value.trim().toLowerCase();
     let shown = 0;
+    const counts = {error: 0, warning: 0, review: 0, info: 0}; let accepted = 0;
     rows.forEach(r => {
-      const ok = on.has(r.dataset.sev) && (!scope.value || r.dataset.scope === scope.value)
-        && (acc.checked || r.dataset.acc !== '1')
+      const y = inYear(r);
+      if (y) { if (r.dataset.acc === '1') accepted++; else counts[r.dataset.sev]++; }
+      const ok = y && on.has(r.dataset.sev) && (acc.checked || r.dataset.acc !== '1')
         && (!text || r.textContent.toLowerCase().includes(text));
       r.classList.toggle('hidden', !ok); if (ok) shown++;
     });
     document.getElementById('shown').textContent = shown + ' shown';
+    Object.entries(counts).forEach(([k, v]) => { document.getElementById('n-' + k).textContent = v; });
+    document.getElementById('n-accepted').textContent = accepted;
+    document.querySelectorAll('.cal tbody tr[data-year]').forEach(tr => {
+      tr.classList.toggle('sel', year !== ALL && tr.dataset.year === year);
+      tr.classList.toggle('dim', year !== ALL && tr.dataset.year !== year);
+    });
+    document.querySelectorAll('[data-course-years]').forEach(d => {
+      const ys = d.dataset.courseYears;
+      d.classList.toggle('hidden', !(year === ALL || ys === ALL || ys.split(' ').includes(year)));
+    });
+    document.querySelectorAll('.yearname').forEach(e => { e.textContent = year === ALL ? 'all years' : year; });
   }
-  [q, scope, acc, ...sev].forEach(el => el.addEventListener('input', apply));
+  years.forEach(y => y.addEventListener('change', () => {
+    year = y.value;
+    try { localStorage.setItem('schedcheck-year', year); } catch (e) {}
+    apply();
+  }));
+  [q, acc, ...sev].forEach(el => el.addEventListener('input', apply));
   apply();
   const btn = document.getElementById('theme');
   btn.addEventListener('click', () => {
@@ -163,6 +210,44 @@ def act_chip(a: str, title: str = "") -> str:
     cls = f"act a{slot}" if slot else "act"
     t = f' title="{esc(title)}"' if title else ""
     return f'<span class="{cls}"{t}>{esc(a)}</span>'
+
+
+def year_label(key) -> str:
+    prog, year = key
+    return f"{prog}{year or ''}"
+
+
+def course_years(res: ReviewResult, reference: bool = True) -> dict[str, set[str]]:
+    """Course -> programme-year labels whose exports contain it (optionally
+    also the reference term's exports, where a course may sit in another year)."""
+    out: dict[str, set[str]] = defaultdict(set)
+    for td in ((res.ctx.new, res.ctx.old) if reference else (res.ctx.new,)):
+        if td is None:
+            continue
+        for key, evs in td.year_events.items():
+            for e in evs:
+                for c in e.codes:
+                    out[c].add(year_label(key))
+    return out
+
+
+def issue_years(i, labels: set[str], cy: dict[str, set[str]], cy_new: dict[str, set[str]]) -> str:
+    """Space-separated year labels an issue belongs to, or '*' for all.
+
+    A year-scoped issue belongs to its year; a re-exam-path issue also to the
+    year of the course being retaken, since it concerns that course's exam too.
+    """
+    if i.scope in labels:
+        ys = {i.scope}
+        if i.check == "exams.reexam-path":
+            for c in i.details.get("courses", []):
+                ys |= cy_new.get(c, set()) & labels
+        return " ".join(sorted(ys))
+    ys = set(cy.get(i.course, set())) if i.course else set()
+    for c in i.details.get("courses", []) if isinstance(i.details, dict) else []:
+        ys |= cy.get(c, set())
+    ys &= labels
+    return " ".join(sorted(ys)) if ys else "*"
 
 
 def _exam_flags(res: ReviewResult) -> dict[tuple[str, str], str]:
@@ -215,7 +300,7 @@ def exam_calendar(td: TermData, flags: dict | None = None, courses: set[str] | N
     h.append("</tr></thead><tbody>")
     for key in rows:
         prog, year = key
-        h.append(f'<tr><td class="y">{esc(prog)}{year or ""}</td>')
+        h.append(f'<tr data-year="{esc(year_label(key))}"><td class="y">{esc(prog)}{year or ""}</td>')
         for g, ds in groups:
             for d in ds:
                 cell = []
@@ -268,7 +353,10 @@ def render(res: ReviewResult) -> str:
     counts = Counter(i.severity for i in issues if not i.accepted)
     n_acc = sum(1 for i in issues if i.accepted)
     flags = _exam_flags(res)
-    scopes = sorted({i.scope for i in issues})
+    labels = [year_label(k) for k in ctx.new.years()]
+    label_set = set(labels)
+    cy = course_years(res)
+    cy_new = course_years(res, reference=False)
 
     out = ["<!doctype html><html lang='en'><head><meta charset='utf-8'>",
            "<meta name='viewport' content='width=device-width, initial-scale=1'>",
@@ -281,10 +369,19 @@ def render(res: ReviewResult) -> str:
         sub += f" · reference: {esc(ctx.old.term)}"
     out.append(f"<p class='sub'>{sub}</p>")
 
+    if len(labels) > 1:
+        opts = [("*", "All years")] + [(lb, lb) for lb in labels]
+        seg = "".join(f"<input type='radio' name='year' id='yr-{i}' value='{esc(v)}'>"
+                      f"<label for='yr-{i}'>{esc(t)}</label>" for i, (v, t) in enumerate(opts))
+        out.append(f"<div class='yearbar'><span class='lbl'>Programme year</span>"
+                   f"<div class='seg' role='radiogroup' aria-label='Programme year'>{seg}</div>"
+                   "<span class='sub'>Issues and course structure follow the selection; "
+                   "the exam calendars show all years with the selected one highlighted.</span></div>")
     out.append("<div class='tiles'>")
     for s in SEVERITIES:
-        out.append(f"<div class='tile'><div class='n'>{counts.get(s, 0)}</div><div class='l'>{sev_badge(s)}</div></div>")
-    out.append(f"<div class='tile'><div class='n'>{n_acc}</div><div class='l'>Accepted</div></div></div>")
+        out.append(f"<div class='tile'><div class='n' id='n-{s}'>{counts.get(s, 0)}</div>"
+                   f"<div class='l'>{sev_badge(s)}</div></div>")
+    out.append(f"<div class='tile'><div class='n' id='n-accepted'>{n_acc}</div><div class='l'>Accepted</div></div></div>")
     if res.notes:
         out.append("<ul class='notes'>" + "".join(f"<li>{esc(n)}</li>" for n in res.notes) + "</ul>")
     cal = ctx.new.calendar
@@ -293,12 +390,10 @@ def render(res: ReviewResult) -> str:
                + " · Re-exam windows: " + "; ".join(f"{w.start}–{w.end}" for w in cal.reexam_windows) + "</p>")
 
     # Issues
-    out.append("<h2>Issues</h2><div class='filters'>")
+    out.append("<h2>Issues <span class='sub yearname'></span></h2><div class='filters'>")
     for s in SEVERITIES:
         checked = "" if s == "info" else " checked"
         out.append(f"<label><input type='checkbox' name='sev' value='{s}'{checked}>{sev_badge(s)}</label>")
-    out.append("<select id='scope' aria-label='Scope'><option value=''>All scopes</option>"
-               + "".join(f"<option>{esc(s)}</option>" for s in scopes) + "</select>")
     out.append("<input id='q' type='search' placeholder='Filter text…' aria-label='Filter text'>")
     out.append("<label><input type='checkbox' id='acc'>show accepted</label><span id='shown' class='sub'></span></div>")
     out.append("<div class='tablewrap'><table id='issues'><thead><tr><th>Severity</th><th>Check</th>"
@@ -306,7 +401,8 @@ def render(res: ReviewResult) -> str:
     for i in issues:
         ev = "".join(f"<div class='ev'>{esc(e)}</div>" for e in i.evidence[:4])
         acc = f"<div class='ev'>accepted: {esc(i.accepted)}</div>" if i.accepted else ""
-        out.append(f"<tr data-sev='{i.severity}' data-scope='{esc(i.scope)}' data-acc='{1 if i.accepted else 0}'"
+        out.append(f"<tr data-sev='{i.severity}' data-years='{esc(issue_years(i, label_set, cy, cy_new))}' "
+                   f"data-acc='{1 if i.accepted else 0}'"
                    f"{' class=accepted' if i.accepted else ''}><td>{sev_badge(i.severity)}</td>"
                    f"<td><code>{esc(i.check)}</code></td><td>{esc(i.scope)}</td><td>{esc(i.course or '')}</td>"
                    f"<td class='msg'>{esc(i.message)}{ev}{acc}</td></tr>")
@@ -333,7 +429,7 @@ def render(res: ReviewResult) -> str:
 
     # Course structure
     if ctx.old:
-        out.append("<h2>Course structure, week by week</h2>")
+        out.append("<h2>Course structure, week by week <span class='sub yearname'></span></h2>")
         out.append("<p class='sub'>Occasions per teaching week (weeks without regular teaching, e.g. an "
                    "Easter re-exam week, are skipped; ‘exams’ is the period's exam window). "
                    "Highlighted rows differ. ×n = n parallel group sessions.</p>")
@@ -352,7 +448,9 @@ def render(res: ReviewResult) -> str:
                 continue
             n = len(per_course.get(code, []))
             cnt = f"<span class='cnt'>{n} finding(s)</span>" if n else "<span class='cnt'>unchanged</span>"
-            out.append(f"<details class='course'{' open' if n and ctx.review == 'course' else ''}>"
+            yrs = " ".join(sorted(cy.get(code, set()) & label_set)) or "*"
+            out.append(f"<details class='course' data-course-years='{esc(yrs)}'"
+                       f"{' open' if n and ctx.review == 'course' else ''}>"
                        f"<summary>{esc(code)}{cnt}</summary>")
             for i in per_course.get(code, []):
                 out.append(f"<p>{sev_badge(i.severity)} {esc(i.message)}</p>")
