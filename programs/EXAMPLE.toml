@@ -1,0 +1,18 @@
+# Example programme file. Copy to programs/<PROG>.toml (e.g. CTFYS.toml).
+# Everything here is optional; most programmes need no file at all.
+
+# Severity by calendar-day gap between two exams (before softening for
+# electives, re-exam paths, partial exams). Values: "error", "warning", "info".
+[thresholds]
+same_day = "error"
+adjacent = "warning"
+two_days = "info"
+
+# Extra master-eligibility groups, in addition to the `qualifiesFor` data in
+# the study plan. Exam clashes inside a group are reported like clashes
+# between mandatory courses.
+# [[eligibility_group]]
+# master = "TXXXM"
+# name = "Some master programme"
+# courses = ["SF1677", "SF1678"]
+# verified = false   # set true once checked against the admission requirements

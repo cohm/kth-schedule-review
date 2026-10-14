@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kth-schedule-review"
+version = "0.1.0"
+description = "Checks KTH TimeEdit schedule exports against study plans and last year's schedule"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = []  # stdlib only, on purpose
+
+[project.scripts]
+schedcheck = "schedcheck.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["schedcheck*"]
