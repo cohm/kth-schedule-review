@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-14T22:30:34",
+ "generated": "2026-10-14T22:37:36",
  "review": "program",
  "title": "CTFYS VT27 vs VT26",
  "term": "VT27",
@@ -215,7 +215,7 @@
   "error": 3,
   "warning": 22,
   "review": 47,
-  "info": 85
+  "info": 84
  },
  "accepted_count": 0,
  "issues": [
@@ -1428,7 +1428,7 @@
    "scope": "AK2014",
    "course": "AK2014",
    "key": "Övning:0>3",
-   "message": "AK2014: number of occasions changed (VT26→VT27): Övning 0→3. moved P3 w2 → P3 w6: S; moved P3 w4 → P3 w7: F; moved P3 w6 → P3 w8: F; moved P3 w8 → P3 w7: S; reordered within P3 w3: F S → S F; reordered within P3 w5: S F → F S; … and 3 more.",
+   "message": "AK2014: number of occasions changed (VT26→VT27): Övning 0→3. Sequence: P3 w2–w5: F F [–] S F … → F F [Ö F S F F Ö F S] S F …; P3 exams: … S F [F S F F F S] → … S F [Ö].",
    "evidence": [],
    "details": {
     "counts": {
@@ -1826,7 +1826,43 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:247 2027-03-05 10:00-12:00 Övning"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "F F [–] S F",
+      "new": "F F [Ö F S F F Ö F S] S F",
+      "starts": true,
+      "ends": false,
+      "where": [
+       [
+        "P3",
+        2
+       ],
+       [
+        "P3",
+        5
+       ]
+      ],
+      "term": "new"
+     },
+     {
+      "old": "S F [F S F F F S]",
+      "new": "S F [Ö]",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P3",
+        0
+       ],
+       [
+        "P3",
+        0
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -1961,122 +1997,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:245 2027-03-03 13:00-15:00 Föreläsning"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P3",
-        2
-       ],
-       "to": [
-        "P3",
-        6
-       ],
-       "activities": [
-        "S"
-       ]
-      },
-      {
-       "from": [
-        "P3",
-        4
-       ],
-       "to": [
-        "P3",
-        7
-       ],
-       "activities": [
-        "F"
-       ]
-      },
-      {
-       "from": [
-        "P3",
-        6
-       ],
-       "to": [
-        "P3",
-        8
-       ],
-       "activities": [
-        "F"
-       ]
-      },
-      {
-       "from": [
-        "P3",
-        8
-       ],
-       "to": [
-        "P3",
-        7
-       ],
-       "activities": [
-        "S"
-       ]
-      }
-     ],
-     "reordered": [
-      {
-       "week": [
-        "P3",
-        3
-       ],
-       "old": [
-        "F",
-        "S"
-       ],
-       "new": [
-        "S",
-        "F"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        5
-       ],
-       "old": [
-        "S",
-        "F"
-       ],
-       "new": [
-        "F",
-        "S"
-       ]
-      }
-     ],
-     "added": [
-      {
-       "week": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "Ö"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        4
-       ],
-       "activities": [
-        "Ö"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        0
-       ],
-       "activities": [
-        "Ö"
-       ]
-      }
-     ],
-     "removed": []
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -2087,7 +2007,7 @@
    "scope": "DD1327",
    "course": "DD1327",
    "key": "Datorlaboration:7>6,Föreläsning:9>10,Workshop:1>3,Övning:7>4",
-   "message": "DD1327: number of occasions changed (VT26→VT27): Datorlaboration 7→6; Föreläsning 9→10; Workshop 1→3; Övning 7→4. moved P4 w1 → P4 w2: W; moved P4 w2 → P4 w8: DL; moved P4 w2 → P4 w3: F; reordered within P4 w5: DL Ö F → DL F Ö; added in P4 w3: F; added in P4 w4: W; … and 4 more.",
+   "message": "DD1327: number of occasions changed (VT26→VT27): Datorlaboration 7→6; Föreläsning 9→10; Workshop 1→3; Övning 7→4. Sequence: P4 w1: [–] F F … → [F] F F …; P4 w3–w4: … F F [Ö] DL F … → … F F [F Ö F F W] DL F …; P4 w6–w8: … DL F [Ö F DL Ö F DL Ö F DL Ö DL] Ö EX → … DL F [W DL Ö DL DL] Ö EX.",
    "evidence": [],
    "details": {
     "counts": {
@@ -2801,7 +2721,60 @@
       "cite": "TimeEdit_2026-10-14_20_04.xlsx:218 2027-05-28 14:00-18:00 Examination"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "[–] F F",
+      "new": "[F] F F",
+      "starts": true,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        1
+       ],
+       [
+        "P4",
+        1
+       ]
+      ],
+      "term": "new"
+     },
+     {
+      "old": "F F [Ö] DL F",
+      "new": "F F [F Ö F F W] DL F",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        3
+       ],
+       [
+        "P4",
+        4
+       ]
+      ],
+      "term": "new"
+     },
+     {
+      "old": "DL F [Ö F DL Ö F DL Ö F DL Ö DL] Ö EX",
+      "new": "DL F [W DL Ö DL DL] Ö EX",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P4",
+        6
+       ],
+       [
+        "P4",
+        8
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -2940,126 +2913,6 @@
     "TimeEdit_2026-10-14_20_04.xlsx:173 2027-04-27 10:00-12:00 Föreläsning"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P4",
-        1
-       ],
-       "to": [
-        "P4",
-        2
-       ],
-       "activities": [
-        "W"
-       ]
-      },
-      {
-       "from": [
-        "P4",
-        2
-       ],
-       "to": [
-        "P4",
-        8
-       ],
-       "activities": [
-        "DL"
-       ]
-      },
-      {
-       "from": [
-        "P4",
-        2
-       ],
-       "to": [
-        "P4",
-        3
-       ],
-       "activities": [
-        "F"
-       ]
-      }
-     ],
-     "reordered": [
-      {
-       "week": [
-        "P4",
-        5
-       ],
-       "old": [
-        "DL",
-        "Ö",
-        "F"
-       ],
-       "new": [
-        "DL",
-        "F",
-        "Ö"
-       ]
-      }
-     ],
-     "added": [
-      {
-       "week": [
-        "P4",
-        3
-       ],
-       "activities": [
-        "F"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        4
-       ],
-       "activities": [
-        "W"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "W"
-       ]
-      }
-     ],
-     "removed": [
-      {
-       "week": [
-        "P4",
-        2
-       ],
-       "activities": [
-        "Ö"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        4
-       ],
-       "activities": [
-        "DL",
-        "Ö"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "Ö"
-       ]
-      }
-     ]
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -3092,7 +2945,7 @@
    "scope": "DD2352",
    "course": "DD2352",
    "key": "Tentamen:1>0",
-   "message": "DD2352: number of occasions changed (VT26→VT27): Tentamen 1→0. moved P4 w2 → P3 w6: F; moved P4 w6 → P4 w5: F F; moved P4 w6 → P4 w4: Ö; moved P4 w7 → P4 w4: F; moved P4 w7 → P4 w3: Ö; removed from P4 exams: TEN.",
+   "message": "DD2352: number of occasions changed (VT26→VT27): Tentamen 1→0. Sequence: P4 w1–w5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F].",
    "evidence": [],
    "details": {
     "counts": {
@@ -3919,7 +3772,26 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:471 2027-04-21 10:00-12:00 Föreläsning"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN]",
+      "new": "F F [F Ö F Ö DL DL F Ö DL F Ö F F]",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P4",
+        1
+       ],
+       [
+        "P4",
+        5
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -4018,89 +3890,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:432 2027-04-14 09:00-12:00 Datorlaboration"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P4",
-        2
-       ],
-       "to": [
-        "P3",
-        6
-       ],
-       "activities": [
-        "F"
-       ]
-      },
-      {
-       "from": [
-        "P4",
-        6
-       ],
-       "to": [
-        "P4",
-        5
-       ],
-       "activities": [
-        "F",
-        "F"
-       ]
-      },
-      {
-       "from": [
-        "P4",
-        6
-       ],
-       "to": [
-        "P4",
-        4
-       ],
-       "activities": [
-        "Ö"
-       ]
-      },
-      {
-       "from": [
-        "P4",
-        7
-       ],
-       "to": [
-        "P4",
-        4
-       ],
-       "activities": [
-        "F"
-       ]
-      },
-      {
-       "from": [
-        "P4",
-        7
-       ],
-       "to": [
-        "P4",
-        3
-       ],
-       "activities": [
-        "Ö"
-       ]
-      }
-     ],
-     "reordered": [],
-     "added": [],
-     "removed": [
-      {
-       "week": [
-        "P4",
-        0
-       ],
-       "activities": [
-        "TEN"
-       ]
-      }
-     ]
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -4152,7 +3941,7 @@
    "scope": "EQ1120",
    "course": "EQ1120",
    "key": "Datorlaboration:1>0",
-   "message": "EQ1120: number of occasions changed (VT26→VT27): Datorlaboration 1→0. removed from P4 w1: DL.",
+   "message": "EQ1120: number of occasions changed (VT26→VT27): Datorlaboration 1→0. Sequence: P4 w1: … F Ö [DL] F Ö … → … F Ö [–] F Ö ….",
    "evidence": [],
    "details": {
     "counts": {
@@ -4840,7 +4629,26 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:603 2027-05-24 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "F Ö [DL] F Ö",
+      "new": "F Ö [–] F Ö",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        1
+       ],
+       [
+        "P4",
+        1
+       ]
+      ],
+      "term": "reference"
+     }
+    ],
+    "week_changes": {
      "moved": [],
      "reordered": [],
      "added": [],
@@ -4866,7 +4674,7 @@
    "scope": "FDD3431",
    "course": "FDD3431",
    "key": "Föreläsning:0>12",
-   "message": "FDD3431: number of occasions changed (VT26→VT27): Föreläsning 0→12. added in P3 w1: F; added in P3 w2: F F; added in P3 w3: F F; added in P3 w4: F F; added in P3 w5: F F; added in P3 w6: F F; … and 1 more.",
+   "message": "FDD3431: number of occasions changed (VT26→VT27): Föreläsning 0→12. Sequence: P3 w1–w7: [–] TEN → [F F F F F F F F F F F F] TEN.",
    "evidence": [],
    "details": {
     "counts": {
@@ -5076,7 +4884,26 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:259 2027-03-11 08:00-12:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "[–] TEN",
+      "new": "[F F F F F F F F F F F F] TEN",
+      "starts": true,
+      "ends": true,
+      "where": [
+       [
+        "P3",
+        1
+       ],
+       [
+        "P3",
+        7
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [],
      "reordered": [],
      "added": [
@@ -5202,7 +5029,7 @@
    "scope": "MH1023",
    "course": "MH1023",
    "key": "Föreläsning:2>3,Seminarium:9>8",
-   "message": "MH1023: number of occasions changed (VT26→VT27): Föreläsning 2→3; Seminarium 9→8. moved P3 w1 → P3 w2: F; moved P3 w2 → P4 w2: S; moved P4 w1 → P4 w8: S; moved P4 w2 → P4 w5: Ö; added in P4 w9: F; removed from P4 w5: S.",
+   "message": "MH1023: number of occasions changed (VT26→VT27): Föreläsning 2→3; Seminarium 9→8. Sequence: P3 w2: F [S] S S … → F [–] S S …; P4 w9: … S F [–] → … S F [F].",
    "evidence": [],
    "details": {
     "counts": {
@@ -5559,7 +5386,43 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:602 2027-05-21 15:00-17:00 Föreläsning"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "F [S] S S",
+      "new": "F [–] S S",
+      "starts": true,
+      "ends": false,
+      "where": [
+       [
+        "P3",
+        2
+       ],
+       [
+        "P3",
+        2
+       ]
+      ],
+      "term": "reference"
+     },
+     {
+      "old": "S F [–]",
+      "new": "S F [F]",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P4",
+        9
+       ],
+       [
+        "P4",
+        9
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -5648,7 +5511,7 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "Föreläsning:3>0,Möte:1>0,Projektarbete:47>64,Redovisning:0>2,Seminarium:9>0,Övrigt:1>0",
-   "message": "SA114X: number of occasions changed (VT26→VT27): Föreläsning 3→0; Möte 1→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 9→0; Övrigt 1→0. moved P3 w1 → P3 w2: P; moved P3 w7 → P3 w8: P; added in P3 w2: P P; added in P3 w4: P P; added in P3 w5: P P P P; added in P3 w8: P P; … and 13 more.",
+   "message": "SA114X: number of occasions changed (VT26→VT27): Föreläsning 3→0; Möte 1→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 9→0; Övrigt 1→0. Sequence: P3 w1–P4 w2: Info Info [P P Övr P P F S P S P P P P P P P F S S S S P P P S P P P P P P P P P P P P Möte] P P … → Info Info [–] P P …; P3 w5–P4 w8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
    "evidence": [],
    "details": {
     "counts": {
@@ -7471,7 +7334,43 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:564 2027-05-11 08:00-17:00 Redovisning"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "Info Info [P P Övr P P F S P S P P P P P P P F S S S S P P P S P P P P P P P P P P P P Möte] P P",
+      "new": "Info Info [–] P P",
+      "starts": true,
+      "ends": false,
+      "where": [
+       [
+        "P3",
+        1
+       ],
+       [
+        "P4",
+        2
+       ]
+      ],
+      "term": "reference"
+     },
+     {
+      "old": "P P [S P S P F P P]",
+      "new": "P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P3",
+        5
+       ],
+       [
+        "P4",
+        8
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -7695,210 +7594,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:59 2027-01-20 13:00-17:00 Projektarbete"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P3",
-        1
-       ],
-       "to": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "from": [
-        "P3",
-        7
-       ],
-       "to": [
-        "P3",
-        8
-       ],
-       "activities": [
-        "P"
-       ]
-      }
-     ],
-     "reordered": [],
-     "added": [
-      {
-       "week": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        4
-       ],
-       "activities": [
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        5
-       ],
-       "activities": [
-        "P",
-        "P",
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        8
-       ],
-       "activities": [
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        0
-       ],
-       "activities": [
-        "P",
-        "P",
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        1
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        7
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        8
-       ],
-       "activities": [
-        "Red",
-        "Red"
-       ]
-      }
-     ],
-     "removed": [
-      {
-       "week": [
-        "P3",
-        1
-       ],
-       "activities": [
-        "Övr"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "F",
-        "S",
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        4
-       ],
-       "activities": [
-        "F"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        5
-       ],
-       "activities": [
-        "S",
-        "S",
-        "S",
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        6
-       ],
-       "activities": [
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        2
-       ],
-       "activities": [
-        "Möte"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "S",
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        7
-       ],
-       "activities": [
-        "F"
-       ]
-      }
-     ]
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -7909,7 +7604,7 @@
    "scope": "SA115X",
    "course": "SA115X",
    "key": "Föreläsning:2>0,Projektarbete:47>64,Redovisning:0>2,Seminarium:5>0",
-   "message": "SA115X: number of occasions changed (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. moved P3 w1 → P3 w2: P; added in P3 w2: P P; added in P3 w4: P; added in P3 w7: P P P; added in P3 w8: P P P; added in P3 exams: P P P P; … and 9 more.",
+   "message": "SA115X: number of occasions changed (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. Sequence: P3 w1–w6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 w6–P4 w8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
    "evidence": [],
    "details": {
     "counts": {
@@ -9645,7 +9340,43 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:564 2027-05-11 08:00-17:00 Redovisning"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P",
+      "new": "Info Info [–] P P",
+      "starts": true,
+      "ends": false,
+      "where": [
+       [
+        "P3",
+        1
+       ],
+       [
+        "P3",
+        6
+       ]
+      ],
+      "term": "reference"
+     },
+     {
+      "old": "P P [S P S P F P P]",
+      "new": "P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P3",
+        6
+       ],
+       [
+        "P4",
+        8
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -9825,166 +9556,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:59 2027-01-20 13:00-17:00 Projektarbete"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P3",
-        1
-       ],
-       "to": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "P"
-       ]
-      }
-     ],
-     "reordered": [],
-     "added": [
-      {
-       "week": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        4
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        7
-       ],
-       "activities": [
-        "P",
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        8
-       ],
-       "activities": [
-        "P",
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        0
-       ],
-       "activities": [
-        "P",
-        "P",
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        1
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        4
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        7
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        8
-       ],
-       "activities": [
-        "Red",
-        "Red"
-       ]
-      }
-     ],
-     "removed": [
-      {
-       "week": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "F",
-        "S",
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        6
-       ],
-       "activities": [
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "S",
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        7
-       ],
-       "activities": [
-        "F"
-       ]
-      }
-     ]
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -9995,7 +9566,7 @@
    "scope": "SA118X",
    "course": "SA118X",
    "key": "Föreläsning:2>0,Projektarbete:47>64,Redovisning:0>2,Seminarium:5>0",
-   "message": "SA118X: number of occasions changed (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. moved P3 w1 → P3 w2: P; added in P3 w2: P P; added in P3 w4: P; added in P3 w7: P P P; added in P3 w8: P P P; added in P3 exams: P P P P; … and 9 more.",
+   "message": "SA118X: number of occasions changed (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. Sequence: P3 w1–w6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 w6–P4 w8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
    "evidence": [],
    "details": {
     "counts": {
@@ -11731,7 +11302,43 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:564 2027-05-11 08:00-17:00 Redovisning"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P",
+      "new": "Info Info [–] P P",
+      "starts": true,
+      "ends": false,
+      "where": [
+       [
+        "P3",
+        1
+       ],
+       [
+        "P3",
+        6
+       ]
+      ],
+      "term": "reference"
+     },
+     {
+      "old": "P P [S P S P F P P]",
+      "new": "P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P3",
+        6
+       ],
+       [
+        "P4",
+        8
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -11911,166 +11518,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:59 2027-01-20 13:00-17:00 Projektarbete"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P3",
-        1
-       ],
-       "to": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "P"
-       ]
-      }
-     ],
-     "reordered": [],
-     "added": [
-      {
-       "week": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        4
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        7
-       ],
-       "activities": [
-        "P",
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        8
-       ],
-       "activities": [
-        "P",
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        0
-       ],
-       "activities": [
-        "P",
-        "P",
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        1
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        4
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        7
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        8
-       ],
-       "activities": [
-        "Red",
-        "Red"
-       ]
-      }
-     ],
-     "removed": [
-      {
-       "week": [
-        "P3",
-        2
-       ],
-       "activities": [
-        "F",
-        "S",
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        6
-       ],
-       "activities": [
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "S",
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        7
-       ],
-       "activities": [
-        "F"
-       ]
-      }
-     ]
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -12081,7 +11528,7 @@
    "scope": "SA120X",
    "course": "SA120X",
    "key": "Projektarbete:56>64,Redovisning:0>2,Seminarium:3>0",
-   "message": "SA120X: number of occasions changed (VT26→VT27): Projektarbete 56→64; Redovisning 0→2; Seminarium 3→0. moved P3 w1 → P3 w4: P; moved P3 w7 → P3 w8: P; added in P3 w8: P P; added in P3 exams: P P P P; added in P4 w1: P; added in P4 w6: P; … and 3 more.",
+   "message": "SA120X: number of occasions changed (VT26→VT27): Projektarbete 56→64; Redovisning 0→2; Seminarium 3→0. Sequence: P3 w1–w6: Info [P P P P P P P P P P P P P P P P P P P P P P P S] P P … → Info [–] P P …; P3 w8–P4 w8: … P P [S P S P P P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
    "evidence": [],
    "details": {
     "counts": {
@@ -13846,7 +13293,43 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:564 2027-05-11 08:00-17:00 Redovisning"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "Info [P P P P P P P P P P P P P P P P P P P P P P P S] P P",
+      "new": "Info [–] P P",
+      "starts": true,
+      "ends": false,
+      "where": [
+       [
+        "P3",
+        1
+       ],
+       [
+        "P3",
+        6
+       ]
+      ],
+      "term": "reference"
+     },
+     {
+      "old": "P P [S P S P P P P]",
+      "new": "P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P3",
+        8
+       ],
+       [
+        "P4",
+        8
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -13970,110 +13453,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:59 2027-01-20 13:00-17:00 Projektarbete"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P3",
-        1
-       ],
-       "to": [
-        "P3",
-        4
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "from": [
-        "P3",
-        7
-       ],
-       "to": [
-        "P3",
-        8
-       ],
-       "activities": [
-        "P"
-       ]
-      }
-     ],
-     "reordered": [],
-     "added": [
-      {
-       "week": [
-        "P3",
-        8
-       ],
-       "activities": [
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P3",
-        0
-       ],
-       "activities": [
-        "P",
-        "P",
-        "P",
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        1
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "P"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        8
-       ],
-       "activities": [
-        "Red",
-        "Red"
-       ]
-      }
-     ],
-     "removed": [
-      {
-       "week": [
-        "P3",
-        6
-       ],
-       "activities": [
-        "S"
-       ]
-      },
-      {
-       "week": [
-        "P4",
-        6
-       ],
-       "activities": [
-        "S",
-        "S"
-       ]
-      }
-     ]
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -14103,7 +13482,7 @@
    "scope": "SF1544",
    "course": "SF1544",
    "key": "Tentamen:1>0",
-   "message": "SF1544: number of occasions changed (VT26→VT27): Tentamen 1→0. removed from P3 exams: TEN.",
+   "message": "SF1544: number of occasions changed (VT26→VT27): Tentamen 1→0. Sequence: P3 exams: … Red Red [TEN] Red Red → … Red Red [–] Red Red.",
    "evidence": [],
    "details": {
     "counts": {
@@ -14875,7 +14254,26 @@
       "cite": "TimeEdit_2026-10-14_20_04.xlsx:113 2027-03-23 10:00-12:00 Redovisning"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "Red Red [TEN] Red Red",
+      "new": "Red Red [–] Red Red",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P3",
+        0
+       ],
+       [
+        "P3",
+        0
+       ]
+      ],
+      "term": "reference"
+     }
+    ],
+    "week_changes": {
      "moved": [],
      "reordered": [],
      "added": [],
@@ -14901,7 +14299,7 @@
    "scope": "SF1691",
    "course": "SF1691",
    "key": "Övning:19>16",
-   "message": "SF1691: number of occasions changed (VT26→VT27): Övning 19→16. removed from P3 w6: Ö; removed from P4 w1: Ö; removed from P4 w3: Ö.",
+   "message": "SF1691: number of occasions changed (VT26→VT27): Övning 19→16. Sequence: P3 w7–P4 w1: … Ö Ö [Ö F F F Ö] Ö Ö … → … Ö Ö [F F F] Ö Ö …; P4 w3: … Ö F [Ö] Ö Ö … → … Ö F [–] Ö Ö ….",
    "evidence": [],
    "details": {
     "counts": {
@@ -15973,7 +15371,43 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:613 2027-05-28 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "Ö Ö [Ö F F F Ö] Ö Ö",
+      "new": "Ö Ö [F F F] Ö Ö",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P3",
+        7
+       ],
+       [
+        "P4",
+        1
+       ]
+      ],
+      "term": "new"
+     },
+     {
+      "old": "Ö F [Ö] Ö Ö",
+      "new": "Ö F [–] Ö Ö",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        3
+       ],
+       [
+        "P4",
+        3
+       ]
+      ],
+      "term": "reference"
+     }
+    ],
+    "week_changes": {
      "moved": [],
      "reordered": [],
      "added": [],
@@ -16017,7 +15451,7 @@
    "scope": "SF1861",
    "course": "SF1861",
    "key": "Examination:6>5",
-   "message": "SF1861: number of occasions changed (VT26→VT27): Examination 6→5. moved P4 w9 → P4 exams: DL; removed from P4 w4: EX.",
+   "message": "SF1861: number of occasions changed (VT26→VT27): Examination 6→5. Sequence: P4 w4: … Ö F [EX] EX EX … → … Ö F [–] EX EX ….",
    "evidence": [],
    "details": {
     "counts": {
@@ -16837,7 +16271,26 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:619 2027-05-31 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "Ö F [EX] EX EX",
+      "new": "Ö F [–] EX EX",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        4
+       ],
+       [
+        "P4",
+        4
+       ]
+      ],
+      "term": "reference"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -16882,36 +16335,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:617 2027-05-28 14:00-16:00 Datorlaboration"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P4",
-        9
-       ],
-       "to": [
-        "P4",
-        0
-       ],
-       "activities": [
-        "DL"
-       ]
-      }
-     ],
-     "reordered": [],
-     "added": [],
-     "removed": [
-      {
-       "week": [
-        "P4",
-        4
-       ],
-       "activities": [
-        "EX"
-       ]
-      }
-     ]
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -16927,26 +16350,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:607 2027-05-26 08:00-11:00 Räknestuga"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P4",
-        9
-       ],
-       "to": [
-        "P4",
-        0
-       ],
-       "activities": [
-        "R"
-       ]
-      }
-     ],
-     "reordered": [],
-     "added": [],
-     "removed": []
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -16957,7 +16360,7 @@
    "scope": "SF1922",
    "course": "SF1922",
    "key": "order",
-   "message": "SF1922: same occasions, order changed: moved P4 w2 → P4 w1: F Ö; reordered within P4 w4: Ö F KS Övr F Ö → F Ö KS Övr F Ö.",
+   "message": "SF1922: same occasions in a different order: P4 w4: … DL F [Ö F] KS Övr … → … DL F [F Ö] KS Övr ….",
    "evidence": [],
    "details": {
     "counts": {
@@ -17950,7 +17353,26 @@
       "cite": "TimeEdit_2026-10-14_20_05.xlsx:215 2027-05-25 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "DL F [Ö F] KS Övr",
+      "new": "DL F [F Ö] KS Övr",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        4
+       ],
+       [
+        "P4",
+        4
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -18015,7 +17437,7 @@
    "scope": "SF2701",
    "course": "SF2701",
    "key": "order",
-   "message": "SF2701: same occasions, order changed: reordered within P4 w2: F Ö F → F F Ö.",
+   "message": "SF2701: same occasions in a different order: P4 w1: [–] F F … → [F] F F …; P4 w2: … F Ö [F] F F … → … F Ö [–] F F ….",
    "evidence": [],
    "details": {
     "counts": {
@@ -18684,7 +18106,43 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:620 2027-05-31 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "[–] F F",
+      "new": "[F] F F",
+      "starts": true,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        1
+       ],
+       [
+        "P4",
+        1
+       ]
+      ],
+      "term": "new"
+     },
+     {
+      "old": "F Ö [F] F F",
+      "new": "F Ö [–] F F",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        2
+       ],
+       [
+        "P4",
+        2
+       ]
+      ],
+      "term": "reference"
+     }
+    ],
+    "week_changes": {
      "moved": [],
      "reordered": [
       {
@@ -18717,7 +18175,7 @@
    "scope": "SG1112",
    "course": "SG1112",
    "key": "Övning:14>15",
-   "message": "SG1112: number of occasions changed (VT26→VT27): Övning 14→15. moved P4 w7 → P4 w6: F; moved P4 w9 → P4 w8: KS Övr; reordered within P4 w3: Ö F → F Ö; added in P4 w9: Ö.",
+   "message": "SG1112: number of occasions changed (VT26→VT27): Övning 14→15. Sequence: P4 w3: … Ö F [Ö F] F Ö … → … Ö F [F Ö] F Ö …; P4 w9: … KS Övr [–] R TEN → … KS Övr [Ö] R TEN.",
    "evidence": [],
    "details": {
     "counts": {
@@ -19901,7 +19359,43 @@
       "cite": "TimeEdit_2026-10-14_20_05.xlsx:222 2027-05-31 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "Ö F [Ö F] F Ö",
+      "new": "Ö F [F Ö] F Ö",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        3
+       ],
+       [
+        "P4",
+        3
+       ]
+      ],
+      "term": "new"
+     },
+     {
+      "old": "KS Övr [–] R TEN",
+      "new": "KS Övr [Ö] R TEN",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P4",
+        9
+       ],
+       [
+        "P4",
+        9
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -19981,7 +19475,7 @@
    "scope": "SH2404",
    "course": "SH2404",
    "key": "Datorlaboration:1>0,Seminarium:0>1",
-   "message": "SH2404: number of occasions changed (VT26→VT27): Datorlaboration 1→0; Seminarium 0→1. added in P4 w4: S; removed from P4 w4: DL.",
+   "message": "SH2404: number of occasions changed (VT26→VT27): Datorlaboration 1→0; Seminarium 0→1. Sequence: P4 w4: … F R [DL] R F … → … F R [S] R F ….",
    "evidence": [],
    "details": {
     "counts": {
@@ -20514,7 +20008,26 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:615 2027-05-28 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "F R [DL] R F",
+      "new": "F R [S] R F",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        4
+       ],
+       [
+        "P4",
+        4
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [],
      "reordered": [],
      "added": [
@@ -20568,7 +20081,7 @@
    "scope": "SI1142",
    "course": "SI1142",
    "key": "Tentamen:0>2",
-   "message": "SI1142: number of occasions changed (VT26→VT27): Tentamen 0→2. moved P4 w5 → P4 w3: F; moved P4 w7 → P4 w2: F; moved P4 w8 → P4 w1: F; added in P4 exams: TEN TEN.",
+   "message": "SI1142: number of occasions changed (VT26→VT27): Tentamen 0→2. Sequence: P4 exams: … F F [–] → … F F [TEN TEN].",
    "evidence": [],
    "details": {
     "counts": {
@@ -20755,7 +20268,26 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "F F [–]",
+      "new": "F F [TEN TEN]",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P4",
+        0
+       ],
+       [
+        "P4",
+        0
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -20830,63 +20362,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:416 2027-04-12 13:00-15:00 Föreläsning"
    ],
    "details": {
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P4",
-        5
-       ],
-       "to": [
-        "P4",
-        3
-       ],
-       "activities": [
-        "F"
-       ]
-      },
-      {
-       "from": [
-        "P4",
-        7
-       ],
-       "to": [
-        "P4",
-        2
-       ],
-       "activities": [
-        "F"
-       ]
-      },
-      {
-       "from": [
-        "P4",
-        8
-       ],
-       "to": [
-        "P4",
-        1
-       ],
-       "activities": [
-        "F"
-       ]
-      }
-     ],
-     "reordered": [],
-     "added": [
-      {
-       "week": [
-        "P4",
-        0
-       ],
-       "activities": [
-        "TEN",
-        "TEN"
-       ]
-      }
-     ],
-     "removed": []
-    },
     "reference_term": "VT26"
    },
    "accepted": null
@@ -20897,7 +20372,7 @@
    "scope": "SI1155",
    "course": "SI1155",
    "key": "order",
-   "message": "SI1155: same occasions, order changed: moved P4 w2 → P4 w1: F; moved P4 w8 → P4 w9: R.",
+   "message": "SI1155: same occasions in a different order: P4 w2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F ….",
    "evidence": [],
    "details": {
     "counts": {
@@ -21780,7 +21255,26 @@
       "cite": "TimeEdit_2026-10-14_20_04.xlsx:215 2027-05-27 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "F F [Ö F] Ö F",
+      "new": "F F [F Ö] Ö F",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        2
+       ],
+       [
+        "P4",
+        2
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [
       {
        "from": [
@@ -21823,7 +21317,7 @@
    "scope": "SI1200",
    "course": "SI1200",
    "key": "order",
-   "message": "SI1200: same occasions, order changed: reordered within P3 w7: Ö F → F Ö.",
+   "message": "SI1200: same occasions in a different order: P3 w7: … Ö F [Ö F] R TEN → … Ö F [F Ö] R TEN.",
    "evidence": [],
    "details": {
     "counts": {
@@ -22550,7 +22044,26 @@
       "cite": "TimeEdit_2026-10-14_20_04.xlsx:94 2027-03-08 08:00-13:00 Tentamen"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "Ö F [Ö F] R TEN",
+      "new": "Ö F [F Ö] R TEN",
+      "starts": false,
+      "ends": true,
+      "where": [
+       [
+        "P3",
+        7
+       ],
+       [
+        "P3",
+        7
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [],
      "reordered": [
       {
@@ -22610,7 +22123,7 @@
    "scope": "SK1105",
    "course": "SK1105",
    "key": "order",
-   "message": "SK1105: same occasions, order changed: reordered within P4 w6: L L Red L Red L → L Red L L Red L.",
+   "message": "SK1105: same occasions in a different order: P4 w6: … L L [L Red] L Red … → … L L [Red L] L Red ….",
    "evidence": [],
    "details": {
     "counts": {
@@ -23389,7 +22902,26 @@
       "cite": "TimeEdit_2026-10-14_20_05.xlsx:190 2027-05-05 13:00-16:00 Laboration"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "L L [L Red] L Red",
+      "new": "L L [Red L] L Red",
+      "starts": false,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        6
+       ],
+       [
+        "P4",
+        6
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [],
      "reordered": [
       {
@@ -23428,7 +22960,7 @@
    "scope": "SK2712",
    "course": "SK2712",
    "key": "Föreläsning:15>17,Workshop:6>7",
-   "message": "SK2712: number of occasions changed (VT26→VT27): Föreläsning 15→17; Workshop 6→7. added in P4 w2: F F W.",
+   "message": "SK2712: number of occasions changed (VT26→VT27): Föreläsning 15→17; Workshop 6→7. Sequence: P4 w1: [–] F F … → [F F W] F F ….",
    "evidence": [],
    "details": {
     "counts": {
@@ -24030,7 +23562,26 @@
       "cite": "TimeEdit_2026-10-14_20_03.xlsx:592 2027-05-17 13:00-15:00 Föreläsning"
      }
     ],
-    "changes": {
+    "sequence": [
+     {
+      "old": "[–] F F",
+      "new": "[F F W] F F",
+      "starts": true,
+      "ends": false,
+      "where": [
+       [
+        "P4",
+        1
+       ],
+       [
+        "P4",
+        1
+       ]
+      ],
+      "term": "new"
+     }
+    ],
+    "week_changes": {
      "moved": [],
      "reordered": [],
      "added": [
@@ -27687,490 +27238,6 @@
     "TimeEdit_2026-10-14_20_03.xlsx:614 2027-05-28 08:00-13:00 Tentamen"
    ],
    "details": {},
-   "accepted": null
-  },
-  {
-   "severity": "info",
-   "check": "structure.moved",
-   "scope": "SF1904",
-   "course": "SF1904",
-   "key": "moved",
-   "message": "SF1904: same occasions in the same order, distributed differently over the weeks: moved P4 w9 → P4 exams: R.",
-   "evidence": [],
-   "details": {
-    "counts": {
-     "Föreläsning": [
-      6,
-      6
-     ],
-     "Räknestuga": [
-      1,
-      1
-     ],
-     "Tentamen": [
-      1,
-      1
-     ],
-     "Övning": [
-      8,
-      8
-     ]
-    },
-    "old": [
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       1
-      ],
-      "date": "2026-03-18 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:323 2026-03-18 10:00-12:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       1
-      ],
-      "date": "2026-03-20 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:341 2026-03-20 10:00-12:00 Övning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       2
-      ],
-      "date": "2026-03-25 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:365 2026-03-25 08:00-10:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       2
-      ],
-      "date": "2026-03-27 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:385 2026-03-27 10:00-12:00 Övning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       3
-      ],
-      "date": "2026-04-01 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:414 2026-04-01 10:00-12:00 Övning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       4
-      ],
-      "date": "2026-04-15 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:461 2026-04-15 10:00-12:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       4
-      ],
-      "date": "2026-04-16 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:466 2026-04-16 08:00-10:00 Övning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       5
-      ],
-      "date": "2026-04-22 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:499 2026-04-22 08:00-10:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       5
-      ],
-      "date": "2026-04-24 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:516 2026-04-24 10:00-12:00 Övning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       6
-      ],
-      "date": "2026-04-27 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:523 2026-04-27 10:00-12:00 Övning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       6
-      ],
-      "date": "2026-04-28 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:529 2026-04-28 08:00-10:00 Övning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       6
-      ],
-      "date": "2026-04-29 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:542 2026-04-29 10:00-12:00 Föreläsning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       7
-      ],
-      "date": "2026-05-06 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:568 2026-05-06 10:00-12:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       8
-      ],
-      "date": "2026-05-12 13:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:593 2026-05-12 13:00-15:00 Övning"
-     },
-     {
-      "activity": "Räknestuga",
-      "week": [
-       "P4",
-       9
-      ],
-      "date": "2026-05-22 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:620 2026-05-22 10:00-13:00 Räknestuga"
-     },
-     {
-      "activity": "Tentamen",
-      "week": [
-       "P4",
-       0
-      ],
-      "date": "2026-05-29 08:00",
-      "parallel": 1,
-      "groups": [],
-      "cite": "TimeEdit_2026-10-14_20_02.xlsx:634 2026-05-29 08:00-13:00 Tentamen"
-     }
-    ],
-    "new": [
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       1
-      ],
-      "date": "2027-03-15 13:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:269 2027-03-15 13:00-15:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       1
-      ],
-      "date": "2027-03-18 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:293 2027-03-18 10:00-12:00 Övning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       2
-      ],
-      "date": "2027-03-22 15:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:315 2027-03-22 15:00-17:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       2
-      ],
-      "date": "2027-03-25 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:351 2027-03-25 08:00-10:00 Övning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       3
-      ],
-      "date": "2027-04-06 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:375 2027-04-06 10:00-12:00 Övning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       4
-      ],
-      "date": "2027-04-14 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:431 2027-04-14 08:00-10:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       4
-      ],
-      "date": "2027-04-14 10:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:434 2027-04-14 10:00-12:00 Övning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       5
-      ],
-      "date": "2027-04-20 13:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:465 2027-04-20 13:00-15:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       5
-      ],
-      "date": "2027-04-20 15:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:467 2027-04-20 15:00-17:00 Övning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       6
-      ],
-      "date": "2027-04-27 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:502 2027-04-27 08:00-10:00 Övning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       6
-      ],
-      "date": "2027-04-28 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:513 2027-04-28 08:00-10:00 Övning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       6
-      ],
-      "date": "2027-04-29 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:521 2027-04-29 08:00-10:00 Föreläsning"
-     },
-     {
-      "activity": "Föreläsning",
-      "week": [
-       "P4",
-       7
-      ],
-      "date": "2027-05-04 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:540 2027-05-04 08:00-10:00 Föreläsning"
-     },
-     {
-      "activity": "Övning",
-      "week": [
-       "P4",
-       8
-      ],
-      "date": "2027-05-10 15:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:563 2027-05-10 15:00-17:00 Övning"
-     },
-     {
-      "activity": "Räknestuga",
-      "week": [
-       "P4",
-       0
-      ],
-      "date": "2027-05-26 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass",
-       "SF1926 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:607 2027-05-26 08:00-11:00 Räknestuga"
-     },
-     {
-      "activity": "Tentamen",
-      "week": [
-       "P4",
-       0
-      ],
-      "date": "2027-05-28 08:00",
-      "parallel": 1,
-      "groups": [
-       "SF1904 Helklass"
-      ],
-      "cite": "TimeEdit_2026-10-14_20_03.xlsx:614 2027-05-28 08:00-13:00 Tentamen"
-     }
-    ],
-    "changes": {
-     "moved": [
-      {
-       "from": [
-        "P4",
-        9
-       ],
-       "to": [
-        "P4",
-        0
-       ],
-       "activities": [
-        "R"
-       ]
-      }
-     ],
-     "reordered": [],
-     "added": [],
-     "removed": []
-    },
-    "reference_term": "VT26"
-   },
    "accepted": null
   },
   {

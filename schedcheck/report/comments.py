@@ -63,20 +63,10 @@ def _wk_sv(w) -> str:
     return f"{w[0]} tentaperiod" if w[1] == 0 else f"{w[0]} v{w[1]}"
 
 
-def changes_sv(ch: dict, limit: int = 5) -> str:
-    """Swedish description of structure.Changes (as stored in issue details)."""
-    out = []
-    for m in ch.get("moved", []):
-        out.append(f"{' '.join(m['activities'])} flyttat {_wk_sv(m['from'])} → {_wk_sv(m['to'])}")
-    for r in ch.get("reordered", []):
-        out.append(f"ny ordning inom {_wk_sv(r['week'])}: {' '.join(r['old'])} → {' '.join(r['new'])}")
-    for a in ch.get("added", []):
-        out.append(f"tillkommit {_wk_sv(a['week'])}: {' '.join(a['activities'])}")
-    for r in ch.get("removed", []):
-        out.append(f"borttaget {_wk_sv(r['week'])}: {' '.join(r['activities'])}")
-    if len(out) > limit:
-        out = out[:limit] + [f"och {len(out) - limit} ändringar till"]
-    return "; ".join(out)
+def sequence_sv(hunks: list[dict], limit: int = 4) -> str:
+    """Swedish description of structure.sequence_hunks (from issue details)."""
+    from ..checks.structure import describe_hunks
+    return "; ".join(describe_hunks(hunks, limit, label=_wk_sv)).replace("… and", "… och").replace(" more", " till")
 
 
 def _relation_text(lang: str, rel: str, scope: str) -> str:
@@ -155,15 +145,12 @@ def render_issue(i: Issue, lang: str) -> str:
             return i.message
         if i.check == "structure.counts":
             ch = "; ".join(f"{a} {o}→{n}" for a, (o, n) in d.get("counts", {}).items() if o != n)
-            det = changes_sv(d.get("changes", {}))
+            det = sequence_sv(d.get("sequence", []))
             return (f"{i.course}: antalet tillfällen skiljer sig från {ref} ({ch})."
-                    + (f" Ändringar: {det}." if det else "") + f" {t['ask_intended']}")
+                    + (f" Sekvens ({ref} → nu): {det}." if det else "") + f" {t['ask_intended']}")
         if i.check == "structure.order":
             return (f"{i.course}: samma tillfällen som {ref} men i annan ordning "
-                    f"({changes_sv(d.get('changes', {}))}). {t['ask_intended']}")
-        if i.check == "structure.moved":
-            return (f"{i.course}: samma tillfällen i samma ordning som {ref}, men fördelade annorlunda "
-                    f"över veckorna ({changes_sv(d.get('changes', {}))}).")
+                    f"({ref} → nu: {sequence_sv(d.get('sequence', []))}). {t['ask_intended']}")
         if i.check == "structure.week-shift":
             moved = i.message.split("weeks: ", 1)[-1].rstrip(".")
             return (f"{i.course}: tillfällen har flyttats minst två undervisningsveckor jämfört med {ref} "

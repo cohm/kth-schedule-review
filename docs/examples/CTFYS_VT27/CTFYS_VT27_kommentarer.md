@@ -6,7 +6,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 - [error] DD2352: ordinarie tentamen saknas i tentamensperioden. VT26: 2026-05-25 14:00 Tentamen. Ska den läggas in?
 - [warning] DD2352: ingen omtentamen är schemalagd. VT26: 2026-08-21 14:00 Omtenta. Ska den läggas in?
-- [review] DD2352: antalet tillfällen skiljer sig från VT26 (Tentamen 1→0). Ändringar: F flyttat P4 v2 → P3 v6; F F flyttat P4 v6 → P4 v5; Ö flyttat P4 v6 → P4 v4; F flyttat P4 v7 → P4 v4; Ö flyttat P4 v7 → P4 v3; och 1 ändringar till. Är detta avsiktligt?
+- [review] DD2352: antalet tillfällen skiljer sig från VT26 (Tentamen 1→0). Sekvens (VT26 → nu): P4 v1–5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F]. Är detta avsiktligt?
 - [review] DD2352: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P4 w1→P3 w6; Datorlaboration P4 w2→P4 w4). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_03.xlsx:186 2027-02-15 13:00-15:00 Föreläsning`
   - `TimeEdit_2026-10-14_20_03.xlsx:432 2027-04-14 09:00-12:00 Datorlaboration`
@@ -16,7 +16,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [error] SF1544: ordinarie tentamen saknas i tentamensperioden. VT26: 2026-03-12 14:00 Tentamen. Ska den läggas in?
   - `TimeEdit_2026-10-14_20_04.xlsx:74 2027-02-19 10:00-12:00 Examination`
   - `TimeEdit_2026-10-14_20_04.xlsx:224 2027-06-02 14:00-17:00 Omtenta`
-- [review] SF1544: antalet tillfällen skiljer sig från VT26 (Tentamen 1→0). Ändringar: borttaget P3 tentaperiod: TEN. Är detta avsiktligt?
+- [review] SF1544: antalet tillfällen skiljer sig från VT26 (Tentamen 1→0). Sekvens (VT26 → nu): P3 tentaperiod: … Red Red [TEN] Red Red → … Red Red [–] Red Red. Är detta avsiktligt?
 
 ## [SF1677](https://www.kth.se/student/kurser/kurs/SF1677)
 
@@ -74,7 +74,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] SF1691 och SF2930 har 5 tillfälle(n) som krockar: 2027-01-28 10:00-12:00 Föreläsning / 10:00-12:00 Lektion; 2027-02-01 15:00-17:00 Föreläsning / 15:00-17:00 Lektion; 2027-02-04 13:00-15:00 Övning / 13:00-15:00 Lektion; 2027-02-18 13:00-15:00 Övning / 13:00-15:00 Lektion (+1 till). VT26: 1 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
   - `TimeEdit_2026-10-14_20_03.xlsx:99 2027-01-28 10:00-12:00 Föreläsning`
   - `TimeEdit_2026-10-14_20_03.xlsx:101 2027-01-28 10:00-12:00 Lektion`
-- [review] SF1691: antalet tillfällen skiljer sig från VT26 (Övning 19→16). Ändringar: borttaget P3 v6: Ö; borttaget P4 v1: Ö; borttaget P4 v3: Ö. Är detta avsiktligt?
+- [review] SF1691: antalet tillfällen skiljer sig från VT26 (Övning 19→16). Sekvens (VT26 → nu): P3 v7–P4 v1: … Ö Ö [Ö F F F Ö] Ö Ö … → … Ö Ö [F F F] Ö Ö …; P4 v3: … Ö F [Ö] Ö Ö … → … Ö F [–] Ö Ö …. Är detta avsiktligt?
 
 ## [SF1861](https://www.kth.se/student/kurser/kurs/SF1861)
 
@@ -88,7 +88,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] SF1861 och SF2701 har 6 tillfälle(n) som krockar: 2027-03-19 08:00-10:00 Övning / 08:00-10:00 Föreläsning; 2027-03-24 08:00-10:00 Föreläsning / 08:00-10:00 Föreläsning; 2027-04-06 13:00-15:00 Föreläsning / 13:00-15:00 Föreläsning; 2027-05-03 13:00-15:00 Övning / 13:00-15:00 Föreläsning (+2 till). VT26: 4 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
   - `TimeEdit_2026-10-14_20_03.xlsx:301 2027-03-19 08:00-10:00 Övning`
   - `TimeEdit_2026-10-14_20_03.xlsx:299 2027-03-19 08:00-10:00 Föreläsning`
-- [review] SF1861: antalet tillfällen skiljer sig från VT26 (Examination 6→5). Ändringar: DL flyttat P4 v9 → P4 tentaperiod; borttaget P4 v4: EX. Är detta avsiktligt?
+- [review] SF1861: antalet tillfällen skiljer sig från VT26 (Examination 6→5). Sekvens (VT26 → nu): P4 v4: … Ö F [EX] EX EX … → … Ö F [–] EX EX …. Är detta avsiktligt?
 - [review] SF1861: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Datorlaboration P4 w9→P4 exams). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_03.xlsx:617 2027-05-28 14:00-16:00 Datorlaboration`
 
@@ -105,28 +105,28 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] SF1922 (omtentamen 2027-08-23 08:00-13:00) och SI1155 (omtentamen 2027-08-23 08:00-13:00) ligger samtidigt. Påverkar studenter i CTFYS2 som behöver tentera om SF1922 från årskurs 1. Går det att sprida ut dem mer?
   - `TimeEdit_2026-10-14_20_05.xlsx:238 2027-08-23 08:00-13:00 Omtenta`
   - `TimeEdit_2026-10-14_20_04.xlsx:236 2027-08-23 08:00-13:00 Omtenta`
-- [review] SF1922: samma tillfällen som VT26 men i annan ordning (F Ö flyttat P4 v2 → P4 v1; ny ordning inom P4 v4: Ö F KS Övr F Ö → F Ö KS Övr F Ö). Är detta avsiktligt?
+- [review] SF1922: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v4: … DL F [Ö F] KS Övr … → … DL F [F Ö] KS Övr …). Är detta avsiktligt?
 
 ## [SF2701](https://www.kth.se/student/kurser/kurs/SF2701)
 
 - [warning] SF2701 (ordinarie tentamen 2027-05-31 08:00-13:00) och SF1678 (ordinarie tentamen 2027-05-31 14:00-18:00) ligger samma dag. Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att sprida ut dem mer?
   - `TimeEdit_2026-10-14_20_03.xlsx:620 2027-05-31 08:00-13:00 Tentamen`
   - `TimeEdit_2026-10-14_20_03.xlsx:622 2027-05-31 14:00-18:00 Tentamen`
-- [review] SF2701: samma tillfällen som VT26 men i annan ordning (ny ordning inom P4 v2: F Ö F → F F Ö). Är detta avsiktligt?
+- [review] SF2701: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v1: [–] F F … → [F] F F …; P4 v2: … F Ö [F] F F … → … F Ö [–] F F …). Är detta avsiktligt?
 
 ## [SG1112](https://www.kth.se/student/kurser/kurs/SG1112)
 
 - [warning] SG1112 (omtentamen 2027-08-24 08:00-13:00) och DD1327 (omtentamen 2027-08-24 14:00-18:00) ligger samma dag. Påverkar studenter i CTFYS2 som behöver tentera om SG1112 från årskurs 1. Går det att sprida ut dem mer?
   - `TimeEdit_2026-10-14_20_05.xlsx:240 2027-08-24 08:00-13:00 Omtenta`
   - `TimeEdit_2026-10-14_20_04.xlsx:239 2027-08-24 14:00-18:00 Examination`
-- [review] SG1112: antalet tillfällen skiljer sig från VT26 (Övning 14→15). Ändringar: F flyttat P4 v7 → P4 v6; KS Övr flyttat P4 v9 → P4 v8; ny ordning inom P4 v3: Ö F → F Ö; tillkommit P4 v9: Ö. Är detta avsiktligt?
+- [review] SG1112: antalet tillfällen skiljer sig från VT26 (Övning 14→15). Sekvens (VT26 → nu): P4 v3: … Ö F [Ö F] F Ö … → … Ö F [F Ö] F Ö …; P4 v9: … KS Övr [–] R TEN → … KS Övr [Ö] R TEN. Är detta avsiktligt?
 
 ## [SI1142](https://www.kth.se/student/kurser/kurs/SI1142)
 
 - [warning] SI1142 och SI2360 har 2 tillfälle(n) som krockar: 2027-03-23 15:00-17:00 Föreläsning / 15:00-17:00 Övning; 2027-04-12 13:00-15:00 Föreläsning / 13:00-15:00 Föreläsning. VT26: 1 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
   - `TimeEdit_2026-10-14_20_03.xlsx:327 2027-03-23 15:00-17:00 Föreläsning`
   - `TimeEdit_2026-10-14_20_03.xlsx:329 2027-03-23 15:00-17:00 Övning`
-- [review] SI1142: antalet tillfällen skiljer sig från VT26 (Tentamen 0→2). Ändringar: F flyttat P4 v5 → P4 v3; F flyttat P4 v7 → P4 v2; F flyttat P4 v8 → P4 v1; tillkommit P4 tentaperiod: TEN TEN. Är detta avsiktligt?
+- [review] SI1142: antalet tillfällen skiljer sig från VT26 (Tentamen 0→2). Sekvens (VT26 → nu): P4 tentaperiod: … F F [–] → … F F [TEN TEN]. Är detta avsiktligt?
 - [review] SI1142: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P4 w4→P4 w2; Föreläsning P4 w5→P4 w2; Föreläsning P4 w7→P4 w3; Föreläsning P4 w8→P4 w4). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_03.xlsx:313 2027-03-22 13:00-15:00 Föreläsning`
   - `TimeEdit_2026-10-14_20_03.xlsx:327 2027-03-23 15:00-17:00 Föreläsning`
@@ -136,14 +136,14 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] SI1155 (ordinarie tentamen 2027-05-27 08:00-13:00) och DD1327 (ordinarie tentamen 2027-05-28 14:00-18:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Går det att sprida ut dem mer?
   - `TimeEdit_2026-10-14_20_04.xlsx:215 2027-05-27 08:00-13:00 Tentamen`
   - `TimeEdit_2026-10-14_20_04.xlsx:218 2027-05-28 14:00-18:00 Examination`
-- [review] SI1155: samma tillfällen som VT26 men i annan ordning (F flyttat P4 v2 → P4 v1; R flyttat P4 v8 → P4 v9). Är detta avsiktligt?
+- [review] SI1155: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F …). Är detta avsiktligt?
 
 ## [SI1200](https://www.kth.se/student/kurser/kurs/SI1200)
 
 - [warning] SI1200 (ordinarie tentamen 2027-03-08 08:00-13:00) och SK1104 (ordinarie tentamen 2027-03-08 14:00-17:00) ligger samma dag. Påverkar studenter i CTFYS2 som behöver tentera om SK1104 från årskurs 1. Går det att sprida ut dem mer?
   - `TimeEdit_2026-10-14_20_04.xlsx:94 2027-03-08 08:00-13:00 Tentamen`
   - `TimeEdit_2026-10-14_20_05.xlsx:95 2027-03-08 14:00-17:00 Tentamen`
-- [review] SI1200: samma tillfällen som VT26 men i annan ordning (ny ordning inom P3 v7: Ö F → F Ö). Är detta avsiktligt?
+- [review] SI1200: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P3 v7: … Ö F [Ö F] R TEN → … Ö F [F Ö] R TEN). Är detta avsiktligt?
 
 ## [AK2011](https://www.kth.se/student/kurser/kurs/AK2011)
 
@@ -151,14 +151,14 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [AK2014](https://www.kth.se/student/kurser/kurs/AK2014)
 
-- [review] AK2014: antalet tillfällen skiljer sig från VT26 (Övning 0→3). Ändringar: S flyttat P3 v2 → P3 v6; F flyttat P3 v4 → P3 v7; F flyttat P3 v6 → P3 v8; S flyttat P3 v8 → P3 v7; ny ordning inom P3 v3: F S → S F; och 4 ändringar till. Är detta avsiktligt?
+- [review] AK2014: antalet tillfällen skiljer sig från VT26 (Övning 0→3). Sekvens (VT26 → nu): P3 v2–5: F F [–] S F … → F F [Ö F S F F Ö F S] S F …; P3 tentaperiod: … S F [F S F F F S] → … S F [Ö]. Är detta avsiktligt?
 - [review] AK2014: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Seminarium P3 w2→P3 w6; Föreläsning P3 w2→P3 w6; Föreläsning P3 w3→P3 w7; Seminarium P3 w3→P3 w7; Föreläsning P3 w4→P3 w8). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_03.xlsx:193 2027-02-16 13:00-15:00 Seminarium`
   - `TimeEdit_2026-10-14_20_03.xlsx:205 2027-02-18 10:00-12:00 Föreläsning`
 
 ## [DD1327](https://www.kth.se/student/kurser/kurs/DD1327)
 
-- [review] DD1327: antalet tillfällen skiljer sig från VT26 (Datorlaboration 7→6; Föreläsning 9→10; Workshop 1→3; Övning 7→4). Ändringar: W flyttat P4 v1 → P4 v2; DL flyttat P4 v2 → P4 v8; F flyttat P4 v2 → P4 v3; ny ordning inom P4 v5: DL Ö F → DL F Ö; tillkommit P4 v3: F; och 5 ändringar till. Är detta avsiktligt?
+- [review] DD1327: antalet tillfällen skiljer sig från VT26 (Datorlaboration 7→6; Föreläsning 9→10; Workshop 1→3; Övning 7→4). Sekvens (VT26 → nu): P4 v1: [–] F F … → [F] F F …; P4 v3–4: … F F [Ö] DL F … → … F F [F Ö F F W] DL F …; P4 v6–8: … DL F [Ö F DL Ö F DL Ö F DL Ö DL] Ö EX → … DL F [W DL Ö DL DL] Ö EX. Är detta avsiktligt?
 - [review] DD1327: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Datorlaboration P4 w3→P4 w5; Föreläsning P4 w3→P4 w5; Övning P4 w3→P4 w5; Datorlaboration P4 w4→P4 w6; Föreläsning P4 w4→P4 w6). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_04.xlsx:157 2027-04-19 10:00-12:00 Datorlaboration`
   - `TimeEdit_2026-10-14_20_04.xlsx:163 2027-04-21 13:00-15:00 Föreläsning`
@@ -185,11 +185,11 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [EQ1120](https://www.kth.se/student/kurser/kurs/EQ1120)
 
-- [review] EQ1120: antalet tillfällen skiljer sig från VT26 (Datorlaboration 1→0). Ändringar: borttaget P4 v1: DL. Är detta avsiktligt?
+- [review] EQ1120: antalet tillfällen skiljer sig från VT26 (Datorlaboration 1→0). Sekvens (VT26 → nu): P4 v1: … F Ö [DL] F Ö … → … F Ö [–] F Ö …. Är detta avsiktligt?
 
 ## [FDD3431](https://www.kth.se/student/kurser/kurs/FDD3431)
 
-- [review] FDD3431: antalet tillfällen skiljer sig från VT26 (Föreläsning 0→12). Ändringar: tillkommit P3 v1: F; tillkommit P3 v2: F F; tillkommit P3 v3: F F; tillkommit P3 v4: F F; tillkommit P3 v5: F F; och 2 ändringar till. Är detta avsiktligt?
+- [review] FDD3431: antalet tillfällen skiljer sig från VT26 (Föreläsning 0→12). Sekvens (VT26 → nu): P3 v1–7: [–] TEN → [F F F F F F F F F F F F] TEN. Är detta avsiktligt?
 - [review] FDD3431: examinationsmodulerna på tentamen har ändrats (EXA1, TEN1 → TEN1). Är detta avsiktligt?
 
 ## [IL2240](https://www.kth.se/student/kurser/kurs/IL2240)
@@ -202,32 +202,32 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [MH1023](https://www.kth.se/student/kurser/kurs/MH1023)
 
-- [review] MH1023: antalet tillfällen skiljer sig från VT26 (Föreläsning 2→3; Seminarium 9→8). Ändringar: F flyttat P3 v1 → P3 v2; S flyttat P3 v2 → P4 v2; S flyttat P4 v1 → P4 v8; Ö flyttat P4 v2 → P4 v5; tillkommit P4 v9: F; och 1 ändringar till. Är detta avsiktligt?
+- [review] MH1023: antalet tillfällen skiljer sig från VT26 (Föreläsning 2→3; Seminarium 9→8). Sekvens (VT26 → nu): P3 v2: F [S] S S … → F [–] S S …; P4 v9: … S F [–] → … S F [F]. Är detta avsiktligt?
 
 ## [SA114X](https://www.kth.se/student/kurser/kurs/SA114X)
 
-- [review] SA114X: antalet tillfällen skiljer sig från VT26 (Föreläsning 3→0; Möte 1→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 9→0; Övrigt 1→0). Ändringar: P flyttat P3 v1 → P3 v2; P flyttat P3 v7 → P3 v8; tillkommit P3 v2: P P; tillkommit P3 v4: P P; tillkommit P3 v5: P P P P; och 14 ändringar till. Är detta avsiktligt?
+- [review] SA114X: antalet tillfällen skiljer sig från VT26 (Föreläsning 3→0; Möte 1→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 9→0; Övrigt 1→0). Sekvens (VT26 → nu): P3 v1–P4 v2: Info Info [P P Övr P P F S P S P P P P P P P F S S S S P P P S P P P P P P P P P P P P Möte] P P … → Info Info [–] P P …; P3 v5–P4 v8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]. Är detta avsiktligt?
 - [review] SA114X: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Projektarbete P4 w2→P3 w1; Projektarbete P4 w2→P3 w1; Projektarbete P4 w3→P3 w1; Projektarbete P4 w3→P3 w2; Projektarbete P4 w3→P3 w2; Projektarbete P4 w3→P3 w2 (+12 more)). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_03.xlsx:17 2027-01-13 10:00-12:00 Projektarbete`
   - `TimeEdit_2026-10-14_20_03.xlsx:18 2027-01-13 13:00-17:00 Projektarbete`
 
 ## [SA115X](https://www.kth.se/student/kurser/kurs/SA115X)
 
-- [review] SA115X: antalet tillfällen skiljer sig från VT26 (Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0). Ändringar: P flyttat P3 v1 → P3 v2; tillkommit P3 v2: P P; tillkommit P3 v4: P; tillkommit P3 v7: P P P; tillkommit P3 v8: P P P; och 10 ändringar till. Är detta avsiktligt?
+- [review] SA115X: antalet tillfällen skiljer sig från VT26 (Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0). Sekvens (VT26 → nu): P3 v1–6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 v6–P4 v8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]. Är detta avsiktligt?
 - [review] SA115X: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Projektarbete P3 w6→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w8→P3 w1; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2 (+19 more)). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_03.xlsx:17 2027-01-13 10:00-12:00 Projektarbete`
   - `TimeEdit_2026-10-14_20_03.xlsx:18 2027-01-13 13:00-17:00 Projektarbete`
 
 ## [SA118X](https://www.kth.se/student/kurser/kurs/SA118X)
 
-- [review] SA118X: antalet tillfällen skiljer sig från VT26 (Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0). Ändringar: P flyttat P3 v1 → P3 v2; tillkommit P3 v2: P P; tillkommit P3 v4: P; tillkommit P3 v7: P P P; tillkommit P3 v8: P P P; och 10 ändringar till. Är detta avsiktligt?
+- [review] SA118X: antalet tillfällen skiljer sig från VT26 (Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0). Sekvens (VT26 → nu): P3 v1–6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 v6–P4 v8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]. Är detta avsiktligt?
 - [review] SA118X: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Projektarbete P3 w6→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w8→P3 w1; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2 (+19 more)). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_03.xlsx:17 2027-01-13 10:00-12:00 Projektarbete`
   - `TimeEdit_2026-10-14_20_03.xlsx:18 2027-01-13 13:00-17:00 Projektarbete`
 
 ## [SA120X](https://www.kth.se/student/kurser/kurs/SA120X)
 
-- [review] SA120X: antalet tillfällen skiljer sig från VT26 (Projektarbete 56→64; Redovisning 0→2; Seminarium 3→0). Ändringar: P flyttat P3 v1 → P3 v4; P flyttat P3 v7 → P3 v8; tillkommit P3 v8: P P; tillkommit P3 tentaperiod: P P P P; tillkommit P4 v1: P; och 4 ändringar till. Är detta avsiktligt?
+- [review] SA120X: antalet tillfällen skiljer sig från VT26 (Projektarbete 56→64; Redovisning 0→2; Seminarium 3→0). Sekvens (VT26 → nu): P3 v1–6: Info [P P P P P P P P P P P P P P P P P P P P P P P S] P P … → Info [–] P P …; P3 v8–P4 v8: … P P [S P S P P P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]. Är detta avsiktligt?
 - [review] SA120X: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Projektarbete P3 w6→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w7→P3 w2; Projektarbete P3 w7→P3 w2; Projektarbete P3 w7→P3 w2 (+26 more)). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_03.xlsx:17 2027-01-13 10:00-12:00 Projektarbete`
   - `TimeEdit_2026-10-14_20_03.xlsx:18 2027-01-13 13:00-17:00 Projektarbete`
@@ -246,7 +246,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [SH2404](https://www.kth.se/student/kurser/kurs/SH2404)
 
-- [review] SH2404: antalet tillfällen skiljer sig från VT26 (Datorlaboration 1→0; Seminarium 0→1). Ändringar: tillkommit P4 v4: S; borttaget P4 v4: DL. Är detta avsiktligt?
+- [review] SH2404: antalet tillfällen skiljer sig från VT26 (Datorlaboration 1→0; Seminarium 0→1). Sekvens (VT26 → nu): P4 v4: … F R [DL] R F … → … F R [S] R F …. Är detta avsiktligt?
 - [review] SH2404: examinationsmodulerna på tentamen har ändrats (TEN1 → TEN2). Är detta avsiktligt?
 
 ## [SI1336](https://www.kth.se/student/kurser/kurs/SI1336)
@@ -259,8 +259,8 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [SK1105](https://www.kth.se/student/kurser/kurs/SK1105)
 
-- [review] SK1105: samma tillfällen som VT26 men i annan ordning (ny ordning inom P4 v6: L L Red L Red L → L Red L L Red L). Är detta avsiktligt?
+- [review] SK1105: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v6: … L L [L Red] L Red … → … L L [Red L] L Red …). Är detta avsiktligt?
 
 ## [SK2712](https://www.kth.se/student/kurser/kurs/SK2712)
 
-- [review] SK2712: antalet tillfällen skiljer sig från VT26 (Föreläsning 15→17; Workshop 6→7). Ändringar: tillkommit P4 v2: F F W. Är detta avsiktligt?
+- [review] SK2712: antalet tillfällen skiljer sig från VT26 (Föreläsning 15→17; Workshop 6→7). Sekvens (VT26 → nu): P4 v1: [–] F F … → [F F W] F F …. Är detta avsiktligt?

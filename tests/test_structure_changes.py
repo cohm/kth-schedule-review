@@ -45,3 +45,14 @@ class Changes(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Sequence(unittest.TestCase):
+    def test_moving_between_weeks_is_not_a_difference(self):
+        from schedcheck.checks.structure import sequence_hunks
+        self.assertEqual(sequence_hunks(diff("w1: F Ö F Ö | w2: F Ö F Ö", "w1: F Ö F Ö F Ö | w2: F Ö")), [])
+
+    def test_swap_is_one_bracketed_stretch(self):
+        from schedcheck.checks.structure import describe_hunks, sequence_hunks
+        h = sequence_hunks(diff("w3: F Ö F | w4: Ö F KS", "w3: F Ö F | w4: F Ö KS"))
+        self.assertEqual(describe_hunks(h), ["P4 w4: … Ö F [Ö F] KS → … Ö F [F Ö] KS"])

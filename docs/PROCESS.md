@@ -89,11 +89,12 @@ during the teaching period (oral exams, presentations) are partial exams.
 
 For each course compare occasions. Judging differences:
 
-- The tool separates four kinds of change per course: sessions **moved**
-  between weeks (same activities, other week), **reordered within** a week,
-  **added** and **removed**. Only when the sequence of activities itself
-  differs is it called an order change; occasions that keep their sequence but
-  shift by a week are info.
+- What matters most is the **number of occasions and their order** (e.g.
+  F Ö F F Ö F Ö …), as a teacher plans the course as a sequence. How that
+  sequence falls in weeks may vary a bit without being a problem, so the tool
+  compares the sequences and reports the changed stretches with context
+  (`… DL F [Ö F] KS … → … DL F [F Ö] KS …`). Occasions moving two or more
+  teaching weeks are reported separately (week shift).
 - Same activities, small reorder within a week: usually fine, but an exercise
   session placed *before* the lecture it builds on is worth flagging.
 - Fewer exercise sessions, labs or seminars: ask; it can be a resource cut

@@ -222,6 +222,62 @@ def changes_dict(c: Changes) -> dict:
     }
 
 
+def sequence_hunks(d: CourseDiff, context: int = 2) -> list[dict]:
+    """Differences between the old and new sequences of occasions, ignoring
+    how they are spread over weeks. Each hunk has the changed stretch with a
+    little context; changed parts are bracketed, '[–]' marks nothing there.
+    'where' is the first and last week of the changed occasions (new term if
+    any, else reference term)."""
+    a = [abbrev(o.activity) for o in d.old]
+    b = [abbrev(o.activity) for o in d.new]
+    sm = difflib.SequenceMatcher(a=a, b=b, autojunk=False)
+    hunks = []
+    for group in sm.get_grouped_opcodes(context):
+        # Bracket the whole changed stretch (first to last change in the
+        # group) as one unit, so a swap reads "[Ö F] -> [F Ö]".
+        ch = [op for op in group if op[0] != "equal"]
+        i_lo, i_hi = ch[0][1], ch[-1][2]
+        j_lo, j_hi = ch[0][3], ch[-1][4]
+        i_start, j_start = group[0][1], group[0][3]
+        i_end, j_end = group[-1][2], group[-1][4]
+        old_parts = a[i_start:i_lo] + ["[" + (" ".join(a[i_lo:i_hi]) or "–") + "]"] + a[i_hi:i_end]
+        new_parts = b[j_start:j_lo] + ["[" + (" ".join(b[j_lo:j_hi]) or "–") + "]"] + b[j_hi:j_end]
+        changed_new, changed_old = d.new[j_lo:j_hi], d.old[i_lo:i_hi]
+        occ = changed_new or changed_old
+        weeks = [o.week for o in occ if o.week]
+        hunks.append({
+            "old": " ".join(old_parts), "new": " ".join(new_parts),
+            "starts": group[0][1] == 0 and group[0][3] == 0,
+            "ends": group[-1][2] == len(a) and group[-1][4] == len(b),
+            "where": [list(weeks[0]), list(weeks[-1])] if weeks else None,
+            "term": "new" if changed_new else "reference",
+        })
+    return hunks
+
+
+def _where(w, label=None) -> str:
+    label = label or week_label
+    if not w:
+        return "?"
+    a, b = (tuple(x) for x in w)
+    if a == b:
+        return label(a)
+    if a[0] == b[0] and a[1] and b[1]:
+        return f"{label(a)}–w{b[1]}" if label is week_label else f"{label(a)}–{b[1]}"
+    return f"{label(a)}–{label(b)}"
+
+
+def describe_hunks(hunks: list[dict], limit: int = 4, label=None) -> list[str]:
+    out = []
+    for h in hunks[:limit]:
+        pre = "" if h["starts"] else "… "
+        post = "" if h["ends"] else " …"
+        out.append(f"{_where(h['where'], label)}: {pre}{h['old']}{post} → {pre}{h['new']}{post}")
+    if len(hunks) > limit:
+        out.append(f"… and {len(hunks) - limit} more")
+    return out
+
+
 @register("structure", ("program", "course"), "Teaching structure compared with the reference term")
 def check_structure(ctx: Context) -> list[Issue]:
     if ctx.old is None:
@@ -249,36 +305,31 @@ def check_structure(ctx: Context) -> list[Issue]:
             continue
 
         d = diff_course(ctx.old, ctx.new, code)
-        ch = classify_changes(d)
-        desc = describe_changes(ch)
+        hunks = sequence_hunks(d)
         details = {
             "counts": {a: list(v) for a, v in d.counts.items()},
             "old": [_occ_dict(x) for x in d.old],
             "new": [_occ_dict(x) for x in d.new],
-            "changes": changes_dict(ch),
+            "sequence": hunks,
+            "week_changes": changes_dict(classify_changes(d)),
             "reference_term": ctx.old.term,
         }
+        # What matters to teachers is the number of occasions and their order
+        # (e.g. F Ö F F Ö ...), not how that sequence is spread over weeks;
+        # large shifts in time are reported separately (week-shift).
         count_changes = {a: v for a, v in d.counts.items() if v[0] != v[1]}
-        same_sequence = [x.activity for x in d.old] == [x.activity for x in d.new]
+        desc = "; ".join(describe_hunks(hunks))
         if count_changes:
             txt = "; ".join(f"{a} {o}→{n}" for a, (o, n) in count_changes.items())
             issues.append(Issue("review", "structure.counts", code, code,
                                 f"{code}: number of occasions changed ({ctx.old.term}→{ctx.new.term}): "
-                                f"{txt}. " + "; ".join(desc) + ".",
+                                f"{txt}. Sequence: {desc}.",
                                 key=",".join(f"{a}:{o}>{n}" for a, (o, n) in count_changes.items()),
                                 details=details))
-        elif not same_sequence:
-            # Same occasions, but the sequence of activities differs: a real
-            # change of order (e.g. an exercise now before its lecture).
+        elif hunks:
             issues.append(Issue("review", "structure.order", code, code,
-                                f"{code}: same occasions, order changed: " + "; ".join(desc) + ".",
+                                f"{code}: same occasions in a different order: {desc}.",
                                 key="order", details=details))
-        elif not ch.empty():
-            # Same sequence; only the split over weeks differs.
-            issues.append(Issue("info", "structure.moved", code, code,
-                                f"{code}: same occasions in the same order, distributed differently "
-                                f"over the weeks: " + "; ".join(desc) + ".",
-                                key="moved", details=details))
 
         # Without a study plan (course review) nothing else notices a lost exam.
         if ctx.review == "course":
@@ -310,7 +361,7 @@ def check_structure(ctx: Context) -> list[Issue]:
                                 f"{code}: {len(shifts)} occasion(s) moved ≥{WEEK_SHIFT_THRESHOLD} teaching "
                                 f"weeks: {desc}{more}.", key=f"shifts:{len(shifts)}",
                                 evidence=[b.first.cite() for _, b, _ in shifts[:6]],
-                                details={"changes": details["changes"], "reference_term": ctx.old.term}))
+                                details={"reference_term": ctx.old.term}))
 
         # Parallel-group changes (e.g. exercises split into fewer groups).
         par_old = Counter()

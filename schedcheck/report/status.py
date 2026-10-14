@@ -142,8 +142,10 @@ def year_status(res: ReviewResult, key) -> list[dict]:
         struct = [i for i in res.issues if not i.accepted and i.check.startswith("structure.")
                   and i.course in codes and i.severity != "info"]
         changed = sorted({i.course for i in struct})
-        text = (f"{len(codes)} courses compared with {ctx.old.term}: all unchanged." if not changed else
-                f"{len(codes)} courses compared with {ctx.old.term}: {len(changed)} with differences "
+        n = f"{len(codes)} course{'s' if len(codes) != 1 else ''}"
+        text = (f"{n} compared with {ctx.old.term}: number and order of occasions unchanged."
+                if not changed else
+                f"{n} compared with {ctx.old.term}: {len(changed)} with differences "
                 f"to judge ({', '.join(changed)}).")
         lines.append({"check": f"Structure vs {ctx.old.term}", "status": _worst(struct), "text": text})
     return lines

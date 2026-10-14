@@ -12,6 +12,7 @@ fixed order and always carry a text label, so colour is never the only cue.
 """
 from __future__ import annotations
 
+import difflib
 import html
 import re
 from collections import Counter, defaultdict
@@ -137,6 +138,11 @@ details.course summary .cnt { font-weight: 400; color: var(--text-secondary); ma
 .a5 { border-bottom-color: var(--s5); } .a6 { border-bottom-color: var(--s6); }
 .a7 { border-bottom-color: var(--s7); } .a8 { border-bottom-color: var(--s8); }
 .hidden { display: none; }
+.seq { margin: 4px 0 8px; }
+.seqrow { display: flex; flex-wrap: wrap; align-items: center; gap: 0; margin: 2px 0; }
+.seqlbl { width: 3.5em; color: var(--text-secondary); font-weight: 600; font-size: 12px; }
+.act.chg { outline: 2px solid var(--accent); outline-offset: -1px; }
+details.weeks > summary { cursor: pointer; margin: 4px 0; }
 a.cl { color: inherit; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--accent) 50%, transparent);
   text-underline-offset: 2px; }
 a.cl:hover { color: var(--accent); text-decoration-color: var(--accent); }
@@ -240,6 +246,15 @@ def esc(x) -> str:
 
 
 COURSE_URL = "https://www.kth.se/student/kurser/kurs/{code}"
+
+# Course names for tooltips, from the study plans of the review being
+# rendered (set by render(); empty for course reviews without a plan).
+_NAMES: dict[str, str] = {}
+
+
+def course_title(code: str) -> str:
+    name = _NAMES.get(code)
+    return f"{code} {name}" if name else code
 # Course codes, but not term/cohort names such as HT2025 or VT2027.
 _CODE_RE = re.compile(r"\b(?!(?:HT|VT)\d{4}\b)(F?[A-Z]{2}\d{3}[0-9A-Z])\b")
 
@@ -248,7 +263,7 @@ def course_link(code: str, arrow: bool = True) -> str:
     """A course code linking to its KTH course page (new tab)."""
     a = "<span class='ext' aria-hidden='true'>↗</span>" if arrow else ""
     return (f"<a class='cl' href='{COURSE_URL.format(code=esc(code))}' target='_blank' rel='noopener' "
-            f"title='Course page for {esc(code)} on kth.se'>{esc(code)}{a}</a>")
+            f"title='{esc(course_title(code))} – course page on kth.se'>{esc(code)}{a}</a>")
 
 
 def linkify(text: str) -> str:
@@ -260,10 +275,10 @@ def sev_badge(sev: str) -> str:
     return f'<span class="sev sev-{sev}"><span class="i" aria-hidden="true">{SEV_ICON[sev]}</span>{SEV_LABEL[sev]}</span>'
 
 
-def act_chip(a: str, title: str = "") -> str:
+def act_chip(a: str, title: str = "", extra: str = "") -> str:
     base = a.split("×")[0]
     slot = ACT_SLOT.get(base)
-    cls = f"act a{slot}" if slot else "act"
+    cls = (f"act a{slot}" if slot else "act") + extra
     t = f' title="{esc(title)}"' if title else ""
     return f'<span class="{cls}"{t}>{esc(a)}</span>'
 
@@ -364,7 +379,8 @@ def exam_calendar(td: TermData, flags: dict | None = None, courses: set[str] | N
                     f = flags.get((x.course, str(d)))
                     fcls = f" flag-{f}" if f in ("error", "warning") else ""
                     icon = f'<span class="fi" aria-label="{f}">{SEV_ICON[f]}</span>' if f in ("error", "warning") else ""
-                    title = f"{x.course} {x.kind} {x.event.start:%H:%M}-{x.event.end:%H:%M} {x.event.activity}"
+                    title = (f"{course_title(x.course)}\n{x.event.activity} ({x.kind}) "
+                             f"{x.event.start:%a %Y-%m-%d %H:%M}-{x.event.end:%H:%M}")
                     cell.append(f'<span class="chip {x.kind}{fcls}" title="{esc(title)}">{icon}'
                                 f'{course_link(x.course)} <span class="ev">{x.event.start:%H}</span></span>')
                 h.append(f"<td>{''.join(cell)}</td>")
@@ -377,34 +393,58 @@ def week_table(res: ReviewResult, code: str) -> str:
     ctx = res.ctx
     new_occ = occasions(ctx.new, code)
     old_occ = occasions(ctx.old, code) if ctx.old else []
+
+    def chip(o, extra=""):
+        par = f" ({o.parallel} parallel groups)" if o.parallel > 1 else ""
+        return act_chip(abbrev(o.activity) + (f"×{o.parallel}" if o.parallel > 1 else ""),
+                        f"{course_title(code)}\n{o.activity}{par} {o.first.start:%a %Y-%m-%d %H:%M}"
+                        f" ({week_label(o.week)})", extra)
+
+    # Sequence view: the order of occasions is what matters most; the
+    # changed stretches (as in the findings) are outlined.
+    sm = difflib.SequenceMatcher(a=[abbrev(o.activity) for o in old_occ],
+                                 b=[abbrev(o.activity) for o in new_occ], autojunk=False)
+    # Outline the same stretches the findings bracket: first to last change
+    # within each group (see checks.structure.sequence_hunks).
+    chg_old, chg_new = set(), set()
+    for group in sm.get_grouped_opcodes(2):
+        ch = [op for op in group if op[0] != "equal"]
+        chg_old.update(range(ch[0][1], ch[-1][2]))
+        chg_new.update(range(ch[0][3], ch[-1][4]))
+    old_t = ctx.old.term if ctx.old else "—"
+    seq = ("<div class='seq'><div class='seqrow'><span class='seqlbl'>" + esc(old_t) + "</span>"
+           + "".join(chip(o, " chg" if i in chg_old else "") for i, o in enumerate(old_occ))
+           + "</div><div class='seqrow'><span class='seqlbl'>" + esc(ctx.new.term) + "</span>"
+           + "".join(chip(o, " chg" if i in chg_new else "") for i, o in enumerate(new_occ))
+           + "</div></div>")
+
     wo, wn = defaultdict(list), defaultdict(list)
     for o in old_occ:
         wo[o.week].append(o)
     for o in new_occ:
         wn[o.week].append(o)
     keys = sorted(set(wo) | set(wn), key=lambda k: (k is None, k[0] if k else "", (k[1] if k else 0) or 99))
-
-    def cell(occs):
-        return "".join(act_chip(abbrev(o.activity) + (f"×{o.parallel}" if o.parallel > 1 else ""),
-                                f"{o.first.start:%a %Y-%m-%d %H:%M} {o.activity}"
-                                + (f" ({o.parallel} parallel groups)" if o.parallel > 1 else ""))
-                       for o in occs)
-
-    old_t = ctx.old.term if ctx.old else "—"
-    h = [f'<div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>{esc(old_t)}</th>'
+    h = [f"<p class='sub'>Sequence of occasions (outlined: differs from {esc(old_t)}):</p>{seq}",
+         "<details class='weeks'><summary class='sub'>Week by week</summary>",
+         f'<div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>{esc(old_t)}</th>'
          f'<th>{esc(ctx.new.term)}</th></tr></thead><tbody>']
     for k in keys:
         a = [abbrev(o.activity) for o in wo.get(k, [])]
         b = [abbrev(o.activity) for o in wn.get(k, [])]
         cls = ' class="diff"' if a != b else ""
-        h.append(f'<tr{cls}><td class="w">{esc(week_label(k))}</td><td>{cell(wo.get(k, []))}</td>'
-                 f'<td>{cell(wn.get(k, []))}</td></tr>')
-    h.append("</tbody></table></div>")
+        h.append(f'<tr{cls}><td class="w">{esc(week_label(k))}</td>'
+                 f'<td>{"".join(chip(o) for o in wo.get(k, []))}</td>'
+                 f'<td>{"".join(chip(o) for o in wn.get(k, []))}</td></tr>')
+    h.append("</tbody></table></div></details>")
     return "".join(h)
 
 
 def render(res: ReviewResult) -> str:
     ctx = res.ctx
+    _NAMES.clear()
+    for yp in list(ctx.old_plans.values()) + list(ctx.plans.values()):
+        if yp.plan:
+            _NAMES.update({c: pc.name for c, pc in yp.plan.courses.items() if pc.name})
     issues = res.sorted_issues()
     counts = Counter(i.severity for i in issues if not i.accepted)
     n_acc = sum(1 for i in issues if i.accepted)
@@ -496,10 +536,12 @@ def render(res: ReviewResult) -> str:
 
     # Course structure
     if ctx.old:
-        out.append("<h2>Course structure, week by week <span class='sub yearname'></span></h2>")
-        out.append("<p class='sub'>Occasions per teaching week (weeks without regular teaching, e.g. an "
-                   "Easter re-exam week, are skipped; ‘exams’ is the period's exam window). "
-                   "Highlighted rows differ. ×n = n parallel group sessions.</p>")
+        out.append("<h2>Course structure <span class='sub yearname'></span></h2>")
+        out.append("<p class='sub'>Per course, the sequence of occasions in both terms; what counts is "
+                   "the number of occasions and their order, not how they fall in weeks. Outlined: the "
+                   "stretches that differ. ‘Week by week’ shows the same occasions per teaching week "
+                   "(weeks without regular teaching, e.g. an Easter re-exam week, are skipped; ‘exams’ is "
+                   "the period's exam window). ×n = n parallel group sessions.</p>")
         legend = "".join(f"<span>{act_chip(a)} {esc(n)}</span>" for a, n in
                          [("F", "Föreläsning"), ("Ö", "Övning"), ("L", "Laboration"), ("DL", "Datorlab"),
                           ("S", "Seminarium"), ("Le", "Lektion"), ("W", "Workshop"), ("P", "Projekt"),
@@ -518,7 +560,7 @@ def render(res: ReviewResult) -> str:
             yrs = " ".join(sorted(cy.get(code, set()) & label_set)) or "*"
             out.append(f"<details class='course' data-course-years='{esc(yrs)}'"
                        f"{' open' if n and ctx.review == 'course' else ''}>"
-                       f"<summary>{esc(code)}{cnt}</summary>"
+                       f"<summary>{esc(course_title(code))}{cnt}</summary>"
                        f"<p class='sub'>{course_link(code)} course page on kth.se</p>")
             for i in per_course.get(code, []):
                 out.append(f"<p>{sev_badge(i.severity)} {linkify(i.message)}</p>")
