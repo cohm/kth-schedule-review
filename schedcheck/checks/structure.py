@@ -133,20 +133,93 @@ def week_sequences(occ: list[Occasion]) -> dict[tuple[str, int] | None, list[str
     return out
 
 
-def _describe_ops(d: CourseDiff, limit: int = 6) -> list[str]:
-    """Week-by-week description of differences: 'P4 w4: F Ö F → F F Ö'."""
+def _week_order(k) -> tuple:
+    """Sort key for week keys: by period, teaching weeks first, exam slot last."""
+    if k is None:
+        return (1, "", 0)
+    return (0, k[0], 99 if k[1] == 0 else k[1])
+
+
+@dataclass
+class Changes:
+    """How a course's occasions differ, per teaching week."""
+    reordered: list[tuple]   # (week, old seq, new seq): same activities, other order
+    moved: list[tuple]       # (from week, to week, [activities])
+    added: list[tuple]       # (week, [activities])
+    removed: list[tuple]     # (week, [activities])
+
+    def empty(self) -> bool:
+        return not (self.reordered or self.moved or self.added or self.removed)
+
+
+def classify_changes(d: CourseDiff) -> Changes:
+    """Split week-level differences into moves, within-week reorders, additions
+    and removals. A session that disappears from one week and an identical
+    activity that appears in another is a move (paired with the nearest week)."""
     wo, wn = week_sequences(d.old), week_sequences(d.new)
-    keys = sorted({k for k in wo} | {k for k in wn}, key=lambda k: (k is None, k or ("", 0)))
-    out = []
+    keys = sorted(set(wo) | set(wn), key=_week_order)
+    pos = {k: i for i, k in enumerate(keys)}
+    reordered, delta = [], defaultdict(Counter)   # activity -> week -> +/-n
     for k in keys:
         a = [x.split("×")[0] for x in wo.get(k, [])]
         b = [x.split("×")[0] for x in wn.get(k, [])]
-        if a != b:
-            wk = week_label(k)
-            out.append(f"{wk}: {' '.join(a) or '–'} → {' '.join(b) or '–'}")
+        if a == b:
+            continue
+        ca, cb = Counter(a), Counter(b)
+        if ca == cb:
+            reordered.append((k, a, b))
+            continue
+        for act, n in (cb - ca).items():
+            delta[act][k] += n
+        for act, n in (ca - cb).items():
+            delta[act][k] -= n
+
+    moved: dict[tuple, list[str]] = defaultdict(list)
+    added: dict = defaultdict(list)
+    removed: dict = defaultdict(list)
+    for act, per_week in delta.items():
+        gone = sorted((k for k, n in per_week.items() for _ in range(-n) if n < 0), key=_week_order)
+        new = sorted((k for k, n in per_week.items() for _ in range(n) if n > 0), key=_week_order)
+        for g in gone:
+            if new:
+                nearest = min(new, key=lambda k: abs(pos[k] - pos[g]))
+                new.remove(nearest)
+                moved[(g, nearest)].append(act)
+            else:
+                removed[g].append(act)
+        for k in new:
+            added[k].append(act)
+    return Changes(
+        reordered,
+        [(f, t, acts) for (f, t), acts in sorted(moved.items(), key=lambda kv: _week_order(kv[0][0]))],
+        sorted(added.items(), key=lambda kv: _week_order(kv[0])),
+        sorted(removed.items(), key=lambda kv: _week_order(kv[0])),
+    )
+
+
+def describe_changes(c: Changes, limit: int = 6) -> list[str]:
+    out = []
+    for f, t, acts in c.moved:
+        out.append(f"moved {week_label(f)} → {week_label(t)}: {' '.join(acts)}")
+    for k, a, b in c.reordered:
+        out.append(f"reordered within {week_label(k)}: {' '.join(a)} → {' '.join(b)}")
+    for k, acts in c.added:
+        out.append(f"added in {week_label(k)}: {' '.join(acts)}")
+    for k, acts in c.removed:
+        out.append(f"removed from {week_label(k)}: {' '.join(acts)}")
     if len(out) > limit:
-        out = out[:limit] + [f"… {len(out) - limit} more weeks differ"]
+        out = out[:limit] + [f"… and {len(out) - limit} more"]
     return out
+
+
+def changes_dict(c: Changes) -> dict:
+    return {
+        "moved": [{"from": list(f) if f else None, "to": list(t) if t else None, "activities": acts}
+                  for f, t, acts in c.moved],
+        "reordered": [{"week": list(k) if k else None, "old": a, "new": b} for k, a, b in c.reordered],
+        "added": [{"week": list(k) if k else None, "activities": acts} for k, acts in c.added],
+        "removed": [{"week": list(k) if k else None, "activities": acts} for k, acts in c.removed],
+    }
 
 
 @register("structure", ("program", "course"), "Teaching structure compared with the reference term")
@@ -176,29 +249,36 @@ def check_structure(ctx: Context) -> list[Issue]:
             continue
 
         d = diff_course(ctx.old, ctx.new, code)
+        ch = classify_changes(d)
+        desc = describe_changes(ch)
         details = {
             "counts": {a: list(v) for a, v in d.counts.items()},
             "old": [_occ_dict(x) for x in d.old],
             "new": [_occ_dict(x) for x in d.new],
-            "opcodes": [list(op) for op in d.opcodes],
-            "weeks": _describe_ops(d, limit=100),
+            "changes": changes_dict(ch),
             "reference_term": ctx.old.term,
         }
         count_changes = {a: v for a, v in d.counts.items() if v[0] != v[1]}
+        same_sequence = [x.activity for x in d.old] == [x.activity for x in d.new]
         if count_changes:
             txt = "; ".join(f"{a} {o}→{n}" for a, (o, n) in count_changes.items())
             issues.append(Issue("review", "structure.counts", code, code,
-                                f"{code}: number of occasions changed ({ctx.old.term}→{ctx.new.term}): {txt}.",
+                                f"{code}: number of occasions changed ({ctx.old.term}→{ctx.new.term}): "
+                                f"{txt}. " + "; ".join(desc) + ".",
                                 key=",".join(f"{a}:{o}>{n}" for a, (o, n) in count_changes.items()),
                                 details=details))
-        elif d.changed:
+        elif not same_sequence:
+            # Same occasions, but the sequence of activities differs: a real
+            # change of order (e.g. an exercise now before its lecture).
             issues.append(Issue("review", "structure.order", code, code,
-                                f"{code}: same occasions, different order. "
-                                + "; ".join(_describe_ops(d)) + ".",
+                                f"{code}: same occasions, order changed: " + "; ".join(desc) + ".",
                                 key="order", details=details))
-        if count_changes and d.changed:
-            # Attach the sequence diff to the counts issue for context.
-            issues[-1].message += " By week: " + "; ".join(_describe_ops(d)) + "."
+        elif not ch.empty():
+            # Same sequence; only the split over weeks differs.
+            issues.append(Issue("info", "structure.moved", code, code,
+                                f"{code}: same occasions in the same order, distributed differently "
+                                f"over the weeks: " + "; ".join(desc) + ".",
+                                key="moved", details=details))
 
         # Without a study plan (course review) nothing else notices a lost exam.
         if ctx.review == "course":
@@ -230,7 +310,7 @@ def check_structure(ctx: Context) -> list[Issue]:
                                 f"{code}: {len(shifts)} occasion(s) moved ≥{WEEK_SHIFT_THRESHOLD} teaching "
                                 f"weeks: {desc}{more}.", key=f"shifts:{len(shifts)}",
                                 evidence=[b.first.cite() for _, b, _ in shifts[:6]],
-                                details={"weeks": details["weeks"], "reference_term": ctx.old.term}))
+                                details={"changes": details["changes"], "reference_term": ctx.old.term}))
 
         # Parallel-group changes (e.g. exercises split into fewer groups).
         par_old = Counter()

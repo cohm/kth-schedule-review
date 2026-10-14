@@ -57,6 +57,28 @@ T = {
 }
 
 
+def _wk_sv(w) -> str:
+    if not w:
+        return "?"
+    return f"{w[0]} tentaperiod" if w[1] == 0 else f"{w[0]} v{w[1]}"
+
+
+def changes_sv(ch: dict, limit: int = 5) -> str:
+    """Swedish description of structure.Changes (as stored in issue details)."""
+    out = []
+    for m in ch.get("moved", []):
+        out.append(f"{' '.join(m['activities'])} flyttat {_wk_sv(m['from'])} → {_wk_sv(m['to'])}")
+    for r in ch.get("reordered", []):
+        out.append(f"ny ordning inom {_wk_sv(r['week'])}: {' '.join(r['old'])} → {' '.join(r['new'])}")
+    for a in ch.get("added", []):
+        out.append(f"tillkommit {_wk_sv(a['week'])}: {' '.join(a['activities'])}")
+    for r in ch.get("removed", []):
+        out.append(f"borttaget {_wk_sv(r['week'])}: {' '.join(r['activities'])}")
+    if len(out) > limit:
+        out = out[:limit] + [f"och {len(out) - limit} ändringar till"]
+    return "; ".join(out)
+
+
 def _relation_text(lang: str, rel: str, scope: str) -> str:
     t = T[lang]["rel"]
     if not rel:
@@ -133,12 +155,15 @@ def render_issue(i: Issue, lang: str) -> str:
             return i.message
         if i.check == "structure.counts":
             ch = "; ".join(f"{a} {o}→{n}" for a, (o, n) in d.get("counts", {}).items() if o != n)
-            weeks = "; ".join(d.get("weeks", [])[:4])
+            det = changes_sv(d.get("changes", {}))
             return (f"{i.course}: antalet tillfällen skiljer sig från {ref} ({ch})."
-                    + (f" Per vecka: {weeks}." if weeks else "") + f" {t['ask_intended']}")
+                    + (f" Ändringar: {det}." if det else "") + f" {t['ask_intended']}")
         if i.check == "structure.order":
-            weeks = "; ".join(d.get("weeks", [])[:4])
-            return f"{i.course}: ordningen mellan tillfällena skiljer sig från {ref} ({weeks}). {t['ask_intended']}"
+            return (f"{i.course}: samma tillfällen som {ref} men i annan ordning "
+                    f"({changes_sv(d.get('changes', {}))}). {t['ask_intended']}")
+        if i.check == "structure.moved":
+            return (f"{i.course}: samma tillfällen i samma ordning som {ref}, men fördelade annorlunda "
+                    f"över veckorna ({changes_sv(d.get('changes', {}))}).")
         if i.check == "structure.week-shift":
             moved = i.message.split("weeks: ", 1)[-1].rstrip(".")
             return (f"{i.course}: tillfällen har flyttats minst två undervisningsveckor jämfört med {ref} "
@@ -158,9 +183,6 @@ def render_issue(i: Issue, lang: str) -> str:
         if i.check == "dataquality.no-late-reexams":
             return "Exporten verkar inte omfatta omtentaperioden i augusti – kontrollera datumintervallet."
     else:
-        if i.check == "structure.counts":
-            weeks = "; ".join(d.get("weeks", [])[:4])
-            return f"{i.message.split(' By week:')[0]}" + (f" By week: {weeks}." if weeks else "") + f" {t['ask_intended']}"
         if i.check.startswith("structure."):
             return f"{i.message} {t['ask_intended']}"
     return i.message
