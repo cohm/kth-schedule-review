@@ -41,7 +41,7 @@ class Exam:
 class TermData:
     exports: list[Export]
     calendar: TermCalendar
-    events: list[Event]                         # in-term, de-duplicated, with course codes
+    events: list[Event]                         # in-term, de-duplicated, with course or activity codes
     dropped_out_of_term: list[Event] = field(default_factory=list)
     year_events: dict[tuple[str, int | None], list[Event]] = field(default_factory=dict)
 
@@ -92,8 +92,8 @@ def load_term(exports: list[Export]) -> TermData:
     year_events: dict[tuple[str, int | None], list[Event]] = defaultdict(list)
     for ex in exports:
         for e in ex.events:
-            if e.is_marker or not e.courses:
-                continue
+            if e.is_marker:
+                continue  # rows with neither course nor programme-activity code
             if not cal.in_term(e.date):
                 dropped.append(e)
                 continue

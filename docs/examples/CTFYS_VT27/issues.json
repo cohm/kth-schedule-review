@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-14T22:06:00",
+ "generated": "2026-10-14T22:15:12",
  "review": "program",
  "title": "CTFYS VT27 vs VT26",
  "term": "VT27",
@@ -116,6 +116,11 @@
     "text": "6 exams checked: none on the same day; 2 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 2 info."
    },
    {
+    "check": "Teaching overlaps",
+    "status": "ok",
+    "text": "180 sessions checked: no two sessions of different courses overlap."
+   },
+   {
     "check": "Retaken by year 2",
     "status": "warning",
     "text": "15 exam pair(s) close in time for year 2 students retaking CTFYS1 courses (6 warning, 9 info)."
@@ -146,6 +151,11 @@
     "check": "Re-exam spacing",
     "status": "info",
     "text": "9 exams checked: none on the same day; 4 pair(s) on consecutive days; 2 pair(s) two days apart. Reported: 4 info."
+   },
+   {
+    "check": "Teaching overlaps",
+    "status": "ok",
+    "text": "179 sessions checked: no two sessions of different courses overlap."
    },
    {
     "check": "Retaking year 1 courses",
@@ -185,6 +195,11 @@
     "text": "16 exams checked: 5 pair(s) on the same day; 10 pair(s) on consecutive days; 8 pair(s) two days apart. Reported: 2 info."
    },
    {
+    "check": "Teaching overlaps",
+    "status": "error",
+    "text": "588 sessions checked: 549 overlapping session pair(s); reported for 32 course pair(s) (1 error, 8 warning, 23 info)."
+   },
+   {
     "check": "Retaking year 2 courses",
     "status": "warning",
     "text": "4 exam pair(s) close in time with year 2 courses that CTFYS3 students may be retaking (1 warning, 3 info)."
@@ -197,10 +212,10 @@
   ]
  },
  "summary": {
-  "error": 2,
-  "warning": 14,
+  "error": 3,
+  "warning": 22,
   "review": 47,
-  "info": 61
+  "info": 84
  },
  "accepted_count": 0,
  "issues": [
@@ -245,6 +260,46 @@
     ],
     "reference_reexam": [
      "2026-08-21 14:00 Omtenta"
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "error",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1677",
+   "key": "SF1677+SF1678",
+   "message": "SF1677 and SF1678: 1 overlapping session(s): Fri 2027-01-15 15:00-17:00 Övning / Övning. Both are required for eligibility to TMAKM. The same pair overlapped 2 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:40 2027-01-15 15:00-17:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:41 2027-01-15 15:00-17:00 Övning"
+   ],
+   "details": {
+    "courses": [
+     "SF1677",
+     "SF1678"
+    ],
+    "count": 1,
+    "relation": "eligibility:TMAKM",
+    "reference_count": 2,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-01-15",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
     ]
    },
    "accepted": null
@@ -489,6 +544,46 @@
   },
   {
    "severity": "warning",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "DD1380",
+   "key": "DD1380+DD2352",
+   "message": "DD1380 and DD2352: 1 overlapping session(s): Fri 2027-01-15 08:00-10:00 Föreläsning / Övning. Both are required for eligibility to TCSCM. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:32 2027-01-15 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:33 2027-01-15 08:00-10:00 Övning"
+   ],
+   "details": {
+    "courses": [
+     "DD1380",
+     "DD2352"
+    ],
+    "count": 1,
+    "relation": "eligibility:TCSCM",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-01-15",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       false
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
    "check": "coverage.missing-reexam",
    "scope": "CTFYS3",
    "course": "DD2352",
@@ -543,6 +638,271 @@
   },
   {
    "severity": "warning",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1677",
+   "key": "SF1677+SF1861",
+   "message": "SF1677 and SF1861: 6 overlapping session(s): Wed 2027-03-24 10:00-12:00 Övning / Övning; Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Wed 2027-04-21 10:00-12:00 Föreläsning / Föreläsning; Thu 2027-04-29 10:00-12:00 Föreläsning / Föreläsning (+2 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:338 2027-03-24 10:00-12:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:339 2027-03-24 10:00-12:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:377 2027-04-06 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:378 2027-04-06 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:472 2027-04-21 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:473 2027-04-21 10:00-12:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "SF1677",
+     "SF1861"
+    ],
+    "count": 6,
+    "relation": "same-subject",
+    "reference_count": 5,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-24",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-06",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-21",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-29",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-11",
+      "times": [
+       "10:00-12:00",
+       "10:00-11:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Examination"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-11",
+      "times": [
+       "10:00-12:00",
+       "11:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Examination"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1677",
+   "key": "SF1677+SF1904",
+   "message": "SF1677 and SF1904: 4 overlapping session(s): Mon 2027-03-15 13:00-15:00 Föreläsning / Föreläsning; Thu 2027-03-18 10:00-12:00 Föreläsning / Övning; Wed 2027-04-14 10:00-12:00 Föreläsning / Övning; Wed 2027-05-26 08:00-13:00 Tentamen / Räknestuga. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:268 2027-03-15 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:269 2027-03-15 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:291 2027-03-18 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:293 2027-03-18 10:00-12:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:433 2027-04-14 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:434 2027-04-14 10:00-12:00 Övning"
+   ],
+   "details": {
+    "courses": [
+     "SF1677",
+     "SF1904"
+    ],
+    "count": 4,
+    "relation": "same-subject",
+    "reference_count": 1,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-15",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-18",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-14",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-26",
+      "times": [
+       "08:00-13:00",
+       "08:00-11:00"
+      ],
+      "activities": [
+       "Tentamen",
+       "Räknestuga"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1679",
+   "key": "SF1679+SF1691",
+   "message": "SF1679 and SF1691: 2 overlapping session(s): Thu 2027-02-04 13:00-15:00 Övning / Övning; Thu 2027-02-11 13:00-15:00 Övning / Övning. Electives in the same subject (SF), plausibly taken together. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:138 2027-02-04 13:00-15:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:139 2027-02-04 13:00-15:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:174 2027-02-11 13:00-15:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:175 2027-02-11 13:00-15:00 Övning"
+   ],
+   "details": {
+    "courses": [
+     "SF1679",
+     "SF1691"
+    ],
+    "count": 2,
+    "relation": "same-subject",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-02-04",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-11",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
    "check": "exams.spacing",
    "scope": "CTFYS3",
    "course": "SF1691",
@@ -572,6 +932,110 @@
     "gap_days": 0,
     "why": "overlapping",
     "relation": "same-subject"
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1691",
+   "key": "SF1691+SF2930",
+   "message": "SF1691 and SF2930: 5 overlapping session(s): Thu 2027-01-28 10:00-12:00 Föreläsning / Lektion; Mon 2027-02-01 15:00-17:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Thu 2027-02-18 13:00-15:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:99 2027-01-28 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:101 2027-01-28 10:00-12:00 Lektion",
+    "TimeEdit_2026-10-14_20_03.xlsx:117 2027-02-01 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:119 2027-02-01 15:00-17:00 Lektion",
+    "TimeEdit_2026-10-14_20_03.xlsx:139 2027-02-04 13:00-15:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:136 2027-02-04 13:00-15:00 Lektion"
+   ],
+   "details": {
+    "courses": [
+     "SF1691",
+     "SF2930"
+    ],
+    "count": 5,
+    "relation": "same-subject",
+    "reference_count": 1,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-01-28",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-01",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-04",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-18",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-22",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
    },
    "accepted": null
   },
@@ -665,6 +1129,199 @@
   },
   {
    "severity": "warning",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1861",
+   "key": "SF1861+SF2701",
+   "message": "SF1861 and SF2701: 6 overlapping session(s): Fri 2027-03-19 08:00-10:00 Övning / Föreläsning; Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Mon 2027-05-03 13:00-15:00 Övning / Föreläsning (+2 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:301 2027-03-19 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:299 2027-03-19 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:332 2027-03-24 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:333 2027-03-24 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:378 2027-04-06 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:379 2027-04-06 13:00-15:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "SF1861",
+     "SF2701"
+    ],
+    "count": 6,
+    "relation": "same-subject",
+    "reference_count": 4,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-19",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-24",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-06",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-03",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-05",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-31",
+      "times": [
+       "08:00-13:00",
+       "08:00-13:00"
+      ],
+      "activities": [
+       "Tentamen",
+       "Tentamen"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1904",
+   "key": "SF1904+SF2701",
+   "message": "SF1904 and SF2701: 3 overlapping session(s): Thu 2027-03-25 08:00-10:00 Övning / Övning; Tue 2027-04-20 13:00-15:00 Föreläsning / Föreläsning; Tue 2027-05-04 08:00-10:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:351 2027-03-25 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:352 2027-03-25 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:465 2027-04-20 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:466 2027-04-20 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:540 2027-05-04 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:541 2027-05-04 08:00-10:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "SF1904",
+     "SF2701"
+    ],
+    "count": 3,
+    "relation": "same-subject",
+    "reference_count": 1,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-25",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-20",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-04",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
    "check": "exams.spacing",
    "scope": "CTFYS3",
    "course": "SF2701",
@@ -694,6 +1351,63 @@
     "gap_days": 0,
     "why": "same day",
     "relation": "same-subject"
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SI1142",
+   "key": "SI1142+SI2360",
+   "message": "SI1142 and SI2360: 2 overlapping session(s): Tue 2027-03-23 15:00-17:00 Föreläsning / Övning; Mon 2027-04-12 13:00-15:00 Föreläsning / Föreläsning. Electives in the same subject (SI), plausibly taken together. The same pair overlapped 1 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:327 2027-03-23 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:329 2027-03-23 15:00-17:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:416 2027-04-12 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:417 2027-04-12 13:00-15:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "SI1142",
+     "SI2360"
+    ],
+    "count": 2,
+    "relation": "same-subject",
+    "reference_count": 1,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-23",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-12",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
    },
    "accepted": null
   },
@@ -22346,6 +23060,1550 @@
   },
   {
    "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+AK2011",
+   "message": "8XCDEPR and AK2011: 1 overlapping session(s): Tue 2027-03-23 08:00-12:00 Övrigt / Information. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:318 2027-03-23 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:320 2027-03-23 10:00-11:00 Information"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "AK2011"
+    ],
+    "count": 1,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-23",
+      "times": [
+       "08:00-12:00",
+       "10:00-11:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Information"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+DD2352",
+   "message": "8XCDEPR and DD2352: 3 overlapping session(s): Tue 2027-03-16 08:00-12:00 Övrigt / Föreläsning; Tue 2027-03-23 08:00-12:00 Övrigt / Övning; Fri 2027-04-09 13:00-17:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:272 2027-03-16 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:273 2027-03-16 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:318 2027-03-23 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:321 2027-03-23 10:00-12:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:410 2027-04-09 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:409 2027-04-09 13:00-15:00 Övning"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "DD2352"
+    ],
+    "count": 3,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-16",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-23",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-09",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+EQ1120",
+   "message": "8XCDEPR and EQ1120: 8 overlapping session(s): Wed 2027-03-24 13:00-17:00 Övrigt / Föreläsning; Wed 2027-03-24 13:00-17:00 Övrigt / Övning; Wed 2027-04-07 13:00-17:00 Övrigt / Föreläsning; Wed 2027-04-07 13:00-17:00 Övrigt / Övning (+4 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:345 2027-03-24 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:342 2027-03-24 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:345 2027-03-24 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:348 2027-03-24 15:00-17:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:394 2027-04-07 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:391 2027-04-07 13:00-15:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "EQ1120"
+    ],
+    "count": 8,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-24",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-24",
+      "times": [
+       "13:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-07",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-07",
+      "times": [
+       "13:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-13",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-14",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-14",
+      "times": [
+       "13:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-04",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+SA114X",
+   "message": "8XCDEPR and SA114X: 27 overlapping session(s): Mon 2027-03-15 08:00-12:00 Övrigt / Projektarbete; Tue 2027-03-16 08:00-12:00 Övrigt / Projektarbete; Wed 2027-03-17 13:00-17:00 Övrigt / Projektarbete; Fri 2027-03-19 13:00-17:00 Övrigt / Projektarbete (+23 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:265 2027-03-15 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:264 2027-03-15 08:00-12:00 Projektarbete",
+    "TimeEdit_2026-10-14_20_03.xlsx:272 2027-03-16 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:271 2027-03-16 08:00-12:00 Projektarbete",
+    "TimeEdit_2026-10-14_20_03.xlsx:288 2027-03-17 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:287 2027-03-17 13:00-17:00 Projektarbete"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "SA114X"
+    ],
+    "count": 27,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-15",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-16",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-17",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-19",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-22",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-23",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-24",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-05",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-06",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-07",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-09",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-12",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-13",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-14",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-16",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-19",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-20",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-21",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-23",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-26",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-27",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-28",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-30",
+      "times": [
+       "13:00-17:00",
+       "13:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-03",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-04",
+      "times": [
+       "08:00-12:00",
+       "08:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Projektarbete"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-10",
+      "times": [
+       "08:00-12:00",
+       "08:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Redovisning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-11",
+      "times": [
+       "08:00-12:00",
+       "08:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Redovisning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+SF1677",
+   "message": "8XCDEPR and SF1677: 7 overlapping session(s): Fri 2027-03-19 13:00-17:00 Övrigt / Övning; Mon 2027-03-22 08:00-12:00 Övrigt / Föreläsning; Tue 2027-03-23 08:00-12:00 Övrigt / Föreläsning; Wed 2027-04-07 13:00-17:00 Övrigt / Övning (+3 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:307 2027-03-19 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:306 2027-03-19 13:00-15:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:310 2027-03-22 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:308 2027-03-22 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:318 2027-03-23 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:316 2027-03-23 08:00-10:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "SF1677"
+    ],
+    "count": 7,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-19",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-22",
+      "times": [
+       "08:00-12:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-23",
+      "times": [
+       "08:00-12:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-07",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-16",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-23",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-11",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+SF1678",
+   "message": "8XCDEPR and SF1678: 9 overlapping session(s): Mon 2027-03-15 08:00-12:00 Övrigt / Föreläsning; Mon 2027-03-22 08:00-12:00 Övrigt / Föreläsning; Mon 2027-04-05 08:00-12:00 Övrigt / Föreläsning; Mon 2027-04-12 08:00-12:00 Övrigt / Föreläsning (+5 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:265 2027-03-15 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:266 2027-03-15 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:310 2027-03-22 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:311 2027-03-22 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:368 2027-04-05 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:369 2027-04-05 10:00-12:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "SF1678"
+    ],
+    "count": 9,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-15",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-22",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-05",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-12",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-20",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-21",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-04",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-10",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-11",
+      "times": [
+       "08:00-12:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+SF1691",
+   "message": "8XCDEPR and SF1691: 3 overlapping session(s): Wed 2027-03-17 13:00-17:00 Övrigt / Föreläsning; Wed 2027-03-24 13:00-17:00 Övrigt / Föreläsning; Wed 2027-04-28 13:00-17:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:288 2027-03-17 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:289 2027-03-17 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:345 2027-03-24 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:346 2027-03-24 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:519 2027-04-28 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:520 2027-04-28 15:00-17:00 Övning"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "SF1691"
+    ],
+    "count": 3,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-17",
+      "times": [
+       "13:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-24",
+      "times": [
+       "13:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-28",
+      "times": [
+       "13:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+SF1861",
+   "message": "8XCDEPR and SF1861: 3 overlapping session(s): Tue 2027-05-11 08:00-12:00 Övrigt / Examination; Tue 2027-05-11 08:00-12:00 Övrigt / Examination; Tue 2027-05-11 08:00-12:00 Övrigt / Examination. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:566 2027-05-11 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:567 2027-05-11 09:00-10:00 Examination",
+    "TimeEdit_2026-10-14_20_03.xlsx:566 2027-05-11 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:568 2027-05-11 10:00-11:00 Examination",
+    "TimeEdit_2026-10-14_20_03.xlsx:566 2027-05-11 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:571 2027-05-11 11:00-12:00 Examination"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "SF1861"
+    ],
+    "count": 3,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-05-11",
+      "times": [
+       "08:00-12:00",
+       "09:00-10:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Examination"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-11",
+      "times": [
+       "08:00-12:00",
+       "10:00-11:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Examination"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-11",
+      "times": [
+       "08:00-12:00",
+       "11:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Examination"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+SF1904",
+   "message": "8XCDEPR and SF1904: 3 overlapping session(s): Tue 2027-04-06 08:00-12:00 Övrigt / Övning; Tue 2027-04-27 08:00-12:00 Övrigt / Övning; Tue 2027-05-04 08:00-12:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:374 2027-04-06 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:375 2027-04-06 10:00-12:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:503 2027-04-27 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:502 2027-04-27 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:543 2027-05-04 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:540 2027-05-04 08:00-10:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "SF1904"
+    ],
+    "count": 3,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-04-06",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-27",
+      "times": [
+       "08:00-12:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-04",
+      "times": [
+       "08:00-12:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+SF2701",
+   "message": "8XCDEPR and SF2701: 4 overlapping session(s): Mon 2027-04-05 08:00-12:00 Övrigt / Föreläsning; Mon 2027-04-12 08:00-12:00 Övrigt / Föreläsning; Wed 2027-04-21 13:00-17:00 Övrigt / Föreläsning; Tue 2027-05-04 08:00-12:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:368 2027-04-05 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:366 2027-04-05 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:413 2027-04-12 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:411 2027-04-12 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:479 2027-04-21 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:477 2027-04-21 13:00-15:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "SF2701"
+    ],
+    "count": 4,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-04-05",
+      "times": [
+       "08:00-12:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-12",
+      "times": [
+       "08:00-12:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-21",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-04",
+      "times": [
+       "08:00-12:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+SH2404",
+   "message": "8XCDEPR and SH2404: 3 overlapping session(s): Tue 2027-03-23 08:00-12:00 Övrigt / Föreläsning; Fri 2027-04-23 13:00-17:00 Övrigt / Föreläsning; Tue 2027-05-04 08:00-12:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:318 2027-03-23 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:319 2027-03-23 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:495 2027-04-23 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:492 2027-04-23 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:543 2027-05-04 08:00-12:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:544 2027-05-04 10:00-12:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "SH2404"
+    ],
+    "count": 3,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-23",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-23",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-04",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "8XCDEPR",
+   "key": "8XCDEPR+SK2712",
+   "message": "8XCDEPR and SK2712: 9 overlapping session(s): Wed 2027-03-24 13:00-17:00 Övrigt / Workshop; Wed 2027-03-24 13:00-17:00 Övrigt / Föreläsning; Wed 2027-04-14 13:00-17:00 Övrigt / Föreläsning; Fri 2027-04-16 13:00-17:00 Övrigt / Workshop (+5 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:345 2027-03-24 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:344 2027-03-24 13:00-15:00 Workshop",
+    "TimeEdit_2026-10-14_20_03.xlsx:345 2027-03-24 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:347 2027-03-24 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:438 2027-04-14 13:00-17:00 Övrigt",
+    "TimeEdit_2026-10-14_20_03.xlsx:436 2027-04-14 13:00-15:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "8XCDEPR",
+     "SK2712"
+    ],
+    "count": 9,
+    "relation": "unplanned",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-24",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Workshop"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-24",
+      "times": [
+       "13:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-14",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-16",
+      "times": [
+       "13:00-17:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Workshop"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-20",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-27",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-04",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-11",
+      "times": [
+       "08:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-12",
+      "times": [
+       "13:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övrigt",
+       "Workshop"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
    "check": "coverage.unplanned-course",
    "scope": "CTFYS3",
    "course": "DD232V",
@@ -22353,6 +24611,46 @@
    "message": "DD232V is scheduled for CTFYS3 but it is not in the study plan.",
    "evidence": [],
    "details": {},
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "DD2421",
+   "key": "DD2421+SI1336",
+   "message": "DD2421 and SI1336: 1 overlapping session(s): Thu 2027-01-14 13:00-15:00 Föreläsning / Räknestuga. One mandatory course and one elective. No overlap in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:28 2027-01-14 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:29 2027-01-14 13:00-15:00 Räknestuga"
+   ],
+   "details": {
+    "courses": [
+     "DD2421",
+     "SI1336"
+    ],
+    "count": 1,
+    "relation": "mandatory+elective",
+    "reference_count": 0,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-01-14",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Räknestuga"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
    "accepted": null
   },
   {
@@ -22522,6 +24820,476 @@
   },
   {
    "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1677",
+   "key": "SF1677+SF2701",
+   "message": "SF1677 and SF2701: 3 overlapping session(s): Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Thu 2027-04-08 10:00-12:00 Föreläsning / Övning; Thu 2027-04-29 13:00-15:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 8 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:377 2027-04-06 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:379 2027-04-06 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:397 2027-04-08 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:398 2027-04-08 10:00-12:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:524 2027-04-29 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:525 2027-04-29 13:00-15:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "SF1677",
+     "SF2701"
+    ],
+    "count": 3,
+    "relation": "same-subject",
+    "reference_count": 8,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-04-06",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-08",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-29",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1677",
+   "key": "SF1677+SF2930",
+   "message": "SF1677 and SF2930: 5 overlapping session(s): Tue 2027-01-12 15:00-17:00 Föreläsning / Lektion; Thu 2027-01-14 08:00-10:00 Föreläsning / Lektion; Tue 2027-01-26 15:00-17:00 Föreläsning / Lektion; Wed 2027-01-27 15:00-17:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:10 2027-01-12 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:12 2027-01-12 15:00-17:00 Lektion",
+    "TimeEdit_2026-10-14_20_03.xlsx:22 2027-01-14 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:23 2027-01-14 08:00-10:00 Lektion",
+    "TimeEdit_2026-10-14_20_03.xlsx:87 2027-01-26 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:88 2027-01-26 15:00-17:00 Lektion"
+   ],
+   "details": {
+    "courses": [
+     "SF1677",
+     "SF2930"
+    ],
+    "count": 5,
+    "relation": "same-subject",
+    "reference_count": 5,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-01-12",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-01-14",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-01-26",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-01-27",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-15",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1678",
+   "key": "SF1678+SF1861",
+   "message": "SF1678 and SF1861: 3 overlapping session(s): Wed 2027-03-17 10:00-12:00 Föreläsning / Föreläsning; Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Tue 2027-05-11 08:00-10:00 Övning / Examination. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:282 2027-03-17 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:283 2027-03-17 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:331 2027-03-24 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:332 2027-03-24 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:565 2027-05-11 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:567 2027-05-11 09:00-10:00 Examination"
+   ],
+   "details": {
+    "courses": [
+     "SF1678",
+     "SF1861"
+    ],
+    "count": 3,
+    "relation": "same-subject",
+    "reference_count": 4,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-17",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-24",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-11",
+      "times": [
+       "08:00-10:00",
+       "09:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Examination"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1678",
+   "key": "SF1678+SF1904",
+   "message": "SF1678 and SF1904: 1 overlapping session(s): Wed 2027-04-14 08:00-10:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:430 2027-04-14 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:431 2027-04-14 08:00-10:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "SF1678",
+     "SF1904"
+    ],
+    "count": 1,
+    "relation": "same-subject",
+    "reference_count": 5,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-04-14",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1678",
+   "key": "SF1678+SF2701",
+   "message": "SF1678 and SF2701: 4 overlapping session(s): Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Thu 2027-04-15 10:00-12:00 Övning / Föreläsning; Wed 2027-04-21 13:00-15:00 Föreläsning / Föreläsning; Tue 2027-04-27 13:00-15:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:331 2027-03-24 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:333 2027-03-24 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:443 2027-04-15 10:00-12:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:442 2027-04-15 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:476 2027-04-21 13:00-15:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:477 2027-04-21 13:00-15:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "SF1678",
+     "SF2701"
+    ],
+    "count": 4,
+    "relation": "same-subject",
+    "reference_count": 5,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-24",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-15",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Övning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-21",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-27",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1678",
+   "key": "SF1678+SF2930",
+   "message": "SF1678 and SF2930: 4 overlapping session(s): Tue 2027-01-19 15:00-17:00 Föreläsning / Lektion; Mon 2027-02-08 10:00-12:00 Föreläsning / Lektion; Thu 2027-02-11 08:00-10:00 Övning / Lektion; Thu 2027-02-25 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:53 2027-01-19 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:54 2027-01-19 15:00-17:00 Lektion",
+    "TimeEdit_2026-10-14_20_03.xlsx:150 2027-02-08 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:151 2027-02-08 10:00-12:00 Lektion",
+    "TimeEdit_2026-10-14_20_03.xlsx:171 2027-02-11 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:170 2027-02-11 08:00-10:00 Lektion"
+   ],
+   "details": {
+    "courses": [
+     "SF1678",
+     "SF2930"
+    ],
+    "count": 4,
+    "relation": "same-subject",
+    "reference_count": 6,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-01-19",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-08",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-11",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-25",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
    "check": "exams.spacing",
    "scope": "CTFYS3",
    "course": "SF1679",
@@ -22551,6 +25319,95 @@
     "gap_days": 1,
     "why": "consecutive days",
     "relation": "same-subject"
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1679",
+   "key": "SF1679+SF2930",
+   "message": "SF1679 and SF2930: 4 overlapping session(s): Fri 2027-01-15 13:00-15:00 Övning / Lektion; Fri 2027-01-22 10:00-12:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Fri 2027-02-12 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:38 2027-01-15 13:00-15:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:37 2027-01-15 13:00-15:00 Lektion",
+    "TimeEdit_2026-10-14_20_03.xlsx:70 2027-01-22 10:00-12:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:71 2027-01-22 10:00-12:00 Lektion",
+    "TimeEdit_2026-10-14_20_03.xlsx:138 2027-02-04 13:00-15:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:136 2027-02-04 13:00-15:00 Lektion"
+   ],
+   "details": {
+    "courses": [
+     "SF1679",
+     "SF2930"
+    ],
+    "count": 4,
+    "relation": "same-subject",
+    "reference_count": 5,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-01-15",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-01-22",
+      "times": [
+       "10:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-04",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-02-12",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Lektion"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
    },
    "accepted": null
   },
@@ -22619,6 +25476,316 @@
     "gap_days": 0,
     "why": "overlapping",
     "relation": "electives"
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1691",
+   "key": "SF1691+SF1861",
+   "message": "SF1691 and SF1861: 10 overlapping session(s): Tue 2027-03-16 15:00-17:00 Föreläsning / Föreläsning; Fri 2027-03-19 08:00-10:00 Övning / Övning; Tue 2027-03-23 15:00-17:00 Föreläsning / Föreläsning; Thu 2027-04-08 15:00-17:00 Övning / Övning (+6 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 14 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:277 2027-03-16 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:278 2027-03-16 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:300 2027-03-19 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:301 2027-03-19 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:325 2027-03-23 15:00-17:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:326 2027-03-23 15:00-17:00 Föreläsning"
+   ],
+   "details": {
+    "courses": [
+     "SF1691",
+     "SF1861"
+    ],
+    "count": 10,
+    "relation": "same-subject",
+    "reference_count": 14,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-16",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-19",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-23",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-08",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-13",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-16",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-19",
+      "times": [
+       "13:00-15:00",
+       "13:00-15:00"
+      ],
+      "activities": [
+       "Övning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-22",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-27",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-03",
+      "times": [
+       "15:00-17:00",
+       "15:00-17:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1691",
+   "key": "SF1691+SF1904",
+   "message": "SF1691 and SF1904: 2 overlapping session(s): Thu 2027-03-25 08:00-10:00 Övning / Övning; Fri 2027-05-28 08:00-13:00 Tentamen / Tentamen. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:350 2027-03-25 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:351 2027-03-25 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:613 2027-05-28 08:00-13:00 Tentamen",
+    "TimeEdit_2026-10-14_20_03.xlsx:614 2027-05-28 08:00-13:00 Tentamen"
+   ],
+   "details": {
+    "courses": [
+     "SF1691",
+     "SF1904"
+    ],
+    "count": 2,
+    "relation": "same-subject",
+    "reference_count": 5,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-25",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-05-28",
+      "times": [
+       "08:00-13:00",
+       "08:00-13:00"
+      ],
+      "activities": [
+       "Tentamen",
+       "Tentamen"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "teaching.overlap",
+   "scope": "CTFYS3",
+   "course": "SF1691",
+   "key": "SF1691+SF2701",
+   "message": "SF1691 and SF2701: 3 overlapping session(s): Fri 2027-03-19 08:00-10:00 Övning / Föreläsning; Thu 2027-03-25 08:00-10:00 Övning / Övning; Fri 2027-04-23 08:00-10:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_03.xlsx:300 2027-03-19 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:299 2027-03-19 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:350 2027-03-25 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:352 2027-03-25 08:00-10:00 Övning",
+    "TimeEdit_2026-10-14_20_03.xlsx:486 2027-04-23 08:00-10:00 Föreläsning",
+    "TimeEdit_2026-10-14_20_03.xlsx:488 2027-04-23 08:00-10:00 Övning"
+   ],
+   "details": {
+    "courses": [
+     "SF1691",
+     "SF2701"
+    ],
+    "count": 3,
+    "relation": "same-subject",
+    "reference_count": 6,
+    "reference_term": "VT26",
+    "sessions": [
+     {
+      "date": "2027-03-19",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Föreläsning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-03-25",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Övning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     },
+     {
+      "date": "2027-04-23",
+      "times": [
+       "08:00-10:00",
+       "08:00-10:00"
+      ],
+      "activities": [
+       "Föreläsning",
+       "Övning"
+      ],
+      "whole_class": [
+       true,
+       true
+      ]
+     }
+    ]
    },
    "accepted": null
   },

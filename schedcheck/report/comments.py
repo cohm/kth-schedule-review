@@ -86,10 +86,33 @@ def _exam_pair(i: Issue, lang: str) -> str:
     return f"{s} {rel} {t['ask_move']}".strip()
 
 
+def _teaching(i: Issue, lang: str) -> str:
+    d = i.details
+    a, b = d["courses"]
+    rel = _relation_text(lang, d.get("relation", ""), i.scope)
+    sess = "; ".join(f"{s['date']} {s['times'][0]} {s['activities'][0]} / {s['times'][1]} {s['activities'][1]}"
+                     for s in d["sessions"][:4])
+    more = len(d["sessions"]) - 4
+    ref, n_old = d.get("reference_term"), d.get("reference_count", 0)
+    if lang == "sv":
+        s = f"{a} och {b} har {d['count']} tillfälle(n) som krockar: {sess}"
+        s += f" (+{more} till)." if more > 0 else "."
+        if ref:
+            s += f" {ref}: {n_old} krock(ar)." if n_old else f" Inga krockar {ref}."
+        return f"{s} {rel} Går det att flytta?".strip()
+    s = f"{a} and {b} have {d['count']} overlapping session(s): {sess}"
+    s += f" (+{more} more)." if more > 0 else "."
+    if ref:
+        s += f" {ref}: {n_old} overlap(s)." if n_old else f" No overlaps in {ref}."
+    return f"{s} {rel} Could one be moved?".strip()
+
+
 def render_issue(i: Issue, lang: str) -> str:
     t = T[lang]
     d = i.details
     ref = d.get("reference_term", "")
+    if i.check == "teaching.overlap" and "sessions" in d:
+        return _teaching(i, lang)
     if i.check in ("exams.spacing", "exams.reexam-path") and "courses" in d:
         return _exam_pair(i, lang)
     if lang == "sv":

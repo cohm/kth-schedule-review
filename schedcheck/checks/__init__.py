@@ -59,7 +59,7 @@ def register(name: str, applies_to: tuple[str, ...], description: str):
 
 def run_checks(ctx: Context) -> list[Issue]:
     # Import modules for their registration side effect.
-    from . import coverage, structure, exams, dataquality  # noqa: F401
+    from . import coverage, structure, exams, teaching, dataquality  # noqa: F401
     issues: list[Issue] = []
     for spec in REGISTRY:
         if ctx.review in spec.applies_to:

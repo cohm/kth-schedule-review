@@ -15,6 +15,7 @@ and reports:
 | `coverage` | study-plan courses missing from the schedule (and scheduled courses not in the plan); courses without an ordinary exam or a re-exam |
 | `structure` | per course: changed number of lectures/exercises/labs…, changed order, occasions moved ≥ 2 teaching weeks, changed exam modules |
 | `exams` | exams of courses taken in parallel on the same or consecutive days; re-exam paths (year N students retaking year N−1 courses); elective pairs ranked by how likely students take both (master-eligibility groups from the study plan count as "both") |
+| `teaching` | lectures, exercises, labs etc. of courses taken in parallel that overlap in time; graded by whether whole classes or single groups are affected and how likely students take both courses |
 | `dataquality` | stale course-round codes, exports whose date range misses the August re-exams, existing remiss comments |
 
 Outputs: a self-contained **HTML report**, **draft remiss comments** (Swedish or

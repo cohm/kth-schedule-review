@@ -18,6 +18,24 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
   - `TimeEdit_2026-10-14_20_04.xlsx:224 2027-06-02 14:00-17:00 Omtenta`
 - [review] SF1544: antalet tillfällen skiljer sig från VT26 (Tentamen 1→0). Per vecka: P3 exams: TEN → –. Är detta avsiktligt?
 
+## [SF1677](https://www.kth.se/student/kurser/kurs/SF1677)
+
+- [error] SF1677 och SF1678 har 1 tillfälle(n) som krockar: 2027-01-15 15:00-17:00 Övning / 15:00-17:00 Övning. VT26: 2 krock(ar). Båda kurserna krävs för behörighet till TMAKM, så många studenter läser båda. Går det att flytta?
+  - `TimeEdit_2026-10-14_20_03.xlsx:40 2027-01-15 15:00-17:00 Övning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:41 2027-01-15 15:00-17:00 Övning`
+- [warning] SF1677 och SF1861 har 6 tillfälle(n) som krockar: 2027-03-24 10:00-12:00 Övning / 10:00-12:00 Övning; 2027-04-06 13:00-15:00 Föreläsning / 13:00-15:00 Föreläsning; 2027-04-21 10:00-12:00 Föreläsning / 10:00-12:00 Föreläsning; 2027-04-29 10:00-12:00 Föreläsning / 10:00-12:00 Föreläsning (+2 till). VT26: 5 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
+  - `TimeEdit_2026-10-14_20_03.xlsx:338 2027-03-24 10:00-12:00 Övning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:339 2027-03-24 10:00-12:00 Övning`
+- [warning] SF1677 och SF1904 har 4 tillfälle(n) som krockar: 2027-03-15 13:00-15:00 Föreläsning / 13:00-15:00 Föreläsning; 2027-03-18 10:00-12:00 Föreläsning / 10:00-12:00 Övning; 2027-04-14 10:00-12:00 Föreläsning / 10:00-12:00 Övning; 2027-05-26 08:00-13:00 Tentamen / 08:00-11:00 Räknestuga. VT26: 1 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
+  - `TimeEdit_2026-10-14_20_03.xlsx:268 2027-03-15 13:00-15:00 Föreläsning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:269 2027-03-15 13:00-15:00 Föreläsning`
+
+## [DD1380](https://www.kth.se/student/kurser/kurs/DD1380)
+
+- [warning] DD1380 och DD2352 har 1 tillfälle(n) som krockar: 2027-01-15 08:00-10:00 Föreläsning / 08:00-10:00 Övning. Inga krockar VT26. Båda kurserna krävs för behörighet till TCSCM, så många studenter läser båda. Går det att flytta?
+  - `TimeEdit_2026-10-14_20_03.xlsx:32 2027-01-15 08:00-10:00 Föreläsning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:33 2027-01-15 08:00-10:00 Övning`
+
 ## [EI1320](https://www.kth.se/student/kurser/kurs/EI1320)
 
 - [warning] EI1320 (omtentamen 2027-04-02 14:00-18:00) och SF1683 (omtentamen 2027-04-02 14:00-18:00) ligger samtidigt. Påverkar studenter i CTFYS3 som behöver tentera om SF1683 från årskurs 2. Går det att sprida ut dem mer?
@@ -36,6 +54,12 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
   - `TimeEdit_2026-10-14_20_05.xlsx:226 2027-06-02 08:00-13:00 Omtenta`
   - `TimeEdit_2026-10-14_20_04.xlsx:224 2027-06-02 14:00-17:00 Omtenta`
 
+## [SF1679](https://www.kth.se/student/kurser/kurs/SF1679)
+
+- [warning] SF1679 och SF1691 har 2 tillfälle(n) som krockar: 2027-02-04 13:00-15:00 Övning / 13:00-15:00 Övning; 2027-02-11 13:00-15:00 Övning / 13:00-15:00 Övning. Inga krockar VT26. Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
+  - `TimeEdit_2026-10-14_20_03.xlsx:138 2027-02-04 13:00-15:00 Övning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:139 2027-02-04 13:00-15:00 Övning`
+
 ## [SF1683](https://www.kth.se/student/kurser/kurs/SF1683)
 
 - [warning] SF1683 (omtentamen 2027-04-02 14:00-18:00) och SK1104 (omtentamen 2027-04-02 14:00-17:00) ligger samtidigt. Påverkar studenter i CTFYS2 som behöver tentera om SK1104 från årskurs 1. Går det att sprida ut dem mer?
@@ -47,6 +71,9 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] SF1691 (ordinarie tentamen 2027-05-28 08:00-13:00) och SF1904 (ordinarie tentamen 2027-05-28 08:00-13:00) ligger samtidigt. Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att sprida ut dem mer?
   - `TimeEdit_2026-10-14_20_03.xlsx:613 2027-05-28 08:00-13:00 Tentamen`
   - `TimeEdit_2026-10-14_20_03.xlsx:614 2027-05-28 08:00-13:00 Tentamen`
+- [warning] SF1691 och SF2930 har 5 tillfälle(n) som krockar: 2027-01-28 10:00-12:00 Föreläsning / 10:00-12:00 Lektion; 2027-02-01 15:00-17:00 Föreläsning / 15:00-17:00 Lektion; 2027-02-04 13:00-15:00 Övning / 13:00-15:00 Lektion; 2027-02-18 13:00-15:00 Övning / 13:00-15:00 Lektion (+1 till). VT26: 1 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
+  - `TimeEdit_2026-10-14_20_03.xlsx:99 2027-01-28 10:00-12:00 Föreläsning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:101 2027-01-28 10:00-12:00 Lektion`
 - [review] SF1691: antalet tillfällen skiljer sig från VT26 (Övning 19→16). Per vecka: P3 w6: F Ö Ö Ö → F Ö Ö; P4 w1: F F Ö Ö Ö → F F Ö Ö; P4 w3: F Ö Ö Ö → F Ö Ö. Är detta avsiktligt?
 
 ## [SF1861](https://www.kth.se/student/kurser/kurs/SF1861)
@@ -58,9 +85,20 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] SF1861 (ordinarie tentamen 2027-05-31 08:00-13:00) och SF1678 (ordinarie tentamen 2027-05-31 14:00-18:00) ligger samma dag. Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att sprida ut dem mer?
   - `TimeEdit_2026-10-14_20_03.xlsx:619 2027-05-31 08:00-13:00 Tentamen`
   - `TimeEdit_2026-10-14_20_03.xlsx:622 2027-05-31 14:00-18:00 Tentamen`
+- [warning] SF1861 och SF2701 har 6 tillfälle(n) som krockar: 2027-03-19 08:00-10:00 Övning / 08:00-10:00 Föreläsning; 2027-03-24 08:00-10:00 Föreläsning / 08:00-10:00 Föreläsning; 2027-04-06 13:00-15:00 Föreläsning / 13:00-15:00 Föreläsning; 2027-05-03 13:00-15:00 Övning / 13:00-15:00 Föreläsning (+2 till). VT26: 4 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
+  - `TimeEdit_2026-10-14_20_03.xlsx:301 2027-03-19 08:00-10:00 Övning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:299 2027-03-19 08:00-10:00 Föreläsning`
 - [review] SF1861: antalet tillfällen skiljer sig från VT26 (Examination 6→5). Per vecka: P4 exams: TEN → DL TEN; P4 w4: F EX EX EX F Ö → F EX EX F Ö; P4 w9: DL → –. Är detta avsiktligt?
 - [review] SF1861: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Datorlaboration P4 w9→P4 exams). Är detta avsiktligt?
   - `TimeEdit_2026-10-14_20_03.xlsx:617 2027-05-28 14:00-16:00 Datorlaboration`
+
+## [SF1904](https://www.kth.se/student/kurser/kurs/SF1904)
+
+- [warning] SF1904 och SF2701 har 3 tillfälle(n) som krockar: 2027-03-25 08:00-10:00 Övning / 08:00-10:00 Övning; 2027-04-20 13:00-15:00 Föreläsning / 13:00-15:00 Föreläsning; 2027-05-04 08:00-10:00 Föreläsning / 08:00-10:00 Föreläsning. VT26: 1 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
+  - `TimeEdit_2026-10-14_20_03.xlsx:351 2027-03-25 08:00-10:00 Övning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:352 2027-03-25 08:00-10:00 Övning`
+- [review] SF1904: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Räknestuga P4 w9→P4 exams). Är detta avsiktligt?
+  - `TimeEdit_2026-10-14_20_03.xlsx:607 2027-05-26 08:00-11:00 Räknestuga`
 
 ## [SF1922](https://www.kth.se/student/kurser/kurs/SF1922)
 
@@ -82,6 +120,16 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
   - `TimeEdit_2026-10-14_20_05.xlsx:240 2027-08-24 08:00-13:00 Omtenta`
   - `TimeEdit_2026-10-14_20_04.xlsx:239 2027-08-24 14:00-18:00 Examination`
 - [review] SG1112: antalet tillfällen skiljer sig från VT26 (Övning 14→15). Per vecka: P4 w3: Ö F → F Ö; P4 w6: F → F F; P4 w7: F Ö F Ö → Ö F Ö; P4 w8: F Ö → F Ö KS Övr. Är detta avsiktligt?
+
+## [SI1142](https://www.kth.se/student/kurser/kurs/SI1142)
+
+- [warning] SI1142 och SI2360 har 2 tillfälle(n) som krockar: 2027-03-23 15:00-17:00 Föreläsning / 15:00-17:00 Övning; 2027-04-12 13:00-15:00 Föreläsning / 13:00-15:00 Föreläsning. VT26: 1 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
+  - `TimeEdit_2026-10-14_20_03.xlsx:327 2027-03-23 15:00-17:00 Föreläsning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:329 2027-03-23 15:00-17:00 Övning`
+- [review] SI1142: antalet tillfällen skiljer sig från VT26 (Tentamen 0→2). Per vecka: P4 exams: – → TEN TEN; P4 w1: F → F F; P4 w2: F → F F; P4 w3: – → F. Är detta avsiktligt?
+- [review] SI1142: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P4 w4→P4 w2; Föreläsning P4 w5→P4 w2; Föreläsning P4 w7→P4 w3; Föreläsning P4 w8→P4 w4). Är detta avsiktligt?
+  - `TimeEdit_2026-10-14_20_03.xlsx:313 2027-03-22 13:00-15:00 Föreläsning`
+  - `TimeEdit_2026-10-14_20_03.xlsx:327 2027-03-23 15:00-17:00 Föreläsning`
 
 ## [SI1155](https://www.kth.se/student/kurser/kurs/SI1155)
 
@@ -188,11 +236,6 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 - [review] SE1055: examinationsmodulerna på tentamen har ändrats (TEN1, TEN2 → TEN1). Är detta avsiktligt?
 
-## [SF1904](https://www.kth.se/student/kurser/kurs/SF1904)
-
-- [review] SF1904: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Räknestuga P4 w9→P4 exams). Är detta avsiktligt?
-  - `TimeEdit_2026-10-14_20_03.xlsx:607 2027-05-26 08:00-11:00 Räknestuga`
-
 ## [SF1926](https://www.kth.se/student/kurser/kurs/SF1926)
 
 - [review] SF1926 är ny jämfört med . Stämmer det att den ska ingå?
@@ -205,13 +248,6 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 - [review] SH2404: antalet tillfällen skiljer sig från VT26 (Datorlaboration 1→0; Seminarium 0→1). Per vecka: P4 w4: DL R → S R. Är detta avsiktligt?
 - [review] SH2404: examinationsmodulerna på tentamen har ändrats (TEN1 → TEN2). Är detta avsiktligt?
-
-## [SI1142](https://www.kth.se/student/kurser/kurs/SI1142)
-
-- [review] SI1142: antalet tillfällen skiljer sig från VT26 (Tentamen 0→2). Per vecka: P4 exams: – → TEN TEN; P4 w1: F → F F; P4 w2: F → F F; P4 w3: – → F. Är detta avsiktligt?
-- [review] SI1142: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P4 w4→P4 w2; Föreläsning P4 w5→P4 w2; Föreläsning P4 w7→P4 w3; Föreläsning P4 w8→P4 w4). Är detta avsiktligt?
-  - `TimeEdit_2026-10-14_20_03.xlsx:313 2027-03-22 13:00-15:00 Föreläsning`
-  - `TimeEdit_2026-10-14_20_03.xlsx:327 2027-03-23 15:00-17:00 Föreläsning`
 
 ## [SI1336](https://www.kth.se/student/kurser/kurs/SI1336)
 

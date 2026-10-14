@@ -118,7 +118,30 @@ For each course compare occasions. Judging differences:
   combined than unrelated ones.
 - Two codes on one row (e.g. DD2421 + FDD3431) are the same sitting, not a clash.
 
-### 4. Data quality
+### 4. Teaching overlaps
+
+Sessions (lectures, exercises, labs, seminars, KS, programme information) of
+courses taken in parallel must not overlap; students cannot be in two places.
+
+- Two whole-class sessions of mandatory courses overlapping: error.
+- A whole-class session overlapping one group's session: affects that group
+  only, still worth fixing. Two group sessions overlapping may be fine if the
+  group divisions are coordinated; ask only if in doubt.
+- Electives: same rules of thumb as for exams (master-eligibility groups count
+  as mandatory; same-subject pairs matter more than unrelated ones). An
+  elective overlap that already existed last year is a known pattern; raise it
+  only if it got worse or affects many sessions.
+- Optional activities (räknestuga, övrigt) matter less.
+- The programme's own activities (code `8X<PROG>`, e.g. term-start
+  information) count as mandatory. Shared slots of other codes (e.g. joint
+  degree-project time for many programmes) are context.
+- The same session listed under two codes (e.g. a course and its doctoral
+  variant) is not a clash; neither is a re-exam during teaching.
+
+The report's per-year panel states the number of sessions checked and whether
+any overlap, so "no clashes" is visible as a result.
+
+### 5. Data quality
 
 - A teaching row tied to a course **round from another term** (e.g.
   "SK1104-51000 (HT25)" in VT27) is likely a stale round; ask the scheduler.

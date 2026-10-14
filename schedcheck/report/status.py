@@ -96,6 +96,24 @@ def year_status(res: ReviewResult, key) -> list[dict]:
     lines.append(_spacing_line("Re-exam spacing", reexams,
                                [i for i in spacing if "reexam" in i.details.get("kinds", [])]))
 
+    # Teaching overlaps
+    from ..checks.teaching import overlapping_pairs
+    yp_ = ctx.plans.get(key)
+    planned = set(yp_.plan.courses) if yp_ and yp_.plan else None
+    raw = list(overlapping_pairs(ctx.new.year_events.get(key, []), planned))
+    if ctx.courses:
+        raw = [(a, b) for a, b in raw if set(a.codes + b.codes) & ctx.courses]
+    tov = [i for i in mine if i.check == "teaching.overlap"]
+    n_sessions = len({(e.start, e.row) for e in ctx.new.year_events.get(key, [])
+                      if e.codes or e.other_codes})
+    if not raw:
+        text = f"{n_sessions} sessions checked: no two sessions of different courses overlap."
+    else:
+        text = (f"{n_sessions} sessions checked: {len(raw)} overlapping session pair(s)"
+                + (f"; reported for {len(tov)} course pair(s) ({_count_text(tov)})." if tov else
+                   "; none between courses likely to be taken together."))
+    lines.append({"check": "Teaching overlaps", "status": _worst(tov), "text": text})
+
     # Re-exam paths from the year below
     prev = (prog, (year or 0) - 1)
     if year and year > 1 and prev in ctx.new.year_events:

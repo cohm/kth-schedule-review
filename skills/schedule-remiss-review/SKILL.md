@@ -42,7 +42,9 @@ the domain and the judgement rules. Do not invent rules that contradict it.
 
    It writes `<out>/issues.json`, an HTML report and a comment draft.
 
-3. **Read the notes** in `issues.json` (`notes`): study-plan cohorts used, whether
+3. **Read `year_status`** in `issues.json` first: per programme year, what was
+   checked and the outcome (including explicit "no clashes"). Then read the
+   notes (`notes`): study-plan cohorts used, whether
    a year's plan is approximated, whether the programme's plan data is
    unverified. Carry these caveats into your summary.
 
