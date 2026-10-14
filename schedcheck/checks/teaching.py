@@ -177,3 +177,68 @@ def check_teaching(ctx: Context) -> list[Issue]:
                                       for ea, eb, _ in sessions]},
             ))
     return issues
+
+
+def self_overlaps(events: list[Event], code: str) -> list[tuple[Event, Event]]:
+    """Overlapping sessions of one course that the same students must attend:
+    a whole-class session overlapping any other session of the course, or two
+    sessions sharing a group. Parallel sessions of the same activity at the
+    same time (one session split over rooms or groups) are not clashes."""
+    evs = sorted((e for e in events if code in e.codes
+                  and not e.activity.casefold().startswith(REEXAM_ACTIVITY_PREFIXES)),
+                 key=lambda e: e.start)
+    out = []
+    for i, a in enumerate(evs):
+        for b in evs[i + 1:]:
+            if b.start >= a.end:
+                break
+            if a is b or _shared(a, b):
+                continue
+            if a.activity == b.activity and a.start == b.start and a.end == b.end:
+                continue  # parallel instances of one session
+            wa, wb = _is_whole_class(a), _is_whole_class(b)
+            if wa or wb or set(a.groups) & set(b.groups):
+                out.append((a, b))
+    return out
+
+
+@register("teaching-self", ("program", "course"), "Overlapping sessions within one course")
+def check_self_overlap(ctx: Context) -> list[Issue]:
+    issues: list[Issue] = []
+    for key in sorted(ctx.new.year_events, key=lambda k: (k[0], k[1] or 0)):
+        prog, year = key
+        scope = f"{prog}{year or ''}"
+        evs = ctx.new.year_events.get(key, [])
+        old_evs = ctx.old.year_events.get(key, []) if ctx.old else []
+        for code in sorted({c for e in evs for c in e.codes if ctx.wants(c)}):
+            pairs = self_overlaps(evs, code)
+            if not pairs:
+                continue
+            n_old = len(self_overlaps(old_evs, code)) if ctx.old else 0
+            both_whole = all(_is_whole_class(a) and _is_whole_class(b) for a, b in pairs)
+            why = ("Both sessions are marked as whole class, so either students are expected in "
+                   "two places or the group labels are wrong." if both_whole else
+                   "A whole-class session overlaps a group session, or one group has two sessions "
+                   "at once.")
+            hist = (f" The same pattern occurred {n_old} time(s) in {ctx.old.term}." if n_old
+                    else (f" Not in {ctx.old.term}." if ctx.old else ""))
+            listed = "; ".join(
+                f"{a.start:%a %Y-%m-%d} {a.start:%H:%M}-{a.end:%H:%M} {a.activity} / "
+                f"{b.start:%H:%M}-{b.end:%H:%M} {b.activity}" for a, b in pairs[:4])
+            more = f" (+{len(pairs) - 4} more)" if len(pairs) > 4 else ""
+            issues.append(Issue(
+                "warning", "teaching.self-overlap", scope, code,
+                f"{code} clashes with itself: {len(pairs)} overlapping session pair(s): "
+                f"{listed}{more}. {why}{hist}",
+                key=f"{code}:{len(pairs)}",
+                evidence=[e.cite() for a, b in pairs[:3] for e in (a, b)],
+                details={"count": len(pairs), "reference_count": n_old,
+                         "reference_term": ctx.old.term if ctx.old else None,
+                         "both_whole_class": both_whole,
+                         "sessions": [{"date": f"{a.start:%Y-%m-%d}",
+                                       "times": [f"{a.start:%H:%M}-{a.end:%H:%M}",
+                                                 f"{b.start:%H:%M}-{b.end:%H:%M}"],
+                                       "activities": [a.activity, b.activity],
+                                       "groups": [a.groups, b.groups]} for a, b in pairs]},
+            ))
+    return issues

@@ -143,6 +143,13 @@ courses taken in parallel must not overlap; students cannot be in two places.
   degree-project time for many programmes) are context.
 - The same session listed under two codes (e.g. a course and its doctoral
   variant) is not a clash; neither is a re-exam during teaching.
+- **A course can clash with itself.** Sessions of one course may run in
+  parallel for different subgroups, but a session marked "Helklass" (whole
+  class) is for everyone, so it must not overlap another session of the same
+  course; nor may one group have two sessions at once. Parallel instances of
+  the same activity at the same time (one session split over rooms) are fine.
+  Such a clash is either a real double booking or a wrong group label, and
+  both are worth asking about.
 
 The report's per-year panel states the number of sessions checked and whether
 any overlap, so "no clashes" is visible as a result.

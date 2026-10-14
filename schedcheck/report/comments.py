@@ -125,6 +125,19 @@ def render_issue(i: Issue, lang: str) -> str:
     ref = d.get("reference_term", "")
     if i.check == "teaching.overlap" and "sessions" in d:
         return _teaching(i, lang)
+    if i.check == "teaching.self-overlap" and "sessions" in d:
+        sess = "; ".join(f"{x['date']} {x['times'][0]} {x['activities'][0]} / {x['times'][1]} "
+                         f"{x['activities'][1]}" for x in d["sessions"][:4])
+        n_old = d.get("reference_count", 0)
+        if lang == "sv":
+            s = f"{i.course} krockar med sig själv: {sess}."
+            if d.get("both_whole_class"):
+                s += (" Båda tillfällena är markerade som helklass – ska studenterna vara på båda, "
+                      "eller ska de delas i grupper?")
+            if ref:
+                s += f" Samma mönster fanns {ref}." if n_old else f" Fanns inte {ref}."
+            return s
+        return f"{i.message} Should these be split into groups, or moved?"
     if i.check in ("exams.spacing", "exams.reexam-path") and "courses" in d:
         return _exam_pair(i, lang)
     if lang == "sv":

@@ -145,6 +145,13 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
   - `TimeEdit_2026-10-14_20_05.xlsx:95 2027-03-08 14:00-17:00 Tentamen`
 - [review] SI1200: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P3 v7: … Ö F [Ö F] R TEN → … Ö F [F Ö] R TEN). Är detta avsiktligt?
 
+## [SK1105](https://www.kth.se/student/kurser/kurs/SK1105)
+
+- [warning] SK1105 krockar med sig själv: 2027-04-20 09:00-12:00 Laboration / 10:00-12:00 Seminarium; 2027-04-21 09:00-12:00 Laboration / 10:00-12:00 Seminarium; 2027-04-27 09:00-12:00 Laboration / 09:00-12:00 Redovisning; 2027-04-28 09:00-12:00 Laboration / 09:00-12:00 Redovisning. Båda tillfällena är markerade som helklass – ska studenterna vara på båda, eller ska de delas i grupper? Samma mönster fanns VT26.
+  - `TimeEdit_2026-10-14_20_05.xlsx:162 2027-04-20 09:00-12:00 Laboration`
+  - `TimeEdit_2026-10-14_20_05.xlsx:163 2027-04-20 10:00-12:00 Seminarium`
+- [review] SK1105: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v6: … L L [L Red] L Red … → … L L [Red L] L Red …). Är detta avsiktligt?
+
 ## [AK2011](https://www.kth.se/student/kurser/kurs/AK2011)
 
 - [review] AK2011 är ny jämfört med . Stämmer det att den ska ingå?
@@ -256,10 +263,6 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 ## [SI2360](https://www.kth.se/student/kurser/kurs/SI2360)
 
 - [review] SI2360: examinationsmodulerna på tentamen har ändrats (TENT → TEN1-2). Är detta avsiktligt?
-
-## [SK1105](https://www.kth.se/student/kurser/kurs/SK1105)
-
-- [review] SK1105: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v6: … L L [L Red] L Red … → … L L [Red L] L Red …). Är detta avsiktligt?
 
 ## [SK2712](https://www.kth.se/student/kurser/kurs/SK2712)
 

@@ -112,7 +112,13 @@ def year_status(res: ReviewResult, key) -> list[dict]:
         text = (f"{n_sessions} sessions checked: {len(raw)} overlapping session pair(s)"
                 + (f"; reported for {len(tov)} course pair(s) ({_count_text(tov)})." if tov else
                    "; none between courses likely to be taken together."))
-    lines.append({"check": "Teaching overlaps", "status": _worst(tov), "text": text})
+    selfov = [i for i in mine if i.check == "teaching.self-overlap"]
+    if selfov:
+        text += (f" Within a course: {sum(i.details['count'] for i in selfov)} overlapping session "
+                 f"pair(s) in {', '.join(sorted(i.course for i in selfov))}.")
+    else:
+        text += " No course overlaps with itself."
+    lines.append({"check": "Teaching overlaps", "status": _worst(tov + selfov), "text": text})
 
     # Re-exam paths from the year below
     prev = (prog, (year or 0) - 1)

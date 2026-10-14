@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-14T22:37:36",
+ "generated": "2026-10-14T22:48:05",
  "review": "program",
  "title": "CTFYS VT27 vs VT26",
  "term": "VT27",
@@ -117,8 +117,8 @@
    },
    {
     "check": "Teaching overlaps",
-    "status": "ok",
-    "text": "180 sessions checked: no two sessions of different courses overlap."
+    "status": "warning",
+    "text": "180 sessions checked: no two sessions of different courses overlap. Within a course: 4 overlapping session pair(s) in SK1105."
    },
    {
     "check": "Retaken by year 2",
@@ -155,7 +155,7 @@
    {
     "check": "Teaching overlaps",
     "status": "ok",
-    "text": "179 sessions checked: no two sessions of different courses overlap."
+    "text": "179 sessions checked: no two sessions of different courses overlap. No course overlaps with itself."
    },
    {
     "check": "Retaking year 1 courses",
@@ -197,7 +197,7 @@
    {
     "check": "Teaching overlaps",
     "status": "error",
-    "text": "588 sessions checked: 549 overlapping session pair(s); reported for 32 course pair(s) (1 error, 8 warning, 23 info)."
+    "text": "588 sessions checked: 549 overlapping session pair(s); reported for 32 course pair(s) (1 error, 8 warning, 23 info). No course overlaps with itself."
    },
    {
     "check": "Retaking year 2 courses",
@@ -213,7 +213,7 @@
  },
  "summary": {
   "error": 3,
-  "warning": 22,
+  "warning": 23,
   "review": 47,
   "info": 84
  },
@@ -298,6 +298,107 @@
       "whole_class": [
        true,
        true
+      ]
+     }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
+   "check": "teaching.self-overlap",
+   "scope": "CTFYS1",
+   "course": "SK1105",
+   "key": "SK1105:4",
+   "message": "SK1105 clashes with itself: 4 overlapping session pair(s): Tue 2027-04-20 09:00-12:00 Laboration / 10:00-12:00 Seminarium; Wed 2027-04-21 09:00-12:00 Laboration / 10:00-12:00 Seminarium; Tue 2027-04-27 09:00-12:00 Laboration / 09:00-12:00 Redovisning; Wed 2027-04-28 09:00-12:00 Laboration / 09:00-12:00 Redovisning. Both sessions are marked as whole class, so either students are expected in two places or the group labels are wrong. The same pattern occurred 4 time(s) in VT26.",
+   "evidence": [
+    "TimeEdit_2026-10-14_20_05.xlsx:162 2027-04-20 09:00-12:00 Laboration",
+    "TimeEdit_2026-10-14_20_05.xlsx:163 2027-04-20 10:00-12:00 Seminarium",
+    "TimeEdit_2026-10-14_20_05.xlsx:165 2027-04-21 09:00-12:00 Laboration",
+    "TimeEdit_2026-10-14_20_05.xlsx:166 2027-04-21 10:00-12:00 Seminarium",
+    "TimeEdit_2026-10-14_20_05.xlsx:173 2027-04-27 09:00-12:00 Laboration",
+    "TimeEdit_2026-10-14_20_05.xlsx:174 2027-04-27 09:00-12:00 Redovisning"
+   ],
+   "details": {
+    "count": 4,
+    "reference_count": 4,
+    "reference_term": "VT26",
+    "both_whole_class": true,
+    "sessions": [
+     {
+      "date": "2027-04-20",
+      "times": [
+       "09:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Laboration",
+       "Seminarium"
+      ],
+      "groups": [
+       [
+        "SK1105 Helklass"
+       ],
+       [
+        "SK1105 Helklass"
+       ]
+      ]
+     },
+     {
+      "date": "2027-04-21",
+      "times": [
+       "09:00-12:00",
+       "10:00-12:00"
+      ],
+      "activities": [
+       "Laboration",
+       "Seminarium"
+      ],
+      "groups": [
+       [
+        "SK1105 Helklass"
+       ],
+       [
+        "SK1105 Helklass"
+       ]
+      ]
+     },
+     {
+      "date": "2027-04-27",
+      "times": [
+       "09:00-12:00",
+       "09:00-12:00"
+      ],
+      "activities": [
+       "Laboration",
+       "Redovisning"
+      ],
+      "groups": [
+       [
+        "SK1105 Helklass"
+       ],
+       [
+        "SK1105 Helklass"
+       ]
+      ]
+     },
+     {
+      "date": "2027-04-28",
+      "times": [
+       "09:00-12:00",
+       "09:00-12:00"
+      ],
+      "activities": [
+       "Laboration",
+       "Redovisning"
+      ],
+      "groups": [
+       [
+        "SK1105 Helklass"
+       ],
+       [
+        "SK1105 Helklass"
+       ]
       ]
      }
     ]

@@ -67,3 +67,34 @@ class TeachingOverlap(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SelfOverlap(unittest.TestCase):
+    def evs(self, rows):
+        from schedcheck.io.timeedit import read_export
+        with tempfile.TemporaryDirectory() as d:
+            p = make_export(Path(d) / "x.xlsx", "XPROG1, Test", "2027-01-12 - 2027-08-29", rows)
+            return read_export(p).events
+
+    def test_whole_class_lab_and_seminar_clash(self):
+        from schedcheck.checks.teaching import self_overlaps
+        evs = self.evs([
+            row(H, "2027-04-20", "09:00", "12:00", "Laboration", "AA1001", "AA1001 Helklass", "XPROG1"),
+            row(H, "2027-04-20", "10:00", "12:00", "Seminarium", "AA1001", "AA1001 Helklass", "XPROG1")])
+        self.assertEqual(len(self_overlaps(evs, "AA1001")), 1)
+
+    def test_parallel_subgroups_and_split_rooms_are_fine(self):
+        from schedcheck.checks.teaching import self_overlaps
+        evs = self.evs([
+            row(H, "2027-04-20", "09:00", "12:00", "Laboration", "AA1001", "AA1001 grupp A", "XPROG1"),
+            row(H, "2027-04-20", "09:00", "12:00", "Seminarium", "AA1001", "AA1001 grupp B", "XPROG1"),
+            row(H, "2027-04-21", "08:00", "10:00", "Övning", "AA1001", "AA1001 Helklass", "XPROG1", Lokal="Q1"),
+            row(H, "2027-04-21", "08:00", "10:00", "Övning", "AA1001", "AA1001 Helklass", "XPROG1", Lokal="Q2")])
+        self.assertEqual(self_overlaps(evs, "AA1001"), [])
+
+    def test_same_group_double_booked(self):
+        from schedcheck.checks.teaching import self_overlaps
+        evs = self.evs([
+            row(H, "2027-04-20", "09:00", "12:00", "Laboration", "AA1001", "AA1001 grupp A", "XPROG1"),
+            row(H, "2027-04-20", "11:00", "12:00", "Seminarium", "AA1001", "AA1001 grupp A", "XPROG1")])
+        self.assertEqual(len(self_overlaps(evs, "AA1001")), 1)
