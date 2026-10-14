@@ -18,6 +18,8 @@ judging findings). Usage: `README.md`. Extending: `docs/ADDING_A_CHECK.md`.
 - Stdlib only, Python ≥ 3.11. Run `python3 -m unittest discover -s tests -t .`.
 - No programme-specific logic in code; programme knowledge goes in `programs/<PROG>.toml`
   or comes from the study-plan data.
-- Never commit real exports or generated reports (names, comments). `.gitignore` covers them.
+- Never commit real exports or ad-hoc reports. `.gitignore` covers them. The one exception is
+  curated examples in `docs/examples/`, added only when the owner asks and after checking
+  that no staff names or local paths are in them (see `docs/examples/README.md`).
 - Keep `docs/PROCESS.md` in sync when judgement rules change.
 - Issue `key`s must stay stable across runs (accept lists depend on them).

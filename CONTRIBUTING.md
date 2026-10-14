@@ -2,8 +2,10 @@
 
 Contributions from programme directors, teachers and schedulers are welcome.
 
-- **Never commit real schedule exports or reports.** They contain names and
-  comments. Tests use synthetic exports built in `tests/helpers.py`.
+- **Never commit real schedule exports** (they contain staff names) or ad-hoc
+  reports. Tests use synthetic exports built in `tests/helpers.py`.
+  Deliberately chosen example outputs may go in `docs/examples/` once checked:
+  no staff names, no local paths, and the programme director agrees.
 - **Adding a programme** usually needs no code: if ProgramVisualization has
   its study plans, it works. Programme-level knowledge (threshold overrides,
   extra eligibility groups) goes in `programs/<PROG>.toml`; see `EXAMPLE.toml`.

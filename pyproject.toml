@@ -16,3 +16,6 @@ schedcheck = "schedcheck.__main__:main"
 
 [tool.setuptools.packages.find]
 include = ["schedcheck*"]
+
+[tool.setuptools.package-data]
+schedcheck = ["report/assets/*.svg"]

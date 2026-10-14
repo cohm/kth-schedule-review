@@ -22,5 +22,6 @@ Put the files for one term in one folder; Excel lock files (`~$…xlsx`) are ign
 ## Privacy
 
 Exports contain teachers' names, rooms and comments. Keep them out of version
-control (the repo's `.gitignore` excludes `*.xlsx`) and do not share reports
-publicly without checking their content.
+control (the repo's `.gitignore` excludes `*.xlsx`). The reports do not
+include staff names, but they do quote the remiss-comment column; check
+their content before sharing them publicly.

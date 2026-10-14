@@ -23,6 +23,10 @@ Nothing is ever sent anywhere; you edit and send the comments yourself.
 
 Requires Python ≥ 3.11 and nothing else.
 
+**Example:** the review of the CTFYS VT27 remiss —
+[report](https://cohm.github.io/kth-schedule-review/docs/examples/CTFYS_VT27/CTFYS_VT27_review.html),
+[draft comments](docs/examples/CTFYS_VT27/CTFYS_VT27_kommentarer.md), [about](docs/examples/README.md).
+
 ## Quick start
 
 1. Export the schedules from TimeEdit as .xlsx, one file per programme year,
@@ -113,4 +117,5 @@ python3 -m unittest discover -s tests -t .
 ```
 
 Tests use synthetic exports generated in code; never add real exports to the
-repo. See [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/ADDING_A_CHECK.md](docs/ADDING_A_CHECK.md).
+repo. Curated example outputs live in `docs/examples/`, checked for personal
+data before they are added. See [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/ADDING_A_CHECK.md](docs/ADDING_A_CHECK.md).

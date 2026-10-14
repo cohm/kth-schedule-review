@@ -1,10 +1,13 @@
-"""Self-contained HTML report (no external resources).
+"""Self-contained HTML report in the KTH graphical profile.
+
+Everything is inline except the Figtree web font (Google Fonts), which
+degrades to Helvetica/Arial when offline.
 
 Sections: summary, issue table (filterable), exam calendar per term,
 per-course week-by-week structure comparison.
 
-Colour use follows a fixed role scheme: severity uses status colours and
-always carries an icon + label; activity chips use categorical slots in a
+Colour use follows a fixed role scheme: severity uses KTH functional colours
+and always carries an icon + label; activity chips use the KTH palette in a
 fixed order and always carry a text label, so colour is never the only cue.
 """
 from __future__ import annotations
@@ -18,6 +21,8 @@ from ..model import SEVERITIES, severity_rank
 from ..reviews.program import ReviewResult
 from ..term import TermData
 
+LOGO_SVG = (Path(__file__).parent / "assets" / "kth_logo.svg").read_text(encoding="utf-8").strip()
+
 SEV_ICON = {"error": "✖", "warning": "▲", "review": "◆", "info": "●"}
 SEV_LABEL = {"error": "Error", "warning": "Warning", "review": "Review", "info": "Info"}
 
@@ -26,38 +31,55 @@ ACT_SLOT = {"F": 1, "Ö": 2, "L": 3, "DL": 3, "S": 4, "Le": 5, "W": 5, "P": 6, "
             "TEN": 8, "KS": 8, "EX": 8}
 
 CSS = """
+/* KTH Graphical Profile (Grafisk manual v1.2, 2024), as defined in
+   https://github.com/cohm/kth-doc-templates. The profile defines no dark
+   theme; the dark tokens below keep the KTH hues, stepped for a dark surface. */
 :root {
   color-scheme: light;
-  --surface-0: #f5f4f1; --surface-1: #fcfcfb; --surface-2: #f0efec; --border: #dddcd6;
-  --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #77766f;
-  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4;
-  --s6: #008300; --s7: #6250d6; --s8: #e34948;
-  --critical: #d03b3b; --warning: #fab219; --serious: #ec835a; --review: #2a78d6; --muted: #9a998f;
-  --hl: #fff4d6;
+  --kth-blue: #004791; --kth-navy: #000061; --kth-skyblue: #6298D2; --kth-lightblue: #DEF0FF;
+  --kth-sand: #EBE5E0; --kth-brokenblack: #212121; --kth-brokenwhite: #FCFCFC;
+  --surface-0: var(--kth-brokenwhite); --surface-1: #FFFFFF; --surface-2: #F4F1EE;
+  --border: #E6E6E6; --text-primary: var(--kth-brokenblack); --text-secondary: #323232;
+  --text-muted: #5A5A5A; --accent: var(--kth-blue); --logo: var(--kth-navy);
+  /* activity chips: KTH primary + functional palette */
+  --s1: #004791; --s2: #E86A58; --s3: #4DA060; --s4: #FFBE00; --s5: #339C9C;
+  --s6: #000061; --s7: #6298D2; --s8: #78001A;
+  /* severities: brick / yellow / blue / gray, always with icon + label */
+  --critical: #78001A; --warning: #A65900; --review: #004791; --muted: #A5A5A5;
+  --hl: var(--kth-lightblue);
 }
 @media (prefers-color-scheme: dark) {
   :root:where(:not([data-theme="light"])) {
     color-scheme: dark;
-    --surface-0: #121211; --surface-1: #1a1a19; --surface-2: #262624; --border: #383835;
-    --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #9a998f;
-    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
-    --s6: #008300; --s7: #9085e9; --s8: #e66767; --review: #3987e5; --hl: #3a3320;
+    --surface-0: #12121A; --surface-1: #1B1B26; --surface-2: #262634; --border: #34344A;
+    --text-primary: #FCFCFC; --text-secondary: #E6E6E6; --text-muted: #A5A5A5;
+    --accent: #6298D2; --logo: #FFFFFF;
+    --s1: #6298D2; --s2: #E86A58; --s3: #4DA060; --s4: #FFBE00; --s5: #339C9C;
+    --s6: #C7EBBA; --s7: #DEF0FF; --s8: #FFCCC4;
+    --critical: #E86A58; --warning: #FFBE00; --review: #6298D2; --hl: #1C2B4A;
   }
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --surface-0: #121211; --surface-1: #1a1a19; --surface-2: #262624; --border: #383835;
-  --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #9a998f;
-  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181;
-  --s6: #008300; --s7: #9085e9; --s8: #e66767; --review: #3987e5; --hl: #3a3320;
+  --surface-0: #12121A; --surface-1: #1B1B26; --surface-2: #262634; --border: #34344A;
+  --text-primary: #FCFCFC; --text-secondary: #E6E6E6; --text-muted: #A5A5A5;
+  --accent: #6298D2; --logo: #FFFFFF;
+  --s1: #6298D2; --s2: #E86A58; --s3: #4DA060; --s4: #FFBE00; --s5: #339C9C;
+  --s6: #C7EBBA; --s7: #DEF0FF; --s8: #FFCCC4;
+  --critical: #E86A58; --warning: #FFBE00; --review: #6298D2; --hl: #1C2B4A;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--surface-0); color: var(--text-primary);
-  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  font: 14px/1.5 "Figtree", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.kthhead { display: flex; align-items: center; gap: 16px; margin: 0 0 4px; }
+.kthhead svg { height: 56px; width: auto; flex: none; color: var(--logo); }
 main { max-width: 1280px; margin: 0 auto; padding: 24px 16px 64px; }
-h1 { font-size: 22px; margin: 0 0 4px; }
-h2 { font-size: 17px; margin: 32px 0 8px; }
+h1, h2, h3 { font-weight: 600; color: var(--accent); line-height: 1.2; }
+h1 { font-size: 24px; margin: 0; padding-bottom: 6px; border-bottom: 2px solid var(--accent); flex: 1; }
+h2 { font-size: 18px; margin: 32px 0 8px; padding-bottom: 3px;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); }
 h3 { font-size: 15px; margin: 16px 0 6px; }
+h2 .sub { color: var(--text-secondary); font-weight: 500; }
 .sub { color: var(--text-secondary); margin: 0 0 16px; }
 .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
 .tiles { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
@@ -81,7 +103,7 @@ th { font-weight: 600; color: var(--text-secondary); font-size: 12px; text-trans
 td.msg { min-width: 360px; }
 tr.accepted td { opacity: .55; }
 .ev { color: var(--text-muted); font-size: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+code { font-family: "SF Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
 .cal { overflow-x: auto; }
 .cal table { width: auto; }
 .cal th.win { text-align: center; border-left: 2px solid var(--border); }
@@ -122,7 +144,7 @@ details.course summary .cnt { font-weight: 400; color: var(--text-secondary); ma
 .seg input { position: absolute; opacity: 0; pointer-events: none; }
 .seg label { padding: 5px 12px; cursor: pointer; background: var(--surface-1); border-left: 1px solid var(--border); }
 .seg label:first-of-type { border-left: 0; }
-.seg input:checked + label { background: var(--text-primary); color: var(--surface-1); font-weight: 600; }
+.seg input:checked + label { background: var(--accent); color: var(--surface-1); font-weight: 600; }
 .seg input:focus-visible + label { outline: 2px solid var(--review); outline-offset: -2px; }
 .cal tr.sel td { background: var(--hl); }
 .cal tr.sel td.y::before { content: "▶ "; }
@@ -360,9 +382,13 @@ def render(res: ReviewResult) -> str:
 
     out = ["<!doctype html><html lang='en'><head><meta charset='utf-8'>",
            "<meta name='viewport' content='width=device-width, initial-scale=1'>",
+           # Figtree (KTH profile font); falls back to Helvetica/Arial offline.
+           "<link rel='preconnect' href='https://fonts.googleapis.com'>",
+           "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>",
+           "<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap'>",
            f"<title>Schedule review {esc(res.title)}</title><style>{CSS}</style></head><body><main>",
            "<button class='themebtn' id='theme' type='button'>Toggle theme</button>",
-           f"<h1>Schedule review: {esc(res.title)}</h1>"]
+           f"<div class='kthhead'>{LOGO_SVG}<h1>Schedule review: {esc(res.title)}</h1></div>"]
     src = ", ".join(sorted({ex.label for ex in ctx.new.exports}))
     sub = f"Under review: {esc(ctx.new.term)} ({esc(src)})"
     if ctx.old:
