@@ -155,6 +155,13 @@ h1 { overflow-wrap: anywhere; }
 .capn.cap-higher { box-shadow: inset 0 0 0 2px var(--text-secondary); }
 .capn.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
 .act.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
+.act { position: relative; }
+.act.cap-lower::after, .act.cap-much-lower::after, .act.cap-far-lower::after,
+.act.cap-higher::after, .act.cap-nr::after { position: absolute; top: 0; right: 1px;
+  font-size: 8px; line-height: 1; font-weight: 700; pointer-events: none; }
+.act.cap-lower::after, .act.cap-much-lower::after, .act.cap-far-lower::after { content: "↓"; }
+.act.cap-higher::after { content: "↑"; }
+.act.cap-nr::after { content: "?"; }
 .capn.zero { color: var(--text-muted); font-weight: 400; }
 table.rooms td.n, table.rooms th.n { text-align: right; white-space: nowrap; }
 @media (max-width: 640px) {
@@ -896,10 +903,10 @@ Rooms: M2 (140 seats)
 VT26: B2 (131 seats) → +7%">F</span><span class="act a2 cap-much-lower" title="DD1327 Grundläggande datalogi
 Övning (2 parallel groups) Thu 2027-04-22 13:00 (P4 w5)
 Rooms: B23+B24+B25+B26+B22 (238 seats)
-VT26: V11+V21+V23+V33+V35 (320 seats) → −26%">Ö×2↓</span><span class="act a3 cap-higher" title="DD1327 Grundläggande datalogi
+VT26: V11+V21+V23+V33+V35 (320 seats) → −26%">Ö×2</span><span class="act a3 cap-higher" title="DD1327 Grundläggande datalogi
 Datorlaboration (2 parallel groups) Mon 2027-04-26 10:00 (P4 w6)
 Rooms: 4V2Röd+4V3Ora (164 seats)
-VT26: 4V2Röd+4V3Ora (82 seats) → +100%">DL×2↑</span><span class="act a1" title="DD1327 Grundläggande datalogi
+VT26: 4V2Röd+4V3Ora (82 seats) → +100%">DL×2</span><span class="act a1" title="DD1327 Grundläggande datalogi
 Föreläsning Tue 2027-04-27 10:00 (P4 w6)
 Rooms: M2 (140 seats)
 VT26: B2 (131 seats) → +7%">F</span><span class="act a5 chg" title="DD1327 Grundläggande datalogi
@@ -909,14 +916,14 @@ Rooms: 4V2Röd+4V3Ora (82 seats)
 VT26: 4V2Röd+4V3Ora (82 seats) → same">DL</span><span class="act a2 chg" title="DD1327 Grundläggande datalogi
 Övning (2 parallel groups) Wed 2027-05-05 08:00 (P4 w7)
 Rooms: D32+D33+D35+D41+D34 (276 seats)
-VT26: D41+E35+E52+E31+E51 (304 seats) → −9%">Ö×2</span><span class="act chg cap-much-lower" title="DD1327 Grundläggande datalogi
+VT26: D41+E35+E52+E31+E51 (304 seats) → −9%">Ö×2</span><span class="act a3 chg cap-much-lower" title="DD1327 Grundläggande datalogi
 Datorlaboration Mon 2027-05-10 10:00 (P4 w8)
 Rooms: 4V2Röd+4V3Ora (82 seats)
-VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → −31%">DL↓</span><span class="act a3 chg" title="DD1327 Grundläggande datalogi
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → −31%">DL</span><span class="act a3 chg" title="DD1327 Grundläggande datalogi
 Datorlaboration (2 parallel groups) Wed 2027-05-12 13:00 (P4 w8)">DL×2</span><span class="act a2 cap-much-lower" title="DD1327 Grundläggande datalogi
 Övning (2 parallel groups) Mon 2027-05-17 08:00 (P4 w9)
 Rooms: D32+D33+D35+E34+E31+E33+E36 (258 seats)
-VT26: E35+E51+E52+D34 (324 seats) → −20%">Ö×2↓</span><span class="act a8" title="DD1327 Grundläggande datalogi
+VT26: E35+E51+E52+D34 (324 seats) → −20%">Ö×2</span><span class="act a8" title="DD1327 Grundläggande datalogi
 Examination Fri 2027-05-28 14:00 (P4 exams)">EX</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr class="diff"><td class="w">P4 w1</td><td><span class="act a1" title="DD1327 Grundläggande datalogi
 Föreläsning Mon 2026-03-16 15:00 (P4 w1)">F</span><span class="act a1" title="DD1327 Grundläggande datalogi
 Föreläsning Wed 2026-03-18 13:00 (P4 w1)">F</span><span class="act a5" title="DD1327 Grundläggande datalogi
@@ -1093,59 +1100,59 @@ Föreläsning Tue 2026-05-05 13:00 (P4 w7)">F</span><span class="act a2 chg" tit
 Tentamen Mon 2026-05-25 14:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="DD2352 Algoritmer och komplexitet
 Föreläsning Wed 2027-01-13 15:00 (P3 w1)
 Rooms: B2 (131 seats)
-VT26: D2 (126 seats) → +4%">F</span><span class="act cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: D2 (126 seats) → +4%">F</span><span class="act a1 cap-lower" title="DD2352 Algoritmer och komplexitet
 Föreläsning Thu 2027-01-14 10:00 (P3 w1)
 Rooms: K2 (103 seats)
-VT26: K1 (124 seats) → −17%">F↓</span><span class="act a2 cap-much-lower" title="DD2352 Algoritmer och komplexitet
+VT26: K1 (124 seats) → −17%">F</span><span class="act a2 cap-much-lower" title="DD2352 Algoritmer och komplexitet
 Övning (2 parallel groups) Thu 2027-01-14 13:00 (P3 w1)
 Rooms: Q36+Q21 (111 seats)
-VT26: W43 (140 seats) → −21%">Ö×2↓</span><span class="act a1" title="DD2352 Algoritmer och komplexitet
+VT26: W43 (140 seats) → −21%">Ö×2</span><span class="act a1" title="DD2352 Algoritmer och komplexitet
 Föreläsning Mon 2027-01-18 15:00 (P3 w2)
 Rooms: K1 (124 seats)
 VT26: K1 (124 seats) → same">F</span><span class="act a2" title="DD2352 Algoritmer och komplexitet
 Övning (2 parallel groups) Tue 2027-01-19 10:00 (P3 w2)
 Rooms: U31+Q34 (130 seats)
-VT26: W43 (140 seats) → −7%">Ö×2</span><span class="act cap-far-lower" title="DD2352 Algoritmer och komplexitet
+VT26: W43 (140 seats) → −7%">Ö×2</span><span class="act a1 cap-far-lower" title="DD2352 Algoritmer och komplexitet
 Föreläsning Mon 2027-01-25 13:00 (P3 w3)
 Rooms: K2 (103 seats)
-VT26: D2+K1 (250 seats) → −59%">F↓</span><span class="act cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: D2+K1 (250 seats) → −59%">F</span><span class="act a1 cap-lower" title="DD2352 Algoritmer och komplexitet
 Föreläsning Wed 2027-01-27 13:00 (P3 w3)
 Rooms: B3 (101 seats)
-VT26: D2 (126 seats) → −20%">F↓</span><span class="act a2 cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: D2 (126 seats) → −20%">F</span><span class="act a2 cap-lower" title="DD2352 Algoritmer och komplexitet
 Övning (2 parallel groups) Thu 2027-01-28 10:00 (P3 w3)
 Rooms: Q33+Q31 (120 seats)
-VT26: W43 (140 seats) → −14%">Ö×2↓</span><span class="act a3" title="DD2352 Algoritmer och komplexitet
+VT26: W43 (140 seats) → −14%">Ö×2</span><span class="act a3" title="DD2352 Algoritmer och komplexitet
 Datorlaboration Fri 2027-01-29 08:00 (P3 w3)
 Rooms: 4V3Ora+4V5Grö (56 seats)
-VT26: 5V1Grå+5V4Mag (52 seats) → +8%">DL</span><span class="act cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: 5V1Grå+5V4Mag (52 seats) → +8%">DL</span><span class="act a1 cap-lower" title="DD2352 Algoritmer och komplexitet
 Föreläsning Mon 2027-02-01 13:00 (P3 w4)
 Rooms: B1 (101 seats)
-VT26: D2 (126 seats) → −20%">F↓</span><span class="act a2 cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: D2 (126 seats) → −20%">F</span><span class="act a2 cap-lower" title="DD2352 Algoritmer och komplexitet
 Övning (2 parallel groups) Tue 2027-02-02 10:00 (P3 w4)
 Rooms: M33+V34 (120 seats)
-VT26: W43 (140 seats) → −14%">Ö×2↓</span><span class="act a3" title="DD2352 Algoritmer och komplexitet
+VT26: W43 (140 seats) → −14%">Ö×2</span><span class="act a3" title="DD2352 Algoritmer och komplexitet
 Datorlaboration Thu 2027-02-04 09:00 (P3 w4)
 Rooms: 5V1Grå+5V2Kar (48 seats)
-VT26: 5V3Vit+5V4Mag (40 seats) → +20%">DL</span><span class="act cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: 5V3Vit+5V4Mag (40 seats) → +20%">DL</span><span class="act a1 cap-lower" title="DD2352 Algoritmer och komplexitet
 Föreläsning Mon 2027-02-08 13:00 (P3 w5)
 Rooms: K2 (103 seats)
-VT26: K1 (124 seats) → −17%">F↓</span><span class="act a2 cap-higher" title="DD2352 Algoritmer och komplexitet
+VT26: K1 (124 seats) → −17%">F</span><span class="act a2 cap-higher" title="DD2352 Algoritmer och komplexitet
 Övning (2 parallel groups) Tue 2027-02-09 10:00 (P3 w5)
 Rooms: Q31+Q33 (120 seats)
-VT26: W43 (70 seats) → +71%">Ö×2↑</span><span class="act cap-much-lower" title="DD2352 Algoritmer och komplexitet
+VT26: W43 (70 seats) → +71%">Ö×2</span><span class="act a3 cap-much-lower" title="DD2352 Algoritmer och komplexitet
 Datorlaboration Thu 2027-02-11 09:00 (P3 w5)
 Rooms: 4V5Grö+4V6 Bru (56 seats)
-VT26: 4V4Gul+4V6 Bru (76 seats) → −26%">DL↓</span><span class="act cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: 4V4Gul+4V6 Bru (76 seats) → −26%">DL</span><span class="act a1 cap-lower" title="DD2352 Algoritmer och komplexitet
 Föreläsning Mon 2027-02-15 13:00 (P3 w6)
 Rooms: B3 (101 seats)
-VT26: D2 (126 seats) → −20%">F↓</span><span class="act a1" title="DD2352 Algoritmer och komplexitet
+VT26: D2 (126 seats) → −20%">F</span><span class="act a1" title="DD2352 Algoritmer och komplexitet
 Föreläsning Mon 2027-03-15 13:00 (P4 w1)
 Rooms: K1 (124 seats)
 VT26: D2 (126 seats) → −2%">F</span><span class="act a1 chg" title="DD2352 Algoritmer och komplexitet
-Föreläsning Tue 2027-03-16 10:00 (P4 w1)">F</span><span class="act chg cap-lower" title="DD2352 Algoritmer och komplexitet
+Föreläsning Tue 2027-03-16 10:00 (P4 w1)">F</span><span class="act a2 chg cap-lower" title="DD2352 Algoritmer och komplexitet
 Övning Wed 2027-03-17 10:00 (P4 w1)
 Rooms: M33 (60 seats)
-VT26: W43 (70 seats) → −14%">Ö↓</span><span class="act a1 chg" title="DD2352 Algoritmer och komplexitet
+VT26: W43 (70 seats) → −14%">Ö</span><span class="act a1 chg" title="DD2352 Algoritmer och komplexitet
 Föreläsning Mon 2027-03-22 13:00 (P4 w2)
 Rooms: B3 (101 seats)
 VT26: K2 (103 seats) → −2%">F</span><span class="act a2 chg" title="DD2352 Algoritmer och komplexitet
@@ -1160,17 +1167,17 @@ Rooms: U51 (71 seats)
 VT26: W43 (70 seats) → +1%">Ö</span><span class="act a3 chg" title="DD2352 Algoritmer och komplexitet
 Datorlaboration Wed 2027-04-14 09:00 (P4 w4)
 Rooms: 4V3Ora+4V4Gul (76 seats)
-VT26: 4V4Gul+4V6 Bru (76 seats) → same">DL</span><span class="act chg cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: 4V4Gul+4V6 Bru (76 seats) → same">DL</span><span class="act a1 chg cap-lower" title="DD2352 Algoritmer och komplexitet
 Föreläsning Thu 2027-04-15 10:00 (P4 w4)
 Rooms: B3 (101 seats)
-VT26: K1 (124 seats) → −19%">F↓</span><span class="act a2 chg" title="DD2352 Algoritmer och komplexitet
-Övning Thu 2027-04-15 13:00 (P4 w4)">Ö</span><span class="act chg cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: K1 (124 seats) → −19%">F</span><span class="act a2 chg" title="DD2352 Algoritmer och komplexitet
+Övning Thu 2027-04-15 13:00 (P4 w4)">Ö</span><span class="act a1 chg cap-lower" title="DD2352 Algoritmer och komplexitet
 Föreläsning Mon 2027-04-19 13:00 (P4 w5)
 Rooms: B3 (101 seats)
-VT26: K1 (124 seats) → −19%">F↓</span><span class="act chg cap-lower" title="DD2352 Algoritmer och komplexitet
+VT26: K1 (124 seats) → −19%">F</span><span class="act a1 chg cap-lower" title="DD2352 Algoritmer och komplexitet
 Föreläsning Wed 2027-04-21 10:00 (P4 w5)
 Rooms: B3 (101 seats)
-VT26: K1 (124 seats) → −19%">F↓</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="DD2352 Algoritmer och komplexitet
+VT26: K1 (124 seats) → −19%">F</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="DD2352 Algoritmer och komplexitet
 Föreläsning Wed 2026-01-14 15:00 (P3 w1)">F</span><span class="act a1" title="DD2352 Algoritmer och komplexitet
 Föreläsning Thu 2026-01-15 10:00 (P3 w1)">F</span><span class="act a2" title="DD2352 Algoritmer och komplexitet
 Övning (2 parallel groups) Fri 2026-01-16 10:00 (P3 w1)">Ö×2</span></td><td><span class="act a1" title="DD2352 Algoritmer och komplexitet
@@ -1409,76 +1416,76 @@ Föreläsning Mon 2026-05-11 15:00 (P4 w8)
 Rooms: U1+U61 Break-out (108 seats)">F</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Wed 2026-05-13 13:00 (P4 w8)
 Rooms: Q17 (40 seats)">Ö</span><span class="act a8" title="EQ1120 Tidsdiskreta signaler och system
-Tentamen Wed 2026-05-27 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act cap-far-lower" title="EQ1120 Tidsdiskreta signaler och system
+Tentamen Wed 2026-05-27 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1 cap-far-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Wed 2027-03-17 08:00 (P4 w1)
 Rooms: Q2 (80 seats)
-VT26: M2 (140 seats) → −43%">F↓</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: M2 (140 seats) → −43%">F</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Thu 2027-03-18 08:00 (P4 w1)
 Rooms: Q2 (80 seats)
-VT26: U31+U31 Break-out (105 seats) → −24%">F↓</span><span class="act cap-far-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U31+U31 Break-out (105 seats) → −24%">F</span><span class="act a2 cap-far-lower" title="EQ1120 Tidsdiskreta signaler och system
 Övning Thu 2027-03-18 15:00 (P4 w1)
 Rooms: Q22 (40 seats)
-VT26: Q15+Q17 (80 seats) → −50%">Ö↓</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q15+Q17 (80 seats) → −50%">Ö</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Mon 2027-03-22 15:00 (P4 w2)
 Rooms: Q2 (80 seats)
-VT26: U21+U21 Break-out (106 seats) → −25%">F↓</span><span class="act cap-far-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U21+U21 Break-out (106 seats) → −25%">F</span><span class="act a2 cap-far-lower" title="EQ1120 Tidsdiskreta signaler och system
 Övning Tue 2027-03-23 13:00 (P4 w2)
 Rooms: Q22 (40 seats)
-VT26: Q15+Q17 (80 seats) → −50%">Ö↓</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q15+Q17 (80 seats) → −50%">Ö</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Wed 2027-03-24 13:00 (P4 w2)
 Rooms: Q2 (80 seats)
-VT26: U31+U31 Break-out (105 seats) → −24%">F↓</span><span class="act cap-far-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U31+U31 Break-out (105 seats) → −24%">F</span><span class="act a2 cap-far-lower" title="EQ1120 Tidsdiskreta signaler och system
 Övning Wed 2027-03-24 15:00 (P4 w2)
 Rooms: Q22 (40 seats)
-VT26: Q15+Q17 (80 seats) → −50%">Ö↓</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q15+Q17 (80 seats) → −50%">Ö</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Mon 2027-04-05 15:00 (P4 w3)
 Rooms: Q2 (80 seats)
-VT26: U31+U31 Break-out (105 seats) → −24%">F↓</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U31+U31 Break-out (105 seats) → −24%">F</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Tue 2027-04-06 15:00 (P4 w3)
 Rooms: Q22 (40 seats)
-VT26: Q17 (40 seats) → same">Ö</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q17 (40 seats) → same">Ö</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Wed 2027-04-07 13:00 (P4 w3)
 Rooms: Q2 (80 seats)
-VT26: U31+U31 Break-out (105 seats) → −24%">F↓</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U31+U31 Break-out (105 seats) → −24%">F</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Wed 2027-04-07 15:00 (P4 w3)
 Rooms: Q22 (40 seats)
-VT26: Q17 (40 seats) → same">Ö</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q17 (40 seats) → same">Ö</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Mon 2027-04-12 15:00 (P4 w4)
 Rooms: Q2 (80 seats)
-VT26: U31+U31 Break-out (105 seats) → −24%">F↓</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U31+U31 Break-out (105 seats) → −24%">F</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Tue 2027-04-13 10:00 (P4 w4)
 Rooms: Q22 (40 seats)
-VT26: Q17 (40 seats) → same">Ö</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q17 (40 seats) → same">Ö</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Wed 2027-04-14 13:00 (P4 w4)
 Rooms: Q2 (80 seats)
-VT26: U51+U51 Break-out (119 seats) → −33%">F↓</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U51+U51 Break-out (119 seats) → −33%">F</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Wed 2027-04-14 15:00 (P4 w4)
 Rooms: Q22 (40 seats)
-VT26: Q17 (40 seats) → same">Ö</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q17 (40 seats) → same">Ö</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Thu 2027-04-22 08:00 (P4 w5)
 Rooms: Q2 (80 seats)
-VT26: U21+U21 Break-out (106 seats) → −25%">F↓</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U21+U21 Break-out (106 seats) → −25%">F</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Thu 2027-04-22 10:00 (P4 w5)
 Rooms: Q22 (40 seats)
-VT26: Q26 (40 seats) → same">Ö</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q26 (40 seats) → same">Ö</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Mon 2027-04-26 15:00 (P4 w6)
 Rooms: Q2 (80 seats)
-VT26: U21+U21 Break-out (106 seats) → −25%">F↓</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U21+U21 Break-out (106 seats) → −25%">F</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Thu 2027-04-29 13:00 (P4 w6)
 Rooms: D41 (40 seats)
-VT26: Q17 (40 seats) → same">Ö</span><span class="act cap-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q17 (40 seats) → same">Ö</span><span class="act a1 cap-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Thu 2027-04-29 15:00 (P4 w6)
 Rooms: D3 (89 seats)
-VT26: U21+U21 Break-out (106 seats) → −16%">F↓</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U21+U21 Break-out (106 seats) → −16%">F</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Tue 2027-05-04 10:00 (P4 w7)
 Rooms: Q17 (40 seats)
 VT26: Q17 (40 seats) → same">Ö</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Wed 2027-05-05 10:00 (P4 w7)
 Rooms: D41 (40 seats)
-VT26: Q26 (40 seats) → same">Ö</span><span class="act cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
+VT26: Q26 (40 seats) → same">Ö</span><span class="act a1 cap-much-lower" title="EQ1120 Tidsdiskreta signaler och system
 Föreläsning Wed 2027-05-12 08:00 (P4 w8)
 Rooms: Q2 (80 seats)
-VT26: U1+U61 Break-out (108 seats) → −26%">F↓</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
+VT26: U1+U61 Break-out (108 seats) → −26%">F</span><span class="act a2" title="EQ1120 Tidsdiskreta signaler och system
 Övning Wed 2027-05-12 10:00 (P4 w8)
 Rooms: Q22 (40 seats)
 VT26: Q17 (40 seats) → same">Ö</span><span class="act a8" title="EQ1120 Tidsdiskreta signaler och system
@@ -3306,10 +3313,10 @@ Rooms: no room booked
 VT26: no room booked">L</span><span class="act a1" title="SE1055 Hållfasthetslära, grundkurs med energimetoder
 Föreläsning Mon 2027-04-26 13:00 (P4 w6)
 Rooms: D2 (126 seats)
-VT26: K1 (124 seats) → +2%">F</span><span class="act cap-higher" title="SE1055 Hållfasthetslära, grundkurs med energimetoder
+VT26: K1 (124 seats) → +2%">F</span><span class="act a2 cap-higher" title="SE1055 Hållfasthetslära, grundkurs med energimetoder
 Övning Wed 2027-04-28 10:00 (P4 w6)
 Rooms: Q33+Q34 (120 seats)
-VT26: V35 (48 seats) → +150%">Ö↑</span><span class="act a1" title="SE1055 Hållfasthetslära, grundkurs med energimetoder
+VT26: V35 (48 seats) → +150%">Ö</span><span class="act a1" title="SE1055 Hållfasthetslära, grundkurs med energimetoder
 Föreläsning Mon 2027-05-03 13:00 (P4 w7)
 Rooms: K1 (124 seats)
 VT26: K1 (124 seats) → same">F</span><span class="act a2" title="SE1055 Hållfasthetslära, grundkurs med energimetoder
@@ -3517,10 +3524,10 @@ Rooms: 4V2Röd+4V4Gul+4V6 Bru (118 seats)
 VT26: 4V2Röd+4V5Grö+4V6 Bru (98 seats) → +20%">DL</span><span class="act a1" title="SF1544 Numeriska metoder, grundkurs IV
 Föreläsning Tue 2027-02-09 13:00 (P3 w5)
 Rooms: M2 (140 seats)
-VT26: K1 (124 seats) → +13%">F</span><span class="act cap-higher" title="SF1544 Numeriska metoder, grundkurs IV
+VT26: K1 (124 seats) → +13%">F</span><span class="act a2 cap-higher" title="SF1544 Numeriska metoder, grundkurs IV
 Övning Wed 2027-02-10 08:00 (P3 w5)
 Rooms: U21+U31 (140 seats)
-VT26: B25+B26 (60 seats) → +133%">Ö↑</span><span class="act a3" title="SF1544 Numeriska metoder, grundkurs IV
+VT26: B25+B26 (60 seats) → +133%">Ö</span><span class="act a3" title="SF1544 Numeriska metoder, grundkurs IV
 Datorlaboration Wed 2027-02-10 10:00 (P3 w5)
 Rooms: 4V2Röd+4V4Gul+4V6 Bru (118 seats)
 VT26: 5V1Grå+5V2Kar+5V3Vit+5V4Mag (88 seats) → +34%">DL</span><span class="act a1" title="SF1544 Numeriska metoder, grundkurs IV
@@ -3542,13 +3549,13 @@ Rooms: U21+U31 (140 seats)
 VT26: Q34+Q36 (120 seats) → +17%">Ö</span><span class="act a3" title="SF1544 Numeriska metoder, grundkurs IV
 Datorlaboration Wed 2027-02-24 10:00 (P3 w7)
 Rooms: 4V6 Bru+5O1Spe+5O2Spo (116 seats)
-VT26: 4V2Röd+4V5Grö+4V6 Bru (98 seats) → +18%">DL</span><span class="act cap-much-lower" title="SF1544 Numeriska metoder, grundkurs IV
+VT26: 4V2Röd+4V5Grö+4V6 Bru (98 seats) → +18%">DL</span><span class="act a7 cap-much-lower" title="SF1544 Numeriska metoder, grundkurs IV
 Redovisning Thu 2027-02-25 08:00 (P3 w7)
 Rooms: 4V5Grö+5V1Grå (40 seats)
-VT26: 4V5Grö+4V6 Bru (56 seats) → −29%">Red↓</span><span class="act cap-much-lower" title="SF1544 Numeriska metoder, grundkurs IV
+VT26: 4V5Grö+4V6 Bru (56 seats) → −29%">Red</span><span class="act a7 cap-much-lower" title="SF1544 Numeriska metoder, grundkurs IV
 Redovisning Thu 2027-02-25 10:00 (P3 w7)
 Rooms: 4V5Grö+5V1Grå (40 seats)
-VT26: 4V5Grö+4V6 Bru (56 seats) → −29%">Red↓</span><span class="act a7" title="SF1544 Numeriska metoder, grundkurs IV
+VT26: 4V5Grö+4V6 Bru (56 seats) → −29%">Red</span><span class="act a7" title="SF1544 Numeriska metoder, grundkurs IV
 Redovisning Fri 2027-02-26 08:00 (P3 w7)
 Rooms: 4V5Grö+4V6 Bru (56 seats)
 VT26: 4V6 Bru+5V3Vit (52 seats) → +8%">Red</span><span class="act a7" title="SF1544 Numeriska metoder, grundkurs IV
@@ -3557,10 +3564,10 @@ Rooms: 4V5Grö+4V6 Bru (56 seats)
 VT26: 4V6 Bru+5V3Vit (52 seats) → +8%">Red</span><span class="act a7" title="SF1544 Numeriska metoder, grundkurs IV
 Redovisning Wed 2027-03-17 13:00 (P4 w1)
 Rooms: XW344 (48 seats)
-VT26: XW344 (48 seats) → same">Red</span><span class="act cap-lower" title="SF1544 Numeriska metoder, grundkurs IV
+VT26: XW344 (48 seats) → same">Red</span><span class="act a7 cap-lower" title="SF1544 Numeriska metoder, grundkurs IV
 Redovisning Tue 2027-03-23 10:00 (P4 w2)
 Rooms: XW344 (48 seats)
-VT26: 4V5Grö+4V6 Bru (56 seats) → −14%">Red↓</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="SF1544 Numeriska metoder, grundkurs IV
+VT26: 4V5Grö+4V6 Bru (56 seats) → −14%">Red</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="SF1544 Numeriska metoder, grundkurs IV
 Föreläsning Wed 2026-01-14 08:00 (P3 w1)">F</span><span class="act a1" title="SF1544 Numeriska metoder, grundkurs IV
 Föreläsning Thu 2026-01-15 08:00 (P3 w1)">F</span><span class="act a2" title="SF1544 Numeriska metoder, grundkurs IV
 Övning Fri 2026-01-16 08:00 (P3 w1)">Ö</span></td><td><span class="act a1" title="SF1544 Numeriska metoder, grundkurs IV
@@ -3697,121 +3704,121 @@ Föreläsning Mon 2026-05-04 13:00 (P4 w7)
 Rooms: E2 (53 seats)">F</span><span class="act a1" title="SF1691 Komplex analys
 Föreläsning Mon 2026-05-18 15:00 (P4 w9)
 Rooms: E2 (53 seats)">F</span><span class="act a8" title="SF1691 Komplex analys
-Tentamen Fri 2026-05-29 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act cap-higher" title="SF1691 Komplex analys
+Tentamen Fri 2026-05-29 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Wed 2027-01-13 08:00 (P3 w1)
 Rooms: B2 (131 seats)
-VT26: E2 (53 seats) → +147%">F↑</span><span class="act a1" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +147%">F</span><span class="act a1" title="SF1691 Komplex analys
 Föreläsning Thu 2027-01-14 15:00 (P3 w1)
 Rooms: D2 (126 seats)
-VT26: D3 (89 seats) → +42%">F</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: D3 (89 seats) → +42%">F</span><span class="act a2 cap-higher" title="SF1691 Komplex analys
 Övning Fri 2027-01-15 08:00 (P3 w1)
 Rooms: B3 (101 seats)
-VT26: E51 (48 seats) → +110%">Ö↑</span><span class="act a1" title="SF1691 Komplex analys
+VT26: E51 (48 seats) → +110%">Ö</span><span class="act a1" title="SF1691 Komplex analys
 Föreläsning Mon 2027-01-18 15:00 (P3 w2)
 Rooms: B3 (101 seats)
 VT26: E3 (87 seats) → +16%">F</span><span class="act a2" title="SF1691 Komplex analys
 Övning Wed 2027-01-20 13:00 (P3 w2)
 Rooms: W43 (70 seats)
-VT26: E51 (48 seats) → +46%">Ö</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E51 (48 seats) → +46%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Tue 2027-01-26 08:00 (P3 w3)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Thu 2027-01-28 10:00 (P3 w3)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act a2" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a2" title="SF1691 Komplex analys
 Övning Fri 2027-01-29 08:00 (P3 w3)
 Rooms: U21 (70 seats)
-VT26: W25 (76 seats) → −8%">Ö</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: W25 (76 seats) → −8%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Mon 2027-02-01 15:00 (P3 w4)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a2 cap-higher" title="SF1691 Komplex analys
 Övning Thu 2027-02-04 13:00 (P3 w4)
 Rooms: B3 (101 seats)
-VT26: E51 (48 seats) → +110%">Ö↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E51 (48 seats) → +110%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Mon 2027-02-08 15:00 (P3 w5)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Wed 2027-02-10 08:00 (P3 w5)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act a2" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a2" title="SF1691 Komplex analys
 Övning Thu 2027-02-11 13:00 (P3 w5)
 Rooms: W37 (72 seats)
-VT26: Q24+Q26 (70 seats) → +3%">Ö</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: Q24+Q26 (70 seats) → +3%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Mon 2027-02-15 15:00 (P3 w6)
 Rooms: B3 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-much-lower" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a2 cap-much-lower" title="SF1691 Komplex analys
 Övning Wed 2027-02-17 13:00 (P3 w6)
 Rooms: W37 (72 seats)
-VT26: V33+V35 (96 seats) → −25%">Ö↓</span><span class="act cap-lower" title="SF1691 Komplex analys
+VT26: V33+V35 (96 seats) → −25%">Ö</span><span class="act a2 cap-lower" title="SF1691 Komplex analys
 Övning Thu 2027-02-18 13:00 (P3 w6)
 Rooms: U21 (70 seats)
-VT26: E51+E53 (86 seats) → −19%">Ö↓</span><span class="act chg cap-higher" title="SF1691 Komplex analys
+VT26: E51+E53 (86 seats) → −19%">Ö</span><span class="act a1 chg cap-higher" title="SF1691 Komplex analys
 Föreläsning Mon 2027-02-22 15:00 (P3 w7)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act a1 chg" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a1 chg" title="SF1691 Komplex analys
 Föreläsning Tue 2027-03-16 15:00 (P4 w1)
 Rooms: B1 (101 seats)
-VT26: E3 (87 seats) → +16%">F</span><span class="act chg cap-higher" title="SF1691 Komplex analys
+VT26: E3 (87 seats) → +16%">F</span><span class="act a1 chg cap-higher" title="SF1691 Komplex analys
 Föreläsning Wed 2027-03-17 15:00 (P4 w1)
 Rooms: B2 (131 seats)
-VT26: E2 (53 seats) → +147%">F↑</span><span class="act cap-lower" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +147%">F</span><span class="act a2 cap-lower" title="SF1691 Komplex analys
 Övning Thu 2027-03-18 15:00 (P4 w1)
 Rooms: U41 (72 seats)
-VT26: E51+E53 (86 seats) → −16%">Ö↓</span><span class="act a2" title="SF1691 Komplex analys
+VT26: E51+E53 (86 seats) → −16%">Ö</span><span class="act a2" title="SF1691 Komplex analys
 Övning Fri 2027-03-19 08:00 (P4 w1)
 Rooms: U21 (70 seats)
-VT26: E51 (48 seats) → +46%">Ö</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E51 (48 seats) → +46%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Tue 2027-03-23 15:00 (P4 w2)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Wed 2027-03-24 15:00 (P4 w2)
 Rooms: B3 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-much-lower" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a2 cap-much-lower" title="SF1691 Komplex analys
 Övning Thu 2027-03-25 08:00 (P4 w2)
 Rooms: U31 (70 seats)
-VT26: V33+V35 (96 seats) → −27%">Ö↓</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: V33+V35 (96 seats) → −27%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Tue 2027-04-06 15:00 (P4 w3)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act a2" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a2" title="SF1691 Komplex analys
 Övning Thu 2027-04-08 15:00 (P4 w3)
 Rooms: W25 (76 seats)
 VT26: V32 (60 seats) → +27%">Ö</span><span class="act a2" title="SF1691 Komplex analys
 Övning Fri 2027-04-09 08:00 (P4 w3)
 Rooms: U21 (70 seats)
-VT26: D41+D42 (72 seats) → −3%">Ö</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: D41+D42 (72 seats) → −3%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Tue 2027-04-13 15:00 (P4 w4)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Thu 2027-04-15 15:00 (P4 w4)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-lower" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a2 cap-lower" title="SF1691 Komplex analys
 Övning Fri 2027-04-16 08:00 (P4 w4)
 Rooms: U21 (70 seats)
-VT26: Q13+Q21 (81 seats) → −14%">Ö↓</span><span class="act cap-lower" title="SF1691 Komplex analys
+VT26: Q13+Q21 (81 seats) → −14%">Ö</span><span class="act a2 cap-lower" title="SF1691 Komplex analys
 Övning Mon 2027-04-19 13:00 (P4 w5)
 Rooms: U31 (70 seats)
-VT26: E33+E51 (84 seats) → −17%">Ö↓</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E33+E51 (84 seats) → −17%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Thu 2027-04-22 15:00 (P4 w5)
 Rooms: B3 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Fri 2027-04-23 08:00 (P4 w5)
 Rooms: B3 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a2 cap-higher" title="SF1691 Komplex analys
 Övning Mon 2027-04-26 15:00 (P4 w6)
 Rooms: U41 (72 seats)
-VT26: E51 (48 seats) → +50%">Ö↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E51 (48 seats) → +50%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Tue 2027-04-27 15:00 (P4 w6)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-lower" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a2 cap-lower" title="SF1691 Komplex analys
 Övning Wed 2027-04-28 15:00 (P4 w6)
 Rooms: U21 (70 seats)
-VT26: E51+E53 (86 seats) → −19%">Ö↓</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E51+E53 (86 seats) → −19%">Ö</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Mon 2027-05-03 15:00 (P4 w7)
 Rooms: B1 (101 seats)
-VT26: E2 (53 seats) → +91%">F↑</span><span class="act cap-higher" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +91%">F</span><span class="act a1 cap-higher" title="SF1691 Komplex analys
 Föreläsning Mon 2027-05-17 15:00 (P4 w9)
 Rooms: B2 (131 seats)
-VT26: E2 (53 seats) → +147%">F↑</span><span class="act a8" title="SF1691 Komplex analys
+VT26: E2 (53 seats) → +147%">F</span><span class="act a8" title="SF1691 Komplex analys
 Tentamen Fri 2027-05-28 08:00 (P4 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="SF1691 Komplex analys
 Föreläsning Tue 2026-01-13 15:00 (P3 w1)">F</span><span class="act a1" title="SF1691 Komplex analys
 Föreläsning Thu 2026-01-15 10:00 (P3 w1)">F</span><span class="act a2" title="SF1691 Komplex analys
@@ -3989,10 +3996,10 @@ Rooms: Q1 (281 seats)
 VT26: E1 (212 seats) → +33%">F</span><span class="act a2" title="SF1861 Optimeringslära
 Övning Fri 2027-04-16 10:00 (P4 w4)
 Rooms: V1+V2 (180 seats)
-VT26: V1+V2 (180 seats) → same">Ö</span><span class="act cap-higher" title="SF1861 Optimeringslära
+VT26: V1+V2 (180 seats) → same">Ö</span><span class="act a1 cap-higher" title="SF1861 Optimeringslära
 Föreläsning Mon 2027-04-19 13:00 (P4 w5)
 Rooms: F1 (462 seats)
-VT26: E1 (212 seats) → +118%">F↑</span><span class="act a1" title="SF1861 Optimeringslära
+VT26: E1 (212 seats) → +118%">F</span><span class="act a1" title="SF1861 Optimeringslära
 Föreläsning Wed 2027-04-21 10:00 (P4 w5)
 Rooms: Q1 (281 seats)
 VT26: D1 (216 seats) → +30%">F</span><span class="act a1" title="SF1861 Optimeringslära
@@ -4007,19 +4014,19 @@ Rooms: M1 (262 seats)
 VT26: F2 (238 seats) → +10%">F</span><span class="act a2" title="SF1861 Optimeringslära
 Övning Tue 2027-04-27 15:00 (P4 w6)
 Rooms: V1+V2 (180 seats)
-VT26: V1+V2 (180 seats) → same">Ö</span><span class="act cap-higher" title="SF1861 Optimeringslära
+VT26: V1+V2 (180 seats) → same">Ö</span><span class="act a1 cap-higher" title="SF1861 Optimeringslära
 Föreläsning Thu 2027-04-29 10:00 (P4 w6)
 Rooms: F1 (462 seats)
-VT26: D1 (216 seats) → +114%">F↑</span><span class="act a2" title="SF1861 Optimeringslära
+VT26: D1 (216 seats) → +114%">F</span><span class="act a2" title="SF1861 Optimeringslära
 Övning Mon 2027-05-03 13:00 (P4 w7)
 Rooms: B1+B3 (202 seats)
 VT26: V1+V2 (180 seats) → +12%">Ö</span><span class="act a1" title="SF1861 Optimeringslära
 Föreläsning Mon 2027-05-03 15:00 (P4 w7)
 Rooms: M1 (262 seats)
-VT26: E1 (212 seats) → +24%">F</span><span class="act cap-higher" title="SF1861 Optimeringslära
+VT26: E1 (212 seats) → +24%">F</span><span class="act a2 cap-higher" title="SF1861 Optimeringslära
 Övning Wed 2027-05-05 08:00 (P4 w7)
 Rooms: F1 (462 seats)
-VT26: V1+V2 (180 seats) → +157%">Ö↑</span><span class="act a8" title="SF1861 Optimeringslära
+VT26: V1+V2 (180 seats) → +157%">Ö</span><span class="act a8" title="SF1861 Optimeringslära
 Examination Tue 2027-05-11 09:00 (P4 w8)">EX</span><span class="act a8" title="SF1861 Optimeringslära
 Examination Tue 2027-05-11 10:00 (P4 w8)">EX</span><span class="act a8" title="SF1861 Optimeringslära
 Examination Tue 2027-05-11 11:00 (P4 w8)">EX</span><span class="act a3" title="SF1861 Optimeringslära
@@ -4118,31 +4125,31 @@ Rooms: M1 (262 seats)">F</span><span class="act a2" title="SF1904 Markovprocesse
 Rooms: Q33 (60 seats)">Ö</span><span class="act" title="SF1904 Markovprocesser, grundkurs
 Räknestuga Fri 2026-05-22 10:00 (P4 w9)
 Rooms: B1 (101 seats)">R</span><span class="act a8" title="SF1904 Markovprocesser, grundkurs
-Tentamen Fri 2026-05-29 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act cap-far-lower" title="SF1904 Markovprocesser, grundkurs
+Tentamen Fri 2026-05-29 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1 cap-far-lower" title="SF1904 Markovprocesser, grundkurs
 Föreläsning Mon 2027-03-15 13:00 (P4 w1)
 Rooms: V3 (72 seats)
-VT26: M1 (262 seats) → −73%">F↓</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
+VT26: M1 (262 seats) → −73%">F</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
 Övning Thu 2027-03-18 10:00 (P4 w1)
 Rooms: U31 (70 seats)
-VT26: U51 (71 seats) → −1%">Ö</span><span class="act cap-far-lower" title="SF1904 Markovprocesser, grundkurs
+VT26: U51 (71 seats) → −1%">Ö</span><span class="act a1 cap-far-lower" title="SF1904 Markovprocesser, grundkurs
 Föreläsning Mon 2027-03-22 15:00 (P4 w2)
 Rooms: U31 (70 seats)
-VT26: D1 (216 seats) → −68%">F↓</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
+VT26: D1 (216 seats) → −68%">F</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
 Övning Thu 2027-03-25 08:00 (P4 w2)
 Rooms: U21 (70 seats)
 VT26: U51 (71 seats) → −1%">Ö</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
 Övning Tue 2027-04-06 10:00 (P4 w3)
 Rooms: U51 (71 seats)
-VT26: Q31 (60 seats) → +18%">Ö</span><span class="act cap-far-lower" title="SF1904 Markovprocesser, grundkurs
+VT26: Q31 (60 seats) → +18%">Ö</span><span class="act a1 cap-far-lower" title="SF1904 Markovprocesser, grundkurs
 Föreläsning Wed 2027-04-14 08:00 (P4 w4)
 Rooms: U21 (70 seats)
-VT26: E1 (212 seats) → −67%">F↓</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
+VT26: E1 (212 seats) → −67%">F</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
 Övning Wed 2027-04-14 10:00 (P4 w4)
 Rooms: U21 (70 seats)
-VT26: U21 (70 seats) → same">Ö</span><span class="act cap-far-lower" title="SF1904 Markovprocesser, grundkurs
+VT26: U21 (70 seats) → same">Ö</span><span class="act a1 cap-far-lower" title="SF1904 Markovprocesser, grundkurs
 Föreläsning Tue 2027-04-20 13:00 (P4 w5)
 Rooms: U21 (70 seats)
-VT26: D1 (216 seats) → −68%">F↓</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
+VT26: D1 (216 seats) → −68%">F</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
 Övning Tue 2027-04-20 15:00 (P4 w5)
 Rooms: U21 (70 seats)
 VT26: Q33 (60 seats) → +17%">Ö</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
@@ -4151,19 +4158,19 @@ Rooms: U21 (70 seats)
 VT26: Q33 (60 seats) → +17%">Ö</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
 Övning Wed 2027-04-28 08:00 (P4 w6)
 Rooms: U21 (70 seats)
-VT26: Q21 (51 seats) → +37%">Ö</span><span class="act cap-far-lower" title="SF1904 Markovprocesser, grundkurs
+VT26: Q21 (51 seats) → +37%">Ö</span><span class="act a1 cap-far-lower" title="SF1904 Markovprocesser, grundkurs
 Föreläsning Thu 2027-04-29 08:00 (P4 w6)
 Rooms: U21 (70 seats)
-VT26: E1 (212 seats) → −67%">F↓</span><span class="act cap-far-lower" title="SF1904 Markovprocesser, grundkurs
+VT26: E1 (212 seats) → −67%">F</span><span class="act a1 cap-far-lower" title="SF1904 Markovprocesser, grundkurs
 Föreläsning Tue 2027-05-04 08:00 (P4 w7)
 Rooms: U41 (72 seats)
-VT26: M1 (262 seats) → −73%">F↓</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
+VT26: M1 (262 seats) → −73%">F</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
 Övning Mon 2027-05-10 15:00 (P4 w8)
 Rooms: U51 (71 seats)
 VT26: Q33 (60 seats) → +18%">Ö</span><span class="act cap-lower" title="SF1904 Markovprocesser, grundkurs
 Räknestuga Wed 2027-05-26 08:00 (P4 exams)
 Rooms: V1 (90 seats)
-VT26: B1 (101 seats) → −11%">R↓</span><span class="act a8" title="SF1904 Markovprocesser, grundkurs
+VT26: B1 (101 seats) → −11%">R</span><span class="act a8" title="SF1904 Markovprocesser, grundkurs
 Tentamen Fri 2027-05-28 08:00 (P4 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P4 w1</td><td><span class="act a1" title="SF1904 Markovprocesser, grundkurs
 Föreläsning Wed 2026-03-18 10:00 (P4 w1)">F</span><span class="act a2" title="SF1904 Markovprocesser, grundkurs
 Övning Fri 2026-03-20 10:00 (P4 w1)">Ö</span></td><td><span class="act a1" title="SF1904 Markovprocesser, grundkurs
@@ -4291,35 +4298,35 @@ Rooms: M2 (140 seats)
 VT26: B2 (131 seats) → +7%">F</span><span class="act a2" title="SF1922 Sannolikhetsteori och statistik
 Övning Fri 2027-03-19 13:00 (P4 w1)
 Rooms: Q21+Q22+Q26 (131 seats)
-VT26: Q21+Q22+Q26 (131 seats) → same">Ö</span><span class="act cap-higher" title="SF1922 Sannolikhetsteori och statistik
+VT26: Q21+Q22+Q26 (131 seats) → same">Ö</span><span class="act a1 cap-higher" title="SF1922 Sannolikhetsteori och statistik
 Föreläsning Mon 2027-03-22 13:00 (P4 w2)
 Rooms: E1 (212 seats)
-VT26: B2 (131 seats) → +62%">F↑</span><span class="act cap-lower" title="SF1922 Sannolikhetsteori och statistik
+VT26: B2 (131 seats) → +62%">F</span><span class="act a2 cap-lower" title="SF1922 Sannolikhetsteori och statistik
 Övning Mon 2027-03-22 15:00 (P4 w2)
 Rooms: D35+D41+E53 (110 seats)
-VT26: V11+V21+V35 (128 seats) → −14%">Ö↓</span><span class="act a1" title="SF1922 Sannolikhetsteori och statistik
+VT26: V11+V21+V35 (128 seats) → −14%">Ö</span><span class="act a1" title="SF1922 Sannolikhetsteori och statistik
 Föreläsning Thu 2027-03-25 08:00 (P4 w2)
 Rooms: B2 (131 seats)
-VT26: B2 (131 seats) → same">F</span><span class="act cap-lower" title="SF1922 Sannolikhetsteori och statistik
+VT26: B2 (131 seats) → same">F</span><span class="act a2 cap-lower" title="SF1922 Sannolikhetsteori och statistik
 Övning Thu 2027-03-25 10:00 (P4 w2)
 Rooms: Q17+Q21+Q22 (131 seats)
-VT26: Q24+Q34+Q36 (150 seats) → −13%">Ö↓</span><span class="act a1" title="SF1922 Sannolikhetsteori och statistik
+VT26: Q24+Q34+Q36 (150 seats) → −13%">Ö</span><span class="act a1" title="SF1922 Sannolikhetsteori och statistik
 Föreläsning Mon 2027-04-05 13:00 (P4 w3)
 Rooms: M2 (140 seats)
-VT26: B2 (131 seats) → +7%">F</span><span class="act cap-much-lower" title="SF1922 Sannolikhetsteori och statistik
+VT26: B2 (131 seats) → +7%">F</span><span class="act a2 cap-much-lower" title="SF1922 Sannolikhetsteori och statistik
 Övning Mon 2027-04-05 15:00 (P4 w3)
 Rooms: Q21+Q22+Q26 (131 seats)
-VT26: U21+U41+U51 (213 seats) → −38%">Ö↓</span><span class="act a3" title="SF1922 Sannolikhetsteori och statistik
+VT26: U21+U41+U51 (213 seats) → −38%">Ö</span><span class="act a3" title="SF1922 Sannolikhetsteori och statistik
 Datorlaboration Thu 2027-04-08 10:00 (P4 w3)
 Rooms: Baltzar+Christopher+Nils (144 seats)
 VT26: Baltzar+Christopher+Nils (144 seats) → same">DL</span><span class="act a1" title="SF1922 Sannolikhetsteori och statistik
 Föreläsning Thu 2027-04-08 13:00 (P4 w3)
 Rooms: B2 (131 seats)
 VT26: B2 (131 seats) → same">F</span><span class="act a1 chg" title="SF1922 Sannolikhetsteori och statistik
-Föreläsning Mon 2027-04-12 10:00 (P4 w4)">F</span><span class="act chg cap-much-lower" title="SF1922 Sannolikhetsteori och statistik
+Föreläsning Mon 2027-04-12 10:00 (P4 w4)">F</span><span class="act a2 chg cap-much-lower" title="SF1922 Sannolikhetsteori och statistik
 Övning Mon 2027-04-12 13:00 (P4 w4)
 Rooms: M33+M35+M36 (128 seats)
-VT26: W38+W42+W43 (212 seats) → −40%">Ö↓</span><span class="act a8" title="SF1922 Sannolikhetsteori och statistik
+VT26: W38+W42+W43 (212 seats) → −40%">Ö</span><span class="act a8" title="SF1922 Sannolikhetsteori och statistik
 Kontrollskrivning Thu 2027-04-15 08:00 (P4 w4)">KS</span><span class="act" title="SF1922 Sannolikhetsteori och statistik
 Övrigt Thu 2027-04-15 10:00 (P4 w4)
 Rooms: no room booked
@@ -4332,10 +4339,10 @@ Rooms: V12+V21+V32 (130 seats)
 VT26: E51+E52+E53 (132 seats) → −2%">Ö</span><span class="act a1" title="SF1922 Sannolikhetsteori och statistik
 Föreläsning Mon 2027-04-19 10:00 (P4 w5)
 Rooms: M2 (140 seats)
-VT26: B2 (131 seats) → +7%">F</span><span class="act cap-lower" title="SF1922 Sannolikhetsteori och statistik
+VT26: B2 (131 seats) → +7%">F</span><span class="act a2 cap-lower" title="SF1922 Sannolikhetsteori och statistik
 Övning Mon 2027-04-19 13:00 (P4 w5)
 Rooms: M33+M35+M36 (128 seats)
-VT26: Q24+Q34+Q36 (150 seats) → −15%">Ö↓</span><span class="act a1" title="SF1922 Sannolikhetsteori och statistik
+VT26: Q24+Q34+Q36 (150 seats) → −15%">Ö</span><span class="act a1" title="SF1922 Sannolikhetsteori och statistik
 Föreläsning Thu 2027-04-22 10:00 (P4 w5)
 Rooms: B2 (131 seats)
 VT26: B2 (131 seats) → same">F</span><span class="act a2" title="SF1922 Sannolikhetsteori och statistik
@@ -4535,25 +4542,25 @@ Rooms: E1 (212 seats)
 VT26: E1 (212 seats) → same">F</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Wed 2027-03-24 08:00 (P4 w2)
 Rooms: E1 (212 seats)
-VT26: E1 (212 seats) → same">F</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: E1 (212 seats) → same">F</span><span class="act a2 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Övning Thu 2027-03-25 08:00 (P4 w2)
 Rooms: D1 (216 seats)
-VT26: U21 (70 seats) → +209%">Ö↑</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
+VT26: U21 (70 seats) → +209%">Ö</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Mon 2027-04-05 08:00 (P4 w3)
 Rooms: E1 (212 seats)
 VT26: D1 (216 seats) → −2%">F</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Tue 2027-04-06 13:00 (P4 w3)
 Rooms: E1 (212 seats)
-VT26: E1 (212 seats) → same">F</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: E1 (212 seats) → same">F</span><span class="act a2 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Övning Thu 2027-04-08 10:00 (P4 w3)
 Rooms: W37+W38 (144 seats)
-VT26: U21 (70 seats) → +106%">Ö↑</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
+VT26: U21 (70 seats) → +106%">Ö</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Mon 2027-04-12 08:00 (P4 w4)
 Rooms: E1 (212 seats)
-VT26: E1 (212 seats) → same">F</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: E1 (212 seats) → same">F</span><span class="act a2 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Övning Tue 2027-04-13 13:00 (P4 w4)
 Rooms: W37+W38 (144 seats)
-VT26: U41 (72 seats) → +100%">Ö↑</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
+VT26: U41 (72 seats) → +100%">Ö</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Thu 2027-04-15 10:00 (P4 w4)
 Rooms: E1 (212 seats)
 VT26: E1 (212 seats) → same">F</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
@@ -4562,13 +4569,13 @@ Rooms: E1 (212 seats)
 VT26: E1 (212 seats) → same">F</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Wed 2027-04-21 13:00 (P4 w5)
 Rooms: E1 (212 seats)
-VT26: E1 (212 seats) → same">F</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: E1 (212 seats) → same">F</span><span class="act a2 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Övning Fri 2027-04-23 08:00 (P4 w5)
 Rooms: W37+W38 (144 seats)
-VT26: U21 (70 seats) → +106%">Ö↑</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: U21 (70 seats) → +106%">Ö</span><span class="act a2 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Övning Tue 2027-04-27 13:00 (P4 w6)
 Rooms: W37+W38 (144 seats)
-VT26: U41 (72 seats) → +100%">Ö↑</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
+VT26: U41 (72 seats) → +100%">Ö</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Thu 2027-04-29 13:00 (P4 w6)
 Rooms: E1 (212 seats)
 VT26: E1 (212 seats) → same">F</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
@@ -4577,22 +4584,22 @@ Rooms: E1 (212 seats)
 VT26: E1 (212 seats) → same">F</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Tue 2027-05-04 08:00 (P4 w7)
 Rooms: E1 (212 seats)
-VT26: E1 (212 seats) → same">F</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: E1 (212 seats) → same">F</span><span class="act a2 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Övning Wed 2027-05-05 08:00 (P4 w7)
 Rooms: W37+W38 (144 seats)
-VT26: U21 (70 seats) → +106%">Ö↑</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: U21 (70 seats) → +106%">Ö</span><span class="act a1 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Mon 2027-05-10 13:00 (P4 w8)
 Rooms: E1 (212 seats)
-VT26: E3 (87 seats) → +144%">F↑</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: E3 (87 seats) → +144%">F</span><span class="act a1 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Thu 2027-05-13 08:00 (P4 w8)
 Rooms: E1 (212 seats)
-VT26: E3 (87 seats) → +144%">F↑</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: E3 (87 seats) → +144%">F</span><span class="act a2 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Övning Thu 2027-05-13 10:00 (P4 w8)
 Rooms: W37+W38 (144 seats)
-VT26: W43 (70 seats) → +106%">Ö↑</span><span class="act cap-higher" title="SF2701 Finansiell matematik, grundkurs
+VT26: W43 (70 seats) → +106%">Ö</span><span class="act a2 cap-higher" title="SF2701 Finansiell matematik, grundkurs
 Övning Fri 2027-05-14 10:00 (P4 w8)
 Rooms: W37+W38 (144 seats)
-VT26: W43 (70 seats) → +106%">Ö↑</span><span class="act a8" title="SF2701 Finansiell matematik, grundkurs
+VT26: W43 (70 seats) → +106%">Ö</span><span class="act a8" title="SF2701 Finansiell matematik, grundkurs
 Tentamen Mon 2027-05-31 08:00 (P4 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P4 w1</td><td><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Tue 2026-03-17 13:00 (P4 w1)">F</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
 Föreläsning Wed 2026-03-18 08:00 (P4 w1)">F</span><span class="act a1" title="SF2701 Finansiell matematik, grundkurs
@@ -4730,19 +4737,19 @@ Rooms: Q34+Q36 (120 seats)">R</span><span class="act a8" title="SG1112 Mekanik I
 Tentamen Fri 2026-05-29 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="SG1112 Mekanik I
 Föreläsning Thu 2027-01-14 08:00 (P3 w1)
 Rooms: M2 (140 seats)
-VT26: M2 (140 seats) → same">F</span><span class="act cap-higher" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → same">F</span><span class="act a1 cap-higher" title="SG1112 Mekanik I
 Föreläsning Fri 2027-01-15 08:00 (P3 w1)
 Rooms: Q1 (281 seats)
-VT26: M2 (140 seats) → +101%">F↑</span><span class="act cap-much-lower" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → +101%">F</span><span class="act a2 cap-much-lower" title="SG1112 Mekanik I
 Övning Fri 2027-01-15 10:00 (P3 w1)
 Rooms: M31+M35+M36 (102 seats)
-VT26: Q26+Q31+Q33 (160 seats) → −36%">Ö↓</span><span class="act a1" title="SG1112 Mekanik I
+VT26: Q26+Q31+Q33 (160 seats) → −36%">Ö</span><span class="act a1" title="SG1112 Mekanik I
 Föreläsning Wed 2027-01-20 15:00 (P3 w2)
 Rooms: M2 (140 seats)
-VT26: M2 (140 seats) → same">F</span><span class="act cap-higher" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → same">F</span><span class="act a1 cap-higher" title="SG1112 Mekanik I
 Föreläsning Thu 2027-01-21 10:00 (P3 w2)
 Rooms: D1 (216 seats)
-VT26: M2 (140 seats) → +54%">F↑</span><span class="act a2" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → +54%">F</span><span class="act a2" title="SG1112 Mekanik I
 Övning Fri 2027-01-22 15:00 (P3 w2)
 Rooms: Q33+Q34+Q36 (180 seats)
 VT26: V33+V34+V35 (156 seats) → +15%">Ö</span><span class="act a1" title="SG1112 Mekanik I
@@ -4763,19 +4770,19 @@ Rooms: M2 (140 seats)
 VT26: M2 (140 seats) → same">F</span><span class="act a2" title="SG1112 Mekanik I
 Övning Fri 2027-02-05 08:00 (P3 w4)
 Rooms: V22+V32+V34 (180 seats)
-VT26: FB52+FB54+FB55 (132 seats) → +36%">Ö</span><span class="act cap-higher" title="SG1112 Mekanik I
+VT26: FB52+FB54+FB55 (132 seats) → +36%">Ö</span><span class="act a1 cap-higher" title="SG1112 Mekanik I
 Föreläsning Tue 2027-02-09 10:00 (P3 w5)
 Rooms: Q1 (281 seats)
-VT26: M2 (140 seats) → +101%">F↑</span><span class="act cap-higher" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → +101%">F</span><span class="act a1 cap-higher" title="SG1112 Mekanik I
 Föreläsning Wed 2027-02-10 15:00 (P3 w5)
 Rooms: D1 (216 seats)
-VT26: M2 (140 seats) → +54%">F↑</span><span class="act a1" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → +54%">F</span><span class="act a1" title="SG1112 Mekanik I
 Föreläsning Tue 2027-02-16 10:00 (P3 w6)
 Rooms: M2 (140 seats)
-VT26: M2 (140 seats) → same">F</span><span class="act cap-higher" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → same">F</span><span class="act a2 cap-higher" title="SG1112 Mekanik I
 Övning Tue 2027-02-16 15:00 (P3 w6)
 Rooms: Q33+Q34+Q36 (180 seats)
-VT26: M23+M24+M36+M38 (118 seats) → +53%">Ö↑</span><span class="act a8" title="SG1112 Mekanik I
+VT26: M23+M24+M36+M38 (118 seats) → +53%">Ö</span><span class="act a8" title="SG1112 Mekanik I
 Kontrollskrivning Thu 2027-02-18 08:00 (P3 w6)">KS</span><span class="act" title="SG1112 Mekanik I
 Övrigt Thu 2027-02-18 10:00 (P3 w6)
 Rooms: no room booked
@@ -4785,19 +4792,19 @@ Rooms: M2 (140 seats)
 VT26: M2 (140 seats) → same">F</span><span class="act a1" title="SG1112 Mekanik I
 Föreläsning Thu 2027-02-25 10:00 (P3 w7)
 Rooms: M2 (140 seats)
-VT26: M2 (140 seats) → same">F</span><span class="act cap-higher" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → same">F</span><span class="act a2 cap-higher" title="SG1112 Mekanik I
 Övning Thu 2027-02-25 13:00 (P3 w7)
 Rooms: W38+W42+W43 (212 seats)
-VT26: E34+E35+E52 (118 seats) → +80%">Ö↑</span><span class="act a1" title="SG1112 Mekanik I
+VT26: E34+E35+E52 (118 seats) → +80%">Ö</span><span class="act a1" title="SG1112 Mekanik I
 Föreläsning Mon 2027-03-01 13:00 (P3 w8)
 Rooms: M2 (140 seats)
 VT26: M2 (140 seats) → same">F</span><span class="act a2" title="SG1112 Mekanik I
 Övning Mon 2027-03-15 10:00 (P4 w1)
 Rooms: V22+V32+V34 (180 seats)
-VT26: V32+V33+V35 (156 seats) → +15%">Ö</span><span class="act cap-higher" title="SG1112 Mekanik I
+VT26: V32+V33+V35 (156 seats) → +15%">Ö</span><span class="act a1 cap-higher" title="SG1112 Mekanik I
 Föreläsning Mon 2027-03-15 13:00 (P4 w1)
 Rooms: D1 (216 seats)
-VT26: M2 (140 seats) → +54%">F↑</span><span class="act a1" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → +54%">F</span><span class="act a1" title="SG1112 Mekanik I
 Föreläsning Wed 2027-03-17 15:00 (P4 w1)
 Rooms: M2 (140 seats)
 VT26: M2 (140 seats) → same">F</span><span class="act a2" title="SG1112 Mekanik I
@@ -4825,16 +4832,16 @@ Rooms: V22+V32+V34 (180 seats)
 VT26: M33+M35+M36 (128 seats) → +41%">Ö</span><span class="act a1" title="SG1112 Mekanik I
 Föreläsning Thu 2027-04-29 10:00 (P4 w6)
 Rooms: M2 (140 seats)
-VT26: M2 (140 seats) → same">F</span><span class="act cap-higher" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → same">F</span><span class="act a1 cap-higher" title="SG1112 Mekanik I
 Föreläsning Thu 2027-04-29 13:00 (P4 w6)
 Rooms: D1 (216 seats)
-VT26: M2 (140 seats) → +54%">F↑</span><span class="act cap-higher" title="SG1112 Mekanik I
+VT26: M2 (140 seats) → +54%">F</span><span class="act a2 cap-higher" title="SG1112 Mekanik I
 Övning Mon 2027-05-03 13:00 (P4 w7)
 Rooms: W37+W38+W42 (214 seats)
-VT26: Q21+Q22+Q26 (131 seats) → +63%">Ö↑</span><span class="act cap-far-lower" title="SG1112 Mekanik I
+VT26: Q21+Q22+Q26 (131 seats) → +63%">Ö</span><span class="act a1 cap-far-lower" title="SG1112 Mekanik I
 Föreläsning Mon 2027-05-03 15:00 (P4 w7)
 Rooms: M2 (140 seats)
-VT26: M1 (262 seats) → −47%">F↓</span><span class="act a2" title="SG1112 Mekanik I
+VT26: M1 (262 seats) → −47%">F</span><span class="act a2" title="SG1112 Mekanik I
 Övning Wed 2027-05-05 16:00 (P4 w7)
 Rooms: V22+V23+V33 (156 seats)
 VT26: V33+V34+V35 (156 seats) → same">Ö</span><span class="act a1" title="SG1112 Mekanik I
@@ -4983,65 +4990,65 @@ Föreläsning Wed 2026-05-13 13:00 (P4 w8)
 Rooms: FB51 (32 seats)">F</span><span class="act a1" title="SH2404 Astrofysik
 Föreläsning Fri 2026-05-22 10:00 (P4 w9)
 Rooms: FB51 (32 seats)">F</span><span class="act a8" title="SH2404 Astrofysik
-Tentamen Thu 2026-05-28 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act cap-nr" title="SH2404 Astrofysik
+Tentamen Thu 2026-05-28 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Wed 2027-03-17 10:00 (P4 w1)
 Rooms: no room booked
-VT26: FD41 (30 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FD41 (30 seats) → no room booked">F</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Fri 2027-03-19 10:00 (P4 w1)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">F</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Tue 2027-03-23 10:00 (P4 w2)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">F</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Wed 2027-03-24 09:00 (P4 w2)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">F</span><span class="act cap-nr" title="SH2404 Astrofysik
 Räknestuga Wed 2027-03-24 11:00 (P4 w2)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">R?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">R</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Wed 2027-04-07 10:00 (P4 w3)
 Rooms: no room booked
-VT26: FB55 (32 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB55 (32 seats) → no room booked">F</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Fri 2027-04-09 09:00 (P4 w3)
 Rooms: no room booked
-VT26: FB54 (40 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB54 (40 seats) → no room booked">F</span><span class="act cap-nr" title="SH2404 Astrofysik
 Räknestuga Fri 2027-04-09 11:00 (P4 w3)
 Rooms: no room booked
-VT26: FB54 (40 seats) → no room booked">R?</span><span class="act a4 chg" title="SH2404 Astrofysik
+VT26: FB54 (40 seats) → no room booked">R</span><span class="act a4 chg" title="SH2404 Astrofysik
 Seminarium Mon 2027-04-12 13:00 (P4 w4)">S</span><span class="act cap-nr" title="SH2404 Astrofysik
 Räknestuga Mon 2027-04-12 16:00 (P4 w4)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">R?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">R</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Wed 2027-04-21 10:00 (P4 w5)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">F</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Fri 2027-04-23 13:00 (P4 w5)
 Rooms: no room booked
-VT26: FP41 (40 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FP41 (40 seats) → no room booked">F</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Wed 2027-04-28 09:00 (P4 w6)
 Rooms: no room booked
-VT26: FB54 (40 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB54 (40 seats) → no room booked">F</span><span class="act cap-nr" title="SH2404 Astrofysik
 Räknestuga Wed 2027-04-28 11:00 (P4 w6)
 Rooms: no room booked
-VT26: FB54 (40 seats) → no room booked">R?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB54 (40 seats) → no room booked">R</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Tue 2027-05-04 10:00 (P4 w7)
 Rooms: no room booked
-VT26: FD41 (30 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FD41 (30 seats) → no room booked">F</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Wed 2027-05-05 10:00 (P4 w7)
 Rooms: no room booked
-VT26: FD41 (30 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FD41 (30 seats) → no room booked">F</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Wed 2027-05-12 09:00 (P4 w8)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">F</span><span class="act cap-nr" title="SH2404 Astrofysik
 Räknestuga Wed 2027-05-12 11:00 (P4 w8)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">R?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">R</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Fri 2027-05-14 10:00 (P4 w8)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">F?</span><span class="act cap-nr" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">F</span><span class="act a1 cap-nr" title="SH2404 Astrofysik
 Föreläsning Wed 2027-05-19 10:00 (P4 w9)
 Rooms: no room booked
-VT26: FB51 (32 seats) → no room booked">F?</span><span class="act a8" title="SH2404 Astrofysik
+VT26: FB51 (32 seats) → no room booked">F</span><span class="act a8" title="SH2404 Astrofysik
 Tentamen Fri 2027-05-28 08:00 (P4 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P4 w1</td><td><span class="act a1" title="SH2404 Astrofysik
 Föreläsning Wed 2026-03-18 10:00 (P4 w1)">F</span><span class="act a1" title="SH2404 Astrofysik
 Föreläsning Fri 2026-03-20 13:00 (P4 w1)">F</span></td><td><span class="act a1" title="SH2404 Astrofysik
@@ -5096,25 +5103,25 @@ Rooms: B21 (30 seats)">F</span><span class="act a1" title="SI1142 Fysikens matem
 Föreläsning Tue 2026-05-05 13:00 (P4 w7)
 Rooms: B26 (30 seats)">F</span><span class="act a1" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Föreläsning Tue 2026-05-12 10:00 (P4 w8)
-Rooms: Q11 (30 seats)">F</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act cap-much-lower" title="SI1142 Fysikens matematiska metoder, tilläggskurs
+Rooms: Q11 (30 seats)">F</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1 cap-much-lower" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Föreläsning Mon 2027-03-15 13:00 (P4 w1)
 Rooms: FP22 (24 seats)
-VT26: B25 (30 seats) → −20%">F↓</span><span class="act a1" title="SI1142 Fysikens matematiska metoder, tilläggskurs
+VT26: B25 (30 seats) → −20%">F</span><span class="act a1" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Föreläsning Fri 2027-03-19 10:00 (P4 w1)
 Rooms: FP41 (40 seats)
-VT26: B21 (30 seats) → +33%">F</span><span class="act cap-much-lower" title="SI1142 Fysikens matematiska metoder, tilläggskurs
+VT26: B21 (30 seats) → +33%">F</span><span class="act a1 cap-much-lower" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Föreläsning Mon 2027-03-22 13:00 (P4 w2)
 Rooms: FP22 (24 seats)
-VT26: B24 (30 seats) → −20%">F↓</span><span class="act a1" title="SI1142 Fysikens matematiska metoder, tilläggskurs
+VT26: B24 (30 seats) → −20%">F</span><span class="act a1" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Föreläsning Tue 2027-03-23 15:00 (P4 w2)
 Rooms: FP41 (40 seats)
-VT26: B21 (30 seats) → +33%">F</span><span class="act cap-much-lower" title="SI1142 Fysikens matematiska metoder, tilläggskurs
+VT26: B21 (30 seats) → +33%">F</span><span class="act a1 cap-much-lower" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Föreläsning Mon 2027-04-05 13:00 (P4 w3)
 Rooms: FP22 (24 seats)
-VT26: B26 (30 seats) → −20%">F↓</span><span class="act cap-much-lower" title="SI1142 Fysikens matematiska metoder, tilläggskurs
+VT26: B26 (30 seats) → −20%">F</span><span class="act a1 cap-much-lower" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Föreläsning Mon 2027-04-12 13:00 (P4 w4)
 Rooms: FP22 (24 seats)
-VT26: Q11 (30 seats) → −20%">F↓</span><span class="act a8 chg" title="SI1142 Fysikens matematiska metoder, tilläggskurs
+VT26: Q11 (30 seats) → −20%">F</span><span class="act a8 chg" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Tentamen Mon 2027-05-24 08:00 (P4 exams)">TEN</span><span class="act a8 chg" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Tentamen Wed 2027-05-26 08:00 (P4 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr class="diff"><td class="w">P4 w1</td><td><span class="act a1" title="SI1142 Fysikens matematiska metoder, tilläggskurs
 Föreläsning Fri 2026-03-20 10:00 (P4 w1)">F</span></td><td><span class="act a1" title="SI1142 Fysikens matematiska metoder, tilläggskurs
@@ -5194,95 +5201,95 @@ Räknestuga Wed 2026-05-13 15:00 (P4 w8)
 Rooms: FR4 (267 seats)">R</span><span class="act" title="SI1155 Teoretisk fysik
 Räknestuga Mon 2026-05-18 13:00 (P4 w9)
 Rooms: FR4 (267 seats)">R</span><span class="act a8" title="SI1155 Teoretisk fysik
-Tentamen Thu 2026-05-28 14:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+Tentamen Thu 2026-05-28 14:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Tue 2027-03-16 08:00 (P4 w1)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Wed 2027-03-17 08:00 (P4 w1)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-lower" title="SI1155 Teoretisk fysik
 Övning Wed 2027-03-17 15:00 (P4 w1)
 Rooms: FA32+FB52 (108 seats)
-VT26: FB41+FB42+FB51 (124 seats) → −13%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FB41+FB42+FB51 (124 seats) → −13%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Fri 2027-03-19 10:00 (P4 w1)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Mon 2027-03-22 08:00 (P4 w2)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act a1 chg" title="SI1155 Teoretisk fysik
-Föreläsning Tue 2027-03-23 08:00 (P4 w2)">F</span><span class="act chg cap-much-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a1 chg" title="SI1155 Teoretisk fysik
+Föreläsning Tue 2027-03-23 08:00 (P4 w2)">F</span><span class="act a2 chg cap-much-lower" title="SI1155 Teoretisk fysik
 Övning Tue 2027-03-23 15:00 (P4 w2)
 Rooms: FB52+FB53 (120 seats)
-VT26: FB51+FB52+FB53 (152 seats) → −21%">Ö↓</span><span class="act a2" title="SI1155 Teoretisk fysik
+VT26: FB51+FB52+FB53 (152 seats) → −21%">Ö</span><span class="act a2" title="SI1155 Teoretisk fysik
 Övning Wed 2027-03-24 15:00 (P4 w2)
 Rooms: FB53+FB54 (100 seats)
-VT26: FB51+FB54+FB55 (104 seats) → −4%">Ö</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FB51+FB54+FB55 (104 seats) → −4%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Tue 2027-04-06 13:00 (P4 w3)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-much-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-much-lower" title="SI1155 Teoretisk fysik
 Övning Tue 2027-04-06 15:00 (P4 w3)
 Rooms: FA31+FA32 (82 seats)
-VT26: FA31+FA32+FB54 (122 seats) → −33%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FA31+FA32+FB54 (122 seats) → −33%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Fri 2027-04-09 08:00 (P4 w3)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-much-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-much-lower" title="SI1155 Teoretisk fysik
 Övning Fri 2027-04-09 15:00 (P4 w3)
 Rooms: FA31+FA32 (82 seats)
-VT26: FA32+FB54+FB55 (120 seats) → −32%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FA32+FB54+FB55 (120 seats) → −32%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Mon 2027-04-12 08:00 (P4 w4)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-far-lower" title="SI1155 Teoretisk fysik
 Övning Mon 2027-04-12 15:00 (P4 w4)
 Rooms: FA31+FA32 (82 seats)
-VT26: FR4 (267 seats) → −69%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −69%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Tue 2027-04-13 13:00 (P4 w4)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-far-lower" title="SI1155 Teoretisk fysik
 Övning Tue 2027-04-13 15:00 (P4 w4)
 Rooms: FA31+FA32 (82 seats)
-VT26: FB52+FB53+FB54 (160 seats) → −49%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FB52+FB53+FB54 (160 seats) → −49%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Mon 2027-04-19 15:00 (P4 w5)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-far-lower" title="SI1155 Teoretisk fysik
 Övning Wed 2027-04-21 15:00 (P4 w5)
 Rooms: FA31+FA32 (82 seats)
-VT26: FB52+FB53+FB54 (160 seats) → −49%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FB52+FB53+FB54 (160 seats) → −49%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Fri 2027-04-23 08:00 (P4 w5)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-much-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-much-lower" title="SI1155 Teoretisk fysik
 Övning Fri 2027-04-23 10:00 (P4 w5)
 Rooms: FB53+FB54 (100 seats)
-VT26: FB52+FB53+FB54 (160 seats) → −38%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FB52+FB53+FB54 (160 seats) → −38%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Mon 2027-04-26 08:00 (P4 w6)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-much-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-much-lower" title="SI1155 Teoretisk fysik
 Övning Mon 2027-04-26 15:00 (P4 w6)
 Rooms: FA31+FA32 (82 seats)
-VT26: FB51+FB54+FB55 (104 seats) → −21%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FB51+FB54+FB55 (104 seats) → −21%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Wed 2027-04-28 15:00 (P4 w6)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-far-lower" title="SI1155 Teoretisk fysik
 Övning Thu 2027-04-29 15:00 (P4 w6)
 Rooms: FA31+FA32 (82 seats)
-VT26: FB52+FB53+FB54 (160 seats) → −49%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FB52+FB53+FB54 (160 seats) → −49%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Mon 2027-05-03 08:00 (P4 w7)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-far-lower" title="SI1155 Teoretisk fysik
 Övning Mon 2027-05-03 15:00 (P4 w7)
 Rooms: FA31+FA32 (82 seats)
-VT26: FB52+FB53+FB55 (152 seats) → −46%">Ö↓</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FB52+FB53+FB55 (152 seats) → −46%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Tue 2027-05-04 10:00 (P4 w7)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act a2" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2" title="SI1155 Teoretisk fysik
 Övning Tue 2027-05-04 13:00 (P4 w7)
 Rooms: FB52+FB53 (120 seats)
-VT26: FB51+FB54+FB55 (104 seats) → +15%">Ö</span><span class="act cap-far-lower" title="SI1155 Teoretisk fysik
+VT26: FB51+FB54+FB55 (104 seats) → +15%">Ö</span><span class="act a1 cap-far-lower" title="SI1155 Teoretisk fysik
 Föreläsning Tue 2027-05-11 13:00 (P4 w8)
 Rooms: FD5 (114 seats)
-VT26: FR4 (267 seats) → −57%">F↓</span><span class="act cap-much-lower" title="SI1155 Teoretisk fysik
+VT26: FR4 (267 seats) → −57%">F</span><span class="act a2 cap-much-lower" title="SI1155 Teoretisk fysik
 Övning Tue 2027-05-11 15:00 (P4 w8)
 Rooms: FB51+FB53 (92 seats)
-VT26: FB41+FB53+FB54 (132 seats) → −30%">Ö↓</span><span class="act" title="SI1155 Teoretisk fysik
+VT26: FB41+FB53+FB54 (132 seats) → −30%">Ö</span><span class="act" title="SI1155 Teoretisk fysik
 Räknestuga Tue 2027-05-18 13:00 (P4 w9)
 Rooms: FR4 (267 seats)
 VT26: FR4 (267 seats) → same">R</span><span class="act" title="SI1155 Teoretisk fysik
@@ -5410,10 +5417,10 @@ Rooms: FB54 (40 seats)">R</span><span class="act a8" title="SI1200 Fysikens mate
 Tentamen Wed 2026-03-11 08:00 (P3 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="SI1200 Fysikens matematiska metoder
 Föreläsning Wed 2027-01-13 15:00 (P3 w1)
 Rooms: FR4 (267 seats)
-VT26: FR4 (267 seats) → same">F</span><span class="act cap-lower" title="SI1200 Fysikens matematiska metoder
+VT26: FR4 (267 seats) → same">F</span><span class="act a2 cap-lower" title="SI1200 Fysikens matematiska metoder
 Övning Thu 2027-01-14 08:00 (P3 w1)
 Rooms: FB53+FB54+FB55 (132 seats)
-VT26: FB52+FB53+FB54 (160 seats) → −18%">Ö↓</span><span class="act a1" title="SI1200 Fysikens matematiska metoder
+VT26: FB52+FB53+FB54 (160 seats) → −18%">Ö</span><span class="act a1" title="SI1200 Fysikens matematiska metoder
 Föreläsning Thu 2027-01-14 10:00 (P3 w1)
 Rooms: FR4 (267 seats)
 VT26: FR4 (267 seats) → same">F</span><span class="act a2" title="SI1200 Fysikens matematiska metoder
@@ -5431,10 +5438,10 @@ Rooms: FR4 (267 seats)
 VT26: FR4 (267 seats) → same">F</span><span class="act a2" title="SI1200 Fysikens matematiska metoder
 Övning Thu 2027-01-21 10:00 (P3 w2)
 Rooms: FB53+FB54+FB55 (132 seats)
-VT26: FB53+FB54+FB55 (132 seats) → same">Ö</span><span class="act cap-higher" title="SI1200 Fysikens matematiska metoder
+VT26: FB53+FB54+FB55 (132 seats) → same">Ö</span><span class="act a1 cap-higher" title="SI1200 Fysikens matematiska metoder
 Föreläsning Tue 2027-01-26 13:00 (P3 w3)
 Rooms: FR4 (267 seats)
-VT26: M2 (140 seats) → +91%">F↑</span><span class="act a2" title="SI1200 Fysikens matematiska metoder
+VT26: M2 (140 seats) → +91%">F</span><span class="act a2" title="SI1200 Fysikens matematiska metoder
 Övning Tue 2027-01-26 15:00 (P3 w3)
 Rooms: FB53+FB54+FB55 (132 seats)
 VT26: FB53+FB54+FB55 (132 seats) → same">Ö</span><span class="act a1" title="SI1200 Fysikens matematiska metoder
@@ -5458,10 +5465,10 @@ Rooms: FR4 (267 seats)
 VT26: FR4 (267 seats) → same">F</span><span class="act a2" title="SI1200 Fysikens matematiska metoder
 Övning Thu 2027-02-04 15:00 (P3 w4)
 Rooms: FB53+FB54+FB55 (132 seats)
-VT26: FB53+FB54+FB55 (132 seats) → same">Ö</span><span class="act cap-higher" title="SI1200 Fysikens matematiska metoder
+VT26: FB53+FB54+FB55 (132 seats) → same">Ö</span><span class="act a1 cap-higher" title="SI1200 Fysikens matematiska metoder
 Föreläsning Wed 2027-02-10 13:00 (P3 w5)
 Rooms: FR4 (267 seats)
-VT26: M2 (140 seats) → +91%">F↑</span><span class="act a2" title="SI1200 Fysikens matematiska metoder
+VT26: M2 (140 seats) → +91%">F</span><span class="act a2" title="SI1200 Fysikens matematiska metoder
 Övning Thu 2027-02-11 10:00 (P3 w5)
 Rooms: FB53+FB54+FB55 (132 seats)
 VT26: FB42+FB54+FB55 (132 seats) → same">Ö</span><span class="act a1" title="SI1200 Fysikens matematiska metoder
@@ -5627,13 +5634,13 @@ Rooms: FB51 (32 seats)
 VT26: FB51 (32 seats) → same">F</span><span class="act a2" title="SI2360 Analytisk mekanik och klassisk fältteori
 Övning Tue 2027-04-06 15:00 (P4 w3)
 Rooms: FB51 (32 seats)
-VT26: FB51 (32 seats) → same">Ö</span><span class="act cap-far-lower" title="SI2360 Analytisk mekanik och klassisk fältteori
+VT26: FB51 (32 seats) → same">Ö</span><span class="act a1 cap-far-lower" title="SI2360 Analytisk mekanik och klassisk fältteori
 Föreläsning Wed 2027-04-07 08:00 (P4 w3)
 Rooms: FB51 (32 seats)
-VT26: FD41+FP22 (54 seats) → −41%">F↓</span><span class="act cap-far-lower" title="SI2360 Analytisk mekanik och klassisk fältteori
+VT26: FD41+FP22 (54 seats) → −41%">F</span><span class="act a2 cap-far-lower" title="SI2360 Analytisk mekanik och klassisk fältteori
 Övning Wed 2027-04-07 10:00 (P4 w3)
 Rooms: FB51 (32 seats)
-VT26: FD41+FP22 (54 seats) → −41%">Ö↓</span><span class="act a1" title="SI2360 Analytisk mekanik och klassisk fältteori
+VT26: FD41+FP22 (54 seats) → −41%">Ö</span><span class="act a1" title="SI2360 Analytisk mekanik och klassisk fältteori
 Föreläsning Mon 2027-04-12 13:00 (P4 w4)
 Rooms: FB51 (32 seats)
 VT26: FD41 (30 seats) → +7%">F</span><span class="act a2" title="SI2360 Analytisk mekanik och klassisk fältteori
@@ -6187,10 +6194,10 @@ Rooms: M1 (262 seats)
 VT26: E1 (212 seats) → +24%">F</span><span class="act a2" title="SF1674 Flervariabelanalys
 Övning Tue 2027-01-12 13:00 (P3 w1)
 Rooms: Q17+Q22+Q26+V11+V21 (200 seats)
-VT26: Q11+Q21+Q22+Q24+Q26 (191 seats) → +5%">Ö</span><span class="act cap-lower" title="SF1674 Flervariabelanalys
+VT26: Q11+Q21+Q22+Q24+Q26 (191 seats) → +5%">Ö</span><span class="act a1 cap-lower" title="SF1674 Flervariabelanalys
 Föreläsning Thu 2027-01-14 10:00 (P3 w1)
 Rooms: E1 (212 seats)
-VT26: F2 (238 seats) → −11%">F↓</span><span class="act a2" title="SF1674 Flervariabelanalys
+VT26: F2 (238 seats) → −11%">F</span><span class="act a2" title="SF1674 Flervariabelanalys
 Övning Thu 2027-01-14 13:00 (P3 w1)
 Rooms: D32+D34+D35+D41+D42 (188 seats)
 VT26: Q17+Q21+Q22+Q24+Q26 (201 seats) → −6%">Ö</span><span class="act a1" title="SF1674 Flervariabelanalys
@@ -6202,10 +6209,10 @@ Rooms: E35+E36+E51+E52+E53 (212 seats)
 VT26: Q17+Q21+Q22+Q24+Q26 (201 seats) → +5%">Ö</span><span class="act a1" title="SF1674 Flervariabelanalys
 Föreläsning Wed 2027-01-20 10:00 (P3 w2)
 Rooms: F2 (238 seats)
-VT26: D1 (216 seats) → +10%">F</span><span class="act cap-lower" title="SF1674 Flervariabelanalys
+VT26: D1 (216 seats) → +10%">F</span><span class="act a2 cap-lower" title="SF1674 Flervariabelanalys
 Övning Wed 2027-01-20 13:00 (P3 w2)
 Rooms: D32+D34+D41+E31+E33 (196 seats)
-VT26: V11+V12+V21+V22+V32 (230 seats) → −15%">Ö↓</span><span class="act a1" title="SF1674 Flervariabelanalys
+VT26: V11+V12+V21+V22+V32 (230 seats) → −15%">Ö</span><span class="act a1" title="SF1674 Flervariabelanalys
 Föreläsning Fri 2027-01-22 10:00 (P3 w2)
 Rooms: D1 (216 seats)
 VT26: F2 (238 seats) → −9%">F</span><span class="act a2" title="SF1674 Flervariabelanalys
@@ -6232,10 +6239,10 @@ Rooms: E35+E36+E51+E52+E53 (212 seats)
 VT26: Q17+Q21+Q22+Q24+Q26 (201 seats) → +5%">Ö</span><span class="act a1" title="SF1674 Flervariabelanalys
 Föreläsning Mon 2027-02-01 10:00 (P3 w4)
 Rooms: D1 (216 seats)
-VT26: E1 (212 seats) → +2%">F</span><span class="act cap-much-lower" title="SF1674 Flervariabelanalys
+VT26: E1 (212 seats) → +2%">F</span><span class="act a2 cap-much-lower" title="SF1674 Flervariabelanalys
 Övning Mon 2027-02-01 13:00 (P3 w4)
 Rooms: E31+E33+E34+E36+E52 (182 seats)
-VT26: V11+V12+V21+V32+V34 (230 seats) → −21%">Ö↓</span><span class="act a1" title="SF1674 Flervariabelanalys
+VT26: V11+V12+V21+V32+V34 (230 seats) → −21%">Ö</span><span class="act a1" title="SF1674 Flervariabelanalys
 Föreläsning Wed 2027-02-03 10:00 (P3 w4)
 Rooms: Q1 (281 seats)
 VT26: D1 (216 seats) → +30%">F</span><span class="act a2" title="SF1674 Flervariabelanalys
@@ -6256,10 +6263,10 @@ Rooms: E35+E36+E51+E52+E53 (212 seats)
 VT26: Q17+Q21+Q22+Q24+Q26 (201 seats) → +5%">Ö</span><span class="act a1" title="SF1674 Flervariabelanalys
 Föreläsning Wed 2027-02-10 10:00 (P3 w5)
 Rooms: E1 (212 seats)
-VT26: D1 (216 seats) → −2%">F</span><span class="act cap-much-lower" title="SF1674 Flervariabelanalys
+VT26: D1 (216 seats) → −2%">F</span><span class="act a2 cap-much-lower" title="SF1674 Flervariabelanalys
 Övning Wed 2027-02-10 13:00 (P3 w5)
 Rooms: D32+D34+D41+E31+E36 (196 seats)
-VT26: V21+V32+V33+V34+V35 (256 seats) → −23%">Ö↓</span><span class="act a1" title="SF1674 Flervariabelanalys
+VT26: V21+V32+V33+V34+V35 (256 seats) → −23%">Ö</span><span class="act a1" title="SF1674 Flervariabelanalys
 Föreläsning Fri 2027-02-12 10:00 (P3 w5)
 Rooms: E1 (212 seats)
 VT26: E1 (212 seats) → same">F</span><span class="act a2" title="SF1674 Flervariabelanalys
@@ -6274,16 +6281,16 @@ Rooms: E35+E36+E51+E52+E53 (212 seats)
 VT26: E33+E34+E35+E36+E51 (192 seats) → +10%">Ö</span><span class="act a1" title="SF1674 Flervariabelanalys
 Föreläsning Wed 2027-02-17 10:00 (P3 w6)
 Rooms: E1 (212 seats)
-VT26: D1 (216 seats) → −2%">F</span><span class="act cap-lower" title="SF1674 Flervariabelanalys
+VT26: D1 (216 seats) → −2%">F</span><span class="act a2 cap-lower" title="SF1674 Flervariabelanalys
 Övning Wed 2027-02-17 13:00 (P3 w6)
 Rooms: D32+D35+D41+E33+E36 (180 seats)
-VT26: Q11+Q13+Q21+Q26+Q31 (211 seats) → −15%">Ö↓</span><span class="act cap-lower" title="SF1674 Flervariabelanalys
+VT26: Q11+Q13+Q21+Q26+Q31 (211 seats) → −15%">Ö</span><span class="act a1 cap-lower" title="SF1674 Flervariabelanalys
 Föreläsning Fri 2027-02-19 13:00 (P3 w6)
 Rooms: F2 (238 seats)
-VT26: Q1 (281 seats) → −15%">F↓</span><span class="act cap-much-lower" title="SF1674 Flervariabelanalys
+VT26: Q1 (281 seats) → −15%">F</span><span class="act a2 cap-much-lower" title="SF1674 Flervariabelanalys
 Övning Fri 2027-02-19 15:00 (P3 w6)
 Rooms: E35+E36+E51+E52+E53 (212 seats)
-VT26: U61+V01+W38+W42+W43 (288 seats) → −26%">Ö↓</span><span class="act a1" title="SF1674 Flervariabelanalys
+VT26: U61+V01+W38+W42+W43 (288 seats) → −26%">Ö</span><span class="act a1" title="SF1674 Flervariabelanalys
 Föreläsning Mon 2027-02-22 10:00 (P3 w7)
 Rooms: D1 (216 seats)
 VT26: D1 (216 seats) → same">F</span><span class="act a2" title="SF1674 Flervariabelanalys
@@ -6467,130 +6474,130 @@ Föreläsning Mon 2026-05-11 15:00 (P4 w8)
 Rooms: Q22 (40 seats)">F</span><span class="act a2" title="SF1677 Analysens grunder
 Övning Wed 2026-05-13 08:00 (P4 w8)
 Rooms: Q26 (40 seats)">Ö</span><span class="act a8" title="SF1677 Analysens grunder
-Tentamen Wed 2026-05-27 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act cap-higher" title="SF1677 Analysens grunder
+Tentamen Wed 2026-05-27 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Tue 2027-01-12 15:00 (P3 w1)
 Rooms: Q31 (60 seats)
-VT26: Q22 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q22 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Thu 2027-01-14 08:00 (P3 w1)
 Rooms: Q31 (60 seats)
-VT26: Q22 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q22 (40 seats) → +50%">F</span><span class="act a2 cap-higher" title="SF1677 Analysens grunder
 Övning Fri 2027-01-15 15:00 (P3 w1)
 Rooms: V32 (60 seats)
-VT26: V11 (40 seats) → +50%">Ö↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: V11 (40 seats) → +50%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Mon 2027-01-18 13:00 (P3 w2)
 Rooms: Q31 (60 seats)
-VT26: Q15 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q15 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Wed 2027-01-20 15:00 (P3 w2)
 Rooms: Q33 (60 seats)
-VT26: Q15 (40 seats) → +50%">F↑</span><span class="act a2" title="SF1677 Analysens grunder
+VT26: Q15 (40 seats) → +50%">F</span><span class="act a2" title="SF1677 Analysens grunder
 Övning Thu 2027-01-21 08:00 (P3 w2)
 Rooms: Q31 (60 seats)
-VT26: Q21 (51 seats) → +18%">Ö</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q21 (51 seats) → +18%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Mon 2027-01-25 13:00 (P3 w3)
 Rooms: Q31 (60 seats)
-VT26: Q22 (40 seats) → +50%">F↑</span><span class="act a1" title="SF1677 Analysens grunder
+VT26: Q22 (40 seats) → +50%">F</span><span class="act a1" title="SF1677 Analysens grunder
 Föreläsning Tue 2027-01-26 15:00 (P3 w3)
 Rooms: Q34 (60 seats)
-VT26: K51 (48 seats) → +25%">F</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: K51 (48 seats) → +25%">F</span><span class="act a2 cap-higher" title="SF1677 Analysens grunder
 Övning Wed 2027-01-27 15:00 (P3 w3)
 Rooms: Q33 (60 seats)
-VT26: Q15 (40 seats) → +50%">Ö↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q15 (40 seats) → +50%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Mon 2027-02-01 13:00 (P3 w4)
 Rooms: M33 (60 seats)
-VT26: Q17 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q17 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Thu 2027-02-04 15:00 (P3 w4)
 Rooms: Q31 (60 seats)
-VT26: V11 (40 seats) → +50%">F↑</span><span class="act cap-much-lower" title="SF1677 Analysens grunder
+VT26: V11 (40 seats) → +50%">F</span><span class="act a2 cap-much-lower" title="SF1677 Analysens grunder
 Övning Fri 2027-02-05 08:00 (P3 w4)
 Rooms: Q31 (60 seats)
-VT26: Q22+Q26 (80 seats) → −25%">Ö↓</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q22+Q26 (80 seats) → −25%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Mon 2027-02-08 13:00 (P3 w5)
 Rooms: Q36 (60 seats)
-VT26: Q15 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q15 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Wed 2027-02-10 15:00 (P3 w5)
 Rooms: Q31 (60 seats)
-VT26: Q26 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q26 (40 seats) → +50%">F</span><span class="act a2 cap-higher" title="SF1677 Analysens grunder
 Övning Thu 2027-02-11 15:00 (P3 w5)
 Rooms: Q31 (60 seats)
-VT26: V01 (40 seats) → +50%">Ö↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: V01 (40 seats) → +50%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Mon 2027-02-15 13:00 (P3 w6)
 Rooms: Q31 (60 seats)
-VT26: Q15 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q15 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Wed 2027-02-17 15:00 (P3 w6)
 Rooms: Q34 (60 seats)
-VT26: Q26 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q26 (40 seats) → +50%">F</span><span class="act a2 cap-higher" title="SF1677 Analysens grunder
 Övning Fri 2027-02-19 08:00 (P3 w6)
 Rooms: Q31 (60 seats)
-VT26: Q17 (40 seats) → +50%">Ö↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q17 (40 seats) → +50%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Mon 2027-02-22 13:00 (P3 w7)
 Rooms: Q31 (60 seats)
-VT26: Q26 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q26 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Thu 2027-02-25 10:00 (P3 w7)
 Rooms: V34 (60 seats)
-VT26: Q15 (40 seats) → +50%">F↑</span><span class="act cap-much-lower" title="SF1677 Analysens grunder
+VT26: Q15 (40 seats) → +50%">F</span><span class="act a2 cap-much-lower" title="SF1677 Analysens grunder
 Övning Fri 2027-02-26 10:00 (P3 w7)
 Rooms: Q34 (60 seats)
-VT26: V33+V35 (96 seats) → −38%">Ö↓</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: V33+V35 (96 seats) → −38%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Mon 2027-03-15 13:00 (P4 w1)
 Rooms: Q31 (60 seats)
-VT26: Q15 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q15 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Thu 2027-03-18 10:00 (P4 w1)
 Rooms: Q31 (60 seats)
-VT26: Q22 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q22 (40 seats) → +50%">F</span><span class="act a2 cap-higher" title="SF1677 Analysens grunder
 Övning Fri 2027-03-19 13:00 (P4 w1)
 Rooms: V32 (60 seats)
-VT26: Q22 (40 seats) → +50%">Ö↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q22 (40 seats) → +50%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Mon 2027-03-22 08:00 (P4 w2)
 Rooms: Q31 (60 seats)
-VT26: V11 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: V11 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Tue 2027-03-23 08:00 (P4 w2)
 Rooms: V22 (60 seats)
-VT26: Q15 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q15 (40 seats) → +50%">F</span><span class="act a2 cap-higher" title="SF1677 Analysens grunder
 Övning Wed 2027-03-24 10:00 (P4 w2)
 Rooms: Q34 (60 seats)
-VT26: Q26 (40 seats) → +50%">Ö↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q26 (40 seats) → +50%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Tue 2027-04-06 13:00 (P4 w3)
 Rooms: V32 (60 seats)
-VT26: Q22 (40 seats) → +50%">F↑</span><span class="act cap-far-lower" title="SF1677 Analysens grunder
+VT26: Q22 (40 seats) → +50%">F</span><span class="act a2 cap-far-lower" title="SF1677 Analysens grunder
 Övning Wed 2027-04-07 13:00 (P4 w3)
 Rooms: Q31 (60 seats)
-VT26: Q33+Q34 (120 seats) → −50%">Ö↓</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q33+Q34 (120 seats) → −50%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Thu 2027-04-08 10:00 (P4 w3)
 Rooms: Q34 (60 seats)
-VT26: V21 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: V21 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Mon 2027-04-12 13:00 (P4 w4)
 Rooms: V22 (60 seats)
-VT26: V11 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: V11 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Wed 2027-04-14 10:00 (P4 w4)
 Rooms: Q36 (60 seats)
-VT26: Q22 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q22 (40 seats) → +50%">F</span><span class="act a2 cap-higher" title="SF1677 Analysens grunder
 Övning Fri 2027-04-16 13:00 (P4 w4)
 Rooms: Q31 (60 seats)
-VT26: D41 (40 seats) → +50%">Ö↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: D41 (40 seats) → +50%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Wed 2027-04-21 10:00 (P4 w5)
 Rooms: V32 (60 seats)
-VT26: Q26 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q26 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Thu 2027-04-22 10:00 (P4 w5)
 Rooms: Q36 (60 seats)
-VT26: Q26 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q26 (40 seats) → +50%">F</span><span class="act a2 cap-higher" title="SF1677 Analysens grunder
 Övning Fri 2027-04-23 13:00 (P4 w5)
 Rooms: V32 (60 seats)
-VT26: Q15 (40 seats) → +50%">Ö↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q15 (40 seats) → +50%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Thu 2027-04-29 10:00 (P4 w6)
 Rooms: Q33 (60 seats)
-VT26: Q26 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q26 (40 seats) → +50%">F</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Thu 2027-04-29 13:00 (P4 w6)
 Rooms: Q36 (60 seats)
-VT26: Q22 (40 seats) → +50%">F↑</span><span class="act cap-far-lower" title="SF1677 Analysens grunder
+VT26: Q22 (40 seats) → +50%">F</span><span class="act a2 cap-far-lower" title="SF1677 Analysens grunder
 Övning Tue 2027-05-04 13:00 (P4 w7)
 Rooms: M33 (60 seats)
-VT26: W42+W43 (140 seats) → −57%">Ö↓</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: W42+W43 (140 seats) → −57%">Ö</span><span class="act a1 cap-higher" title="SF1677 Analysens grunder
 Föreläsning Tue 2027-05-11 10:00 (P4 w8)
 Rooms: Q31 (60 seats)
-VT26: Q22 (40 seats) → +50%">F↑</span><span class="act cap-higher" title="SF1677 Analysens grunder
+VT26: Q22 (40 seats) → +50%">F</span><span class="act a2 cap-higher" title="SF1677 Analysens grunder
 Övning Wed 2027-05-12 10:00 (P4 w8)
 Rooms: M33 (60 seats)
-VT26: Q26 (40 seats) → +50%">Ö↑</span><span class="act a8" title="SF1677 Analysens grunder
+VT26: Q26 (40 seats) → +50%">Ö</span><span class="act a8" title="SF1677 Analysens grunder
 Tentamen Wed 2027-05-26 08:00 (P4 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="SF1677 Analysens grunder
 Föreläsning Tue 2026-01-13 08:00 (P3 w1)">F</span><span class="act a1" title="SF1677 Analysens grunder
 Föreläsning Wed 2026-01-14 08:00 (P3 w1)">F</span><span class="act a2" title="SF1677 Analysens grunder
@@ -6770,55 +6777,55 @@ Rooms: V22 (60 seats)
 VT26: V34 (60 seats) → same">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Mon 2027-01-18 10:00 (P3 w2)
 Rooms: Q33 (60 seats)
-VT26: V32 (60 seats) → same">F</span><span class="act cap-lower" title="SF1678 Grupper och ringar
+VT26: V32 (60 seats) → same">F</span><span class="act a1 cap-lower" title="SF1678 Grupper och ringar
 Föreläsning Tue 2027-01-19 15:00 (P3 w2)
 Rooms: Q31 (60 seats)
-VT26: W42 (70 seats) → −14%">F↓</span><span class="act cap-far-lower" title="SF1678 Grupper och ringar
+VT26: W42 (70 seats) → −14%">F</span><span class="act a2 cap-far-lower" title="SF1678 Grupper och ringar
 Övning Fri 2027-01-22 08:00 (P3 w2)
 Rooms: Q31 (60 seats)
-VT26: V34+V35 (108 seats) → −44%">Ö↓</span><span class="act a1" title="SF1678 Grupper och ringar
+VT26: V34+V35 (108 seats) → −44%">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Mon 2027-01-25 10:00 (P3 w3)
 Rooms: Q33 (60 seats)
-VT26: V34 (60 seats) → same">F</span><span class="act cap-lower" title="SF1678 Grupper och ringar
+VT26: V34 (60 seats) → same">F</span><span class="act a1 cap-lower" title="SF1678 Grupper och ringar
 Föreläsning Wed 2027-01-27 08:00 (P3 w3)
 Rooms: Q31 (60 seats)
-VT26: W37 (72 seats) → −17%">F↓</span><span class="act cap-far-lower" title="SF1678 Grupper och ringar
+VT26: W37 (72 seats) → −17%">F</span><span class="act a2 cap-far-lower" title="SF1678 Grupper och ringar
 Övning Thu 2027-01-28 15:00 (P3 w3)
 Rooms: Q33 (60 seats)
-VT26: Q34+Q36 (120 seats) → −50%">Ö↓</span><span class="act a1" title="SF1678 Grupper och ringar
+VT26: Q34+Q36 (120 seats) → −50%">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Mon 2027-02-01 10:00 (P3 w4)
 Rooms: Q31 (60 seats)
 VT26: V34 (60 seats) → same">F</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Tue 2027-02-02 08:00 (P3 w4)
 Rooms: V32 (60 seats)
-VT26: V34 (60 seats) → same">F</span><span class="act cap-lower" title="SF1678 Grupper och ringar
+VT26: V34 (60 seats) → same">F</span><span class="act a2 cap-lower" title="SF1678 Grupper och ringar
 Övning Wed 2027-02-03 15:00 (P3 w4)
 Rooms: Q34 (60 seats)
-VT26: U51 (71 seats) → −15%">Ö↓</span><span class="act a1" title="SF1678 Grupper och ringar
+VT26: U51 (71 seats) → −15%">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Mon 2027-02-08 10:00 (P3 w5)
 Rooms: Q34 (60 seats)
 VT26: V34 (60 seats) → same">F</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Tue 2027-02-09 08:00 (P3 w5)
 Rooms: W43 (70 seats)
-VT26: Q33 (60 seats) → +17%">F</span><span class="act cap-far-lower" title="SF1678 Grupper och ringar
+VT26: Q33 (60 seats) → +17%">F</span><span class="act a2 cap-far-lower" title="SF1678 Grupper och ringar
 Övning Thu 2027-02-11 08:00 (P3 w5)
 Rooms: Q33 (60 seats)
-VT26: V21+V22 (100 seats) → −40%">Ö↓</span><span class="act a1" title="SF1678 Grupper och ringar
+VT26: V21+V22 (100 seats) → −40%">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Mon 2027-02-15 10:00 (P3 w6)
 Rooms: Q31 (60 seats)
 VT26: V34 (60 seats) → same">F</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Wed 2027-02-17 08:00 (P3 w6)
 Rooms: Q31 (60 seats)
-VT26: V34 (60 seats) → same">F</span><span class="act cap-far-lower" title="SF1678 Grupper och ringar
+VT26: V34 (60 seats) → same">F</span><span class="act a2 cap-far-lower" title="SF1678 Grupper och ringar
 Övning Thu 2027-02-18 15:00 (P3 w6)
 Rooms: Q31 (60 seats)
-VT26: Q31+Q33 (120 seats) → −50%">Ö↓</span><span class="act a1" title="SF1678 Grupper och ringar
+VT26: Q31+Q33 (120 seats) → −50%">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Mon 2027-02-22 10:00 (P3 w7)
 Rooms: Q33 (60 seats)
-VT26: Q36 (60 seats) → same">F</span><span class="act cap-lower" title="SF1678 Grupper och ringar
+VT26: Q36 (60 seats) → same">F</span><span class="act a1 cap-lower" title="SF1678 Grupper och ringar
 Föreläsning Wed 2027-02-24 15:00 (P3 w7)
 Rooms: Q31 (60 seats)
-VT26: U31 (70 seats) → −14%">F↓</span><span class="act a2" title="SF1678 Grupper och ringar
+VT26: U31 (70 seats) → −14%">F</span><span class="act a2" title="SF1678 Grupper och ringar
 Övning Thu 2027-02-25 13:00 (P3 w7)
 Rooms: Q33 (60 seats)
 VT26: V22 (60 seats) → same">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
@@ -6827,22 +6834,22 @@ Rooms: Q31 (60 seats)
 VT26: Q31 (60 seats) → same">F</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Wed 2027-03-17 10:00 (P4 w1)
 Rooms: Q36 (60 seats)
-VT26: Q31 (60 seats) → same">F</span><span class="act cap-far-lower" title="SF1678 Grupper och ringar
+VT26: Q31 (60 seats) → same">F</span><span class="act a2 cap-far-lower" title="SF1678 Grupper och ringar
 Övning Fri 2027-03-19 10:00 (P4 w1)
 Rooms: Q34 (60 seats)
-VT26: Q34+Q36 (120 seats) → −50%">Ö↓</span><span class="act a1" title="SF1678 Grupper och ringar
+VT26: Q34+Q36 (120 seats) → −50%">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Mon 2027-03-22 10:00 (P4 w2)
 Rooms: Q34 (60 seats)
 VT26: Q36 (60 seats) → same">F</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Wed 2027-03-24 08:00 (P4 w2)
 Rooms: Q31 (60 seats)
-VT26: Q34 (60 seats) → same">F</span><span class="act cap-far-lower" title="SF1678 Grupper och ringar
+VT26: Q34 (60 seats) → same">F</span><span class="act a2 cap-far-lower" title="SF1678 Grupper och ringar
 Övning Thu 2027-03-25 10:00 (P4 w2)
 Rooms: W42 (70 seats)
-VT26: Q31+Q33 (120 seats) → −42%">Ö↓</span><span class="act cap-lower" title="SF1678 Grupper och ringar
+VT26: Q31+Q33 (120 seats) → −42%">Ö</span><span class="act a1 cap-lower" title="SF1678 Grupper och ringar
 Föreläsning Mon 2027-04-05 10:00 (P4 w3)
 Rooms: Q31 (60 seats)
-VT26: U31 (70 seats) → −14%">F↓</span><span class="act a1" title="SF1678 Grupper och ringar
+VT26: U31 (70 seats) → −14%">F</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Wed 2027-04-07 10:00 (P4 w3)
 Rooms: Q36 (60 seats)
 VT26: V32 (60 seats) → same">F</span><span class="act a2" title="SF1678 Grupper och ringar
@@ -6854,19 +6861,19 @@ Rooms: Q31 (60 seats)
 VT26: V32 (60 seats) → same">F</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Wed 2027-04-14 08:00 (P4 w4)
 Rooms: Q31 (60 seats)
-VT26: V34 (60 seats) → same">F</span><span class="act cap-much-lower" title="SF1678 Grupper och ringar
+VT26: V34 (60 seats) → same">F</span><span class="act a2 cap-much-lower" title="SF1678 Grupper och ringar
 Övning Thu 2027-04-15 10:00 (P4 w4)
 Rooms: Q33 (60 seats)
-VT26: V33+V35 (96 seats) → −38%">Ö↓</span><span class="act a1" title="SF1678 Grupper och ringar
+VT26: V33+V35 (96 seats) → −38%">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Tue 2027-04-20 10:00 (P4 w5)
 Rooms: Q34 (60 seats)
 VT26: V34 (60 seats) → same">F</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Wed 2027-04-21 13:00 (P4 w5)
 Rooms: V32 (60 seats)
-VT26: V32 (60 seats) → same">F</span><span class="act cap-far-lower" title="SF1678 Grupper och ringar
+VT26: V32 (60 seats) → same">F</span><span class="act a2 cap-far-lower" title="SF1678 Grupper och ringar
 Övning Fri 2027-04-23 10:00 (P4 w5)
 Rooms: M33 (60 seats)
-VT26: V34+V35 (108 seats) → −44%">Ö↓</span><span class="act a1" title="SF1678 Grupper och ringar
+VT26: V34+V35 (108 seats) → −44%">Ö</span><span class="act a1" title="SF1678 Grupper och ringar
 Föreläsning Tue 2027-04-27 13:00 (P4 w6)
 Rooms: Q34 (60 seats)
 VT26: V34 (60 seats) → same">F</span><span class="act a1" title="SF1678 Grupper och ringar
@@ -6875,10 +6882,10 @@ Rooms: Q36 (60 seats)
 VT26: Q31 (60 seats) → same">F</span><span class="act a2" title="SF1678 Grupper och ringar
 Övning Tue 2027-05-04 10:00 (P4 w7)
 Rooms: W42 (70 seats)
-VT26: U51 (71 seats) → −1%">Ö</span><span class="act cap-far-lower" title="SF1678 Grupper och ringar
+VT26: U51 (71 seats) → −1%">Ö</span><span class="act a1 cap-far-lower" title="SF1678 Grupper och ringar
 Föreläsning Mon 2027-05-10 10:00 (P4 w8)
 Rooms: Q31 (60 seats)
-VT26: Q33+Q34 (120 seats) → −50%">F↓</span><span class="act a2" title="SF1678 Grupper och ringar
+VT26: Q33+Q34 (120 seats) → −50%">F</span><span class="act a2" title="SF1678 Grupper och ringar
 Övning Tue 2027-05-11 08:00 (P4 w8)
 Rooms: Q31 (60 seats)
 VT26: Q31 (60 seats) → same">Ö</span><span class="act a8" title="SF1678 Grupper och ringar
@@ -7031,10 +7038,10 @@ Rooms: E51 (48 seats)">Ö</span><span class="act a2" title="SF1679 Diskret matem
 Rooms: V35 (48 seats)">Ö</span><span class="act a2" title="SF1679 Diskret matematik
 Övning Thu 2026-02-26 10:00 (P3 w7)
 Rooms: E51 (48 seats)">Ö</span><span class="act a8" title="SF1679 Diskret matematik
-Tentamen Mon 2026-03-09 14:00 (P3 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act cap-lower" title="SF1679 Diskret matematik
+Tentamen Mon 2026-03-09 14:00 (P3 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1 cap-lower" title="SF1679 Diskret matematik
 Föreläsning Tue 2027-01-12 13:00 (P3 w1)
 Rooms: B3 (101 seats)
-VT26: D2 (126 seats) → −20%">F↓</span><span class="act a1" title="SF1679 Diskret matematik
+VT26: D2 (126 seats) → −20%">F</span><span class="act a1" title="SF1679 Diskret matematik
 Föreläsning Wed 2027-01-13 10:00 (P3 w1)
 Rooms: M3 (98 seats)
 VT26: D3 (89 seats) → +10%">F</span><span class="act a2" title="SF1679 Diskret matematik
@@ -7055,10 +7062,10 @@ Rooms: B3 (101 seats)
 VT26: V1 (90 seats) → +12%">F</span><span class="act a2" title="SF1679 Diskret matematik
 Övning Thu 2027-01-21 13:00 (P3 w2)
 Rooms: V11+V22 (100 seats)
-VT26: E51+E52 (94 seats) → +6%">Ö</span><span class="act cap-far-lower" title="SF1679 Diskret matematik
+VT26: E51+E52 (94 seats) → +6%">Ö</span><span class="act a1 cap-far-lower" title="SF1679 Diskret matematik
 Föreläsning Fri 2027-01-22 10:00 (P3 w2)
 Rooms: B3 (101 seats)
-VT26: F2 (238 seats) → −58%">F↓</span><span class="act a2" title="SF1679 Diskret matematik
+VT26: F2 (238 seats) → −58%">F</span><span class="act a2" title="SF1679 Diskret matematik
 Övning Fri 2027-01-22 13:00 (P3 w2)
 Rooms: V33+V35 (96 seats)
 VT26: V33+V35 (96 seats) → same">Ö</span><span class="act a1" title="SF1679 Diskret matematik
@@ -7070,10 +7077,10 @@ Rooms: B3 (101 seats)
 VT26: M3 (98 seats) → +3%">F</span><span class="act a2" title="SF1679 Diskret matematik
 Övning Thu 2027-01-28 08:00 (P3 w3)
 Rooms: V21+V22 (100 seats)
-VT26: V33+V35 (96 seats) → +4%">Ö</span><span class="act cap-lower" title="SF1679 Diskret matematik
+VT26: V33+V35 (96 seats) → +4%">Ö</span><span class="act a1 cap-lower" title="SF1679 Diskret matematik
 Föreläsning Fri 2027-01-29 10:00 (P3 w3)
 Rooms: B1 (101 seats)
-VT26: D2 (126 seats) → −20%">F↓</span><span class="act a2" title="SF1679 Diskret matematik
+VT26: D2 (126 seats) → −20%">F</span><span class="act a2" title="SF1679 Diskret matematik
 Övning Fri 2027-01-29 13:00 (P3 w3)
 Rooms: V23+V35 (96 seats)
 VT26: E51+E52 (94 seats) → +2%">Ö</span><span class="act a1" title="SF1679 Diskret matematik
@@ -7088,46 +7095,46 @@ Rooms: E51+E52 (94 seats)
 VT26: V33+V35 (96 seats) → −2%">Ö</span><span class="act a1" title="SF1679 Diskret matematik
 Föreläsning Fri 2027-02-05 10:00 (P3 w4)
 Rooms: B1 (101 seats)
-VT26: E3 (87 seats) → +16%">F</span><span class="act cap-higher" title="SF1679 Diskret matematik
+VT26: E3 (87 seats) → +16%">F</span><span class="act a2 cap-higher" title="SF1679 Diskret matematik
 Övning Fri 2027-02-05 13:00 (P3 w4)
 Rooms: V33+V35 (96 seats)
-VT26: V35 (48 seats) → +100%">Ö↑</span><span class="act cap-much-lower" title="SF1679 Diskret matematik
+VT26: V35 (48 seats) → +100%">Ö</span><span class="act a1 cap-much-lower" title="SF1679 Diskret matematik
 Föreläsning Tue 2027-02-09 13:00 (P3 w5)
 Rooms: M3 (98 seats)
-VT26: B2 (131 seats) → −25%">F↓</span><span class="act cap-much-lower" title="SF1679 Diskret matematik
+VT26: B2 (131 seats) → −25%">F</span><span class="act a1 cap-much-lower" title="SF1679 Diskret matematik
 Föreläsning Wed 2027-02-10 10:00 (P3 w5)
 Rooms: B1 (101 seats)
-VT26: B2 (131 seats) → −23%">F↓</span><span class="act cap-higher" title="SF1679 Diskret matematik
+VT26: B2 (131 seats) → −23%">F</span><span class="act a2 cap-higher" title="SF1679 Diskret matematik
 Övning Thu 2027-02-11 13:00 (P3 w5)
 Rooms: V33+V35 (96 seats)
-VT26: E51 (48 seats) → +100%">Ö↑</span><span class="act a1" title="SF1679 Diskret matematik
+VT26: E51 (48 seats) → +100%">Ö</span><span class="act a1" title="SF1679 Diskret matematik
 Föreläsning Fri 2027-02-12 10:00 (P3 w5)
 Rooms: B1 (101 seats)
-VT26: M3 (98 seats) → +3%">F</span><span class="act cap-higher" title="SF1679 Diskret matematik
+VT26: M3 (98 seats) → +3%">F</span><span class="act a2 cap-higher" title="SF1679 Diskret matematik
 Övning Fri 2027-02-12 13:00 (P3 w5)
 Rooms: V33+V35 (96 seats)
-VT26: E51 (48 seats) → +100%">Ö↑</span><span class="act cap-lower" title="SF1679 Diskret matematik
+VT26: E51 (48 seats) → +100%">Ö</span><span class="act a1 cap-lower" title="SF1679 Diskret matematik
 Föreläsning Tue 2027-02-16 13:00 (P3 w6)
 Rooms: B1 (101 seats)
-VT26: D2 (126 seats) → −20%">F↓</span><span class="act a1" title="SF1679 Diskret matematik
+VT26: D2 (126 seats) → −20%">F</span><span class="act a1" title="SF1679 Diskret matematik
 Föreläsning Wed 2027-02-17 10:00 (P3 w6)
 Rooms: B1 (101 seats)
-VT26: D3 (89 seats) → +13%">F</span><span class="act cap-higher" title="SF1679 Diskret matematik
+VT26: D3 (89 seats) → +13%">F</span><span class="act a2 cap-higher" title="SF1679 Diskret matematik
 Övning Thu 2027-02-18 08:00 (P3 w6)
 Rooms: E51+E52 (94 seats)
-VT26: E51 (48 seats) → +96%">Ö↑</span><span class="act a1" title="SF1679 Diskret matematik
+VT26: E51 (48 seats) → +96%">Ö</span><span class="act a1" title="SF1679 Diskret matematik
 Föreläsning Fri 2027-02-19 10:00 (P3 w6)
 Rooms: B3 (101 seats)
-VT26: D3 (89 seats) → +13%">F</span><span class="act cap-higher" title="SF1679 Diskret matematik
+VT26: D3 (89 seats) → +13%">F</span><span class="act a2 cap-higher" title="SF1679 Diskret matematik
 Övning Fri 2027-02-19 13:00 (P3 w6)
 Rooms: V33+V35 (96 seats)
-VT26: E51 (48 seats) → +100%">Ö↑</span><span class="act cap-higher" title="SF1679 Diskret matematik
+VT26: E51 (48 seats) → +100%">Ö</span><span class="act a2 cap-higher" title="SF1679 Diskret matematik
 Övning Tue 2027-02-23 13:00 (P3 w7)
 Rooms: V21+V22 (100 seats)
-VT26: V35 (48 seats) → +108%">Ö↑</span><span class="act cap-higher" title="SF1679 Diskret matematik
+VT26: V35 (48 seats) → +108%">Ö</span><span class="act a2 cap-higher" title="SF1679 Diskret matematik
 Övning Wed 2027-02-24 13:00 (P3 w7)
 Rooms: V34+V35 (108 seats)
-VT26: E51 (48 seats) → +125%">Ö↑</span><span class="act a8" title="SF1679 Diskret matematik
+VT26: E51 (48 seats) → +125%">Ö</span><span class="act a8" title="SF1679 Diskret matematik
 Tentamen Mon 2027-03-08 14:00 (P3 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="SF1679 Diskret matematik
 Föreläsning Tue 2026-01-13 13:00 (P3 w1)">F</span><span class="act a1" title="SF1679 Diskret matematik
 Föreläsning Wed 2026-01-14 15:00 (P3 w1)">F</span><span class="act a2" title="SF1679 Diskret matematik
@@ -7252,52 +7259,52 @@ Rooms: M1 (262 seats)
 VT26: D1 (216 seats) → +21%">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Fri 2027-01-15 13:00 (P3 w1)
 Rooms: E1 (212 seats)
-VT26: E1 (212 seats) → same">Le</span><span class="act cap-much-lower" title="SF2930 Regressionsanalys
+VT26: E1 (212 seats) → same">Le</span><span class="act a5 cap-much-lower" title="SF2930 Regressionsanalys
 Lektion Tue 2027-01-19 15:00 (P3 w2)
 Rooms: D1 (216 seats)
-VT26: Q1 (281 seats) → −23%">Le↓</span><span class="act cap-higher" title="SF2930 Regressionsanalys
+VT26: Q1 (281 seats) → −23%">Le</span><span class="act a5 cap-higher" title="SF2930 Regressionsanalys
 Lektion Wed 2027-01-20 08:00 (P3 w2)
 Rooms: F1 (462 seats)
-VT26: F2 (238 seats) → +94%">Le↑</span><span class="act a5" title="SF2930 Regressionsanalys
+VT26: F2 (238 seats) → +94%">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Thu 2027-01-21 15:00 (P3 w2)
 Rooms: D1 (216 seats)
-VT26: D1 (216 seats) → same">Le</span><span class="act cap-lower" title="SF2930 Regressionsanalys
+VT26: D1 (216 seats) → same">Le</span><span class="act a5 cap-lower" title="SF2930 Regressionsanalys
 Lektion Fri 2027-01-22 10:00 (P3 w2)
 Rooms: E1 (212 seats)
-VT26: E1+E51 (260 seats) → −18%">Le↓</span><span class="act a5" title="SF2930 Regressionsanalys
+VT26: E1+E51 (260 seats) → −18%">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Mon 2027-01-25 15:00 (P3 w3)
 Rooms: E1 (212 seats)
-VT26: E1 (212 seats) → same">Le</span><span class="act cap-lower" title="SF2930 Regressionsanalys
+VT26: E1 (212 seats) → same">Le</span><span class="act a5 cap-lower" title="SF2930 Regressionsanalys
 Lektion Tue 2027-01-26 15:00 (P3 w3)
 Rooms: D1 (216 seats)
-VT26: D1+D42 (248 seats) → −13%">Le↓</span><span class="act a5" title="SF2930 Regressionsanalys
+VT26: D1+D42 (248 seats) → −13%">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Wed 2027-01-27 15:00 (P3 w3)
 Rooms: D1 (216 seats)
-VT26: E1 (212 seats) → +2%">Le</span><span class="act cap-lower" title="SF2930 Regressionsanalys
+VT26: E1 (212 seats) → +2%">Le</span><span class="act a5 cap-lower" title="SF2930 Regressionsanalys
 Lektion Thu 2027-01-28 10:00 (P3 w3)
 Rooms: F2 (238 seats)
-VT26: M1+M31 (296 seats) → −20%">Le↓</span><span class="act cap-higher" title="SF2930 Regressionsanalys
+VT26: M1+M31 (296 seats) → −20%">Le</span><span class="act a5 cap-higher" title="SF2930 Regressionsanalys
 Lektion Mon 2027-02-01 15:00 (P3 w4)
 Rooms: F1 (462 seats)
-VT26: E1 (212 seats) → +118%">Le↑</span><span class="act a5" title="SF2930 Regressionsanalys
+VT26: E1 (212 seats) → +118%">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Tue 2027-02-02 15:00 (P3 w4)
 Rooms: D1 (216 seats)
-VT26: F2 (238 seats) → −9%">Le</span><span class="act cap-higher" title="SF2930 Regressionsanalys
+VT26: F2 (238 seats) → −9%">Le</span><span class="act a5 cap-higher" title="SF2930 Regressionsanalys
 Lektion Thu 2027-02-04 13:00 (P3 w4)
 Rooms: F1 (462 seats)
-VT26: E1 (212 seats) → +118%">Le↑</span><span class="act a5" title="SF2930 Regressionsanalys
+VT26: E1 (212 seats) → +118%">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Mon 2027-02-08 10:00 (P3 w5)
 Rooms: E1 (212 seats)
-VT26: D1 (216 seats) → −2%">Le</span><span class="act cap-lower" title="SF2930 Regressionsanalys
+VT26: D1 (216 seats) → −2%">Le</span><span class="act a5 cap-lower" title="SF2930 Regressionsanalys
 Lektion Tue 2027-02-09 15:00 (P3 w5)
 Rooms: D1 (216 seats)
-VT26: M1 (262 seats) → −18%">Le↓</span><span class="act a5" title="SF2930 Regressionsanalys
+VT26: M1 (262 seats) → −18%">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Thu 2027-02-11 08:00 (P3 w5)
 Rooms: D1 (216 seats)
-VT26: D1 (216 seats) → same">Le</span><span class="act cap-lower" title="SF2930 Regressionsanalys
+VT26: D1 (216 seats) → same">Le</span><span class="act a5 cap-lower" title="SF2930 Regressionsanalys
 Lektion Fri 2027-02-12 13:00 (P3 w5)
 Rooms: E1 (212 seats)
-VT26: D1+D35 (248 seats) → −15%">Le↓</span><span class="act a5" title="SF2930 Regressionsanalys
+VT26: D1+D35 (248 seats) → −15%">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Mon 2027-02-15 13:00 (P3 w6)
 Rooms: M1 (262 seats)
 VT26: E1 (212 seats) → +24%">Le</span><span class="act a5" title="SF2930 Regressionsanalys
@@ -7312,10 +7319,10 @@ Rooms: E1 (212 seats)
 VT26: E1 (212 seats) → same">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Tue 2027-02-23 15:00 (P3 w7)
 Rooms: D1 (216 seats)
-VT26: D1 (216 seats) → same">Le</span><span class="act cap-higher" title="SF2930 Regressionsanalys
+VT26: D1 (216 seats) → same">Le</span><span class="act a5 cap-higher" title="SF2930 Regressionsanalys
 Lektion Thu 2027-02-25 13:00 (P3 w7)
 Rooms: F1 (462 seats)
-VT26: E1 (212 seats) → +118%">Le↑</span><span class="act a8" title="SF2930 Regressionsanalys
+VT26: E1 (212 seats) → +118%">Le</span><span class="act a8" title="SF2930 Regressionsanalys
 Tentamen Tue 2027-03-09 08:00 (P3 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Wed 2026-01-14 10:00 (P3 w1)">Le</span><span class="act a5" title="SF2930 Regressionsanalys
 Lektion Thu 2026-01-15 15:00 (P3 w1)">Le</span><span class="act a5" title="SF2930 Regressionsanalys

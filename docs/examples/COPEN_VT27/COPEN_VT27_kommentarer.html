@@ -155,6 +155,13 @@ h1 { overflow-wrap: anywhere; }
 .capn.cap-higher { box-shadow: inset 0 0 0 2px var(--text-secondary); }
 .capn.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
 .act.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
+.act { position: relative; }
+.act.cap-lower::after, .act.cap-much-lower::after, .act.cap-far-lower::after,
+.act.cap-higher::after, .act.cap-nr::after { position: absolute; top: 0; right: 1px;
+  font-size: 8px; line-height: 1; font-weight: 700; pointer-events: none; }
+.act.cap-lower::after, .act.cap-much-lower::after, .act.cap-far-lower::after { content: "↓"; }
+.act.cap-higher::after { content: "↑"; }
+.act.cap-nr::after { content: "?"; }
 .capn.zero { color: var(--text-muted); font-weight: 400; }
 table.rooms td.n, table.rooms th.n { text-align: right; white-space: nowrap; }
 @media (max-width: 640px) {

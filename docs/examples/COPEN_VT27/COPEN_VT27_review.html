@@ -155,6 +155,13 @@ h1 { overflow-wrap: anywhere; }
 .capn.cap-higher { box-shadow: inset 0 0 0 2px var(--text-secondary); }
 .capn.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
 .act.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
+.act { position: relative; }
+.act.cap-lower::after, .act.cap-much-lower::after, .act.cap-far-lower::after,
+.act.cap-higher::after, .act.cap-nr::after { position: absolute; top: 0; right: 1px;
+  font-size: 8px; line-height: 1; font-weight: 700; pointer-events: none; }
+.act.cap-lower::after, .act.cap-much-lower::after, .act.cap-far-lower::after { content: "↓"; }
+.act.cap-higher::after { content: "↑"; }
+.act.cap-nr::after { content: "?"; }
 .capn.zero { color: var(--text-muted); font-weight: 400; }
 table.rooms td.n, table.rooms th.n { text-align: right; white-space: nowrap; }
 @media (max-width: 640px) {
@@ -695,19 +702,19 @@ Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">F</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Redovisning Tue 2027-03-02 10:00 (P3 w8)
 Rooms: digital
-VT26: B21+B22+B23+B24+B25 (148 seats) → now digital">Red</span><span class="act cap-higher" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+VT26: B21+B22+B23+B24+B25 (148 seats) → now digital">Red</span><span class="act a1 cap-higher" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Föreläsning Wed 2027-03-24 13:00 (P4 w2)
 Rooms: D1 (216 seats)
-VT26: D2 (126 seats) → +71%">F↑</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+VT26: D2 (126 seats) → +71%">F</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Seminarium Thu 2027-03-25 10:00 (P4 w2)
 Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">S</span><span class="act" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Mässa Tue 2027-04-06 15:00 (P4 w3)
 Rooms: no room booked
-VT26: no room booked">Mässa</span><span class="act cap-much-lower" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+VT26: no room booked">Mässa</span><span class="act a7 cap-much-lower" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Redovisning Thu 2027-04-15 13:00 (P4 w4)
 Rooms: B21+B22+B23+B24 (118 seats)
-VT26: B21+B22+B23+B24+B25 (148 seats) → −20%">Red↓</span><span class="act a1 chg" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+VT26: B21+B22+B23+B24+B25 (148 seats) → −20%">Red</span><span class="act a1 chg" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Föreläsning Fri 2027-04-16 10:00 (P4 w4)">F</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Redovisning Tue 2027-04-20 08:00 (P4 w5)
 Rooms: M23+M24+M31+M37 (128 seats)
@@ -717,10 +724,10 @@ Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">S</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Seminarium Fri 2027-04-23 13:00 (P4 w5)
 Rooms: D2 (126 seats)
-VT26: K2 (103 seats) → +22%">S</span><span class="act cap-nr" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+VT26: K2 (103 seats) → +22%">S</span><span class="act a7 cap-nr" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Redovisning Mon 2027-05-10 13:00 (P4 w8)
 Rooms: no room booked
-VT26: B21+B22+B23+B24 (118 seats) → no room booked">Red?</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+VT26: B21+B22+B23+B24 (118 seats) → no room booked">Red</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Seminarium Wed 2027-05-12 10:00 (P4 w8)
 Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">S</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
@@ -929,10 +936,10 @@ Rooms: D1 (216 seats)
 VT26: E1 (212 seats) → +2%">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
 Datorlaboration Tue 2027-02-23 08:00 (P3 w7)
 Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
-VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act cap-lower" title="SF1546 Numeriska metoder, grundkurs
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a1 cap-lower" title="SF1546 Numeriska metoder, grundkurs
 Föreläsning Wed 2027-02-24 13:00 (P3 w7)
 Rooms: E1 (212 seats)
-VT26: F2 (238 seats) → −11%">F↓</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+VT26: F2 (238 seats) → −11%">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
 Övning Wed 2027-02-24 15:00 (P3 w7)
 Rooms: U21+U31+U41 (212 seats)
 VT26: U21+U31+U41 (212 seats) → same">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
@@ -1230,10 +1237,10 @@ Workshop Fri 2027-02-19 10:00 (P3 w6)">W</span><span class="act a4 chg" title="S
 Seminarium Mon 2027-02-22 10:00 (P3 w7)">S</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
 Föreläsning Mon 2027-02-22 13:00 (P3 w7)">F</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
 Föreläsning Tue 2027-02-23 10:00 (P3 w7)">F</span><span class="act a5 chg" title="SF1626 Flervariabelanalys
-Workshop Tue 2027-02-23 13:00 (P3 w7)">W</span><span class="act cap-far-lower" title="SF1626 Flervariabelanalys
+Workshop Tue 2027-02-23 13:00 (P3 w7)">W</span><span class="act a1 cap-far-lower" title="SF1626 Flervariabelanalys
 Föreläsning Fri 2027-02-26 08:00 (P3 w7)
 Rooms: E1 (212 seats)
-VT26: F1 (462 seats) → −54%">F↓</span><span class="act a5" title="SF1626 Flervariabelanalys
+VT26: F1 (462 seats) → −54%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
 Workshop Fri 2027-02-26 10:00 (P3 w7)
 Rooms: E35+E36+E51 (128 seats)
 VT26: E33+E35+E36 (116 seats) → +10%">W</span><span class="act a8" title="SF1626 Flervariabelanalys
@@ -1419,35 +1426,35 @@ Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Thu 2027-01-14 10:00 (P3 w1)
 Rooms: D2 (126 seats)
-VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+VT26: D2 (126 seats) → same">F</span><span class="act a2 cap-lower" title="SG1133 Mekanik I
 Övning Fri 2027-01-15 10:00 (P3 w1)
 Rooms: Q33+Q34 (120 seats)
-VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+VT26: U21+U31 (140 seats) → −14%">Ö</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Tue 2027-01-19 15:00 (P3 w2)
 Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Wed 2027-01-20 10:00 (P3 w2)
 Rooms: D2 (126 seats)
-VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+VT26: D2 (126 seats) → same">F</span><span class="act a2 cap-lower" title="SG1133 Mekanik I
 Övning Thu 2027-01-21 15:00 (P3 w2)
 Rooms: Q31+Q33 (120 seats)
-VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1 chg" title="SG1133 Mekanik I
+VT26: U21+U31 (140 seats) → −14%">Ö</span><span class="act a1 chg" title="SG1133 Mekanik I
 Föreläsning Mon 2027-01-25 15:00 (P3 w3)">F</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Wed 2027-01-27 10:00 (P3 w3)
 Rooms: D2 (126 seats)
-VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+VT26: D2 (126 seats) → same">F</span><span class="act a2 cap-lower" title="SG1133 Mekanik I
 Övning Thu 2027-01-28 08:00 (P3 w3)
 Rooms: Q31+Q33 (120 seats)
-VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+VT26: U21+U31 (140 seats) → −14%">Ö</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Mon 2027-02-01 15:00 (P3 w4)
 Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Wed 2027-02-03 10:00 (P3 w4)
 Rooms: D2 (126 seats)
-VT26: D2 (126 seats) → same">F</span><span class="act cap-much-lower" title="SG1133 Mekanik I
+VT26: D2 (126 seats) → same">F</span><span class="act a2 cap-much-lower" title="SG1133 Mekanik I
 Övning Fri 2027-02-05 13:00 (P3 w4)
 Rooms: Q26+Q31 (100 seats)
-VT26: U21+U31 (140 seats) → −29%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+VT26: U21+U31 (140 seats) → −29%">Ö</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Mon 2027-02-08 15:00 (P3 w5)
 Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">F</span><span class="act a4" title="SG1133 Mekanik I
@@ -1456,29 +1463,29 @@ Rooms: Q31+Q33 (120 seats)
 VT26: B21+B22+B23+B24 (118 seats) → +2%">S</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Wed 2027-02-10 13:00 (P3 w5)
 Rooms: D2 (126 seats)
-VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+VT26: D2 (126 seats) → same">F</span><span class="act a2 cap-lower" title="SG1133 Mekanik I
 Övning Fri 2027-02-12 13:00 (P3 w5)
 Rooms: Q31+Q33 (120 seats)
-VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+VT26: U21+U31 (140 seats) → −14%">Ö</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Mon 2027-02-15 15:00 (P3 w6)
 Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Wed 2027-02-17 10:00 (P3 w6)
 Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">F</span><span class="act a2 chg" title="SG1133 Mekanik I
-Övning Thu 2027-02-18 10:00 (P3 w6)">Ö</span><span class="act chg cap-lower" title="SG1133 Mekanik I
+Övning Thu 2027-02-18 10:00 (P3 w6)">Ö</span><span class="act a5 chg cap-lower" title="SG1133 Mekanik I
 Workshop Thu 2027-02-18 13:00 (P3 w6)
 Rooms: Q31+Q33 (120 seats)
-VT26: U21+U31 (140 seats) → −14%">W↓</span><span class="act a1" title="SG1133 Mekanik I
+VT26: U21+U31 (140 seats) → −14%">W</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Mon 2027-03-15 13:00 (P4 w1)
 Rooms: D2 (126 seats)
 VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Wed 2027-03-17 10:00 (P4 w1)
 Rooms: D2 (126 seats)
-VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+VT26: D2 (126 seats) → same">F</span><span class="act a2 cap-lower" title="SG1133 Mekanik I
 Övning Thu 2027-03-18 13:00 (P4 w1)
 Rooms: Q31+Q33 (120 seats)
-VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+VT26: U21+U31 (140 seats) → −14%">Ö</span><span class="act a1" title="SG1133 Mekanik I
 Föreläsning Mon 2027-03-22 13:00 (P4 w2)
 Rooms: D2 (126 seats)
 VT26: V2 (90 seats) → +40%">F</span><span class="act a1" title="SG1133 Mekanik I
