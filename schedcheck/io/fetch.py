@@ -30,6 +30,8 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import math
+import re
 import shutil
 import subprocess
 import sys
@@ -136,6 +138,89 @@ def open_in_browser(urls: list[str], pause: float = 1.5, browser: str | None = N
         else:
             webbrowser.open_new_tab(u)
         time.sleep(pause)  # be gentle with the server and the browser
+
+
+# -- links to the schedules themselves ------------------------------------------
+#
+# TimeEdit's schedule pages have URLs like .../staff01/ri<scrambled query>.html,
+# where the query is the same as for an export, scrambled by TimeEdit's own
+# (reversible) obfuscation: common substrings shortened, characters substituted,
+# positions swapped in a fixed pattern. Verified 2026-10 against links copied
+# from TimeEdit (tests/test_fetch.py has them).
+
+_TE_TABLE = [("h=t&sid=", "6="), ("objects=", "1="), ("sid=", "2="), ("&ox=0&types=0&fe=0", "3=3"),
+             ("&types=0&fe=0", "5=5"), ("&h=t&p=", "4=")]
+_TE_PAIRS = [("=", "Q"), ("&", "Z"), (",", "X"), (".", "Y"), (" ", "V"), ("-", "W")]
+_TE_PATTERN = [4, 22, 5, 37, 26, 17, 33, 15, 39, 11, 45, 20, 2, 40, 19, 36, 28, 38, 30, 41, 44, 42, 7, 24,
+               14, 27, 35, 25, 12, 1, 43, 23, 6, 16, 3, 9, 47, 46, 48, 50, 21, 10, 49, 32, 18, 31, 29, 34, 13, 8]
+
+
+def _te_char(c: str, inverse: bool = False) -> str:
+    for a, b in _TE_PAIRS:
+        if c == a:
+            return b
+        if c == b:
+            return a
+    o = ord(c)
+    if 97 <= o <= 122:                   # a-z rotated by 9
+        return chr(97 + (o - 97 + (17 if inverse else 9)) % 26)
+    if 49 <= o <= 57:                    # 1-9 rotated by 4 (0 unchanged)
+        return chr(49 + (o - 49 + (5 if inverse else 4)) % 9)
+    return c
+
+
+def _te_swaps(n: int) -> list[tuple[int, int]]:
+    k = len(_TE_PATTERN)
+    return [(_TE_PATTERN[i] + step * k, _TE_PATTERN[i - 1] + step * k)
+            for step in range(math.ceil(n / k)) for i in range(1, k, 2)]
+
+
+def _te_apply(s: str, swaps) -> str:
+    c = list(s)
+    for a, b in swaps:
+        if a < len(c) and b < len(c):
+            c[a], c[b] = c[b], c[a]
+    return "".join(c)
+
+
+def te_scramble(query: str) -> str:
+    for a, b in _TE_TABLE:
+        query = query.replace(a, b)
+    return _te_apply("".join(_te_char(c) for c in query), _te_swaps(len(query)))
+
+
+def te_unscramble(s: str) -> str:
+    s = "".join(_te_char(c, True) for c in _te_apply(s, reversed(_te_swaps(len(s)))))
+    for a, b in reversed(_TE_TABLE):
+        s = s.replace(b, a)
+    return s
+
+
+def schedule_url(cfg: FetchConfig, label: str, start: dt.date, end: dt.date, view: str) -> str | None:
+    """Link to the TimeEdit schedule page of a programme year (needs a KTH login),
+    or None if the config lacks the object or view."""
+    if label not in cfg.objects or view not in cfg.views:
+        return None
+    q = (f"h=t&sid={cfg.views[view]}&p={start:%Y%m%d}.x,{end:%Y%m%d}.x"
+         f"&objects={cfg.objects[label]}&ox=0&types=0&fe=0")
+    return f"{cfg.base.rsplit('/', 1)[0]}/ri{te_scramble(q)}.html"
+
+
+def view_from_filename(path: str | Path, cfg: FetchConfig) -> str | None:
+    """'CTFYS1_VT27_remiss.xlsx' -> 'remiss' (the names 'collect' gives files)."""
+    m = re.search(r"_([A-Za-z]+)\.xlsx$", Path(path).name)
+    return m.group(1) if m and m.group(1) in cfg.views else None
+
+
+def link_exports(exports, cfg: FetchConfig, view: str | None = None) -> int:
+    """Set Export.url for exports whose view is known (argument or file name)."""
+    n = 0
+    for ex in exports:
+        v = view or view_from_filename(ex.path, cfg)
+        if v and ex.range_start and ex.range_end:
+            ex.url = schedule_url(cfg, ex.label, ex.range_start, ex.range_end, v) or ""
+            n += bool(ex.url)
+    return n
 
 
 @dataclass

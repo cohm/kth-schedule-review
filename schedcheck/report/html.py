@@ -300,6 +300,25 @@ def act_chip(a: str, title: str = "", extra: str = "") -> str:
     return f'<span class="{cls}"{t}>{esc(a)}</span>'
 
 
+def schedule_link(ex, text: str | None = None) -> str:
+    """An export's label, linked to its schedule in TimeEdit when known."""
+    text = esc(text or ex.label)
+    if not ex.url:
+        return text
+    return (f"<a class='cl' href='{esc(ex.url)}' target='_blank' rel='noopener' "
+            f"title='{esc(ex.label)} – schedule in TimeEdit (KTH login)'>{text}"
+            "<span class='ext' aria-hidden='true'>↗</span></a>")
+
+
+def schedule_links(td) -> str:
+    seen, out = set(), []
+    for ex in sorted(td.exports, key=lambda e: e.label):
+        if ex.label not in seen:
+            seen.add(ex.label)
+            out.append(schedule_link(ex))
+    return ", ".join(out)
+
+
 def year_label(key) -> str:
     prog, year = key
     return f"{prog}{year or ''}"
@@ -599,10 +618,9 @@ def render(res: ReviewResult) -> str:
            f"<title>Schedule review {esc(res.title)}</title><style>{CSS}</style></head><body><main>",
            "<button class='themebtn' id='theme' type='button'>Toggle theme</button>",
            f"<div class='kthhead'>{LOGO_SVG}<h1>Schedule review: {esc(res.title)}</h1></div>"]
-    src = ", ".join(sorted({ex.label for ex in ctx.new.exports}))
-    sub = f"Under review: {esc(ctx.new.term)} ({esc(src)})"
+    sub = f"Under review: {esc(ctx.new.term)} ({schedule_links(ctx.new)})"
     if ctx.old:
-        sub += f" · reference: {esc(ctx.old.term)}"
+        sub += f" · reference: {esc(ctx.old.term)} ({schedule_links(ctx.old)})"
     out.append(f"<p class='sub'>{sub}</p>")
 
     if len(labels) > 1:
@@ -622,8 +640,14 @@ def render(res: ReviewResult) -> str:
         lb = year_label(key)
         items = "".join(f"<li>{sev_badge(l['status'])}<span class='chk'>{esc(l['check'])}</span>"
                         f"<span>{linkify(l['text'])}</span></li>" for l in year_status(res, key))
+        links = []
+        for td in (ctx.new, ctx.old):
+            ex = next((e for e in (td.exports if td else []) if e.label == lb and e.url), None)
+            if ex:
+                links.append(schedule_link(ex, f"{td.term} schedule"))
+        links_html = f" <span class='sub'>· {' · '.join(links)}</span>" if links else ""
         out.append(f"<section class='status' data-course-years='{esc(lb)}'>"
-                   f"<h3>What was checked: {esc(lb)}</h3><ul>{items}</ul></section>")
+                   f"<h3>What was checked: {esc(lb)}{links_html}</h3><ul>{items}</ul></section>")
     if res.notes:
         out.append("<ul class='notes'>" + "".join(f"<li>{esc(n)}</li>" for n in res.notes) + "</ul>")
     cal = ctx.new.calendar

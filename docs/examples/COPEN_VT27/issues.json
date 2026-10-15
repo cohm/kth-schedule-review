@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-15T11:45:30",
+ "generated": "2026-10-15T12:31:21",
  "review": "program",
  "title": "COPEN VT27 vs VT26",
  "term": "VT27",
@@ -12,13 +12,19 @@
    "range": [
     "2027-01-12",
     "2027-08-29"
-   ]
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z86g3Y20y6096Y19701gQY6Q5547.html"
   }
  ],
  "reference_exports": [
   {
    "path": "../VT27/reference/COPEN1_VT26_final.xlsx",
-   "label": "COPEN1"
+   "label": "COPEN1",
+   "range": [
+    "2026-01-13",
+    "2026-08-23"
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7961Z369X758Q63Y570yZ05Q7.html"
   }
  ],
  "calendar": {

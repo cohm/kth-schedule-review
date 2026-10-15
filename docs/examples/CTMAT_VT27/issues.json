@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-15T11:45:29",
+ "generated": "2026-10-15T12:31:20",
  "review": "program",
  "title": "CTMAT VT27 vs VT26",
  "term": "VT27",
@@ -12,7 +12,8 @@
    "range": [
     "2027-01-12",
     "2027-08-29"
-   ]
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z96g7Y20y6096Y12700gQY6Q5548.html"
   },
   {
    "path": "../VT27/remiss/CTMAT2_VT27_remiss.xlsx",
@@ -20,7 +21,8 @@
    "range": [
     "2027-01-12",
     "2027-08-29"
-   ]
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z96g8Y20y6046Y16705gQY6Q5548.html"
   },
   {
    "path": "../VT27/remiss/CTMAT3_VT27_remiss.xlsx",
@@ -28,21 +30,37 @@
    "range": [
     "2027-01-12",
     "2027-08-29"
-   ]
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z96g9Y20y6016Y15706gQY6Q5548.html"
   }
  ],
  "reference_exports": [
   {
    "path": "../VT27/reference/CTMAT1_VT26_final.xlsx",
-   "label": "CTMAT1"
+   "label": "CTMAT1",
+   "range": [
+    "2026-01-13",
+    "2026-08-23"
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g0QY8961Z362X759Q67Y570yZ05Q7.html"
   },
   {
    "path": "../VT27/reference/CTMAT2_VT26_final.xlsx",
-   "label": "CTMAT2"
+   "label": "CTMAT2",
+   "range": [
+    "2026-01-13",
+    "2026-08-23"
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g5QY8461Z366X759Q68Y570yZ05Q7.html"
   },
   {
    "path": "../VT27/reference/CTMAT3_VT26_final.xlsx",
-   "label": "CTMAT3"
+   "label": "CTMAT3",
+   "range": [
+    "2026-01-13",
+    "2026-08-23"
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g6QY8161Z365X759Q69Y570yZ05Q7.html"
   }
  ],
  "calendar": {

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-15T11:45:30",
+ "generated": "2026-10-15T12:31:21",
  "review": "program",
  "title": "CFATE VT27 vs VT26",
  "term": "VT27",
@@ -12,7 +12,8 @@
    "range": [
     "2027-01-12",
     "2027-08-29"
-   ]
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z86g3Y20y6086Y19701gQY6Q5547.html"
   },
   {
    "path": "../VT27/remiss/CFATE2_VT27_remiss.xlsx",
@@ -20,7 +21,8 @@
    "range": [
     "2027-01-12",
     "2027-08-29"
-   ]
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z76g3Y20y6006Y18701gQY6Q5547.html"
   },
   {
    "path": "../VT27/remiss/CFATE3_VT27_remiss.xlsx",
@@ -28,21 +30,37 @@
    "range": [
     "2027-01-12",
     "2027-08-29"
-   ]
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z56g3Y20y6096Y18701gQY6Q5547.html"
   }
  ],
  "reference_exports": [
   {
    "path": "../VT27/reference/CFATE1_VT26_final.xlsx",
-   "label": "CFATE1"
+   "label": "CFATE1",
+   "range": [
+    "2026-01-13",
+    "2026-08-23"
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7861Z369X758Q63Y570yZ05Q7.html"
   },
   {
    "path": "../VT27/reference/CFATE2_VT26_final.xlsx",
-   "label": "CFATE2"
+   "label": "CFATE2",
+   "range": [
+    "2026-01-13",
+    "2026-08-23"
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7061Z368X757Q63Y570yZ05Q7.html"
   },
   {
    "path": "../VT27/reference/CFATE3_VT26_final.xlsx",
-   "label": "CFATE3"
+   "label": "CFATE3",
+   "range": [
+    "2026-01-13",
+    "2026-08-23"
+   ],
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7961Z368X755Q63Y570yZ05Q7.html"
   }
  ],
  "calendar": {

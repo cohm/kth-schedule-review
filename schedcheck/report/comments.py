@@ -33,6 +33,7 @@ T = {
         },
         "ask_move": "Går det att sprida ut dem mer?",
         "ask_intended": "Är detta avsiktligt?",
+        "schedules": "Scheman i TimeEdit",
     },
     "en": {
         "title": "Remiss comments (draft)",
@@ -53,6 +54,7 @@ T = {
         },
         "ask_move": "Could they be spread further apart?",
         "ask_intended": "Is this intended?",
+        "schedules": "Schedules in TimeEdit",
     },
 }
 
@@ -227,6 +229,10 @@ def render(res: ReviewResult, lang: str = "sv") -> str:
         return (code == "", worst, code)
 
     lines = [f"# {t['title']}: {res.title}", "", f"_{t['intro']}_", ""]
+    links = [f"[{ex.label} {td.term}]({ex.url})" for td in (res.ctx.new, res.ctx.old) if td
+             for ex in sorted(td.exports, key=lambda e: e.label) if ex.url]
+    if links:
+        lines += [f"{t['schedules']}: " + ", ".join(dict.fromkeys(links)), ""]
     for code in sorted(by_course, key=order):
         lines.append(f"## [{code}](https://www.kth.se/student/kurser/kurs/{code})" if code
                      else f"## {t['general']}")
@@ -275,6 +281,11 @@ def render_html(res: ReviewResult, lang: str = "sv") -> str:
         elif line.startswith("  - "):
             if not in_sub: out.append("<ul class='ev'>"); in_sub = True
             out.append(f"<li><code>{esc(line[4:].strip('`'))}</code></li>")
+        elif line.startswith(T[lang]["schedules"] + ":"):
+            out.append("<p class='sub'>" + re.sub(
+                r"\[(.+?)\]\((.+?)\)",
+                lambda m: f"<a class='cl' href='{esc(m.group(2))}' target='_blank' rel='noopener'>"
+                          f"{esc(m.group(1))}<span class='ext'>↗</span></a>", esc(line)) + "</p>")
         elif line.startswith("_") and line.endswith("_"):
             out.append(f"<p class='sub'><em>{esc(line.strip('_'))}</em></p>")
     if in_sub: out.append("</ul>")

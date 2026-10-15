@@ -2,6 +2,8 @@
 
 _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och formulera om innan det skickas till schemaläggarna._
 
+Scheman i TimeEdit: [COPEN1 VT27](https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z86g3Y20y6096Y19701gQY6Q5547.html), [COPEN1 VT26](https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7961Z369X758Q63Y570yZ05Q7.html)
+
 ## [DD1310](https://www.kth.se/student/kurser/kurs/DD1310)
 
 - [warning] DD1310 (ordinarie tentamen 2027-03-11 14:00-15:00) och SF1546 (ordinarie tentamen 2027-03-12 14:00-17:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Går det att sprida ut dem mer?

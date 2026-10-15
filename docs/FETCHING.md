@@ -61,3 +61,23 @@ ignored, and exits with an error if a requested export is missing.
 
 Each term can be requested once per fetch (files are told apart by their date
 range). Keep the number of requests small; this uses a non-public KTH view.
+
+## Links to the schedules in the report
+
+With the same config, the review links each programme year to its schedule
+in TimeEdit (report header, per-year panels, comment drafts, `issues.json`):
+
+```sh
+python3 -m schedcheck program --new VT27/remiss --old VT27/reference --out VT27/reports \
+    --timeedit workspace/timeedit.toml
+```
+
+The view (remiss/final) is taken from the file names `collect` writes
+(`CTFYS1_VT27_remiss.xlsx`); for other file names give `--new-view remiss
+--old-view final`. The date range is the one in each export's header.
+
+TimeEdit's schedule pages have URLs like `…/staff01/ri<scrambled>.html`: the
+same query as an export link, run through TimeEdit's own reversible
+obfuscation (`schedcheck.io.fetch.te_scramble` / `te_unscramble`; tests use
+links copied from TimeEdit). The links need a KTH login, like the exports.
+

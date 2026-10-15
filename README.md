@@ -63,6 +63,9 @@ Requires Python ≥ 3.11 and nothing else.
    "Wenström" = 24
    ```
 
+   With `--timeedit workspace/timeedit.toml` (the config of `fetch`), the
+   report also links each programme year to its schedule in TimeEdit.
+
 3. Open `VT27/reports/<PROG>_<term>_review.html`, read
    `<PROG>_<term>_kommentarer.md`, and edit the comments before sending.
 

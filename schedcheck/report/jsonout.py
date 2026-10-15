@@ -22,9 +22,10 @@ def to_dict(res: ReviewResult) -> dict:
         "title": res.title,
         "term": ctx.new.term,
         "reference_term": ctx.old.term if ctx.old else None,
-        "exports": [{"path": ex.path, "label": ex.label, "range": [str(ex.range_start), str(ex.range_end)]}
-                    for ex in ctx.new.exports],
-        "reference_exports": [{"path": ex.path, "label": ex.label} for ex in (ctx.old.exports if ctx.old else [])],
+        "exports": [{"path": ex.path, "label": ex.label, "range": [str(ex.range_start), str(ex.range_end)],
+                     "url": ex.url or None} for ex in ctx.new.exports],
+        "reference_exports": [{"path": ex.path, "label": ex.label, "range": [str(ex.range_start), str(ex.range_end)],
+                               "url": ex.url or None} for ex in (ctx.old.exports if ctx.old else [])],
         "calendar": {
             "periods": [[p, str(s), str(e)] for p, s, e in ctx.new.calendar.periods],
             "exam_windows": [[w.label, str(w.start), str(w.end)] for w in ctx.new.calendar.exam_windows],

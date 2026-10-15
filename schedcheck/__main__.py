@@ -38,6 +38,14 @@ def _rooms(args):
     return RoomSource(args.cache_dir, manual=load_manual(args.rooms))
 
 
+def _link(td, args, view) -> None:
+    """Add TimeEdit schedule links to the exports (needs --timeedit)."""
+    if td is None or not args.timeedit:
+        return
+    from .io import fetch
+    fetch.link_exports(td.exports, fetch.load_config(args.timeedit), view)
+
+
 def _write_outputs(res, args) -> None:
     from .report import comments, html, jsonout
     out = Path(args.out)
@@ -64,6 +72,8 @@ def cmd_program(args) -> None:
         if new is None:
             sys.exit(f"error: no {prog} exports in {args.new}")
         old = _load(args.old, prog) if args.old else None
+        _link(new, args, args.new_view)
+        _link(old, args, args.old_view)
         if args.old and old is None:
             print(f"note: no {prog} exports in {args.old}; reviewing without a reference")
         cfg = load_config(prog, accepted_file=args.accepted)
@@ -77,6 +87,8 @@ def cmd_program(args) -> None:
 def cmd_course(args) -> None:
     from .reviews.course import course_review
     new, old = _load(args.new), _load(args.old)
+    _link(new, args, args.new_view)
+    _link(old, args, args.old_view)
     cfg = load_config(None, accepted_file=args.accepted)
     syllabi = None if args.no_syllabus else SyllabusSource(args.cache_dir)
     res = course_review([c.upper() for c in args.codes], new, old, cfg, syllabi, _rooms(args))
@@ -174,6 +186,11 @@ def main(argv=None) -> None:
                        help="don't compare room capacities (read from KTH Places)")
         p.add_argument("--rooms", help="TOML file with manual room capacities ([capacity] \"NAME\" = seats)")
         p.add_argument("--cache-dir", help="where to cache downloaded study plans, syllabus and room data")
+        p.add_argument("--timeedit", metavar="CONFIG",
+                       help="TimeEdit config (as for 'fetch'), to link each programme year to its schedule")
+        p.add_argument("--new-view", help="TimeEdit view of the --new exports, e.g. remiss "
+                                          "(default: from file names as written by 'collect')")
+        p.add_argument("--old-view", help="TimeEdit view of the --old exports, e.g. final")
 
     p = sub.add_parser("program", help="programme review (all years of a programme)")
     common(p)

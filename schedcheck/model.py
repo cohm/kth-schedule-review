@@ -91,6 +91,7 @@ class Export:
     range_start: dt.date | None
     range_end: dt.date | None
     events: list[Event]
+    url: str = ""                # link to the schedule in TimeEdit, if known
 
     @property
     def label(self) -> str:
