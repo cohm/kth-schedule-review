@@ -4,8 +4,8 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [DD2352](https://www.kth.se/student/kurser/kurs/DD2352)
 
-- [error] DD2352: ordinarie tentamen saknas i tentamensperioden. VT26: 2026-05-25 14:00 Tentamen. Ska den läggas in?
-- [warning] DD2352: ingen omtentamen är schemalagd. VT26: 2026-08-21 14:00 Omtenta. Ska den läggas in?
+- [error] DD2352: ordinarie tentamen saknas i tentamensperioden – VT26 fanns ordinarie tentamen (2026-05-25 14:00 Tentamen (TEN1)); kursplanen (giltig från HT2026) har TEN2 – Skriftlig tentamen, 3 hp. Ska den läggas in?
+- [warning] DD2352: ingen omtentamen är schemalagd – VT26 fanns omtentamen (2026-08-21 14:00 Omtenta); kursplanen (giltig från HT2026) har TEN2 – Skriftlig tentamen, 3 hp. Ska den läggas in?
 - [review] DD2352: antalet tillfällen skiljer sig från VT26 (Tentamen 1→0). Sekvens (VT26 → nu): P4 v1–5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F]. Är detta avsiktligt?
 - [review] DD2352: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P4 w1→P3 w6; Datorlaboration P4 w2→P4 w4). Är detta avsiktligt?
   - `CTFYS3_VT27_remiss.xlsx:186 2027-02-15 13:00-15:00 Föreläsning`
@@ -13,7 +13,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [SF1544](https://www.kth.se/student/kurser/kurs/SF1544)
 
-- [error] SF1544: ordinarie tentamen saknas i tentamensperioden. VT26: 2026-03-12 14:00 Tentamen. Ska den läggas in?
+- [error] SF1544: ordinarie tentamen saknas i tentamensperioden – utbildningsplanen har tentamen i P3; VT26 fanns ordinarie tentamen (2026-03-12 14:00 Tentamen (TEN1)); kursplanen (giltig från HT2021) har TEN1 – Tentamen, 3 hp. Ska den läggas in?
   - `CTFYS2_VT27_remiss.xlsx:74 2027-02-19 10:00-12:00 Examination`
   - `CTFYS2_VT27_remiss.xlsx:224 2027-06-02 14:00-17:00 Omtenta`
 - [review] SF1544: antalet tillfällen skiljer sig från VT26 (Tentamen 1→0). Sekvens (VT26 → nu): P3 tentaperiod: … Red Red [TEN] Red Red → … Red Red [–] Red Red. Är detta avsiktligt?
@@ -29,6 +29,11 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] SF1677 och SF1904 har 4 tillfälle(n) som krockar: 2027-03-15 13:00-15:00 Föreläsning / 13:00-15:00 Föreläsning; 2027-03-18 10:00-12:00 Föreläsning / 10:00-12:00 Övning; 2027-04-14 10:00-12:00 Föreläsning / 10:00-12:00 Övning; 2027-05-26 08:00-13:00 Tentamen / 08:00-11:00 Räknestuga. VT26: 1 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
   - `CTFYS3_VT27_remiss.xlsx:268 2027-03-15 13:00-15:00 Föreläsning`
   - `CTFYS3_VT27_remiss.xlsx:269 2027-03-15 13:00-15:00 Föreläsning`
+
+## [AK2011](https://www.kth.se/student/kurser/kurs/AK2011)
+
+- [warning] AK2011: ordinarie tentamen saknas i tentamensperioden – kursplanen (giltig från HT2019) har TENA – Tentamen, 3 hp. Ska den läggas in?
+- [review] AK2011 är ny jämfört med . Stämmer det att den ska ingå?
 
 ## [DD1380](https://www.kth.se/student/kurser/kurs/DD1380)
 
@@ -78,7 +83,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [SF1861](https://www.kth.se/student/kurser/kurs/SF1861)
 
-- [warning] SF1861: ingen omtentamen är schemalagd. VT26: 2026-08-19 08:00 Omtenta. Ska den läggas in?
+- [warning] SF1861: ingen omtentamen är schemalagd – VT26 fanns omtentamen (2026-08-19 08:00 Omtenta); kursplanen (giltig från HT2019) har TEN1 – Tentamen, 4,5 hp. Ska den läggas in?
 - [warning] SF1861 (ordinarie tentamen 2027-05-31 08:00-13:00) och SF2701 (ordinarie tentamen 2027-05-31 08:00-13:00) ligger samtidigt. Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att sprida ut dem mer?
   - `CTFYS3_VT27_remiss.xlsx:619 2027-05-31 08:00-13:00 Tentamen`
   - `CTFYS3_VT27_remiss.xlsx:620 2027-05-31 08:00-13:00 Tentamen`
@@ -126,10 +131,15 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] SI1142 och SI2360 har 2 tillfälle(n) som krockar: 2027-03-23 15:00-17:00 Föreläsning / 15:00-17:00 Övning; 2027-04-12 13:00-15:00 Föreläsning / 13:00-15:00 Föreläsning. VT26: 1 krock(ar). Valbara kurser inom samma ämne som ofta läses tillsammans. Går det att flytta?
   - `CTFYS3_VT27_remiss.xlsx:327 2027-03-23 15:00-17:00 Föreläsning`
   - `CTFYS3_VT27_remiss.xlsx:329 2027-03-23 15:00-17:00 Övning`
+- [warning] SI1142: tentamen är registrerad som TEN2, men den gällande kursplanen (från VT2026) har modulerna TENX – Skriftlig tentamen, 3 hp. Ska modulen ändras?
+  - `CTFYS3_VT27_remiss.xlsx:604 2027-05-24 08:00-12:00 Tentamen`
 - [review] SI1142: antalet tillfällen skiljer sig från VT26 (Tentamen 0→2). Sekvens (VT26 → nu): P4 tentaperiod: … F F [–] → … F F [TEN TEN]. Är detta avsiktligt?
 - [review] SI1142: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P4 w4→P4 w2; Föreläsning P4 w5→P4 w2; Föreläsning P4 w7→P4 w3; Föreläsning P4 w8→P4 w4). Är detta avsiktligt?
   - `CTFYS3_VT27_remiss.xlsx:313 2027-03-22 13:00-15:00 Föreläsning`
   - `CTFYS3_VT27_remiss.xlsx:327 2027-03-23 15:00-17:00 Föreläsning`
+- [review] SI1142: kursplanen (från VT2026) har TENX, men ingen schemalagd tentamen anger den (schemalagt: TEN1, TEN2). Ska den läggas in?
+  - `CTFYS3_VT27_remiss.xlsx:604 2027-05-24 08:00-12:00 Tentamen`
+  - `CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen`
 
 ## [SI1155](https://www.kth.se/student/kurser/kurs/SI1155)
 
@@ -145,16 +155,20 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
   - `CTFYS1_VT27_remiss.xlsx:95 2027-03-08 14:00-17:00 Tentamen`
 - [review] SI1200: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P3 v7: … Ö F [Ö F] R TEN → … Ö F [F Ö] R TEN). Är detta avsiktligt?
 
+## [SI2360](https://www.kth.se/student/kurser/kurs/SI2360)
+
+- [warning] SI2360: tentamen är registrerad som TEN1, TEN2, men den gällande kursplanen (från VT2026) har modulerna TENT – Skriftlig tentamen, 7,5 hp. Ska modulen ändras?
+  - `CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen`
+- [review] SI2360: examinationsmodulerna på tentamen har ändrats (TENT → TEN1-2). Är detta avsiktligt?
+- [review] SI2360: kursplanen (från VT2026) har TENT, men ingen schemalagd tentamen anger den (schemalagt: TEN1, TEN2). Ska den läggas in?
+  - `CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen`
+
 ## [SK1105](https://www.kth.se/student/kurser/kurs/SK1105)
 
 - [warning] SK1105 krockar med sig själv: 2027-04-20 09:00-12:00 Laboration / 10:00-12:00 Seminarium; 2027-04-21 09:00-12:00 Laboration / 10:00-12:00 Seminarium; 2027-04-27 09:00-12:00 Laboration / 09:00-12:00 Redovisning; 2027-04-28 09:00-12:00 Laboration / 09:00-12:00 Redovisning. Båda tillfällena är markerade som helklass – ska studenterna vara på båda, eller ska de delas i grupper? Samma mönster fanns VT26.
   - `CTFYS1_VT27_remiss.xlsx:162 2027-04-20 09:00-12:00 Laboration`
   - `CTFYS1_VT27_remiss.xlsx:163 2027-04-20 10:00-12:00 Seminarium`
 - [review] SK1105: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v6: … L L [L Red] L Red … → … L L [Red L] L Red …). Är detta avsiktligt?
-
-## [AK2011](https://www.kth.se/student/kurser/kurs/AK2011)
-
-- [review] AK2011 är ny jämfört med . Stämmer det att den ska ingå?
 
 ## [AK2014](https://www.kth.se/student/kurser/kurs/AK2014)
 
@@ -255,14 +269,12 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 - [review] SH2404: antalet tillfällen skiljer sig från VT26 (Datorlaboration 1→0; Seminarium 0→1). Sekvens (VT26 → nu): P4 v4: … F R [DL] R F … → … F R [S] R F …. Är detta avsiktligt?
 - [review] SH2404: examinationsmodulerna på tentamen har ändrats (TEN1 → TEN2). Är detta avsiktligt?
+- [review] SH2404: kursplanen (från VT2027) har TEN1, men ingen schemalagd tentamen anger den (schemalagt: TEN2). Ska den läggas in?
+  - `CTFYS3_VT27_remiss.xlsx:615 2027-05-28 08:00-13:00 Tentamen`
 
 ## [SI1336](https://www.kth.se/student/kurser/kurs/SI1336)
 
 - [review] SI1336 är ny jämfört med . Stämmer det att den ska ingå?
-
-## [SI2360](https://www.kth.se/student/kurser/kurs/SI2360)
-
-- [review] SI2360: examinationsmodulerna på tentamen har ändrats (TENT → TEN1-2). Är detta avsiktligt?
 
 ## [SK2712](https://www.kth.se/student/kurser/kurs/SK2712)
 

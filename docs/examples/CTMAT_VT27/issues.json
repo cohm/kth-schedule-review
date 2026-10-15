@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-15T00:04:06",
+ "generated": "2026-10-15T08:48:38",
  "review": "program",
  "title": "CTMAT VT27 vs VT26",
  "term": "VT27",
@@ -226,17 +226,21 @@
    "scope": "CTMAT3",
    "course": "DD2352",
    "key": "DD2352",
-   "message": "DD2352 has no ordinary exam in an exam window, but it had an ordinary exam in VT26.",
+   "message": "DD2352 has no ordinary exam in an exam window, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp.",
    "evidence": [],
    "details": {
-    "plan_exam_periods": [],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-05-25 14:00 Tentamen"
+     "2026-05-25 14:00 Tentamen (TEN1)"
     ],
     "reference_reexam": [
      "2026-08-21 14:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2026",
+    "syllabus_written": [
+     "TEN2 – Skriftlig tentamen, 3 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },
@@ -570,17 +574,21 @@
    "scope": "CTMAT2",
    "course": "SF1693",
    "key": "SF1693",
-   "message": "SF1693 has no re-exam scheduled this term, but it had an ordinary exam in VT26.",
+   "message": "SF1693 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-03-12); its syllabus (valid from HT2021) has TEN1 – Skriftlig tentamen, 6 hp.",
    "evidence": [],
    "details": {
-    "plan_exam_periods": [],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-03-12 08:00 Tentamen"
+     "2026-03-12 08:00 Tentamen (TEN1)"
     ],
     "reference_reexam": [
      "2026-06-03 08:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2021",
+    "syllabus_written": [
+     "TEN1 – Skriftlig tentamen, 6 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },
@@ -721,17 +729,21 @@
    "scope": "CTMAT3",
    "course": "DD2352",
    "key": "DD2352",
-   "message": "DD2352 has no re-exam scheduled this term, but it had an ordinary exam in VT26.",
+   "message": "DD2352 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp.",
    "evidence": [],
    "details": {
-    "plan_exam_periods": [],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-05-25 14:00 Tentamen"
+     "2026-05-25 14:00 Tentamen (TEN1)"
     ],
     "reference_reexam": [
      "2026-08-21 14:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2026",
+    "syllabus_written": [
+     "TEN2 – Skriftlig tentamen, 3 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },

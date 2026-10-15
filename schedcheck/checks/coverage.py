@@ -7,6 +7,7 @@ from ..calendar import TERM_PERIODS
 from ..model import Issue
 from ..term import REEXAM_ACTIVITY_PREFIXES
 from . import Context, register
+from .syllabus import exam_reasons, only_syllabus
 
 MISSING_SEVERITY = {
     "mandatory": "error",
@@ -19,9 +20,6 @@ MISSING_SEVERITY = {
 def check_coverage(ctx: Context) -> list[Issue]:
     issues: list[Issue] = []
     periods = TERM_PERIODS[ctx.new.term[:2]]
-    old_exam_courses = set()
-    if ctx.old:
-        old_exam_courses = {x.course for x in ctx.old.exams() if x.kind == "ordinary"}
 
     for (prog, year), yp in sorted(ctx.plans.items(), key=lambda kv: (kv[0][0], kv[0][1] or 0)):
         scope = f"{prog}{year or ''}"
@@ -84,29 +82,35 @@ def check_coverage(ctx: Context) -> list[Issue]:
                                 f"{code} is scheduled for {scope} but {where}.", key=code))
 
         # Exam presence: an ordinary exam (in an exam window) and a later re-exam.
-        for e in expected:
-            if e.code not in present:
+        # Expected if the study plan, last year's schedule or the current
+        # syllabus says so (see checks/syllabus.py); all reasons are listed.
+        plan_periods = {e.code: e.exam_periods for e in expected}
+        planned = set(yp.plan.courses)
+
+        def alias_only(code: str) -> bool:
+            """Only ever listed together with a study-plan course (an alternative
+            code for the same teaching, e.g. DD232V next to DD2352)."""
+            evs = [e for e in year_events if code in e.codes]
+            return code not in planned and bool(evs) and all(set(e.codes) & (planned - {code}) for e in evs)
+
+        for code in sorted((exp_codes & present) | taught):
+            if alias_only(code):
                 continue
-            needs_exam = bool(e.exam_periods) or e.code in old_exam_courses
-            if not needs_exam:
+            reasons, ref = exam_reasons(ctx, code, plan_periods.get(code, ()))
+            if not reasons:
                 continue
-            why = (f"the study plan has an exam in {'/'.join(e.exam_periods)}" if e.exam_periods
-                   else f"it had an ordinary exam in {ctx.old.term}")
-            old_ex = [x for x in (ctx.old.exams() if ctx.old else []) if x.course == e.code]
-            ref = {"plan_exam_periods": e.exam_periods,
-                   "reference_term": ctx.old.term if ctx.old else None,
-                   "reference_ordinary": [f"{x.event.start:%Y-%m-%d %H:%M} {x.event.activity}"
-                                          for x in old_ex if x.kind == "ordinary"],
-                   "reference_reexam": [f"{x.event.start:%Y-%m-%d %H:%M} {x.event.activity}"
-                                        for x in old_ex if x.kind == "reexam"]}
-            cx = [x for x in ctx.new.exams() if x.course == e.code]
+            why = "; ".join(reasons)
+            cx = [x for x in ctx.new.exams() if x.course == code]
+            weak = only_syllabus(ref)
+            note = (f" (Only the syllabus says so; for a course outside the mandatory plan the exam may be "
+                    f"scheduled without {scope} and not appear in this export.)" if weak else "")
             if not any(x.kind == "ordinary" for x in cx):
-                issues.append(Issue("error", "coverage.missing-exam", scope, e.code,
-                                    f"{e.code} has no ordinary exam in an exam window, but {why}.",
-                                    key=e.code, details=ref,
+                issues.append(Issue("warning" if weak else "error", "coverage.missing-exam", scope, code,
+                                    f"{code} has no ordinary exam in an exam window, but {why}.{note}",
+                                    key=code, details=ref,
                                     evidence=[x.event.cite() for x in cx]))
             if not any(x.kind == "reexam" for x in cx):
-                issues.append(Issue("warning", "coverage.missing-reexam", scope, e.code,
-                                    f"{e.code} has no re-exam scheduled this term, but {why}.",
-                                    key=e.code, details=ref))
+                issues.append(Issue("info" if weak else "warning", "coverage.missing-reexam", scope, code,
+                                    f"{code} has no re-exam scheduled this term, but {why}.{note}",
+                                    key=code, details=ref))
     return issues

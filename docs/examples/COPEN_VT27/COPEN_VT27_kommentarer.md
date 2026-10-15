@@ -11,7 +11,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [SG1133](https://www.kth.se/student/kurser/kurs/SG1133)
 
-- [warning] SG1133: ingen omtentamen är schemalagd. VT26: 2026-08-21 08:00 Omtenta. Ska den läggas in?
+- [warning] SG1133: ingen omtentamen är schemalagd – utbildningsplanen har tentamen i P3/P4; VT26 fanns omtentamen (2026-08-21 08:00 Omtenta); kursplanen (giltig från VT2020) har TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp. Ska den läggas in?
 - [review] SG1133: antalet tillfällen skiljer sig från VT26 (Kontrollskrivning 2→1; Räknestuga 3→0; Tentamen 1→2; Övning 9→11; Övrigt 0→1). Sekvens (VT26 → nu): P3 v1–7: [F Ö F F F R F F Ö S F F Ö F R W KS] F F … → [–] F F …; P3 v3: … F Ö [–] F Ö … → … F Ö [F] F Ö …; P3 v6: … F F [F R W S F KS] F F … → … F F [Ö W] F F …; P4 v2–P4 tentaperiod: … F F [TEN] → … F F [Ö S F F Ö F F Ö F Ö F F F S W F KS Övr F TEN TEN]. Är detta avsiktligt?
 - [review] SG1133: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P4 w1→P3 w1; Föreläsning P4 w1→P3 w1; Övning P4 w1→P3 w1; Föreläsning P4 w2→P3 w2; Föreläsning P4 w3→P3 w2; Övning P4 w3→P3 w2 (+17 more)). Är detta avsiktligt?
   - `COPEN1_VT27_remiss.xlsx:10 2027-01-12 15:00-17:00 Föreläsning`

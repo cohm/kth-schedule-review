@@ -82,8 +82,26 @@ given this year; worth asking. For a "pick one" group (degree projects), one
 option being scheduled is enough.
 
 Every course with an exam should have an **ordinary exam** in its period's
-exam window and a **re-exam** in a later re-exam window. "Examination" rows
-during the teaching period (oral exams, presentations) are partial exams.
+exam window and a **re-exam** in a later re-exam window. An exam is expected
+when any of these say so, and findings list every reason that applies:
+
+- the study plan puts an exam in this term,
+- the course had an ordinary exam last year,
+- the course's **current syllabus** (the version valid for this term, read
+  from its kth.se course page) has a written exam module (TEN…; not oral,
+  optional or 0 hp) and a course round ends this term.
+
+When only the syllabus says so (typically an elective from another
+programme), the finding is a warning, since the exam may be scheduled under
+the other programme only. "Examination" rows during the teaching period (oral
+exams, presentations) are partial exams.
+
+The syllabus also checks the **exam modules** on scheduled exams: a module
+the current syllabus does not have (e.g. TEN1 after a syllabus change
+introduced TEN2) is worth asking about, as is a written module of the
+syllabus that no scheduled exam lists. Shared rows may carry any of their
+courses' modules, and rows of an older course round may follow an older
+syllabus.
 
 ### 2. Structure versus last year
 

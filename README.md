@@ -12,10 +12,11 @@ and reports:
 
 | Check | What it finds |
 |---|---|
-| `coverage` | study-plan courses missing from the schedule (and scheduled courses not in the plan); courses without an ordinary exam or a re-exam |
+| `coverage` | study-plan courses missing from the schedule (and scheduled courses not in the plan); courses without an ordinary exam or a re-exam, when the study plan, last year's schedule or the syllabus says there should be one |
 | `structure` | per course: changed number of lectures/exercises/labs…, changed order, occasions moved ≥ 2 teaching weeks, changed exam modules |
 | `exams` | exams of courses taken in parallel on the same or consecutive days; re-exam paths (year N students retaking year N−1 courses); elective pairs ranked by how likely students take both (master-eligibility groups from the study plan count as "both") |
 | `teaching` | lectures, exercises, labs etc. of courses taken in parallel that overlap in time; graded by whether whole classes or single groups are affected and how likely students take both courses |
+| `syllabus` | scheduled exam modules against the current syllabus from the kth.se course page (e.g. TEN1 scheduled after the syllabus changed to TEN2); the syllabus also counts as evidence that an exam is missing |
 | `dataquality` | stale course-round codes, exports whose date range misses the August re-exams, existing remiss comments |
 
 Outputs: a self-contained **HTML report**, **draft remiss comments** (Swedish or
@@ -48,7 +49,9 @@ Requires Python ≥ 3.11 and nothing else.
    ```
 
    The programme and programme years are read from the export headers; study
-   plans are downloaded from ProgramVisualization and cached in `~/.cache/schedcheck`.
+   plans are downloaded from ProgramVisualization, and exam modules from the
+   courses' kth.se pages (only modules and round dates are kept), cached in
+   `~/.cache/schedcheck`. `--no-syllabus` skips the course pages.
 
 3. Open `VT27/reports/<PROG>_<term>_review.html`, read
    `<PROG>_<term>_kommentarer.md`, and edit the comments before sending.

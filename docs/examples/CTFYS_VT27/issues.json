@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-15T00:04:06",
+ "generated": "2026-10-15T08:48:14",
  "review": "program",
  "title": "CTFYS VT27 vs VT26",
  "term": "VT27",
@@ -182,7 +182,7 @@
    {
     "check": "Exams scheduled",
     "status": "error",
-    "text": "3 missing exam/re-exam (1 error, 2 warning)."
+    "text": "5 missing exam/re-exam (1 error, 3 warning, 1 info)."
    },
    {
     "check": "Exam spacing (ordinary exams and KS)",
@@ -213,9 +213,9 @@
  },
  "summary": {
   "error": 3,
-  "warning": 23,
-  "review": 47,
-  "info": 84
+  "warning": 26,
+  "review": 50,
+  "info": 85
  },
  "accepted_count": 0,
  "issues": [
@@ -225,7 +225,7 @@
    "scope": "CTFYS2",
    "course": "SF1544",
    "key": "SF1544",
-   "message": "SF1544 has no ordinary exam in an exam window, but the study plan has an exam in P3.",
+   "message": "SF1544 has no ordinary exam in an exam window, but the study plan has an exam in P3; it had an ordinary exam in VT26 (2026-03-12); its syllabus (valid from HT2021) has TEN1 – Tentamen, 3 hp.",
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:74 2027-02-19 10:00-12:00 Examination",
     "CTFYS2_VT27_remiss.xlsx:224 2027-06-02 14:00-17:00 Omtenta"
@@ -236,11 +236,16 @@
     ],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-03-12 14:00 Tentamen"
+     "2026-03-12 14:00 Tentamen (TEN1)"
     ],
     "reference_reexam": [
      "2026-06-03 14:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2021",
+    "syllabus_written": [
+     "TEN1 – Tentamen, 3 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },
@@ -250,17 +255,21 @@
    "scope": "CTFYS3",
    "course": "DD2352",
    "key": "DD2352",
-   "message": "DD2352 has no ordinary exam in an exam window, but it had an ordinary exam in VT26.",
+   "message": "DD2352 has no ordinary exam in an exam window, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp.",
    "evidence": [],
    "details": {
-    "plan_exam_periods": [],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-05-25 14:00 Tentamen"
+     "2026-05-25 14:00 Tentamen (TEN1)"
     ],
     "reference_reexam": [
      "2026-08-21 14:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2026",
+    "syllabus_written": [
+     "TEN2 – Skriftlig tentamen, 3 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },
@@ -645,6 +654,26 @@
   },
   {
    "severity": "warning",
+   "check": "coverage.missing-exam",
+   "scope": "CTFYS3",
+   "course": "AK2011",
+   "key": "AK2011",
+   "message": "AK2011 has no ordinary exam in an exam window, but its syllabus (valid from HT2019) has TENA – Tentamen, 3 hp. (Only the syllabus says so; for a course outside the mandatory plan the exam may be scheduled without CTFYS3 and not appear in this export.)",
+   "evidence": [],
+   "details": {
+    "reference_term": "VT26",
+    "reference_ordinary": [],
+    "reference_reexam": [],
+    "syllabus_valid_from": "HT2019",
+    "syllabus_written": [
+     "TENA – Tentamen, 3 hp"
+    ],
+    "syllabus_round_ends_in_term": true
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
    "check": "teaching.overlap",
    "scope": "CTFYS3",
    "course": "DD1380",
@@ -689,17 +718,21 @@
    "scope": "CTFYS3",
    "course": "DD2352",
    "key": "DD2352",
-   "message": "DD2352 has no re-exam scheduled this term, but it had an ordinary exam in VT26.",
+   "message": "DD2352 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp.",
    "evidence": [],
    "details": {
-    "plan_exam_periods": [],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-05-25 14:00 Tentamen"
+     "2026-05-25 14:00 Tentamen (TEN1)"
     ],
     "reference_reexam": [
      "2026-08-21 14:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2026",
+    "syllabus_written": [
+     "TEN2 – Skriftlig tentamen, 3 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },
@@ -1146,17 +1179,21 @@
    "scope": "CTFYS3",
    "course": "SF1861",
    "key": "SF1861",
-   "message": "SF1861 has no re-exam scheduled this term, but it had an ordinary exam in VT26.",
+   "message": "SF1861 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-06-01); its syllabus (valid from HT2019) has TEN1 – Tentamen, 4,5 hp.",
    "evidence": [],
    "details": {
-    "plan_exam_periods": [],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-06-01 08:00 Tentamen"
+     "2026-06-01 08:00 Tentamen (TEN1)"
     ],
     "reference_reexam": [
      "2026-08-19 08:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2019",
+    "syllabus_written": [
+     "TEN1 – Tentamen, 4,5 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },
@@ -1508,6 +1545,49 @@
        true
       ]
      }
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
+   "check": "syllabus.unknown-module",
+   "scope": "SI1142",
+   "course": "SI1142",
+   "key": "2027-05-24:TEN2",
+   "message": "SI1142: Tentamen on 2027-05-24 is registered as TEN2, which the current syllabus (valid from VT2026) does not have; its exam modules are TENX – Skriftlig tentamen, 3 hp.",
+   "evidence": [
+    "CTFYS3_VT27_remiss.xlsx:604 2027-05-24 08:00-12:00 Tentamen"
+   ],
+   "details": {
+    "scheduled": [
+     "TEN2"
+    ],
+    "syllabus_valid_from": "VT2026",
+    "syllabus_modules": [
+     "TENX – Skriftlig tentamen, 3 hp"
+    ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
+   "check": "syllabus.unknown-module",
+   "scope": "SI2360",
+   "course": "SI2360",
+   "key": "2027-05-26:TEN1,TEN2",
+   "message": "SI2360: Tentamen on 2027-05-26 is registered as TEN1, TEN2, which the current syllabus (valid from VT2026) does not have; its exam modules are TENT – Skriftlig tentamen, 7,5 hp.",
+   "evidence": [
+    "CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
+   ],
+   "details": {
+    "scheduled": [
+     "TEN1",
+     "TEN2"
+    ],
+    "syllabus_valid_from": "VT2026",
+    "syllabus_modules": [
+     "TENT – Skriftlig tentamen, 7,5 hp"
     ]
    },
    "accepted": null
@@ -20178,6 +20258,27 @@
   },
   {
    "severity": "review",
+   "check": "syllabus.module-not-scheduled",
+   "scope": "SH2404",
+   "course": "SH2404",
+   "key": "TEN1",
+   "message": "SH2404: the syllabus (valid from VT2027) has TEN1 – Tentamen, 5 hp, but no scheduled ordinary exam lists it (scheduled: TEN2).",
+   "evidence": [
+    "CTFYS3_VT27_remiss.xlsx:615 2027-05-28 08:00-13:00 Tentamen"
+   ],
+   "details": {
+    "missing": [
+     "TEN1"
+    ],
+    "scheduled": [
+     "TEN2"
+    ],
+    "syllabus_valid_from": "VT2027"
+   },
+   "accepted": null
+  },
+  {
+   "severity": "review",
    "check": "structure.counts",
    "scope": "SI1142",
    "course": "SI1142",
@@ -20464,6 +20565,29 @@
    ],
    "details": {
     "reference_term": "VT26"
+   },
+   "accepted": null
+  },
+  {
+   "severity": "review",
+   "check": "syllabus.module-not-scheduled",
+   "scope": "SI1142",
+   "course": "SI1142",
+   "key": "TENX",
+   "message": "SI1142: the syllabus (valid from VT2026) has TENX – Skriftlig tentamen, 3 hp, but no scheduled ordinary exam lists it (scheduled: TEN1, TEN2).",
+   "evidence": [
+    "CTFYS3_VT27_remiss.xlsx:604 2027-05-24 08:00-12:00 Tentamen",
+    "CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
+   ],
+   "details": {
+    "missing": [
+     "TENX"
+    ],
+    "scheduled": [
+     "TEN1",
+     "TEN2"
+    ],
+    "syllabus_valid_from": "VT2026"
    },
    "accepted": null
   },
@@ -22215,6 +22339,28 @@
     "new": [
      "TEN1-2"
     ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "review",
+   "check": "syllabus.module-not-scheduled",
+   "scope": "SI2360",
+   "course": "SI2360",
+   "key": "TENT",
+   "message": "SI2360: the syllabus (valid from VT2026) has TENT – Skriftlig tentamen, 7,5 hp, but no scheduled ordinary exam lists it (scheduled: TEN1, TEN2).",
+   "evidence": [
+    "CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
+   ],
+   "details": {
+    "missing": [
+     "TENT"
+    ],
+    "scheduled": [
+     "TEN1",
+     "TEN2"
+    ],
+    "syllabus_valid_from": "VT2026"
    },
    "accepted": null
   },
@@ -25766,6 +25912,26 @@
       ]
      }
     ]
+   },
+   "accepted": null
+  },
+  {
+   "severity": "info",
+   "check": "coverage.missing-reexam",
+   "scope": "CTFYS3",
+   "course": "AK2011",
+   "key": "AK2011",
+   "message": "AK2011 has no re-exam scheduled this term, but its syllabus (valid from HT2019) has TENA – Tentamen, 3 hp. (Only the syllabus says so; for a course outside the mandatory plan the exam may be scheduled without CTFYS3 and not appear in this export.)",
+   "evidence": [],
+   "details": {
+    "reference_term": "VT26",
+    "reference_ordinary": [],
+    "reference_reexam": [],
+    "syllabus_valid_from": "HT2019",
+    "syllabus_written": [
+     "TENA – Tentamen, 3 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },

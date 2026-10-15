@@ -335,11 +335,14 @@ def check_structure(ctx: Context) -> list[Issue]:
         if ctx.review == "course":
             had = [x for x in ctx.old.exams(ctx.old.course_events(code)) if x.kind == "ordinary"]
             has = [x for x in ctx.new.exams(ctx.new.course_events(code)) if x.kind == "ordinary"]
-            if had and not has:
-                issues.append(Issue("warning", "structure.exam-gone", code, code,
-                                    f"{code} had an ordinary exam in {ctx.old.term} "
-                                    f"({had[0].date}) but has none in an exam window in {ctx.new.term}.",
-                                    key=code, evidence=[x.event.cite() for x in had[:2]]))
+            if not has:
+                from .syllabus import exam_reasons
+                reasons, ref = exam_reasons(ctx, code)
+                if reasons:
+                    issues.append(Issue("warning", "structure.exam-gone", code, code,
+                                        f"{code} has no ordinary exam in an exam window in {ctx.new.term}, "
+                                        f"but {'; '.join(reasons)}.",
+                                        key=code, details=ref, evidence=[x.event.cite() for x in had[:2]]))
 
         # Week shifts within aligned stretches.
         shifts = []

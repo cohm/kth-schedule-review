@@ -4,8 +4,8 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [DD2352](https://www.kth.se/student/kurser/kurs/DD2352)
 
-- [error] DD2352: ordinarie tentamen saknas i tentamensperioden. VT26: 2026-05-25 14:00 Tentamen. Ska den läggas in?
-- [warning] DD2352: ingen omtentamen är schemalagd. VT26: 2026-08-21 14:00 Omtenta. Ska den läggas in?
+- [error] DD2352: ordinarie tentamen saknas i tentamensperioden – VT26 fanns ordinarie tentamen (2026-05-25 14:00 Tentamen (TEN1)); kursplanen (giltig från HT2026) har TEN2 – Skriftlig tentamen, 3 hp. Ska den läggas in?
+- [warning] DD2352: ingen omtentamen är schemalagd – VT26 fanns omtentamen (2026-08-21 14:00 Omtenta); kursplanen (giltig från HT2026) har TEN2 – Skriftlig tentamen, 3 hp. Ska den läggas in?
 - [review] DD2352: antalet tillfällen skiljer sig från VT26 (Tentamen 1→0). Sekvens (VT26 → nu): P4 v1–5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F]. Är detta avsiktligt?
 - [review] DD2352: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P4 w1→P3 w6; Datorlaboration P4 w2→P4 w4). Är detta avsiktligt?
   - `CTMAT3_VT27_remiss.xlsx:267 2027-02-15 13:00-15:00 Föreläsning`
@@ -95,7 +95,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [SF1693](https://www.kth.se/student/kurser/kurs/SF1693)
 
-- [warning] SF1693: ingen omtentamen är schemalagd. VT26: 2026-06-03 08:00 Omtenta. Ska den läggas in?
+- [warning] SF1693: ingen omtentamen är schemalagd – VT26 fanns omtentamen (2026-06-03 08:00 Omtenta); kursplanen (giltig från HT2021) har TEN1 – Skriftlig tentamen, 6 hp. Ska den läggas in?
 - [review] SF1693: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P3 v3: … DL F [F Ö] DL F … → … DL F [Ö F] DL F …; P3 v7: … F Ö [DL F] Ö Ö … → … F Ö [F DL] Ö Ö …). Är detta avsiktligt?
 
 ## [SF2701](https://www.kth.se/student/kurser/kurs/SF2701)

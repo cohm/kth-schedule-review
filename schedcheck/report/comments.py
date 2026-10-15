@@ -144,14 +144,28 @@ def render_issue(i: Issue, lang: str) -> str:
         if i.check == "coverage.missing-course":
             return (f"{i.course} {d.get('name', '')} ingår i utbildningsplanen för {i.scope} "
                     f"({', '.join(d.get('periods', []))}) men finns inte i schemat.")
-        if i.check == "coverage.missing-exam":
-            prev = "; ".join(d.get("reference_ordinary", []))
-            return (f"{i.course}: ordinarie tentamen saknas i tentamensperioden."
-                    + (f" {ref}: {prev}." if prev else "") + " Ska den läggas in?")
-        if i.check == "coverage.missing-reexam":
-            prev = "; ".join(d.get("reference_reexam", []))
-            return (f"{i.course}: ingen omtentamen är schemalagd."
-                    + (f" {ref}: {prev}." if prev else "") + " Ska den läggas in?")
+        if i.check in ("coverage.missing-exam", "coverage.missing-reexam", "structure.exam-gone"):
+            why = []
+            if d.get("plan_exam_periods"):
+                why.append(f"utbildningsplanen har tentamen i {'/'.join(d['plan_exam_periods'])}")
+            if d.get("reference_ordinary") and i.check != "coverage.missing-reexam":
+                why.append(f"{ref} fanns ordinarie tentamen ({'; '.join(d['reference_ordinary'])})")
+            if d.get("reference_reexam") and i.check == "coverage.missing-reexam":
+                why.append(f"{ref} fanns omtentamen ({'; '.join(d['reference_reexam'])})")
+            if d.get("syllabus_written"):
+                why.append(f"kursplanen (giltig från {d['syllabus_valid_from']}) har "
+                           + ", ".join(d["syllabus_written"]))
+            what = "ingen omtentamen är schemalagd" if i.check == "coverage.missing-reexam" \
+                else "ordinarie tentamen saknas i tentamensperioden"
+            return f"{i.course}: {what}" + (f" – {'; '.join(why)}" if why else "") + ". Ska den läggas in?"
+        if i.check == "syllabus.unknown-module":
+            return (f"{i.course}: tentamen är registrerad som {', '.join(d.get('scheduled', []))}, men den "
+                    f"gällande kursplanen (från {d.get('syllabus_valid_from')}) har modulerna "
+                    f"{', '.join(d.get('syllabus_modules', []))}. Ska modulen ändras?")
+        if i.check == "syllabus.module-not-scheduled":
+            return (f"{i.course}: kursplanen (från {d.get('syllabus_valid_from')}) har "
+                    f"{', '.join(d.get('missing', []))}, men ingen schemalagd tentamen anger den "
+                    f"(schemalagt: {', '.join(d.get('scheduled', []))}). Ska den läggas in?")
         if i.check == "coverage.group-empty":
             return f"Ingen kurs i gruppen '{i.key}' är schemalagd för {i.scope}."
         if i.check == "coverage.no-plan":
@@ -168,8 +182,6 @@ def render_issue(i: Issue, lang: str) -> str:
             moved = i.message.split("weeks: ", 1)[-1].rstrip(".")
             return (f"{i.course}: tillfällen har flyttats minst två undervisningsveckor jämfört med {ref} "
                     f"({moved}). {t['ask_intended']}")
-        if i.check == "structure.exam-gone":
-            return f"{i.course}: ordinarie tentamen saknas jämfört med {i.message.split(' in ')[1].split(' (')[0]}. Ska den läggas in?"
         if i.check == "structure.course-gone":
             return f"{i.course} hade undervisning {ref} men saknar undervisning i detta schema. {t['ask_intended']}"
         if i.check == "structure.course-new":

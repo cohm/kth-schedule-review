@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-15T00:04:07",
+ "generated": "2026-10-15T08:49:07",
  "review": "program",
  "title": "CFATE VT27 vs VT26",
  "term": "VT27",
@@ -103,7 +103,7 @@
    {
     "check": "Exams scheduled",
     "status": "error",
-    "text": "2 missing exam/re-exam (1 error, 1 warning)."
+    "text": "3 missing exam/re-exam (1 error, 2 warning)."
    },
    {
     "check": "Exam spacing (ordinary exams and KS)",
@@ -213,7 +213,7 @@
  },
  "summary": {
   "error": 2,
-  "warning": 20,
+  "warning": 21,
   "review": 46,
   "info": 92
  },
@@ -225,7 +225,7 @@
    "scope": "CFATE1",
    "course": "SK1112",
    "key": "SK1112",
-   "message": "SK1112 has no ordinary exam in an exam window, but the study plan has an exam in P4.",
+   "message": "SK1112 has no ordinary exam in an exam window, but the study plan has an exam in P4; it had an ordinary exam in VT26 (2026-05-26); its syllabus (valid from HT2020) has TEN1 – Tentamen, 5 hp.",
    "evidence": [
     "CFATE1_VT27_remiss.xlsx:98 2027-03-10 08:00-13:00 Omtenta",
     "CFATE1_VT27_remiss.xlsx:236 2027-05-24 08:00-13:00 Omtenta",
@@ -237,12 +237,17 @@
     ],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-05-26 08:00 Tentamen"
+     "2026-05-26 08:00 Tentamen (TEN1, TENA)"
     ],
     "reference_reexam": [
      "2026-03-09 08:00 Omtenta",
      "2026-08-20 08:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2020",
+    "syllabus_written": [
+     "TEN1 – Tentamen, 5 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },
@@ -345,11 +350,35 @@
   },
   {
    "severity": "warning",
+   "check": "coverage.missing-exam",
+   "scope": "CFATE1",
+   "course": "SF1694",
+   "key": "SF1694",
+   "message": "SF1694 has no ordinary exam in an exam window, but its syllabus (valid from HT2020) has TEN1 – Tentamen, 7,5 hp. (Only the syllabus says so; for a course outside the mandatory plan the exam may be scheduled without CFATE1 and not appear in this export.)",
+   "evidence": [
+    "CFATE1_VT27_remiss.xlsx:140 2027-03-30 14:00-17:00 Omtenta"
+   ],
+   "details": {
+    "reference_term": "VT26",
+    "reference_ordinary": [],
+    "reference_reexam": [
+     "2026-04-08 14:00 Omtenta"
+    ],
+    "syllabus_valid_from": "HT2020",
+    "syllabus_written": [
+     "TEN1 – Tentamen, 7,5 hp"
+    ],
+    "syllabus_round_ends_in_term": true
+   },
+   "accepted": null
+  },
+  {
+   "severity": "warning",
    "check": "coverage.missing-reexam",
    "scope": "CFATE1",
    "course": "SG1132",
    "key": "SG1132",
-   "message": "SG1132 has no re-exam scheduled this term, but the study plan has an exam in P3/P4.",
+   "message": "SG1132 has no re-exam scheduled this term, but the study plan has an exam in P3/P4; it had an ordinary exam in VT26 (2026-05-29); its syllabus (valid from HT2019) has TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp.",
    "evidence": [],
    "details": {
     "plan_exam_periods": [
@@ -358,11 +387,17 @@
     ],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-05-29 08:00 Tentamen"
+     "2026-05-29 08:00 Tentamen (TEN1, TEN2)"
     ],
     "reference_reexam": [
      "2026-08-21 08:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2019",
+    "syllabus_written": [
+     "TEN2 – Problemtentamen, 4,5 hp",
+     "TEN1 – Teoritentamen, 3 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },
@@ -1493,7 +1528,7 @@
    "scope": "CFATE3",
    "course": "SF1861",
    "key": "SF1861",
-   "message": "SF1861 has no re-exam scheduled this term, but the study plan has an exam in P4.",
+   "message": "SF1861 has no re-exam scheduled this term, but the study plan has an exam in P4; it had an ordinary exam in VT26 (2026-06-01); its syllabus (valid from HT2019) has TEN1 – Tentamen, 4,5 hp.",
    "evidence": [],
    "details": {
     "plan_exam_periods": [
@@ -1501,11 +1536,16 @@
     ],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-06-01 08:00 Tentamen"
+     "2026-06-01 08:00 Tentamen (TEN1)"
     ],
     "reference_reexam": [
      "2026-08-19 08:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "HT2019",
+    "syllabus_written": [
+     "TEN1 – Tentamen, 4,5 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },

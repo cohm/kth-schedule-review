@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-15T00:04:07",
+ "generated": "2026-10-15T08:49:17",
  "review": "program",
  "title": "COPEN VT27 vs VT26",
  "term": "VT27",
@@ -148,7 +148,7 @@
    "scope": "COPEN1",
    "course": "SG1133",
    "key": "SG1133",
-   "message": "SG1133 has no re-exam scheduled this term, but the study plan has an exam in P3/P4.",
+   "message": "SG1133 has no re-exam scheduled this term, but the study plan has an exam in P3/P4; it had an ordinary exam in VT26 (2026-05-29); its syllabus (valid from VT2020) has TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp.",
    "evidence": [],
    "details": {
     "plan_exam_periods": [
@@ -157,11 +157,17 @@
     ],
     "reference_term": "VT26",
     "reference_ordinary": [
-     "2026-05-29 08:00 Tentamen"
+     "2026-05-29 08:00 Tentamen (TEN1, TEN2)"
     ],
     "reference_reexam": [
      "2026-08-21 08:00 Omtenta"
-    ]
+    ],
+    "syllabus_valid_from": "VT2020",
+    "syllabus_written": [
+     "TEN2 – Problemtentamen, 4,5 hp",
+     "TEN1 – Teoritentamen, 3 hp"
+    ],
+    "syllabus_round_ends_in_term": true
    },
    "accepted": null
   },

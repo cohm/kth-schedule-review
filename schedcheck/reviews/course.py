@@ -8,12 +8,13 @@ from __future__ import annotations
 from ..checks import Context, run_checks
 from ..config import Config, apply_accepted
 from ..term import TermData
-from .program import ReviewResult, dedupe
+from .program import ReviewResult, dedupe, load_syllabi
 
 
 def course_review(codes: list[str], new: TermData, old: TermData | None,
-                  config: Config) -> ReviewResult:
+                  config: Config, syllabus_source=None) -> ReviewResult:
     ctx = Context("course", new, old, config, courses=set(codes))
+    load_syllabi(ctx, syllabus_source, codes)
     issues = dedupe(run_checks(ctx))
     apply_accepted(issues, config.accepted)
     notes = []

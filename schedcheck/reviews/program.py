@@ -66,14 +66,25 @@ def resolve_plans(td: TermData, source: PlanSource | None, program: str | None,
     return plans
 
 
+def load_syllabi(ctx, syllabus_source, codes) -> None:
+    """Fill ctx.syllabi for the given course codes (skipped without a source)."""
+    if syllabus_source is None:
+        return
+    for code in sorted(codes):
+        ctx.syllabi[code] = syllabus_source.get(code, ctx.new.term)
+    ctx.syllabus_errors.update(syllabus_source.errors)
+
+
 def program_review(new: TermData, old: TermData | None, config: Config,
-                   source: PlanSource | None, program: str | None = None) -> ReviewResult:
+                   source: PlanSource | None, program: str | None = None,
+                   syllabus_source=None) -> ReviewResult:
     notes: list[str] = []
     plans = resolve_plans(new, source, program, notes)
     old_plans = resolve_plans(old, source, program, []) if old else {}
     if program:
         new.year_events = {k: v for k, v in new.year_events.items() if k[0] == program}
     ctx = Context("program", new, old, config, plans, old_plans)
+    load_syllabi(ctx, syllabus_source, new.courses())
     issues = dedupe(run_checks(ctx))
     apply_accepted(issues, config.accepted)
     progs = sorted({k[0] for k in new.year_events})

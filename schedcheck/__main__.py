@@ -7,6 +7,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from .config import load_config
+from .io.kursinfo import SyllabusSource
 from .io.studyplan import PlanSource
 from .io.timeedit import read_folder
 from .term import load_term
@@ -48,6 +49,7 @@ def cmd_program(args) -> None:
     if not programs:
         sys.exit(f"error: no programme could be identified in the exports in {args.new}")
     source = None if args.no_plan else PlanSource(args.plan_source, args.cache_dir)
+    syllabi = None if args.no_syllabus else SyllabusSource(args.cache_dir)
     base_out = Path(args.out)
     for prog in programs:
         new = _load(args.new, prog)
@@ -57,7 +59,7 @@ def cmd_program(args) -> None:
         if args.old and old is None:
             print(f"note: no {prog} exports in {args.old}; reviewing without a reference")
         cfg = load_config(prog, accepted_file=args.accepted)
-        res = program_review(new, old, cfg, source, prog)
+        res = program_review(new, old, cfg, source, prog, syllabi)
         args.out = base_out / prog if len(programs) > 1 else base_out
         _write_outputs(res, args)
         print()
@@ -68,7 +70,8 @@ def cmd_course(args) -> None:
     from .reviews.course import course_review
     new, old = _load(args.new), _load(args.old)
     cfg = load_config(None, accepted_file=args.accepted)
-    res = course_review([c.upper() for c in args.codes], new, old, cfg)
+    syllabi = None if args.no_syllabus else SyllabusSource(args.cache_dir)
+    res = course_review([c.upper() for c in args.codes], new, old, cfg, syllabi)
     _write_outputs(res, args)
 
 
@@ -157,6 +160,9 @@ def main(argv=None) -> None:
         p.add_argument("--accepted", help="TOML file with accepted differences for this review")
         p.add_argument("--lang", choices=["sv", "en"], default="sv", help="language of comment drafts")
         p.add_argument("-v", "--verbose", action="store_true", help="also print info-level issues")
+        p.add_argument("--no-syllabus", action="store_true",
+                       help="don't fetch syllabus exam modules from the kth.se course pages")
+        p.add_argument("--cache-dir", help="where to cache downloaded study plans and syllabus data")
 
     p = sub.add_parser("program", help="programme review (all years of a programme)")
     common(p)
@@ -164,7 +170,6 @@ def main(argv=None) -> None:
                                      "the exports, one review each, in OUT/<PROG>/ when several)")
     p.add_argument("--plan-source", help="ProgramVisualization clone or base URL "
                                          "(default: GitHub raw, main branch)")
-    p.add_argument("--cache-dir", help="where to cache downloaded study plans")
     p.add_argument("--no-plan", action="store_true", help="skip study-plan based checks")
     p.set_defaults(func=cmd_program)
 

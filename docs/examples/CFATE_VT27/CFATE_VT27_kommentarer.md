@@ -15,7 +15,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [SK1112](https://www.kth.se/student/kurser/kurs/SK1112)
 
-- [error] SK1112: ordinarie tentamen saknas i tentamensperioden. VT26: 2026-05-26 08:00 Tentamen. Ska den läggas in?
+- [error] SK1112: ordinarie tentamen saknas i tentamensperioden – utbildningsplanen har tentamen i P4; VT26 fanns ordinarie tentamen (2026-05-26 08:00 Tentamen (TEN1, TENA)); kursplanen (giltig från HT2020) har TEN1 – Tentamen, 5 hp. Ska den läggas in?
   - `CFATE1_VT27_remiss.xlsx:98 2027-03-10 08:00-13:00 Omtenta`
   - `CFATE1_VT27_remiss.xlsx:236 2027-05-24 08:00-13:00 Omtenta`
 - [warning] SK1112 krockar med sig själv: 2027-04-21 13:00-15:00 Föreläsning / 13:00-15:00 Övning; 2027-04-29 08:00-12:00 Laboration / 10:00-12:00 Föreläsning; 2027-05-14 13:00-16:00 Redovisning / 13:00-15:00 Räknestuga. Båda tillfällena är markerade som helklass – ska studenterna vara på båda, eller ska de delas i grupper? Fanns inte VT26.
@@ -127,9 +127,14 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
   - `CFATE2_VT27_remiss.xlsx:128 2027-03-30 08:00-13:00 Omtenta`
   - `CFATE1_VT27_remiss.xlsx:140 2027-03-30 14:00-17:00 Omtenta`
 
+## [SF1694](https://www.kth.se/student/kurser/kurs/SF1694)
+
+- [warning] SF1694: ordinarie tentamen saknas i tentamensperioden – kursplanen (giltig från HT2020) har TEN1 – Tentamen, 7,5 hp. Ska den läggas in?
+  - `CFATE1_VT27_remiss.xlsx:140 2027-03-30 14:00-17:00 Omtenta`
+
 ## [SF1861](https://www.kth.se/student/kurser/kurs/SF1861)
 
-- [warning] SF1861: ingen omtentamen är schemalagd. VT26: 2026-08-19 08:00 Omtenta. Ska den läggas in?
+- [warning] SF1861: ingen omtentamen är schemalagd – utbildningsplanen har tentamen i P4; VT26 fanns omtentamen (2026-08-19 08:00 Omtenta); kursplanen (giltig från HT2019) har TEN1 – Tentamen, 4,5 hp. Ska den läggas in?
 - [review] SF1861: antalet tillfällen skiljer sig från VT26 (Examination 6→5). Sekvens (VT26 → nu): P4 v4: … Ö F [EX] EX EX … → … Ö F [–] EX EX …. Är detta avsiktligt?
 - [review] SF1861: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Datorlaboration P4 w9→P4 exams). Är detta avsiktligt?
   - `CFATE3_VT27_remiss.xlsx:438 2027-05-28 14:00-16:00 Datorlaboration`
@@ -145,7 +150,7 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [SG1132](https://www.kth.se/student/kurser/kurs/SG1132)
 
-- [warning] SG1132: ingen omtentamen är schemalagd. VT26: 2026-08-21 08:00 Omtenta. Ska den läggas in?
+- [warning] SG1132: ingen omtentamen är schemalagd – utbildningsplanen har tentamen i P3/P4; VT26 fanns omtentamen (2026-08-21 08:00 Omtenta); kursplanen (giltig från HT2019) har TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp. Ska den läggas in?
 - [review] SG1132: antalet tillfällen skiljer sig från VT26 (Räknestuga 2→1; Tentamen 1→2; Övrigt 0→2). Sekvens (VT26 → nu): P3 v3–7: … Ö F [F F Ö W F F Ö F KS] F Ö … → … Ö F [W KS Övr F F Ö F F Ö F] F Ö …; P4 v8–P4 tentaperiod: … F Red [F KS F Ö R R TEN] → … F Red [KS Övr F F Ö R TEN TEN]. Är detta avsiktligt?
 - [review] SG1132: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Workshop P3 w5→P3 w3; Föreläsning P3 w6→P3 w4). Är detta avsiktligt?
   - `CFATE1_VT27_remiss.xlsx:37 2027-01-29 13:00-15:00 Workshop`
