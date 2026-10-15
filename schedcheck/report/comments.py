@@ -166,6 +166,20 @@ def render_issue(i: Issue, lang: str) -> str:
             return (f"{i.course}: kursplanen (från {d.get('syllabus_valid_from')}) har "
                     f"{', '.join(d.get('missing', []))}, men ingen schemalagd tentamen anger den "
                     f"(schemalagt: {', '.join(d.get('scheduled', []))}). Ska den läggas in?")
+        if i.check == "rooms.capacity":
+            words = {"far-lower": "minst 40 % färre", "much-lower": "minst 20 % färre",
+                     "lower": "minst 10 % färre", "higher": "minst 50 % fler"}
+            c = d.get("counts", {})
+            parts = [f"{c[k]} med {w} platser" for k, w in words.items() if c.get(k)]
+            if d.get("no_room"):
+                parts.append(f"{d['no_room']} utan bokad lokal (hade lokal {ref})")
+            if d.get("digital_changes"):
+                parts.append(f"{d['digital_changes']} som bytt mellan digitalt och på campus")
+            ex = "; ".join(f"{x['activity']} {x['date'][:10]}: {'+'.join(x['old_rooms'])} ({x['old_seats']}) "
+                           f"→ {'+'.join(x['new_rooms'])} ({x['new_seats']})" for x in d.get("largest", []))
+            return (f"{i.course}: lokalerna skiljer sig från {ref} vid samma tillfällen: "
+                    f"{', '.join(parts)}." + (f" Störst minskning: {ex}." if ex else "")
+                    + " Räcker platserna?")
         if i.check == "coverage.group-empty":
             return f"Ingen kurs i gruppen '{i.key}' är schemalagd för {i.scope}."
         if i.check == "coverage.no-plan":

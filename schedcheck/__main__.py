@@ -8,6 +8,7 @@ from pathlib import Path
 
 from .config import load_config
 from .io.kursinfo import SyllabusSource
+from .io.places import RoomSource, load_manual
 from .io.studyplan import PlanSource
 from .io.timeedit import read_folder
 from .term import load_term
@@ -31,6 +32,12 @@ def _programs_in(folder: str) -> list[str]:
     return sorted({ex.program for ex in read_folder(folder) if ex.program})
 
 
+def _rooms(args):
+    if args.no_rooms or not args.old:
+        return None
+    return RoomSource(args.cache_dir, manual=load_manual(args.rooms))
+
+
 def _write_outputs(res, args) -> None:
     from .report import comments, html, jsonout
     out = Path(args.out)
@@ -50,6 +57,7 @@ def cmd_program(args) -> None:
         sys.exit(f"error: no programme could be identified in the exports in {args.new}")
     source = None if args.no_plan else PlanSource(args.plan_source, args.cache_dir)
     syllabi = None if args.no_syllabus else SyllabusSource(args.cache_dir)
+    rooms = _rooms(args)
     base_out = Path(args.out)
     for prog in programs:
         new = _load(args.new, prog)
@@ -59,7 +67,7 @@ def cmd_program(args) -> None:
         if args.old and old is None:
             print(f"note: no {prog} exports in {args.old}; reviewing without a reference")
         cfg = load_config(prog, accepted_file=args.accepted)
-        res = program_review(new, old, cfg, source, prog, syllabi)
+        res = program_review(new, old, cfg, source, prog, syllabi, rooms)
         args.out = base_out / prog if len(programs) > 1 else base_out
         _write_outputs(res, args)
         print()
@@ -71,7 +79,7 @@ def cmd_course(args) -> None:
     new, old = _load(args.new), _load(args.old)
     cfg = load_config(None, accepted_file=args.accepted)
     syllabi = None if args.no_syllabus else SyllabusSource(args.cache_dir)
-    res = course_review([c.upper() for c in args.codes], new, old, cfg, syllabi)
+    res = course_review([c.upper() for c in args.codes], new, old, cfg, syllabi, _rooms(args))
     _write_outputs(res, args)
 
 
@@ -162,7 +170,10 @@ def main(argv=None) -> None:
         p.add_argument("-v", "--verbose", action="store_true", help="also print info-level issues")
         p.add_argument("--no-syllabus", action="store_true",
                        help="don't fetch syllabus exam modules from the kth.se course pages")
-        p.add_argument("--cache-dir", help="where to cache downloaded study plans and syllabus data")
+        p.add_argument("--no-rooms", action="store_true",
+                       help="don't compare room capacities (read from KTH Places)")
+        p.add_argument("--rooms", help="TOML file with manual room capacities ([capacity] \"NAME\" = seats)")
+        p.add_argument("--cache-dir", help="where to cache downloaded study plans, syllabus and room data")
 
     p = sub.add_parser("program", help="programme review (all years of a programme)")
     common(p)

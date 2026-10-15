@@ -10,6 +10,9 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] MF1024 och SD1120 har 1 tillfälle(n) som krockar: 2027-05-03 15:00-17:00 Handledning / 08:00-17:00 Projektarbete. Inga krockar VT26. Båda kurserna är obligatoriska för årskursen. Går det att flytta?
   - `CFATE2_VT27_remiss.xlsx:183 2027-05-03 15:00-17:00 Handledning`
   - `CFATE2_VT27_remiss.xlsx:181 2027-05-03 08:00-17:00 Projektarbete`
+- [review] MF1024: lokalerna skiljer sig från VT26 vid samma tillfällen: 5 med minst 20 % färre platser, 3 med minst 10 % färre platser, 9 med minst 50 % fler platser. Störst minskning: F 2027-02-12: M2 (140) → M3 (98); F 2027-02-22: M2 (140) → M3 (98); F 2027-02-24: M2 (140) → M3 (98); F 2027-04-12: M2 (140) → M3 (98). Räcker platserna?
+  - `CFATE2_VT27_remiss.xlsx:58 2027-02-12 08:00-10:00 Föreläsning`
+  - `CFATE2_VT27_remiss.xlsx:79 2027-02-22 13:00-15:00 Föreläsning`
 - [review] MF1024: antalet tillfällen skiljer sig från VT26 (Redovisning 6→5). Sekvens (VT26 → nu): P3 v8: … R Red [Red] TEN F … → … R Red [–] TEN F …; P4 v2–4: … Handledning Handledning [Handledning Red F Handledning] Handledning Handledning … → … Handledning Handledning [Red Handledning Handledning F] Handledning Handledning …. Är detta avsiktligt?
 - [review] MF1024: examinationsmodulerna på tentamen har ändrats (TEN1, TEN2 → TEN1-2). Är detta avsiktligt?
 
@@ -41,6 +44,9 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] MF133X krockar med sig själv: 2027-05-05 07:00-19:00 Mässa / 08:00-12:00 Workshop; 2027-05-05 07:00-19:00 Mässa / 13:00-17:00 Workshop. Båda tillfällena är markerade som helklass – ska studenterna vara på båda, eller ska de delas i grupper? Fanns inte VT26.
   - `CFATE3_VT27_remiss.xlsx:375 2027-05-05 07:00-19:00 Mässa`
   - `CFATE3_VT27_remiss.xlsx:376 2027-05-05 08:00-12:00 Workshop`
+- [review] MF133X: lokalerna skiljer sig från VT26 vid samma tillfällen: 5 med minst 20 % färre platser, 4 med minst 50 % fler platser. Störst minskning: F 2027-01-15: M3 (98) → W43 (70); F 2027-01-19: M3 (98) → W43 (70); F 2027-02-08: M3 (98) → W43 (70); F 2027-01-13: V2 (90) → W43 (70). Räcker platserna?
+  - `CFATE3_VT27_remiss.xlsx:21 2027-01-15 13:00-16:00 Föreläsning`
+  - `CFATE3_VT27_remiss.xlsx:27 2027-01-19 08:00-10:00 Föreläsning`
 - [review] MF133X: antalet tillfällen skiljer sig från VT26 (Handledning 1→0; Redovisning 0→1; Seminarium 7→9; Workshop 48→50). Sekvens (VT26 → nu): P3 v2: … F W [W F] S S … → … F W [F W] S S …; P3 v4: … S W [W W Handledning] W W … → … S W [–] W W …; P3 v5–6: … F W [F] W W … → … F W [W W W F W W] W W …; P4 v4–5: … W W [S W W W W] W W … → … W W [W W W S S] W W …; … och 1 till. Är detta avsiktligt?
 - [review] MF133X: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Workshop P3 w8→P4 w1). Är detta avsiktligt?
   - `CFATE3_VT27_remiss.xlsx:176 2027-03-15 08:00-12:00 Workshop`
@@ -50,6 +56,9 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] MF134X krockar med sig själv: 2027-05-05 07:00-19:00 Mässa / 08:00-12:00 Workshop; 2027-05-05 07:00-19:00 Mässa / 13:00-17:00 Workshop. Båda tillfällena är markerade som helklass – ska studenterna vara på båda, eller ska de delas i grupper? Fanns inte VT26.
   - `CFATE3_VT27_remiss.xlsx:375 2027-05-05 07:00-19:00 Mässa`
   - `CFATE3_VT27_remiss.xlsx:376 2027-05-05 08:00-12:00 Workshop`
+- [review] MF134X: lokalerna skiljer sig från VT26 vid samma tillfällen: 5 med minst 20 % färre platser, 4 med minst 50 % fler platser. Störst minskning: F 2027-01-15: M3 (98) → W43 (70); F 2027-01-19: M3 (98) → W43 (70); F 2027-02-08: M3 (98) → W43 (70); F 2027-01-13: V2 (90) → W43 (70). Räcker platserna?
+  - `CFATE3_VT27_remiss.xlsx:21 2027-01-15 13:00-16:00 Föreläsning`
+  - `CFATE3_VT27_remiss.xlsx:27 2027-01-19 08:00-10:00 Föreläsning`
 - [review] MF134X: antalet tillfällen skiljer sig från VT26 (Handledning 1→0; Redovisning 0→1; Seminarium 7→9; Workshop 48→50). Sekvens (VT26 → nu): P3 v2: … F W [W F] S S … → … F W [F W] S S …; P3 v4: … S W [W W Handledning] W W … → … S W [–] W W …; P3 v5–6: … F W [F] W W … → … F W [W W W F W W] W W …; P4 v4–5: … W W [S W W W W] W W … → … W W [W W W S S] W W …; … och 1 till. Är detta avsiktligt?
 - [review] MF134X: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Workshop P3 w8→P4 w1). Är detta avsiktligt?
   - `CFATE3_VT27_remiss.xlsx:176 2027-03-15 08:00-12:00 Workshop`
@@ -88,6 +97,8 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 - [warning] SD1002 och SG1132 har 1 tillfälle(n) som krockar: 2027-02-04 10:00-12:00 Projektarbete / 10:00-11:00 Övrigt. Inga krockar VT26. Båda kurserna är obligatoriska för årskursen. Går det att flytta?
   - `CFATE1_VT27_remiss.xlsx:46 2027-02-04 10:00-12:00 Projektarbete`
   - `CFATE1_VT27_remiss.xlsx:47 2027-02-04 10:00-11:00 Övrigt`
+- [review] SD1002: lokalerna skiljer sig från VT26 vid samma tillfällen: 1 med minst 10 % färre platser, 7 med minst 50 % fler platser, 1 utan bokad lokal (hade lokal VT26). Störst minskning: P 2027-05-04: Q31+Q34+Q36 (180) → V21+V32+V34 (160). Räcker platserna?
+  - `CFATE1_VT27_remiss.xlsx:204 2027-05-04 10:00-12:00 Projektarbete`
 - [review] SD1002: antalet tillfällen skiljer sig från VT26 (Projektarbete 13→12; Övning 10→11). Sekvens (VT26 → nu): P4 v2: … P Ö [P] Ö Ö … → … P Ö [Ö] Ö Ö …. Är detta avsiktligt?
 
 ## [SD1120](https://www.kth.se/student/kurser/kurs/SD1120)
@@ -121,6 +132,16 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
   - `CFATE3_VT27_remiss.xlsx:154 2027-03-02 08:00-12:00 Räknestuga`
   - `CFATE3_VT27_remiss.xlsx:159 2027-03-02 13:00-17:00 Räknestuga`
 
+## [SF1626](https://www.kth.se/student/kurser/kurs/SF1626)
+
+- [warning] SF1626: lokalerna skiljer sig från VT26 vid samma tillfällen: 1 med minst 40 % färre platser, 2 med minst 10 % färre platser. Störst minskning: F 2027-02-26: F1 (462) → E1 (212); W 2027-01-22: D34+D35+E31 (116) → E31+E33+E34 (100); W 2027-01-14: D34+D41+D42 (120) → E33+E34+E35 (108). Räcker platserna?
+  - `CFATE1_VT27_remiss.xlsx:83 2027-02-26 08:00-10:00 Föreläsning`
+  - `CFATE1_VT27_remiss.xlsx:26 2027-01-22 10:00-12:00 Workshop`
+- [review] SF1626: antalet tillfällen skiljer sig från VT26 (Föreläsning 24→21). Sekvens (VT26 → nu): P3 v1–3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 v5–7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W …. Är detta avsiktligt?
+- [review] SF1626: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Seminarium P3 w4→P3 w2 (+22 more)). Är detta avsiktligt?
+  - `CFATE1_VT27_remiss.xlsx:7 2027-01-12 10:00-12:00 Föreläsning`
+  - `CFATE1_VT27_remiss.xlsx:8 2027-01-12 13:00-15:00 Workshop`
+
 ## [SF1682](https://www.kth.se/student/kurser/kurs/SF1682)
 
 - [warning] SF1682 (omtentamen 2027-03-30 08:00-13:00) och SF1694 (omtentamen 2027-03-30 14:00-17:00) ligger samma dag. Påverkar studenter i CFATE2 som behöver tentera om SF1694 från årskurs 1. Går det att sprida ut dem mer?
@@ -151,10 +172,26 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 ## [SG1132](https://www.kth.se/student/kurser/kurs/SG1132)
 
 - [warning] SG1132: ingen omtentamen är schemalagd – utbildningsplanen har tentamen i P3/P4; VT26 fanns omtentamen (2026-08-21 08:00 Omtenta); kursplanen (giltig från HT2019) har TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp. Ska den läggas in?
+- [warning] SG1132: lokalerna skiljer sig från VT26 vid samma tillfällen: 3 med minst 40 % färre platser, 2 med minst 20 % färre platser, 6 med minst 10 % färre platser, 2 med minst 50 % fler platser, 1 utan bokad lokal (hade lokal VT26). Störst minskning: F 2027-04-26: E1 (212) → B3 (101); F 2027-05-03: E1 (212) → B1 (101); F 2027-05-13: E1 (212) → B1 (101); S 2027-04-27: E51+E52+E53 (132) → E33+E34+E36 (100). Räcker platserna?
+  - `CFATE1_VT27_remiss.xlsx:184 2027-04-26 08:00-10:00 Föreläsning`
+  - `CFATE1_VT27_remiss.xlsx:199 2027-05-03 08:00-10:00 Föreläsning`
 - [review] SG1132: antalet tillfällen skiljer sig från VT26 (Räknestuga 2→1; Tentamen 1→2; Övrigt 0→2). Sekvens (VT26 → nu): P3 v3–7: … Ö F [F F Ö W F F Ö F KS] F Ö … → … Ö F [W KS Övr F F Ö F F Ö F] F Ö …; P4 v8–P4 tentaperiod: … F Red [F KS F Ö R R TEN] → … F Red [KS Övr F F Ö R TEN TEN]. Är detta avsiktligt?
 - [review] SG1132: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Workshop P3 w5→P3 w3; Föreläsning P3 w6→P3 w4). Är detta avsiktligt?
   - `CFATE1_VT27_remiss.xlsx:37 2027-01-29 13:00-15:00 Workshop`
   - `CFATE1_VT27_remiss.xlsx:51 2027-02-05 13:00-15:00 Föreläsning`
+
+## [SG1217](https://www.kth.se/student/kurser/kurs/SG1217)
+
+- [warning] SG1217: lokalerna skiljer sig från VT26 vid samma tillfällen: 5 med minst 40 % färre platser, 2 med minst 20 % färre platser, 5 med minst 10 % färre platser, 3 med minst 50 % fler platser. Störst minskning: Ö 2027-02-18: U41+U51 (143) → E33+E34 (64); F 2027-01-27: M1 (262) → B2 (131); Ö 2027-01-29: U31+U41 (142) → D41+D42 (72); Ö 2027-02-11: U21+U31 (140) → Q22+Q26 (80). Räcker platserna?
+  - `CFATE2_VT27_remiss.xlsx:72 2027-02-18 10:00-12:00 Övning`
+  - `CFATE2_VT27_remiss.xlsx:32 2027-01-27 13:00-15:00 Föreläsning`
+
+## [SI1155](https://www.kth.se/student/kurser/kurs/SI1155)
+
+- [warning] SI1155: lokalerna skiljer sig från VT26 vid samma tillfällen: 20 med minst 40 % färre platser, 6 med minst 20 % färre platser, 1 med minst 10 % färre platser. Störst minskning: Ö 2027-04-12: FR4 (267) → FA31+FA32 (82); F 2027-03-16: FR4 (267) → FD5 (114); F 2027-03-17: FR4 (267) → FD5 (114); F 2027-03-19: FR4 (267) → FD5 (114). Räcker platserna?
+  - `CFATE3_VT27_remiss.xlsx:279 2027-04-12 15:00-17:00 Övning`
+  - `CFATE3_VT27_remiss.xlsx:181 2027-03-16 08:00-10:00 Föreläsning`
+- [review] SI1155: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F …). Är detta avsiktligt?
 
 ## [EF112X](https://www.kth.se/student/kurser/kurs/EF112X)
 
@@ -162,6 +199,9 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [ME2163](https://www.kth.se/student/kurser/kurs/ME2163)
 
+- [review] ME2163: lokalerna skiljer sig från VT26 vid samma tillfällen: 3 med minst 20 % färre platser, 2 som bytt mellan digitalt och på campus. Störst minskning: F 2027-05-13: D2 (126) → D3 (89); F 2027-05-14: D2 (126) → D3 (89); F 2027-05-18: D2 (126) → D3 (89). Räcker platserna?
+  - `CFATE3_VT27_remiss.xlsx:405 2027-05-13 10:00-12:00 Föreläsning`
+  - `CFATE3_VT27_remiss.xlsx:407 2027-05-14 10:00-12:00 Föreläsning`
 - [review] ME2163: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v1–2: F [–] F Ö … → F [F Ö Ö] F Ö …; P4 v8: … Ö F [Ö Ö F] TEN → … Ö F [–] TEN). Är detta avsiktligt?
 - [review] ME2163: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Övning P4 w5→P4 w8; Övning P4 w5→P4 w8; Föreläsning P4 w5→P4 w8; Föreläsning P4 w6→P4 w8; Övning P4 w7→P4 w9; Övning P4 w7→P4 w9 (+1 more)). Är detta avsiktligt?
   - `CFATE3_VT27_remiss.xlsx:388 2027-05-10 17:00-19:00 Övning`
@@ -177,6 +217,8 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [MF1062](https://www.kth.se/student/kurser/kurs/MF1062)
 
+- [review] MF1062: lokalerna skiljer sig från VT26 vid samma tillfällen: 1 med minst 20 % färre platser. Störst minskning: Mässa 2027-05-05: U-Utställningssal+U1+U61 Break-out+U21+U21 Break-out+U31+U31 Break-out+U41+U41 Break-out+U61 (562) → U1+U61 Break-out+U21+U21 Break-out+U31+U31 Break-out+U41+U41 Break-out (426). Räcker platserna?
+  - `CFATE3_VT27_remiss.xlsx:375 2027-05-05 07:00-19:00 Mässa`
 - [review] MF1062: antalet tillfällen skiljer sig från VT26 (Redovisning 0→1). Sekvens (VT26 → nu): P4 v8: Mässa [–] → Mässa [Red]. Är detta avsiktligt?
 
 ## [MF131X](https://www.kth.se/student/kurser/kurs/MF131X)
@@ -185,10 +227,14 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [MF132X](https://www.kth.se/student/kurser/kurs/MF132X)
 
+- [review] MF132X: lokalerna skiljer sig från VT26 vid samma tillfällen: 1 med minst 20 % färre platser. Störst minskning: Mässa 2027-05-05: U-Utställningssal+U1+U61 Break-out+U21+U21 Break-out+U31+U31 Break-out+U41+U41 Break-out+U61 (562) → U1+U61 Break-out+U21+U21 Break-out+U31+U31 Break-out+U41+U41 Break-out (426). Räcker platserna?
+  - `CFATE3_VT27_remiss.xlsx:375 2027-05-05 07:00-19:00 Mässa`
 - [review] MF132X: antalet tillfällen skiljer sig från VT26 (Redovisning 0→1). Sekvens (VT26 → nu): P4 v8: Mässa [–] → Mässa [Red]. Är detta avsiktligt?
 
 ## [MF2023](https://www.kth.se/student/kurser/kurs/MF2023)
 
+- [review] MF2023: lokalerna skiljer sig från VT26 vid samma tillfällen: 1 med minst 20 % färre platser. Störst minskning: Mässa 2027-05-05: U-Utställningssal+U1+U61 Break-out+U21+U21 Break-out+U31+U31 Break-out+U41+U41 Break-out+U61 (562) → U1+U61 Break-out+U21+U21 Break-out+U31+U31 Break-out+U41+U41 Break-out (426). Räcker platserna?
+  - `CFATE3_VT27_remiss.xlsx:375 2027-05-05 07:00-19:00 Mässa`
 - [review] MF2023: antalet tillfällen skiljer sig från VT26 (Redovisning 0→1). Sekvens (VT26 → nu): P4 v8: Mässa [–] → Mässa [Red]. Är detta avsiktligt?
 
 ## [SA114X](https://www.kth.se/student/kurser/kurs/SA114X)
@@ -212,13 +258,6 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
   - `CFATE3_VT27_remiss.xlsx:13 2027-01-13 10:00-12:00 Projektarbete`
   - `CFATE3_VT27_remiss.xlsx:15 2027-01-13 13:00-17:00 Projektarbete`
 
-## [SF1626](https://www.kth.se/student/kurser/kurs/SF1626)
-
-- [review] SF1626: antalet tillfällen skiljer sig från VT26 (Föreläsning 24→21). Sekvens (VT26 → nu): P3 v1–3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 v5–7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W …. Är detta avsiktligt?
-- [review] SF1626: tillfällen har flyttats minst två undervisningsveckor jämfört med VT26 (Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Seminarium P3 w4→P3 w2 (+22 more)). Är detta avsiktligt?
-  - `CFATE1_VT27_remiss.xlsx:7 2027-01-12 10:00-12:00 Föreläsning`
-  - `CFATE1_VT27_remiss.xlsx:8 2027-01-12 13:00-15:00 Workshop`
-
 ## [SG1133](https://www.kth.se/student/kurser/kurs/SG1133)
 
 - [review] SG1133: antalet tillfällen skiljer sig från VT26 (Tentamen 0→2; Övrigt 0→1). Sekvens (VT26 → nu): P4 v8–P4 tentaperiod: KS [–] → KS [Övr TEN TEN]. Är detta avsiktligt?
@@ -227,11 +266,10 @@ _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och fo
 
 ## [SG1216](https://www.kth.se/student/kurser/kurs/SG1216)
 
+- [review] SG1216: lokalerna skiljer sig från VT26 vid samma tillfällen: 2 med minst 20 % färre platser, 5 med minst 50 % fler platser. Störst minskning: F 2027-03-16: E1 (212) → B2 (131); F 2027-03-17: E1 (212) → B2 (131). Räcker platserna?
+  - `CFATE2_VT27_remiss.xlsx:107 2027-03-16 15:00-17:00 Föreläsning`
+  - `CFATE2_VT27_remiss.xlsx:108 2027-03-17 13:00-15:00 Föreläsning`
 - [review] SG1216: antalet tillfällen skiljer sig från VT26 (FX-komplettering 0→1; Seminarium 10→5). Sekvens (VT26 → nu): P4 v2: … F Ö [S] S F … → … F Ö [–] S F …; P4 v3–4: … Ö S [S F Ö R S] S KS … → … Ö S [F Ö R] S KS …; P4 v7: … Ö S [S] Ö R … → … Ö S [–] Ö R …; P4 tentaperiod: … Övr S [S TEN] → … Övr S [TEN FX-komplettering]. Är detta avsiktligt?
-
-## [SI1155](https://www.kth.se/student/kurser/kurs/SI1155)
-
-- [review] SI1155: samma tillfällen som VT26 men i annan ordning (VT26 → nu: P4 v2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F …). Är detta avsiktligt?
 
 ## [SK1117](https://www.kth.se/student/kurser/kurs/SK1117)
 

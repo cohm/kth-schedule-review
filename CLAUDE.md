@@ -7,9 +7,9 @@ judging findings). Usage: `README.md`. Extending: `docs/ADDING_A_CHECK.md`.
 ## Layout
 
 - `schedcheck/io/` readers (TimeEdit xlsx, ProgramVisualization study plans, kth.se course pages for
-  syllabus exam modules, TimeEdit fetch/collect) → `model.py`
+  syllabus exam modules, KTH Places room seats, TimeEdit fetch/collect) → `model.py`
 - `schedcheck/calendar.py` term calendar from marker rows; `term.py` TermData + exam classification
-- `schedcheck/checks/` coverage, structure, exams, teaching, syllabus, dataquality (registry in `__init__.py`)
+- `schedcheck/checks/` coverage, structure, exams, teaching, syllabus, rooms, dataquality (registry in `__init__.py`)
 - `schedcheck/reviews/` program and course reviews; `report/` html, comments (sv/en), json
 - `skills/schedule-remiss-review/` the user-facing agent skill
 - `tests/` unittest with synthetic exports (`tests/helpers.py`)

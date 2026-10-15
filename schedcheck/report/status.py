@@ -154,6 +154,18 @@ def year_status(res: ReviewResult, key) -> list[dict]:
                 f"{n} compared with {ctx.old.term}: {len(changed)} with differences "
                 f"to judge ({', '.join(changed)}).")
         lines.append({"check": f"Structure vs {ctx.old.term}", "status": _worst(struct), "text": text})
+
+        # Room capacity
+        cmp = {c: ctx.room_comparison[c] for c in codes if c in ctx.room_comparison}
+        if cmp:
+            rooms = [i for i in res.issues if not i.accepted and i.check == "rooms.capacity"
+                     and i.course in cmp and i.severity != "info"]
+            n_occ = sum(len(v["pairs"]) for v in cmp.values())
+            text = (f"{n_occ} occasions in {len(cmp)} courses compared with {ctx.old.term}: "
+                    + ("no occasion has ≥20% fewer seats." if not rooms else
+                       f"{len(rooms)} course(s) with ≥20% fewer seats on some occasion "
+                       f"({', '.join(sorted(i.course for i in rooms))})."))
+            lines.append({"check": f"Room seats vs {ctx.old.term}", "status": _worst(rooms), "text": text})
     return lines
 
 

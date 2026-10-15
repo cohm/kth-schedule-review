@@ -17,6 +17,7 @@ and reports:
 | `exams` | exams of courses taken in parallel on the same or consecutive days; re-exam paths (year N students retaking year N−1 courses); elective pairs ranked by how likely students take both (master-eligibility groups from the study plan count as "both") |
 | `teaching` | lectures, exercises, labs etc. of courses taken in parallel that overlap in time; graded by whether whole classes or single groups are affected and how likely students take both courses |
 | `syllabus` | scheduled exam modules against the current syllabus from the kth.se course page (e.g. TEN1 scheduled after the syllabus changed to TEN2); the syllabus also counts as evidence that an exam is missing |
+| `rooms` | per course and occasion, seats in the booked rooms against last year's (from [KTH Places](https://www.kth.se/places)): ≥ 10 / 20 / 40 % fewer seats, ≥ 50 % more, occasions without a room booked |
 | `dataquality` | stale course-round codes, exports whose date range misses the August re-exams, existing remiss comments |
 
 Outputs: a self-contained **HTML report**, **draft remiss comments** (Swedish or
@@ -51,7 +52,16 @@ Requires Python ≥ 3.11 and nothing else.
    The programme and programme years are read from the export headers; study
    plans are downloaded from ProgramVisualization, and exam modules from the
    courses' kth.se pages (only modules and round dates are kept), cached in
-   `~/.cache/schedcheck`. `--no-syllabus` skips the course pages.
+   `~/.cache/schedcheck`. `--no-syllabus` skips the course pages. Room seat
+   counts come from KTH Places (a first run reads ~115 building pages and one
+   page per room used, a few minutes; then cached for 30 days); `--no-rooms`
+   skips this, and `--rooms FILE` adds capacities Places lacks:
+
+   ```toml
+   [capacity]
+   "012:024" = 16        # room name as in the export
+   "Wenström" = 24
+   ```
 
 3. Open `VT27/reports/<PROG>_<term>_review.html`, read
    `<PROG>_<term>_kommentarer.md`, and edit the comments before sending.

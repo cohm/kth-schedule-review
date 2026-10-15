@@ -36,6 +36,8 @@ class Context:
     courses: set[str] | None = None      # restrict to these courses (course review)
     syllabi: dict = field(default_factory=dict)          # code -> io.kursinfo.Syllabus | None
     syllabus_errors: dict = field(default_factory=dict)  # code -> error text
+    rooms: object | None = None                          # io.places.RoomSource, or None
+    room_comparison: dict = field(default_factory=dict)  # code -> checks.rooms.compare_course()
 
     def wants(self, code: str) -> bool:
         return self.courses is None or code in self.courses
@@ -61,7 +63,7 @@ def register(name: str, applies_to: tuple[str, ...], description: str):
 
 def run_checks(ctx: Context) -> list[Issue]:
     # Import modules for their registration side effect.
-    from . import coverage, structure, exams, teaching, syllabus, dataquality  # noqa: F401
+    from . import coverage, structure, exams, teaching, syllabus, rooms, dataquality  # noqa: F401
     issues: list[Issue] = []
     for spec in REGISTRY:
         if ctx.review in spec.applies_to:

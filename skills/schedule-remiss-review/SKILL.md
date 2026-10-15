@@ -56,7 +56,10 @@ the domain and the judgement rules. Do not invent rules that contradict it.
      with a one-line reason.
    Use `docs/PROCESS.md` § "What to check, and how to judge". Useful sources:
    the course page `https://www.kth.se/student/kurser/kurs/<CODE>` (syllabus,
-   exam modules) and the study plan.
+   exam modules) and the study plan. For `rooms.capacity`, `room_comparison`
+   in `issues.json` has every paired occasion with rooms and seats; a big
+   reduction matters only if the course is not smaller than last year, so ask
+   the user about enrolment rather than asserting the room is too small.
    Info-level issues: skim; raise only if they change the picture (e.g. an
    exam moved to the first day of the exam window right after another).
 

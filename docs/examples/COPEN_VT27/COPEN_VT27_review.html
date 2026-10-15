@@ -140,6 +140,23 @@ a.cl .ext { font-size: .8em; margin-left: 1px; color: var(--accent); }
 .themebtn { float: right; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px;
   background: var(--surface-1); color: var(--text-primary); cursor: pointer; }
 h1 { overflow-wrap: anywhere; }
+/* Room capacity vs reference: sequential yellow -> coral -> brick for fewer
+   seats (always with a ↓ and the numbers in the tooltip/table), a thick
+   border and ↑ for many more seats. */
+:root { --cap1: #FFBE00; --cap2: #E86A58; --cap3: #78001A; --cap3-text: #FFFFFF; }
+.act.cap-lower { background: color-mix(in srgb, var(--cap1) 55%, var(--surface-1)); }
+.act.cap-much-lower { background: color-mix(in srgb, var(--cap2) 70%, var(--surface-1)); }
+.act.cap-far-lower { background: var(--cap3); color: var(--cap3-text); }
+.act.cap-higher { box-shadow: inset 0 0 0 2px var(--text-secondary); }
+.capn { display: inline-block; min-width: 2.2em; padding: 0 6px; border-radius: 4px; text-align: center; font-weight: 600; }
+.capn.cap-lower { background: color-mix(in srgb, var(--cap1) 55%, var(--surface-1)); }
+.capn.cap-much-lower { background: color-mix(in srgb, var(--cap2) 70%, var(--surface-1)); }
+.capn.cap-far-lower { background: var(--cap3); color: var(--cap3-text); }
+.capn.cap-higher { box-shadow: inset 0 0 0 2px var(--text-secondary); }
+.capn.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
+.act.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
+.capn.zero { color: var(--text-muted); font-weight: 400; }
+table.rooms td.n, table.rooms th.n { text-align: right; white-space: nowrap; }
 @media (max-width: 640px) {
   td.msg { min-width: 240px; } .tile { min-width: 0; flex: 1 1 28%; padding: 8px 10px; }
   .tile .n { font-size: 20px; } .themebtn { float: none; margin-bottom: 8px; }
@@ -574,7 +591,7 @@ h1 { overflow-wrap: anywhere; }
 	c-0.4-1.8,0.8-3.5,2.5-3.8l6.4-1.3c1.8-0.4,3.5,0.8,3.9,2.5C196.4,126.4,195.3,128.1,193.5,128.5L193.5,128.5z M224,126.7l-6.7-3.8
 	l6.7-3.8l6.7,3.8L224,126.7L224,126.7z M264.7,127.3c-0.4,1.8-2.1,2.9-3.9,2.5l-6.4-1.3c-1.8-0.4-2.9-2.1-2.6-3.8
 	c0.4-1.8,2.1-2.9,3.9-2.5l6.4,1.3C263.9,123.8,265.1,125.5,264.7,127.3L264.7,127.3z M284,133.1c2.4-0.4,5-0.8,6.4-1.1
-	c0.4,1.2,1,2.7,1.5,3.9c-1.1,0.6-2.6,1.4-3.7,2C287.2,137,285.5,135,284,133.1L284,133.1z"/></svg><h1>Schedule review: COPEN VT27 vs VT26</h1></div><p class='sub'>Under review: VT27 (COPEN1) · reference: VT26</p><div class='tiles'><div class='tile'><div class='n' id='n-error'>0</div><div class='l'><span class="sev sev-error"><span class="i" aria-hidden="true">✖</span>Error</span></div></div><div class='tile'><div class='n' id='n-warning'>2</div><div class='l'><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></div></div><div class='tile'><div class='n' id='n-review'>11</div><div class='l'><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></div></div><div class='tile'><div class='n' id='n-info'>11</div><div class='l'><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></div></div><div class='tile'><div class='n' id='n-accepted'>0</div><div class='l'>Accepted</div></div></div><section class='status' data-course-years='COPEN1'><h3>What was checked: COPEN1</h3><ul><li><span class="sev sev-ok"><span class="i" aria-hidden="true">✔</span>OK</span><span class='chk'>Study-plan courses</span><span>All 5 courses in the HT2026 study plan for VT27 are scheduled.</span></li><li><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span><span class='chk'>Exams scheduled</span><span>1 missing exam/re-exam (1 warning).</span></li><li><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span><span class='chk'>Exam spacing (ordinary exams and KS)</span><span>10 exams checked: none on the same day; 1 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 1 warning, 1 info.</span></li><li><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span><span class='chk'>Re-exam spacing</span><span>11 exams checked: none on the same day; 3 pair(s) on consecutive days; 3 pair(s) two days apart. Reported: 2 info.</span></li><li><span class="sev sev-ok"><span class="i" aria-hidden="true">✔</span>OK</span><span class='chk'>Teaching overlaps</span><span>202 sessions checked: no two sessions of different courses overlap. No course overlaps with itself.</span></li><li><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span><span class='chk'>Structure vs VT26</span><span>11 courses compared with VT26: 7 with differences to judge (<a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>).</span></li></ul></section><ul class='notes'><li>COPEN1: study plan cohort HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/COPEN-HT2026.json)</li></ul><p class='sub'>Periods: P3 2027-01-12–2027-03-12; P4 2027-03-15–2027-05-31 · Exam windows: 2027-03-05–2027-03-12; 2027-05-24–2027-05-31 · Re-exam windows: 2027-03-30–2027-04-02; 2027-06-01–2027-06-04; 2027-08-16–2027-08-27</p><h2>Issues <span class='sub yearname'></span></h2><div class='filters'><label><input type='checkbox' name='sev' value='error' checked><span class="sev sev-error"><span class="i" aria-hidden="true">✖</span>Error</span></label><label><input type='checkbox' name='sev' value='warning' checked><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></label><label><input type='checkbox' name='sev' value='review' checked><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></label><label><input type='checkbox' name='sev' value='info'><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></label><input id='q' type='search' placeholder='Filter text…' aria-label='Filter text'><label><input type='checkbox' id='acc'>show accepted</label><span id='shown' class='sub'></span></div><div class='tablewrap'><table id='issues'><thead><tr><th>Severity</th><th>Check</th><th>Scope</th><th>Course</th><th>Finding</th></tr></thead><tbody><tr data-sev='warning' data-years='COPEN1' data-acc='0'><td><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></td><td><code>exams.spacing</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> (ordinary, Thu 2027-03-11 14:00) and <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a> (ordinary, Fri 2027-03-12 14:00): consecutive days. Both are mandatory for this programme year.<div class='ev'>COPEN1_VT27_remiss.xlsx:120 2027-03-11 14:00-15:00 Kontrollskrivning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:122 2027-03-12 14:00-17:00 Tentamen</div></td></tr><tr data-sev='warning' data-years='COPEN1' data-acc='0'><td><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></td><td><code>coverage.missing-reexam</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a> has no re-exam scheduled this term, but the study plan has an exam in P3/P4; it had an ordinary exam in VT26 (2026-05-29); its syllabus (valid from VT2020) has TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp.</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.course-new</code></td><td>DD1310</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> has teaching in VT27 but had none in VT26.</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SA1007</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007</a>: number of occasions changed (VT26→VT27): Föreläsning 7→8; Seminarium 5→4. Sequence: P4 w4: … Mässa Red [S] Red S … → … Mässa Red [F] Red S ….</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SF1546</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a>: number of occasions changed (VT26→VT27): Redovisning 6→5. Sequence: P4 w4: … DL Red [Red] DL Red … → … DL Red [–] DL Red ….</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SF1626</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>: number of occasions changed (VT26→VT27): Föreläsning 24→21. Sequence: P3 w1–w3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 w5–w7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W ….</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.week-shift</code></td><td>SF1626</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>: 28 occasion(s) moved ≥2 teaching weeks: Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Seminarium P3 w4→P3 w2 (+22 more).<div class='ev'>COPEN1_VT27_remiss.xlsx:8 2027-01-12 10:00-12:00 Föreläsning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:9 2027-01-12 13:00-15:00 Workshop</div><div class='ev'>COPEN1_VT27_remiss.xlsx:12 2027-01-13 13:00-15:00 Föreläsning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:15 2027-01-14 13:00-15:00 Föreläsning</div></td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SG1130</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN].</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.week-shift</code></td><td>SG1130</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8.<div class='ev'>COPEN1_VT27_remiss.xlsx:217 2027-05-13 08:00-10:00 Kontrollskrivning</div></td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SG1132</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132</a>: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN].</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.week-shift</code></td><td>SG1132</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132</a>: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8.<div class='ev'>COPEN1_VT27_remiss.xlsx:217 2027-05-13 08:00-10:00 Kontrollskrivning</div></td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SG1133</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>: number of occasions changed (VT26→VT27): Kontrollskrivning 2→1; Räknestuga 3→0; Tentamen 1→2; Övning 9→11; Övrigt 0→1. Sequence: P3 w1–w7: [F Ö F F F R F F Ö S F F Ö F R W KS] F F … → [–] F F …; P3 w3: … F Ö [–] F Ö … → … F Ö [F] F Ö …; P3 w6: … F F [F R W S F KS] F F … → … F F [Ö W] F F …; P4 w2–P4 exams: … F F [TEN] → … F F [Ö S F F Ö F F Ö F Ö F F F S W F KS Övr F TEN TEN].</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.week-shift</code></td><td>SG1133</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>: 23 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w1→P3 w1; Föreläsning P4 w1→P3 w1; Övning P4 w1→P3 w1; Föreläsning P4 w2→P3 w2; Föreläsning P4 w3→P3 w2; Övning P4 w3→P3 w2 (+17 more).<div class='ev'>COPEN1_VT27_remiss.xlsx:10 2027-01-12 15:00-17:00 Föreläsning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:14 2027-01-14 10:00-12:00 Föreläsning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:17 2027-01-15 10:00-12:00 Övning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:25 2027-01-19 15:00-17:00 Föreläsning</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>coverage.unplanned-course</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> is scheduled for COPEN1 but the plan has no credits for it this term.</td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.spacing</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> (reexam, Tue 2027-06-01 14:00) and <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a> (reexam, Wed 2027-06-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).<div class='ev'>COPEN1_VT27_remiss.xlsx:243 2027-06-01 14:00-15:00 Kontrollskrivning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:245 2027-06-02 14:00-17:00 Omtenta</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.spacing</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a> (ordinary, Tue 2027-03-09 14:00) and <a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> (ordinary, Thu 2027-03-11 14:00): two days apart. Both are mandatory for this programme year.<div class='ev'>COPEN1_VT27_remiss.xlsx:116 2027-03-09 14:00-17:00 Tentamen</div><div class='ev'>COPEN1_VT27_remiss.xlsx:120 2027-03-11 14:00-15:00 Kontrollskrivning</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.spacing</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a> (reexam, Wed 2027-08-25 14:00) and <a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> (reexam, Thu 2027-08-26 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).<div class='ev'>COPEN1_VT27_remiss.xlsx:263 2027-08-25 14:00-17:00 Omtenta</div><div class='ev'>COPEN1_VT27_remiss.xlsx:265 2027-08-26 14:00-15:00 Kontrollskrivning</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>coverage.unplanned-course</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a> is scheduled for COPEN1 but it is not in the study plan.</td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>coverage.unplanned-course</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132</a> is scheduled for COPEN1 but it is not in the study plan.</td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.moved</code></td><td>KD1000</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/KD1000' target='_blank' rel='noopener' title='KD1000 Kemiska principer för hållbar utveckling – course page on kth.se'>KD1000<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/KD1000' target='_blank' rel='noopener' title='KD1000 Kemiska principer för hållbar utveckling – course page on kth.se'>KD1000</a>: ordinary exam position in the exam window changed: VT26 P4 day 2 (Tue 08:00) → VT27 P4 day 6 (Mon 08:00).<div class='ev'>COPEN1_VT27_remiss.xlsx:240 2027-05-31 08:00-12:00 Tentamen</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>dataquality.remiss-comment</code></td><td>SA1007</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'>Existing remiss comment on COPEN1_VT27_remiss.xlsx:108 2027-03-02 10:00-12:00 Redovisning: “Eget arbete dag men annars blir det tre aktiviteter på samma dag”<div class='ev'>COPEN1_VT27_remiss.xlsx:108 2027-03-02 10:00-12:00 Redovisning</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.moved</code></td><td>SF1546</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a>: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 14:00) → VT27 P3 day 6 (Fri 14:00).<div class='ev'>COPEN1_VT27_remiss.xlsx:122 2027-03-12 14:00-17:00 Tentamen</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>dataquality.remiss-comment</code></td><td>SG1130</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'>Existing remiss comment on COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen: “Stämmer alla examinationsmoduler för denna TEN och OMTE?”<div class='ev'>COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.moved</code></td><td>SG1133</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>: ordinary exam position in the exam window changed: VT26 P4 day 5 (Fri 08:00) → VT27 P4 day 4 (Thu 08:00).<div class='ev'>COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen</div></td></tr></tbody></table></div><h2>Exams VT27</h2><div class='legend'><span><span class='chip ordinary'>ordinary</span></span><span><span class='chip reexam'>re-exam</span></span><span><span class='chip partial'>partial/KS</span></span><span><span class='chip flag-error'><span class='fi'>✖</span>error</span></span><span><span class='chip flag-warning'><span class='fi'>▲</span>warning</span></span><span>hour of start shown after the code; hover for details</span></div><div class="cal tablewrap"><table><thead><tr><th></th><th class="win" colspan="4">P3 exams</th><th class="win" colspan="2">re-exams 03-30..04-02</th><th class="win" colspan="1">during teaching</th><th class="win" colspan="3">P4 exams</th><th class="win" colspan="3">re-exams 06-01..06-04</th><th class="win" colspan="4">re-exams 08-16..08-27</th></tr><tr><th></th><th>Fri 05 Mar</th><th>Tue 09 Mar</th><th>Thu 11 Mar</th><th>Fri 12 Mar</th><th>Tue 30 Mar</th><th>Thu 01 Apr</th><th>Thu 13 May</th><th>Wed 26 May</th><th>Thu 27 May</th><th>Mon 31 May</th><th>Tue 01 Jun</th><th>Wed 02 Jun</th><th>Fri 04 Jun</th><th>Thu 19 Aug</th><th>Tue 24 Aug</th><th>Wed 25 Aug</th><th>Thu 26 Aug</th></tr></thead><tbody><tr data-year="COPEN1"><td class="y">COPEN1</td><td><span class="chip reexam" title="SF1625 Envariabelanalys
+	c0.4,1.2,1,2.7,1.5,3.9c-1.1,0.6-2.6,1.4-3.7,2C287.2,137,285.5,135,284,133.1L284,133.1z"/></svg><h1>Schedule review: COPEN VT27 vs VT26</h1></div><p class='sub'>Under review: VT27 (COPEN1) · reference: VT26</p><div class='tiles'><div class='tile'><div class='n' id='n-error'>0</div><div class='l'><span class="sev sev-error"><span class="i" aria-hidden="true">✖</span>Error</span></div></div><div class='tile'><div class='n' id='n-warning'>3</div><div class='l'><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></div></div><div class='tile'><div class='n' id='n-review'>13</div><div class='l'><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></div></div><div class='tile'><div class='n' id='n-info'>12</div><div class='l'><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></div></div><div class='tile'><div class='n' id='n-accepted'>0</div><div class='l'>Accepted</div></div></div><section class='status' data-course-years='COPEN1'><h3>What was checked: COPEN1</h3><ul><li><span class="sev sev-ok"><span class="i" aria-hidden="true">✔</span>OK</span><span class='chk'>Study-plan courses</span><span>All 5 courses in the HT2026 study plan for VT27 are scheduled.</span></li><li><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span><span class='chk'>Exams scheduled</span><span>1 missing exam/re-exam (1 warning).</span></li><li><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span><span class='chk'>Exam spacing (ordinary exams and KS)</span><span>10 exams checked: none on the same day; 1 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 1 warning, 1 info.</span></li><li><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span><span class='chk'>Re-exam spacing</span><span>11 exams checked: none on the same day; 3 pair(s) on consecutive days; 3 pair(s) two days apart. Reported: 2 info.</span></li><li><span class="sev sev-ok"><span class="i" aria-hidden="true">✔</span>OK</span><span class='chk'>Teaching overlaps</span><span>202 sessions checked: no two sessions of different courses overlap. No course overlaps with itself.</span></li><li><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span><span class='chk'>Structure vs VT26</span><span>11 courses compared with VT26: 7 with differences to judge (<a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>).</span></li><li><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span><span class='chk'>Room seats vs VT26</span><span>134 occasions in 5 courses compared with VT26: 3 course(s) with ≥20% fewer seats on some occasion (<a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>, <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>).</span></li></ul></section><ul class='notes'><li>COPEN1: study plan cohort HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/COPEN-HT2026.json)</li></ul><p class='sub'>Periods: P3 2027-01-12–2027-03-12; P4 2027-03-15–2027-05-31 · Exam windows: 2027-03-05–2027-03-12; 2027-05-24–2027-05-31 · Re-exam windows: 2027-03-30–2027-04-02; 2027-06-01–2027-06-04; 2027-08-16–2027-08-27</p><h2>Issues <span class='sub yearname'></span></h2><div class='filters'><label><input type='checkbox' name='sev' value='error' checked><span class="sev sev-error"><span class="i" aria-hidden="true">✖</span>Error</span></label><label><input type='checkbox' name='sev' value='warning' checked><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></label><label><input type='checkbox' name='sev' value='review' checked><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></label><label><input type='checkbox' name='sev' value='info'><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></label><input id='q' type='search' placeholder='Filter text…' aria-label='Filter text'><label><input type='checkbox' id='acc'>show accepted</label><span id='shown' class='sub'></span></div><div class='tablewrap'><table id='issues'><thead><tr><th>Severity</th><th>Check</th><th>Scope</th><th>Course</th><th>Finding</th></tr></thead><tbody><tr data-sev='warning' data-years='COPEN1' data-acc='0'><td><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></td><td><code>exams.spacing</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> (ordinary, Thu 2027-03-11 14:00) and <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a> (ordinary, Fri 2027-03-12 14:00): consecutive days. Both are mandatory for this programme year.<div class='ev'>COPEN1_VT27_remiss.xlsx:120 2027-03-11 14:00-15:00 Kontrollskrivning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:122 2027-03-12 14:00-17:00 Tentamen</div></td></tr><tr data-sev='warning' data-years='COPEN1' data-acc='0'><td><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></td><td><code>coverage.missing-reexam</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a> has no re-exam scheduled this term, but the study plan has an exam in P3/P4; it had an ordinary exam in VT26 (2026-05-29); its syllabus (valid from VT2020) has TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp.</td></tr><tr data-sev='warning' data-years='COPEN1' data-acc='0'><td><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></td><td><code>rooms.capacity</code></td><td>SF1626</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats. Largest reductions: F 2027-02-26: F1 462 → E1 212.<div class='ev'>COPEN1_VT27_remiss.xlsx:102 2027-02-26 08:00-10:00 Föreläsning</div></td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.course-new</code></td><td>DD1310</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> has teaching in VT27 but had none in VT26.</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>rooms.capacity</code></td><td>SA1007</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007</a>: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 1 with ≥50% more seats, 1 with no room booked (had rooms in VT26), 1 changed between digital and on campus. Largest reductions: Red 2027-04-15: B21+B22+B23+B24+B25 148 → B21+B22+B23+B24 118.<div class='ev'>COPEN1_VT27_remiss.xlsx:176 2027-04-15 13:00-15:00 Redovisning</div></td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SA1007</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007</a>: number of occasions changed (VT26→VT27): Föreläsning 7→8; Seminarium 5→4. Sequence: P4 w4: … Mässa Red [S] Red S … → … Mässa Red [F] Red S ….</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SF1546</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a>: number of occasions changed (VT26→VT27): Redovisning 6→5. Sequence: P4 w4: … DL Red [Red] DL Red … → … DL Red [–] DL Red ….</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SF1626</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>: number of occasions changed (VT26→VT27): Föreläsning 24→21. Sequence: P3 w1–w3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 w5–w7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W ….</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.week-shift</code></td><td>SF1626</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>: 28 occasion(s) moved ≥2 teaching weeks: Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Seminarium P3 w4→P3 w2 (+22 more).<div class='ev'>COPEN1_VT27_remiss.xlsx:8 2027-01-12 10:00-12:00 Föreläsning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:9 2027-01-12 13:00-15:00 Workshop</div><div class='ev'>COPEN1_VT27_remiss.xlsx:12 2027-01-13 13:00-15:00 Föreläsning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:15 2027-01-14 13:00-15:00 Föreläsning</div></td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SG1130</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN].</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.week-shift</code></td><td>SG1130</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8.<div class='ev'>COPEN1_VT27_remiss.xlsx:217 2027-05-13 08:00-10:00 Kontrollskrivning</div></td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SG1132</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132</a>: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN].</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.week-shift</code></td><td>SG1132</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132</a>: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8.<div class='ev'>COPEN1_VT27_remiss.xlsx:217 2027-05-13 08:00-10:00 Kontrollskrivning</div></td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>rooms.capacity</code></td><td>SG1133</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 6 with ≥10% fewer seats. Largest reductions: Ö 2027-02-05: U21+U31 140 → Q26+Q31 100; Ö 2027-01-15: U21+U31 140 → Q33+Q34 120; Ö 2027-01-21: U21+U31 140 → Q31+Q33 120; Ö 2027-01-28: U21+U31 140 → Q31+Q33 120.<div class='ev'>COPEN1_VT27_remiss.xlsx:66 2027-02-05 13:00-15:00 Övning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:17 2027-01-15 10:00-12:00 Övning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:30 2027-01-21 15:00-17:00 Övning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:45 2027-01-28 08:00-10:00 Övning</div></td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.counts</code></td><td>SG1133</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>: number of occasions changed (VT26→VT27): Kontrollskrivning 2→1; Räknestuga 3→0; Tentamen 1→2; Övning 9→11; Övrigt 0→1. Sequence: P3 w1–w7: [F Ö F F F R F F Ö S F F Ö F R W KS] F F … → [–] F F …; P3 w3: … F Ö [–] F Ö … → … F Ö [F] F Ö …; P3 w6: … F F [F R W S F KS] F F … → … F F [Ö W] F F …; P4 w2–P4 exams: … F F [TEN] → … F F [Ö S F F Ö F F Ö F Ö F F F S W F KS Övr F TEN TEN].</td></tr><tr data-sev='review' data-years='COPEN1' data-acc='0'><td><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></td><td><code>structure.week-shift</code></td><td>SG1133</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>: 23 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w1→P3 w1; Föreläsning P4 w1→P3 w1; Övning P4 w1→P3 w1; Föreläsning P4 w2→P3 w2; Föreläsning P4 w3→P3 w2; Övning P4 w3→P3 w2 (+17 more).<div class='ev'>COPEN1_VT27_remiss.xlsx:10 2027-01-12 15:00-17:00 Föreläsning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:14 2027-01-14 10:00-12:00 Föreläsning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:17 2027-01-15 10:00-12:00 Övning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:25 2027-01-19 15:00-17:00 Föreläsning</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>coverage.unplanned-course</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> is scheduled for COPEN1 but the plan has no credits for it this term.</td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.spacing</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> (reexam, Tue 2027-06-01 14:00) and <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a> (reexam, Wed 2027-06-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).<div class='ev'>COPEN1_VT27_remiss.xlsx:243 2027-06-01 14:00-15:00 Kontrollskrivning</div><div class='ev'>COPEN1_VT27_remiss.xlsx:245 2027-06-02 14:00-17:00 Omtenta</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.spacing</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a> (ordinary, Tue 2027-03-09 14:00) and <a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> (ordinary, Thu 2027-03-11 14:00): two days apart. Both are mandatory for this programme year.<div class='ev'>COPEN1_VT27_remiss.xlsx:116 2027-03-09 14:00-17:00 Tentamen</div><div class='ev'>COPEN1_VT27_remiss.xlsx:120 2027-03-11 14:00-15:00 Kontrollskrivning</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.spacing</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a> (reexam, Wed 2027-08-25 14:00) and <a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> (reexam, Thu 2027-08-26 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).<div class='ev'>COPEN1_VT27_remiss.xlsx:263 2027-08-25 14:00-17:00 Omtenta</div><div class='ev'>COPEN1_VT27_remiss.xlsx:265 2027-08-26 14:00-15:00 Kontrollskrivning</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>coverage.unplanned-course</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a> is scheduled for COPEN1 but it is not in the study plan.</td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>coverage.unplanned-course</code></td><td>COPEN1</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1132' target='_blank' rel='noopener' title='SG1132 – course page on kth.se'>SG1132</a> is scheduled for COPEN1 but it is not in the study plan.</td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.moved</code></td><td>KD1000</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/KD1000' target='_blank' rel='noopener' title='KD1000 Kemiska principer för hållbar utveckling – course page on kth.se'>KD1000<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/KD1000' target='_blank' rel='noopener' title='KD1000 Kemiska principer för hållbar utveckling – course page on kth.se'>KD1000</a>: ordinary exam position in the exam window changed: VT26 P4 day 2 (Tue 08:00) → VT27 P4 day 6 (Mon 08:00).<div class='ev'>COPEN1_VT27_remiss.xlsx:240 2027-05-31 08:00-12:00 Tentamen</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>dataquality.remiss-comment</code></td><td>SA1007</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'>Existing remiss comment on COPEN1_VT27_remiss.xlsx:108 2027-03-02 10:00-12:00 Redovisning: “Eget arbete dag men annars blir det tre aktiviteter på samma dag”<div class='ev'>COPEN1_VT27_remiss.xlsx:108 2027-03-02 10:00-12:00 Redovisning</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.moved</code></td><td>SF1546</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a>: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 14:00) → VT27 P3 day 6 (Fri 14:00).<div class='ev'>COPEN1_VT27_remiss.xlsx:122 2027-03-12 14:00-17:00 Tentamen</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>rooms.capacity</code></td><td>SF1546</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a>: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats, 2 changed between digital and on campus. Largest reductions: F 2027-02-24: F2 238 → E1 212.<div class='ev'>COPEN1_VT27_remiss.xlsx:99 2027-02-24 13:00-15:00 Föreläsning</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>dataquality.remiss-comment</code></td><td>SG1130</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'>Existing remiss comment on COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen: “Stämmer alla examinationsmoduler för denna TEN och OMTE?”<div class='ev'>COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen</div></td></tr><tr data-sev='info' data-years='COPEN1' data-acc='0'><td><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></td><td><code>exams.moved</code></td><td>SG1133</td><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a></td><td class='msg'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133</a>: ordinary exam position in the exam window changed: VT26 P4 day 5 (Fri 08:00) → VT27 P4 day 4 (Thu 08:00).<div class='ev'>COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen</div></td></tr></tbody></table></div><h2>Exams VT27</h2><div class='legend'><span><span class='chip ordinary'>ordinary</span></span><span><span class='chip reexam'>re-exam</span></span><span><span class='chip partial'>partial/KS</span></span><span><span class='chip flag-error'><span class='fi'>✖</span>error</span></span><span><span class='chip flag-warning'><span class='fi'>▲</span>warning</span></span><span>hour of start shown after the code; hover for details</span></div><div class="cal tablewrap"><table><thead><tr><th></th><th class="win" colspan="4">P3 exams</th><th class="win" colspan="2">re-exams 03-30..04-02</th><th class="win" colspan="1">during teaching</th><th class="win" colspan="3">P4 exams</th><th class="win" colspan="3">re-exams 06-01..06-04</th><th class="win" colspan="4">re-exams 08-16..08-27</th></tr><tr><th></th><th>Fri 05 Mar</th><th>Tue 09 Mar</th><th>Thu 11 Mar</th><th>Fri 12 Mar</th><th>Tue 30 Mar</th><th>Thu 01 Apr</th><th>Thu 13 May</th><th>Wed 26 May</th><th>Thu 27 May</th><th>Mon 31 May</th><th>Tue 01 Jun</th><th>Wed 02 Jun</th><th>Fri 04 Jun</th><th>Thu 19 Aug</th><th>Tue 24 Aug</th><th>Wed 25 Aug</th><th>Thu 26 Aug</th></tr></thead><tbody><tr data-year="COPEN1"><td class="y">COPEN1</td><td><span class="chip reexam" title="SF1625 Envariabelanalys
 Omtenta (reexam) Fri 2027-03-05 14:00-17:00"><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1625' target='_blank' rel='noopener' title='SF1625 Envariabelanalys – course page on kth.se'>SF1625<span class='ext' aria-hidden='true'>↗</span></a> <span class="ev">14</span></span></td><td><span class="chip ordinary" title="SF1626 Flervariabelanalys
 Tentamen (ordinary) Tue 2027-03-09 14:00-17:00"><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a> <span class="ev">14</span></span></td><td><span class="chip ordinary flag-warning" title="DD1310 Programmeringsteknik
 Kontrollskrivning (ordinary) Thu 2027-03-11 14:00-15:00"><span class="fi" aria-label="warning">▲</span><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a> <span class="ev">14</span></span></td><td><span class="chip ordinary flag-warning" title="SF1546 Numeriska metoder, grundkurs
@@ -616,47 +633,103 @@ Omtenta (reexam) Fri 2026-06-05 14:00-17:00"><a class='cl' href='https://www.kth
 Omtenta (reexam) Mon 2026-08-17 08:00-12:00"><a class='cl' href='https://www.kth.se/student/kurser/kurs/KD1000' target='_blank' rel='noopener' title='KD1000 Kemiska principer för hållbar utveckling – course page on kth.se'>KD1000<span class='ext' aria-hidden='true'>↗</span></a> <span class="ev">08</span></span></td><td><span class="chip reexam" title="DD1310 Programmeringsteknik
 Kontrollskrivning (reexam) Tue 2026-08-18 14:00-15:00"><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a> <span class="ev">14</span></span></td><td><span class="chip reexam" title="SF1626 Flervariabelanalys
 Omtenta (reexam) Wed 2026-08-19 14:00-17:00"><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a> <span class="ev">14</span></span></td><td><span class="chip reexam" title="SG1133 Mekanik I
-Omtenta (reexam) Fri 2026-08-21 08:00-12:00"><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a> <span class="ev">08</span></span></td></tr></tbody></table></div></details><h2>Course structure <span class='sub yearname'></span></h2><p class='sub'>Per course, the sequence of occasions in both terms; what counts is the number of occasions and their order, not how they fall in weeks. Outlined: the stretches that differ. ‘Week by week’ shows the same occasions per teaching week (weeks without regular teaching, e.g. an Easter re-exam week, are skipped; ‘exams’ is the period's exam window). ×n = n parallel group sessions.</p><div class='legend'><span><span class="act a1">F</span> Föreläsning</span><span><span class="act a2">Ö</span> Övning</span><span><span class="act a3">L</span> Laboration</span><span><span class="act a3">DL</span> Datorlab</span><span><span class="act a4">S</span> Seminarium</span><span><span class="act a5">Le</span> Lektion</span><span><span class="act a5">W</span> Workshop</span><span><span class="act a6">P</span> Projekt</span><span><span class="act a7">Red</span> Redovisning</span><span><span class="act a8">TEN</span> Tentamen</span><span><span class="act a8">KS</span> Kontrollskrivning</span></div><details class='course' data-course-years='COPEN1'><summary>DD1310 Programmeringsteknik<span class='cnt'>1 finding(s)</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> has teaching in VT27 but had none in VT26.</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a8 chg" title="DD1310 Programmeringsteknik
+Omtenta (reexam) Fri 2026-08-21 08:00-12:00"><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a> <span class="ev">08</span></span></td></tr></tbody></table></div></details><h2 id='rooms'>Room capacity <span class='sub yearname'></span></h2><p class='sub'>Seats booked per occasion compared with VT26: occasions are paired where the sequence is unchanged (see Course structure), and the seats of all rooms of an occasion are summed over its parallel group sessions. Seat counts are from <a class='cl' href='https://www.kth.se/places' target='_blank' rel='noopener'>KTH Places</a>. Exams are not included. The marks also appear on the occasions in each course's sequence.</p><div class='legend'><span><span class='capn cap-far-lower'>↓</span> ≥40% fewer seats</span><span><span class='capn cap-much-lower'>↓</span> ≥20% fewer seats</span><span><span class='capn cap-lower'>↓</span> ≥10% fewer seats</span><span><span class='capn cap-higher'>↑</span> ≥50% more seats</span><span><span class='capn cap-nr'>?</span> no room booked</span></div><div class='tablewrap'><table class='rooms'><thead><tr><th>Course</th><th class='n'>Compared</th><th class='n'>↓ ≥40% fewer</th><th class='n'>↓ ≥20% fewer</th><th class='n'>↓ ≥10% fewer</th><th class='n'>↑ ≥50% more</th><th class='n'>No room booked</th><th class='n'>Not compared</th></tr></thead><tbody><tr data-course-years='COPEN1'><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a> <span class='sub'>Flervariabelanalys</span></td><td class='n'>30</td><td class='n'><span class='capn cap-far-lower'>1</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'></td><td class='n' title=''></td></tr><tr data-course-years='COPEN1'><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1133' target='_blank' rel='noopener' title='SG1133 Mekanik I – course page on kth.se'>SG1133<span class='ext' aria-hidden='true'>↗</span></a> <span class='sub'>Mekanik I</span></td><td class='n'>23</td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn cap-much-lower'>1</span></td><td class='n'><span class='capn cap-lower'>6</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'></td><td class='n' title=''></td></tr><tr data-course-years='COPEN1'><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007<span class='ext' aria-hidden='true'>↗</span></a> <span class='sub'>Ingenjörsrollen och ingenjörskunskap</span></td><td class='n'>18</td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn cap-much-lower'>1</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn cap-higher'>1</span></td><td class='n'><span class='capn cap-nr'>1</span></td><td class='n' title='3 × VT26: no room
+1 × VT27: digital'>4</td></tr><tr data-course-years='COPEN1'><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546<span class='ext' aria-hidden='true'>↗</span></a> <span class='sub'>Numeriska metoder, grundkurs</span></td><td class='n'>41</td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn cap-lower'>1</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'></td><td class='n' title='3 × VT26: digital
+2 × VT27: digital'>5</td></tr><tr data-course-years='COPEN1'><td><a class='cl' href='https://www.kth.se/student/kurser/kurs/KD1000' target='_blank' rel='noopener' title='KD1000 Kemiska principer för hållbar utveckling – course page on kth.se'>KD1000<span class='ext' aria-hidden='true'>↗</span></a> <span class='sub'>Kemiska principer för hållbar utveckling</span></td><td class='n'>22</td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'><span class='capn zero'>0</span></td><td class='n'></td><td class='n' title='6 × VT26: no room'>6</td></tr></tbody></table></div><h2 id='structure'>Course structure <span class='sub yearname'></span></h2><p class='sub'>Per course, the sequence of occasions in both terms; what counts is the number of occasions and their order, not how they fall in weeks. Outlined: the stretches that differ. ‘Week by week’ shows the same occasions per teaching week (weeks without regular teaching, e.g. an Easter re-exam week, are skipped; ‘exams’ is the period's exam window). ×n = n parallel group sessions.</p><div class='legend'><span><span class="act a1">F</span> Föreläsning</span><span><span class="act a2">Ö</span> Övning</span><span><span class="act a3">L</span> Laboration</span><span><span class="act a3">DL</span> Datorlab</span><span><span class="act a4">S</span> Seminarium</span><span><span class="act a5">Le</span> Lektion</span><span><span class="act a5">W</span> Workshop</span><span><span class="act a6">P</span> Projekt</span><span><span class="act a7">Red</span> Redovisning</span><span><span class="act a8">TEN</span> Tentamen</span><span><span class="act a8">KS</span> Kontrollskrivning</span></div><details class='course' data-course-years='COPEN1'><summary>DD1310 Programmeringsteknik<span class='cnt'>1 finding(s)</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/DD1310' target='_blank' rel='noopener' title='DD1310 Programmeringsteknik – course page on kth.se'>DD1310</a> has teaching in VT27 but had none in VT26.</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a8 chg" title="DD1310 Programmeringsteknik
 Kontrollskrivning Thu 2027-03-11 14:00 (P3 exams)">KS</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr class="diff"><td class="w">P3 exams</td><td></td><td><span class="act a8" title="DD1310 Programmeringsteknik
 Kontrollskrivning Thu 2027-03-11 14:00 (P3 exams)">KS</span></td></tr></tbody></table></div></details></details><details class='course' data-course-years='COPEN1'><summary>SA1007 Ingenjörsrollen och ingenjörskunskap<span class='cnt'>1 finding(s)</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SA1007' target='_blank' rel='noopener' title='SA1007 Ingenjörsrollen och ingenjörskunskap – course page on kth.se'>SA1007</a>: number of occasions changed (VT26→VT27): Föreläsning 7→8; Seminarium 5→4. Sequence: P4 w4: … Mässa Red [S] Red S … → … Mässa Red [F] Red S ….</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Tue 2026-01-20 15:00 (P3 w2)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Wed 2026-01-21 13:00 (P3 w2)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Thu 2026-01-22 15:00 (P3 w2)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Tue 2026-01-27 10:00 (P3 w3)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Wed 2026-01-28 13:00 (P3 w3)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Thu 2026-01-29 15:00 (P3 w3)">F</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Tue 2026-02-24 09:00 (P3 w7)">Red</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Tue 2026-03-17 10:00 (P4 w1)">F</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Seminarium Thu 2026-03-19 10:00 (P4 w1)">S</span><span class="act" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Mässa Tue 2026-03-24 15:00 (P4 w2)">Mässa</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Tue 2026-03-31 09:00 (P4 w3)">Red</span><span class="act a4 chg" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Tue 2026-01-20 15:00 (P3 w2)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Wed 2026-01-21 13:00 (P3 w2)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Thu 2026-01-22 15:00 (P3 w2)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Tue 2026-01-27 10:00 (P3 w3)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Wed 2026-01-28 13:00 (P3 w3)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Thu 2026-01-29 15:00 (P3 w3)
+Rooms: D2 (126 seats)">F</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Tue 2026-02-24 09:00 (P3 w7)
+Rooms: B21+B22+B23+B24+B25 (148 seats)">Red</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Tue 2026-03-17 10:00 (P4 w1)
+Rooms: D2 (126 seats)">F</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Seminarium Thu 2026-03-19 10:00 (P4 w1)
+Rooms: D2 (126 seats)">S</span><span class="act" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Mässa Tue 2026-03-24 15:00 (P4 w2)
+Rooms: no room booked">Mässa</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Tue 2026-03-31 09:00 (P4 w3)
+Rooms: B21+B22+B23+B24+B25 (148 seats)">Red</span><span class="act a4 chg" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Seminarium Wed 2026-04-01 13:00 (P4 w3)">S</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Tue 2026-04-14 10:00 (P4 w4)">Red</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Seminarium Wed 2026-04-15 15:00 (P4 w4)">S</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Seminarium Thu 2026-04-16 15:00 (P4 w4)">S</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Wed 2026-05-06 08:00 (P4 w7)">Red</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Seminarium Wed 2026-05-06 13:00 (P4 w7)">S</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Tue 2026-05-12 10:00 (P4 w8)">Red</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Wed 2026-05-13 10:00 (P4 w8)">Red</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Tue 2027-01-26 08:00 (P3 w3)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Wed 2027-01-27 08:00 (P3 w3)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Thu 2027-01-28 10:00 (P3 w3)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Tue 2027-02-02 15:00 (P3 w4)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Wed 2027-02-03 15:00 (P3 w4)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Thu 2027-02-04 10:00 (P3 w4)">F</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Tue 2027-03-02 10:00 (P3 w8)">Red</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Föreläsning Wed 2027-03-24 13:00 (P4 w2)">F</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Seminarium Thu 2027-03-25 10:00 (P4 w2)">S</span><span class="act" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Mässa Tue 2027-04-06 15:00 (P4 w3)">Mässa</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Thu 2027-04-15 13:00 (P4 w4)">Red</span><span class="act a1 chg" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Tue 2026-04-14 10:00 (P4 w4)
+Rooms: B21+B22+B23+B24 (118 seats)">Red</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Seminarium Wed 2026-04-15 15:00 (P4 w4)
+Rooms: D2 (126 seats)">S</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Seminarium Thu 2026-04-16 15:00 (P4 w4)
+Rooms: K2 (103 seats)">S</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Wed 2026-05-06 08:00 (P4 w7)
+Rooms: B21+B22+B23+B24 (118 seats)">Red</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Seminarium Wed 2026-05-06 13:00 (P4 w7)
+Rooms: D2 (126 seats)">S</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Tue 2026-05-12 10:00 (P4 w8)
+Rooms: no room booked">Red</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Wed 2026-05-13 10:00 (P4 w8)
+Rooms: no room booked">Red</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Tue 2027-01-26 08:00 (P3 w3)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Wed 2027-01-27 08:00 (P3 w3)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Thu 2027-01-28 10:00 (P3 w3)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Tue 2027-02-02 15:00 (P3 w4)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Wed 2027-02-03 15:00 (P3 w4)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Thu 2027-02-04 10:00 (P3 w4)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Tue 2027-03-02 10:00 (P3 w8)
+Rooms: digital
+VT26: B21+B22+B23+B24+B25 (148 seats) → now digital">Red</span><span class="act cap-higher" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Föreläsning Wed 2027-03-24 13:00 (P4 w2)
+Rooms: D1 (216 seats)
+VT26: D2 (126 seats) → +71%">F↑</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Seminarium Thu 2027-03-25 10:00 (P4 w2)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">S</span><span class="act" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Mässa Tue 2027-04-06 15:00 (P4 w3)
+Rooms: no room booked
+VT26: no room booked">Mässa</span><span class="act cap-much-lower" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Thu 2027-04-15 13:00 (P4 w4)
+Rooms: B21+B22+B23+B24 (118 seats)
+VT26: B21+B22+B23+B24+B25 (148 seats) → −20%">Red↓</span><span class="act a1 chg" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Föreläsning Fri 2027-04-16 10:00 (P4 w4)">F</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Tue 2027-04-20 08:00 (P4 w5)">Red</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Seminarium Thu 2027-04-22 10:00 (P4 w5)">S</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Seminarium Fri 2027-04-23 13:00 (P4 w5)">S</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Mon 2027-05-10 13:00 (P4 w8)">Red</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Seminarium Wed 2027-05-12 10:00 (P4 w8)">S</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Tue 2027-05-18 10:00 (P4 w9)">Red</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Wed 2027-05-19 10:00 (P4 w9)">Red</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr class="diff"><td class="w">P3 w2</td><td><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Tue 2027-04-20 08:00 (P4 w5)
+Rooms: M23+M24+M31+M37 (128 seats)
+VT26: B21+B22+B23+B24 (118 seats) → +8%">Red</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Seminarium Thu 2027-04-22 10:00 (P4 w5)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">S</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Seminarium Fri 2027-04-23 13:00 (P4 w5)
+Rooms: D2 (126 seats)
+VT26: K2 (103 seats) → +22%">S</span><span class="act cap-nr" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Mon 2027-05-10 13:00 (P4 w8)
+Rooms: no room booked
+VT26: B21+B22+B23+B24 (118 seats) → no room booked">Red?</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Seminarium Wed 2027-05-12 10:00 (P4 w8)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">S</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Tue 2027-05-18 10:00 (P4 w9)
+Rooms: no room booked
+VT26: no room booked">Red</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
+Redovisning Wed 2027-05-19 10:00 (P4 w9)
+Rooms: no room booked
+VT26: no room booked">Red</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr class="diff"><td class="w">P3 w2</td><td><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Föreläsning Tue 2026-01-20 15:00 (P3 w2)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Föreläsning Wed 2026-01-21 13:00 (P3 w2)">F</span><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Föreläsning Thu 2026-01-22 15:00 (P3 w2)">F</span></td><td></td></tr><tr><td class="w">P3 w3</td><td><span class="act a1" title="SA1007 Ingenjörsrollen och ingenjörskunskap
@@ -694,92 +767,215 @@ Redovisning Wed 2026-05-13 10:00 (P4 w8)">Red</span></td><td><span class="act a7
 Redovisning Mon 2027-05-10 13:00 (P4 w8)">Red</span><span class="act a4" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Seminarium Wed 2027-05-12 10:00 (P4 w8)">S</span></td></tr><tr class="diff"><td class="w">P4 w9</td><td></td><td><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
 Redovisning Tue 2027-05-18 10:00 (P4 w9)">Red</span><span class="act a7" title="SA1007 Ingenjörsrollen och ingenjörskunskap
-Redovisning Wed 2027-05-19 10:00 (P4 w9)">Red</span></td></tr></tbody></table></div></details></details><details class='course' data-course-years='COPEN1'><summary>SF1546 Numeriska metoder, grundkurs<span class='cnt'>1 finding(s)</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a>: number of occasions changed (VT26→VT27): Redovisning 6→5. Sequence: P4 w4: … DL Red [Red] DL Red … → … DL Red [–] DL Red ….</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Tue 2026-01-13 08:00 (P3 w1)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Wed 2026-01-14 08:00 (P3 w1)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Thu 2026-01-15 08:00 (P3 w1)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Fri 2026-01-16 08:00 (P3 w1)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Fri 2026-01-16 15:00 (P3 w1)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Mon 2026-01-19 15:00 (P3 w2)">F</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Wed 2026-01-21 10:00 (P3 w2)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Thu 2026-01-22 08:00 (P3 w2)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Thu 2026-01-22 13:00 (P3 w2)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Mon 2026-01-26 10:00 (P3 w3)">F</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Tue 2026-01-27 08:00 (P3 w3)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Wed 2026-01-28 10:00 (P3 w3)">Ö</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Thu 2026-01-29 13:00 (P3 w3)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Fri 2026-01-30 15:00 (P3 w3)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Tue 2026-02-03 08:00 (P3 w4)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Wed 2026-02-04 10:00 (P3 w4)">DL</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Wed 2026-02-04 13:00 (P3 w4)">Ö</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Thu 2026-02-05 13:00 (P3 w4)">Red</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Mon 2026-02-09 10:00 (P3 w5)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Wed 2026-02-11 08:00 (P3 w5)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Thu 2026-02-12 13:00 (P3 w5)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Mon 2026-02-16 15:00 (P3 w6)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Wed 2026-02-18 08:00 (P3 w6)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Thu 2026-02-19 13:00 (P3 w6)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Fri 2026-02-20 08:00 (P3 w6)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Mon 2026-02-23 15:00 (P3 w7)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Wed 2026-02-25 08:00 (P3 w7)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Wed 2026-02-25 10:00 (P3 w7)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Thu 2026-02-26 13:00 (P3 w7)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Fri 2026-02-27 13:00 (P3 w7)">Red</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Mon 2026-03-02 08:00 (P3 w8)">Ö</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Mon 2026-03-02 13:00 (P3 w8)">F</span><span class="act a8" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Wed 2027-05-19 10:00 (P4 w9)">Red</span></td></tr></tbody></table></div></details><details class='weeks'><summary class='sub'>Rooms: 18 occasion(s) compared with VT26, 6 in other rooms, 2 with a marked change in seats</summary><div class='tablewrap'><table class='wk rooms'><thead><tr><th>Occasion</th><th>VT26</th><th>VT27</th><th class='n'>Change</th></tr></thead><tbody><tr><td class='w'><span class="act a7">Red</span> 2027-03-02 10:00</td><td>B21+B22+B23+B24+B25 (148 seats)</td><td>digital</td><td class='n'>now digital</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-03-24 13:00</td><td>D2 (126 seats)</td><td>D1 (216 seats)</td><td class='n'><span class='capn cap-higher'>↑ +71%</span></td></tr><tr><td class='w'><span class="act a7">Red</span> 2027-04-15 13:00</td><td>B21+B22+B23+B24+B25 (148 seats)</td><td>B21+B22+B23+B24 (118 seats)</td><td class='n'><span class='capn cap-much-lower'>↓ −20%</span></td></tr><tr><td class='w'><span class="act a7">Red</span> 2027-04-20 08:00</td><td>B21+B22+B23+B24 (118 seats)</td><td>M23+M24+M31+M37 (128 seats)</td><td class='n'>+8%</td></tr><tr><td class='w'><span class="act a4">S</span> 2027-04-23 13:00</td><td>K2 (103 seats)</td><td>D2 (126 seats)</td><td class='n'>+22%</td></tr><tr><td class='w'><span class="act a7">Red</span> 2027-05-10 13:00</td><td>B21+B22+B23+B24 (118 seats)</td><td>no room booked</td><td class='n'>no room booked</td></tr></tbody></table></div></details></details><details class='course' data-course-years='COPEN1'><summary>SF1546 Numeriska metoder, grundkurs<span class='cnt'>1 finding(s)</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1546' target='_blank' rel='noopener' title='SF1546 Numeriska metoder, grundkurs – course page on kth.se'>SF1546</a>: number of occasions changed (VT26→VT27): Redovisning 6→5. Sequence: P4 w4: … DL Red [Red] DL Red … → … DL Red [–] DL Red ….</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Tue 2026-01-13 08:00 (P3 w1)
+Rooms: E1 (212 seats)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Wed 2026-01-14 08:00 (P3 w1)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Thu 2026-01-15 08:00 (P3 w1)
+Rooms: E1 (212 seats)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Fri 2026-01-16 08:00 (P3 w1)
+Rooms: U21+U41+U51 (213 seats)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Fri 2026-01-16 15:00 (P3 w1)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Mon 2026-01-19 15:00 (P3 w2)
+Rooms: F2 (238 seats)">F</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Wed 2026-01-21 10:00 (P3 w2)
+Rooms: E1 (212 seats)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Thu 2026-01-22 08:00 (P3 w2)
+Rooms: U21+U31+U41 (212 seats)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Thu 2026-01-22 13:00 (P3 w2)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Mon 2026-01-26 10:00 (P3 w3)
+Rooms: E1 (212 seats)">F</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Tue 2026-01-27 08:00 (P3 w3)
+Rooms: E1 (212 seats)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Wed 2026-01-28 10:00 (P3 w3)
+Rooms: U31+U41+U51 (213 seats)">Ö</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Thu 2026-01-29 13:00 (P3 w3)
+Rooms: U21+U31+U41 (212 seats)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Fri 2026-01-30 15:00 (P3 w3)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Tue 2026-02-03 08:00 (P3 w4)
+Rooms: E1 (212 seats)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Wed 2026-02-04 10:00 (P3 w4)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Wed 2026-02-04 13:00 (P3 w4)
+Rooms: U21+U31+U41 (212 seats)">Ö</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Thu 2026-02-05 13:00 (P3 w4)
+Rooms: digital">Red</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Mon 2026-02-09 10:00 (P3 w5)
+Rooms: E1 (212 seats)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Wed 2026-02-11 08:00 (P3 w5)
+Rooms: U21+U31+U41 (212 seats)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Thu 2026-02-12 13:00 (P3 w5)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Mon 2026-02-16 15:00 (P3 w6)
+Rooms: E1 (212 seats)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Wed 2026-02-18 08:00 (P3 w6)
+Rooms: U21+U31+U41 (212 seats)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Thu 2026-02-19 13:00 (P3 w6)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Fri 2026-02-20 08:00 (P3 w6)
+Rooms: E1 (212 seats)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Mon 2026-02-23 15:00 (P3 w7)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Wed 2026-02-25 08:00 (P3 w7)
+Rooms: F2 (238 seats)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Wed 2026-02-25 10:00 (P3 w7)
+Rooms: U21+U31+U41 (212 seats)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Thu 2026-02-26 13:00 (P3 w7)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Fri 2026-02-27 13:00 (P3 w7)
+Rooms: digital">Red</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Mon 2026-03-02 08:00 (P3 w8)
+Rooms: U31+U41+U51 (213 seats)">Ö</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Mon 2026-03-02 13:00 (P3 w8)
+Rooms: E1 (212 seats)">F</span><span class="act a8" title="SF1546 Numeriska metoder, grundkurs
 Tentamen Thu 2026-03-12 14:00 (P3 exams)">TEN</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Mon 2026-03-23 13:00 (P4 w2)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Thu 2026-03-26 15:00 (P4 w2)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Mon 2026-03-30 15:00 (P4 w3)">DL</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Mon 2026-04-13 13:00 (P4 w4)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Tue 2026-04-14 13:00 (P4 w4)">Red</span><span class="act a7 chg" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Mon 2026-03-23 13:00 (P4 w2)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Thu 2026-03-26 15:00 (P4 w2)
+Rooms: E1 (212 seats)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Mon 2026-03-30 15:00 (P4 w3)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Mon 2026-04-13 13:00 (P4 w4)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Tue 2026-04-14 13:00 (P4 w4)
+Rooms: digital">Red</span><span class="act a7 chg" title="SF1546 Numeriska metoder, grundkurs
 Redovisning Tue 2026-04-14 15:00 (P4 w4)">Red</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Thu 2026-04-23 10:00 (P4 w5)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Tue 2026-04-28 13:00 (P4 w6)">Red</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Wed 2026-04-29 15:00 (P4 w6)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Tue 2026-05-19 13:00 (P4 w9)">Red</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Tue 2027-01-12 08:00 (P3 w1)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Wed 2027-01-13 10:00 (P3 w1)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Wed 2027-01-13 15:00 (P3 w1)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Fri 2027-01-15 13:00 (P3 w1)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Fri 2027-01-15 15:00 (P3 w1)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Mon 2027-01-18 15:00 (P3 w2)">F</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Wed 2027-01-20 13:00 (P3 w2)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Thu 2027-01-21 10:00 (P3 w2)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Fri 2027-01-22 13:00 (P3 w2)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Mon 2027-01-25 08:00 (P3 w3)">F</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Wed 2027-01-27 13:00 (P3 w3)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Wed 2027-01-27 15:00 (P3 w3)">Ö</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Fri 2027-01-29 13:00 (P3 w3)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Fri 2027-01-29 15:00 (P3 w3)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Mon 2027-02-01 08:00 (P3 w4)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Tue 2027-02-02 08:00 (P3 w4)">DL</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Wed 2027-02-03 13:00 (P3 w4)">Ö</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Thu 2027-02-04 13:00 (P3 w4)">Red</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Wed 2027-02-10 10:00 (P3 w5)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Thu 2027-02-11 13:00 (P3 w5)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Fri 2027-02-12 15:00 (P3 w5)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Tue 2027-02-16 08:00 (P3 w6)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Wed 2027-02-17 13:00 (P3 w6)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Thu 2027-02-18 08:00 (P3 w6)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Fri 2027-02-19 13:00 (P3 w6)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Tue 2027-02-23 08:00 (P3 w7)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Wed 2027-02-24 13:00 (P3 w7)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Wed 2027-02-24 15:00 (P3 w7)">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Thu 2027-02-25 13:00 (P3 w7)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Fri 2027-02-26 13:00 (P3 w7)">Red</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
-Övning Mon 2027-03-01 10:00 (P3 w8)">Ö</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Mon 2027-03-01 13:00 (P3 w8)">F</span><span class="act a8" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Thu 2026-04-23 10:00 (P4 w5)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Tue 2026-04-28 13:00 (P4 w6)
+Rooms: 4V2Röd (42 seats)">Red</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Wed 2026-04-29 15:00 (P4 w6)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Tue 2026-05-19 13:00 (P4 w9)
+Rooms: 4V2Röd (42 seats)">Red</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Tue 2027-01-12 08:00 (P3 w1)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Wed 2027-01-13 10:00 (P3 w1)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Wed 2027-01-13 15:00 (P3 w1)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Fri 2027-01-15 13:00 (P3 w1)
+Rooms: U21+U31+U41 (212 seats)
+VT26: U21+U41+U51 (213 seats) → −0%">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Fri 2027-01-15 15:00 (P3 w1)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Mon 2027-01-18 15:00 (P3 w2)
+Rooms: D1 (216 seats)
+VT26: F2 (238 seats) → −9%">F</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Wed 2027-01-20 13:00 (P3 w2)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Thu 2027-01-21 10:00 (P3 w2)
+Rooms: U21+U31+U41 (212 seats)
+VT26: U21+U31+U41 (212 seats) → same">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Fri 2027-01-22 13:00 (P3 w2)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Mon 2027-01-25 08:00 (P3 w3)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Wed 2027-01-27 13:00 (P3 w3)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Wed 2027-01-27 15:00 (P3 w3)
+Rooms: U21+U31+U41 (212 seats)
+VT26: U31+U41+U51 (213 seats) → −0%">Ö</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Fri 2027-01-29 13:00 (P3 w3)
+Rooms: U21+U31+U41 (212 seats)
+VT26: U21+U31+U41 (212 seats) → same">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Fri 2027-01-29 15:00 (P3 w3)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Mon 2027-02-01 08:00 (P3 w4)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Tue 2027-02-02 08:00 (P3 w4)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Wed 2027-02-03 13:00 (P3 w4)
+Rooms: U21+U31+U41 (212 seats)
+VT26: U21+U31+U41 (212 seats) → same">Ö</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Thu 2027-02-04 13:00 (P3 w4)
+Rooms: digital
+VT26: digital">Red</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Wed 2027-02-10 10:00 (P3 w5)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Thu 2027-02-11 13:00 (P3 w5)
+Rooms: U21+U31+U41 (212 seats)
+VT26: U21+U31+U41 (212 seats) → same">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Fri 2027-02-12 15:00 (P3 w5)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Tue 2027-02-16 08:00 (P3 w6)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Wed 2027-02-17 13:00 (P3 w6)
+Rooms: U31+U41+U51 (213 seats)
+VT26: U21+U31+U41 (212 seats) → +0%">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Thu 2027-02-18 08:00 (P3 w6)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Fri 2027-02-19 13:00 (P3 w6)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Tue 2027-02-23 08:00 (P3 w7)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act cap-lower" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Wed 2027-02-24 13:00 (P3 w7)
+Rooms: E1 (212 seats)
+VT26: F2 (238 seats) → −11%">F↓</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Wed 2027-02-24 15:00 (P3 w7)
+Rooms: U21+U31+U41 (212 seats)
+VT26: U21+U31+U41 (212 seats) → same">Ö</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Thu 2027-02-25 13:00 (P3 w7)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Fri 2027-02-26 13:00 (P3 w7)
+Rooms: digital
+VT26: digital">Red</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
+Övning Mon 2027-03-01 10:00 (P3 w8)
+Rooms: U21+U31+U41 (212 seats)
+VT26: U31+U41+U51 (213 seats) → −0%">Ö</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Mon 2027-03-01 13:00 (P3 w8)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a8" title="SF1546 Numeriska metoder, grundkurs
 Tentamen Fri 2027-03-12 14:00 (P3 exams)">TEN</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Thu 2027-03-18 10:00 (P4 w1)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
-Föreläsning Fri 2027-03-19 10:00 (P4 w1)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Wed 2027-03-24 15:00 (P4 w2)">DL</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Wed 2027-04-07 08:00 (P4 w3)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Thu 2027-04-08 08:00 (P4 w3)">Red</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Thu 2027-04-15 08:00 (P4 w4)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Thu 2027-04-22 13:00 (P4 w5)">Red</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
-Datorlaboration Fri 2027-04-23 10:00 (P4 w5)">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Thu 2027-05-13 13:00 (P4 w8)">Red</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Thu 2027-03-18 10:00 (P4 w1)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
+Föreläsning Fri 2027-03-19 10:00 (P4 w1)
+Rooms: D1 (216 seats)
+VT26: E1 (212 seats) → +2%">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Wed 2027-03-24 15:00 (P4 w2)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Wed 2027-04-07 08:00 (P4 w3)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Thu 2027-04-08 08:00 (P4 w3)
+Rooms: digital
+VT26: digital">Red</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Thu 2027-04-15 08:00 (P4 w4)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Thu 2027-04-22 13:00 (P4 w5)
+Rooms: digital
+VT26: 4V2Röd (42 seats) → now digital">Red</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
+Datorlaboration Fri 2027-04-23 10:00 (P4 w5)
+Rooms: 4V2Röd+4V3Ora+4V4Gul (118 seats)
+VT26: 4V2Röd+4V3Ora+4V4Gul (118 seats) → same">DL</span><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
+Redovisning Thu 2027-05-13 13:00 (P4 w8)
+Rooms: digital
+VT26: 4V2Röd (42 seats) → now digital">Red</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
 Föreläsning Tue 2026-01-13 08:00 (P3 w1)">F</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
 Datorlaboration Wed 2026-01-14 08:00 (P3 w1)">DL</span><span class="act a1" title="SF1546 Numeriska metoder, grundkurs
 Föreläsning Thu 2026-01-15 08:00 (P3 w1)">F</span><span class="act a2" title="SF1546 Numeriska metoder, grundkurs
@@ -864,7 +1060,7 @@ Datorlaboration Fri 2027-04-23 10:00 (P4 w5)">DL</span></td></tr><tr class="diff
 Redovisning Tue 2026-04-28 13:00 (P4 w6)">Red</span><span class="act a3" title="SF1546 Numeriska metoder, grundkurs
 Datorlaboration Wed 2026-04-29 15:00 (P4 w6)">DL</span></td><td></td></tr><tr class="diff"><td class="w">P4 w8</td><td></td><td><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
 Redovisning Thu 2027-05-13 13:00 (P4 w8)">Red</span></td></tr><tr class="diff"><td class="w">P4 w9</td><td><span class="act a7" title="SF1546 Numeriska metoder, grundkurs
-Redovisning Tue 2026-05-19 13:00 (P4 w9)">Red</span></td><td></td></tr></tbody></table></div></details></details><details class='course' data-course-years='COPEN1'><summary>SF1626 Flervariabelanalys<span class='cnt'>2 finding(s)</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>: number of occasions changed (VT26→VT27): Föreläsning 24→21. Sequence: P3 w1–w3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 w5–w7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W ….</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>: 28 occasion(s) moved ≥2 teaching weeks: Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Seminarium P3 w4→P3 w2 (+22 more).</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
+Redovisning Tue 2026-05-19 13:00 (P4 w9)">Red</span></td><td></td></tr></tbody></table></div></details><details class='weeks'><summary class='sub'>Rooms: 41 occasion(s) compared with VT26, 19 in other rooms, 1 with a marked change in seats</summary><div class='tablewrap'><table class='wk rooms'><thead><tr><th>Occasion</th><th>VT26</th><th>VT27</th><th class='n'>Change</th></tr></thead><tbody><tr><td class='w'><span class="act a1">F</span> 2027-01-12 08:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-13 15:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-01-15 13:00</td><td>U21+U41+U51 (213 seats)</td><td>U21+U31+U41 (212 seats)</td><td class='n'>−0%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-18 15:00</td><td>F2 (238 seats)</td><td>D1 (216 seats)</td><td class='n'>−9%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-20 13:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-25 08:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-27 13:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-01-27 15:00</td><td>U31+U41+U51 (213 seats)</td><td>U21+U31+U41 (212 seats)</td><td class='n'>−0%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-01 08:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-10 10:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-16 08:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-02-17 13:00</td><td>U21+U31+U41 (212 seats)</td><td>U31+U41+U51 (213 seats)</td><td class='n'>+0%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-19 13:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-24 13:00</td><td>F2 (238 seats)</td><td>E1 (212 seats)</td><td class='n'><span class='capn cap-lower'>↓ −11%</span></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-03-01 10:00</td><td>U31+U41+U51 (213 seats)</td><td>U21+U31+U41 (212 seats)</td><td class='n'>−0%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-03-01 13:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-03-19 10:00</td><td>E1 (212 seats)</td><td>D1 (216 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a7">Red</span> 2027-04-22 13:00</td><td>4V2Röd (42 seats)</td><td>digital</td><td class='n'>now digital</td></tr><tr><td class='w'><span class="act a7">Red</span> 2027-05-13 13:00</td><td>4V2Röd (42 seats)</td><td>digital</td><td class='n'>now digital</td></tr></tbody></table></div></details></details><details class='course' data-course-years='COPEN1'><summary>SF1626 Flervariabelanalys<span class='cnt'>2 finding(s)</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>: number of occasions changed (VT26→VT27): Föreläsning 24→21. Sequence: P3 w1–w3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 w5–w7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W ….</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SF1626' target='_blank' rel='noopener' title='SF1626 Flervariabelanalys – course page on kth.se'>SF1626</a>: 28 occasion(s) moved ≥2 teaching weeks: Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Seminarium P3 w4→P3 w2 (+22 more).</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
 Föreläsning Tue 2026-01-13 13:00 (P3 w1)">F</span><span class="act a5 chg" title="SF1626 Flervariabelanalys
 Workshop Tue 2026-01-13 15:00 (P3 w1)">W</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
 Föreläsning Wed 2026-01-14 13:00 (P3 w1)">F</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
@@ -879,65 +1075,151 @@ Föreläsning Fri 2026-01-23 08:00 (P3 w2)">F</span><span class="act a5 chg" tit
 Workshop Fri 2026-01-23 10:00 (P3 w2)">W</span><span class="act a4 chg" title="SF1626 Flervariabelanalys
 Seminarium Mon 2026-01-26 08:00 (P3 w3)">S</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
 Föreläsning Mon 2026-01-26 13:00 (P3 w3)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2026-01-27 13:00 (P3 w3)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2026-01-27 15:00 (P3 w3)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Thu 2026-01-29 10:00 (P3 w3)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Fri 2026-01-30 08:00 (P3 w3)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Fri 2026-01-30 10:00 (P3 w3)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
-Seminarium Mon 2026-02-02 10:00 (P3 w4)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Mon 2026-02-02 13:00 (P3 w4)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2026-02-03 13:00 (P3 w4)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2026-02-03 15:00 (P3 w4)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Thu 2026-02-05 10:00 (P3 w4)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Fri 2026-02-06 10:00 (P3 w4)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
-Seminarium Mon 2026-02-09 08:00 (P3 w5)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Mon 2026-02-09 13:00 (P3 w5)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2026-02-10 13:00 (P3 w5)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2026-02-10 15:00 (P3 w5)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Thu 2026-02-12 10:00 (P3 w5)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Fri 2026-02-13 10:00 (P3 w5)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
-Seminarium Mon 2026-02-16 10:00 (P3 w6)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Mon 2026-02-16 13:00 (P3 w6)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2026-02-17 13:00 (P3 w6)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2026-02-17 15:00 (P3 w6)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Thu 2026-02-19 10:00 (P3 w6)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Fri 2026-02-20 10:00 (P3 w6)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
-Seminarium Mon 2026-02-23 08:00 (P3 w7)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Mon 2026-02-23 13:00 (P3 w7)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2026-02-24 13:00 (P3 w7)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2026-02-24 15:00 (P3 w7)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Thu 2026-02-26 10:00 (P3 w7)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Fri 2026-02-27 08:00 (P3 w7)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Fri 2026-02-27 10:00 (P3 w7)">W</span><span class="act a8" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2026-01-27 13:00 (P3 w3)
+Rooms: D1 (216 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2026-01-27 15:00 (P3 w3)
+Rooms: E33+E35+E36 (116 seats)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Thu 2026-01-29 10:00 (P3 w3)
+Rooms: D1 (216 seats)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Fri 2026-01-30 08:00 (P3 w3)
+Rooms: D1 (216 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Fri 2026-01-30 10:00 (P3 w3)
+Rooms: E33+E35+E36 (116 seats)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
+Seminarium Mon 2026-02-02 10:00 (P3 w4)
+Rooms: D34+D41+D42 (120 seats)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Mon 2026-02-02 13:00 (P3 w4)
+Rooms: D1 (216 seats)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2026-02-03 13:00 (P3 w4)
+Rooms: D1 (216 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2026-02-03 15:00 (P3 w4)
+Rooms: E33+E35+E36 (116 seats)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Thu 2026-02-05 10:00 (P3 w4)
+Rooms: D1 (216 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Fri 2026-02-06 10:00 (P3 w4)
+Rooms: E33+E35+E36 (116 seats)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
+Seminarium Mon 2026-02-09 08:00 (P3 w5)
+Rooms: E33+E35+E36 (116 seats)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Mon 2026-02-09 13:00 (P3 w5)
+Rooms: D1 (216 seats)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2026-02-10 13:00 (P3 w5)
+Rooms: D1 (216 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2026-02-10 15:00 (P3 w5)
+Rooms: E33+E35+E36 (116 seats)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Thu 2026-02-12 10:00 (P3 w5)
+Rooms: D1 (216 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Fri 2026-02-13 10:00 (P3 w5)
+Rooms: E33+E35+E36 (116 seats)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
+Seminarium Mon 2026-02-16 10:00 (P3 w6)
+Rooms: E33+E35+E36 (116 seats)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Mon 2026-02-16 13:00 (P3 w6)
+Rooms: D1 (216 seats)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2026-02-17 13:00 (P3 w6)
+Rooms: D1 (216 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2026-02-17 15:00 (P3 w6)
+Rooms: E33+E35+E36 (116 seats)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Thu 2026-02-19 10:00 (P3 w6)
+Rooms: D1 (216 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Fri 2026-02-20 10:00 (P3 w6)
+Rooms: E31+E33+E35 (116 seats)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
+Seminarium Mon 2026-02-23 08:00 (P3 w7)
+Rooms: E33+E35+E36 (116 seats)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Mon 2026-02-23 13:00 (P3 w7)
+Rooms: D1 (216 seats)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2026-02-24 13:00 (P3 w7)
+Rooms: D1 (216 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2026-02-24 15:00 (P3 w7)
+Rooms: E33+E35+E36 (116 seats)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Thu 2026-02-26 10:00 (P3 w7)
+Rooms: F2 (238 seats)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Fri 2026-02-27 08:00 (P3 w7)
+Rooms: F1 (462 seats)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Fri 2026-02-27 10:00 (P3 w7)
+Rooms: E33+E35+E36 (116 seats)">W</span><span class="act a8" title="SF1626 Flervariabelanalys
 Tentamen Tue 2026-03-10 14:00 (P3 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2027-01-12 10:00 (P3 w1)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2027-01-12 13:00 (P3 w1)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Wed 2027-01-13 13:00 (P3 w1)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Thu 2027-01-14 13:00 (P3 w1)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Thu 2027-01-14 15:00 (P3 w1)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
-Seminarium Mon 2027-01-18 10:00 (P3 w2)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Mon 2027-01-18 13:00 (P3 w2)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2027-01-19 10:00 (P3 w2)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2027-01-19 13:00 (P3 w2)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Thu 2027-01-21 13:00 (P3 w2)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Fri 2027-01-22 10:00 (P3 w2)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
-Seminarium Mon 2027-01-25 10:00 (P3 w3)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Mon 2027-01-25 13:00 (P3 w3)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2027-01-26 10:00 (P3 w3)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2027-01-26 13:00 (P3 w3)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Thu 2027-01-28 13:00 (P3 w3)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Fri 2027-01-29 10:00 (P3 w3)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
-Seminarium Mon 2027-02-01 10:00 (P3 w4)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Mon 2027-02-01 13:00 (P3 w4)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2027-02-02 10:00 (P3 w4)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2027-02-02 13:00 (P3 w4)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Fri 2027-02-05 08:00 (P3 w4)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Fri 2027-02-05 10:00 (P3 w4)">W</span><span class="act a4" title="SF1626 Flervariabelanalys
-Seminarium Mon 2027-02-08 10:00 (P3 w5)">S</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Mon 2027-02-08 13:00 (P3 w5)">F</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Tue 2027-02-09 10:00 (P3 w5)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Tue 2027-02-09 13:00 (P3 w5)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Fri 2027-02-12 08:00 (P3 w5)">F</span><span class="act a5 chg" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2027-01-12 10:00 (P3 w1)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2027-01-12 13:00 (P3 w1)
+Rooms: E31+E36+E53 (110 seats)
+VT26: E33+E35+E36 (116 seats) → −5%">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Wed 2027-01-13 13:00 (P3 w1)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Thu 2027-01-14 13:00 (P3 w1)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Thu 2027-01-14 15:00 (P3 w1)
+Rooms: E51+E52+E53 (132 seats)
+VT26: E33+E35+E36 (116 seats) → +14%">W</span><span class="act a4" title="SF1626 Flervariabelanalys
+Seminarium Mon 2027-01-18 10:00 (P3 w2)
+Rooms: E51+E52+E53 (132 seats)
+VT26: D34+D41+D42 (120 seats) → +10%">S</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Mon 2027-01-18 13:00 (P3 w2)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2027-01-19 10:00 (P3 w2)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2027-01-19 13:00 (P3 w2)
+Rooms: E35+E36+E53 (118 seats)
+VT26: E33+E35+E36 (116 seats) → +2%">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Thu 2027-01-21 13:00 (P3 w2)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Fri 2027-01-22 10:00 (P3 w2)
+Rooms: E51+E52+E53 (132 seats)
+VT26: E33+E35+E36 (116 seats) → +14%">W</span><span class="act a4" title="SF1626 Flervariabelanalys
+Seminarium Mon 2027-01-25 10:00 (P3 w3)
+Rooms: E51+E52+E53 (132 seats)
+VT26: E33+E35+E36 (116 seats) → +14%">S</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Mon 2027-01-25 13:00 (P3 w3)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2027-01-26 10:00 (P3 w3)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2027-01-26 13:00 (P3 w3)
+Rooms: E35+E36+E53 (118 seats)
+VT26: E33+E35+E36 (116 seats) → +2%">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Thu 2027-01-28 13:00 (P3 w3)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Fri 2027-01-29 10:00 (P3 w3)
+Rooms: E51+E52+E53 (132 seats)
+VT26: E33+E35+E36 (116 seats) → +14%">W</span><span class="act a4" title="SF1626 Flervariabelanalys
+Seminarium Mon 2027-02-01 10:00 (P3 w4)
+Rooms: E51+E52+E53 (132 seats)
+VT26: E33+E35+E36 (116 seats) → +14%">S</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Mon 2027-02-01 13:00 (P3 w4)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2027-02-02 10:00 (P3 w4)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2027-02-02 13:00 (P3 w4)
+Rooms: E35+E36+E53 (118 seats)
+VT26: E33+E35+E36 (116 seats) → +2%">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Fri 2027-02-05 08:00 (P3 w4)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Fri 2027-02-05 10:00 (P3 w4)
+Rooms: E51+E52+E53 (132 seats)
+VT26: E31+E33+E35 (116 seats) → +14%">W</span><span class="act a4" title="SF1626 Flervariabelanalys
+Seminarium Mon 2027-02-08 10:00 (P3 w5)
+Rooms: E51+E52+E53 (132 seats)
+VT26: E33+E35+E36 (116 seats) → +14%">S</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Mon 2027-02-08 13:00 (P3 w5)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Tue 2027-02-09 10:00 (P3 w5)
+Rooms: F2 (238 seats)
+VT26: D1 (216 seats) → +10%">F</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Tue 2027-02-09 13:00 (P3 w5)
+Rooms: E35+E36+E53 (118 seats)
+VT26: E33+E35+E36 (116 seats) → +2%">W</span><span class="act a1" title="SF1626 Flervariabelanalys
+Föreläsning Fri 2027-02-12 08:00 (P3 w5)
+Rooms: F2 (238 seats)
+VT26: F2 (238 seats) → same">F</span><span class="act a5 chg" title="SF1626 Flervariabelanalys
 Workshop Fri 2027-02-12 10:00 (P3 w5)">W</span><span class="act a4 chg" title="SF1626 Flervariabelanalys
 Seminarium Mon 2027-02-15 10:00 (P3 w6)">S</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
 Föreläsning Mon 2027-02-15 13:00 (P3 w6)">F</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
@@ -948,9 +1230,13 @@ Workshop Fri 2027-02-19 10:00 (P3 w6)">W</span><span class="act a4 chg" title="S
 Seminarium Mon 2027-02-22 10:00 (P3 w7)">S</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
 Föreläsning Mon 2027-02-22 13:00 (P3 w7)">F</span><span class="act a1 chg" title="SF1626 Flervariabelanalys
 Föreläsning Tue 2027-02-23 10:00 (P3 w7)">F</span><span class="act a5 chg" title="SF1626 Flervariabelanalys
-Workshop Tue 2027-02-23 13:00 (P3 w7)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
-Föreläsning Fri 2027-02-26 08:00 (P3 w7)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
-Workshop Fri 2027-02-26 10:00 (P3 w7)">W</span><span class="act a8" title="SF1626 Flervariabelanalys
+Workshop Tue 2027-02-23 13:00 (P3 w7)">W</span><span class="act cap-far-lower" title="SF1626 Flervariabelanalys
+Föreläsning Fri 2027-02-26 08:00 (P3 w7)
+Rooms: E1 (212 seats)
+VT26: F1 (462 seats) → −54%">F↓</span><span class="act a5" title="SF1626 Flervariabelanalys
+Workshop Fri 2027-02-26 10:00 (P3 w7)
+Rooms: E35+E36+E51 (128 seats)
+VT26: E33+E35+E36 (116 seats) → +10%">W</span><span class="act a8" title="SF1626 Flervariabelanalys
 Tentamen Tue 2027-03-09 14:00 (P3 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P3 w1</td><td><span class="act a1" title="SF1626 Flervariabelanalys
 Föreläsning Tue 2026-01-13 13:00 (P3 w1)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
 Workshop Tue 2026-01-13 15:00 (P3 w1)">W</span><span class="act a1" title="SF1626 Flervariabelanalys
@@ -1038,7 +1324,7 @@ Workshop Tue 2027-02-23 13:00 (P3 w7)">W</span><span class="act a1" title="SF162
 Föreläsning Fri 2027-02-26 08:00 (P3 w7)">F</span><span class="act a5" title="SF1626 Flervariabelanalys
 Workshop Fri 2027-02-26 10:00 (P3 w7)">W</span></td></tr><tr><td class="w">P3 exams</td><td><span class="act a8" title="SF1626 Flervariabelanalys
 Tentamen Tue 2026-03-10 14:00 (P3 exams)">TEN</span></td><td><span class="act a8" title="SF1626 Flervariabelanalys
-Tentamen Tue 2027-03-09 14:00 (P3 exams)">TEN</span></td></tr></tbody></table></div></details></details><details class='course' data-course-years='COPEN1'><summary>SG1130<span class='cnt'>2 finding(s)</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN].</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8.</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span><span class="act a8" title="SG1130
+Tentamen Tue 2027-03-09 14:00 (P3 exams)">TEN</span></td></tr></tbody></table></div></details><details class='weeks'><summary class='sub'>Rooms: 30 occasion(s) compared with VT26, 29 in other rooms, 1 with a marked change in seats</summary><div class='tablewrap'><table class='wk rooms'><thead><tr><th>Occasion</th><th>VT26</th><th>VT27</th><th class='n'>Change</th></tr></thead><tbody><tr><td class='w'><span class="act a1">F</span> 2027-01-12 10:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a5">W</span> 2027-01-12 13:00</td><td>E33+E35+E36 (116 seats)</td><td>E31+E36+E53 (110 seats)</td><td class='n'>−5%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-13 13:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-14 13:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a5">W</span> 2027-01-14 15:00</td><td>E33+E35+E36 (116 seats)</td><td>E51+E52+E53 (132 seats)</td><td class='n'>+14%</td></tr><tr><td class='w'><span class="act a4">S</span> 2027-01-18 10:00</td><td>D34+D41+D42 (120 seats)</td><td>E51+E52+E53 (132 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-18 13:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-19 10:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a5">W</span> 2027-01-19 13:00</td><td>E33+E35+E36 (116 seats)</td><td>E35+E36+E53 (118 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-21 13:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a5">W</span> 2027-01-22 10:00</td><td>E33+E35+E36 (116 seats)</td><td>E51+E52+E53 (132 seats)</td><td class='n'>+14%</td></tr><tr><td class='w'><span class="act a4">S</span> 2027-01-25 10:00</td><td>E33+E35+E36 (116 seats)</td><td>E51+E52+E53 (132 seats)</td><td class='n'>+14%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-25 13:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-26 10:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a5">W</span> 2027-01-26 13:00</td><td>E33+E35+E36 (116 seats)</td><td>E35+E36+E53 (118 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-01-28 13:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a5">W</span> 2027-01-29 10:00</td><td>E33+E35+E36 (116 seats)</td><td>E51+E52+E53 (132 seats)</td><td class='n'>+14%</td></tr><tr><td class='w'><span class="act a4">S</span> 2027-02-01 10:00</td><td>E33+E35+E36 (116 seats)</td><td>E51+E52+E53 (132 seats)</td><td class='n'>+14%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-01 13:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-02 10:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a5">W</span> 2027-02-02 13:00</td><td>E33+E35+E36 (116 seats)</td><td>E35+E36+E53 (118 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-05 08:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a5">W</span> 2027-02-05 10:00</td><td>E31+E33+E35 (116 seats)</td><td>E51+E52+E53 (132 seats)</td><td class='n'>+14%</td></tr><tr><td class='w'><span class="act a4">S</span> 2027-02-08 10:00</td><td>E33+E35+E36 (116 seats)</td><td>E51+E52+E53 (132 seats)</td><td class='n'>+14%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-08 13:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-09 10:00</td><td>D1 (216 seats)</td><td>F2 (238 seats)</td><td class='n'>+10%</td></tr><tr><td class='w'><span class="act a5">W</span> 2027-02-09 13:00</td><td>E33+E35+E36 (116 seats)</td><td>E35+E36+E53 (118 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-02-26 08:00</td><td>F1 (462 seats)</td><td>E1 (212 seats)</td><td class='n'><span class='capn cap-far-lower'>↓ −54%</span></td></tr><tr><td class='w'><span class="act a5">W</span> 2027-02-26 10:00</td><td>E33+E35+E36 (116 seats)</td><td>E35+E36+E51 (128 seats)</td><td class='n'>+10%</td></tr></tbody></table></div></details></details><details class='course' data-course-years='COPEN1'><summary>SG1130<span class='cnt'>2 finding(s)</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN].</p><p><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span> <a class='cl' href='https://www.kth.se/student/kurser/kurs/SG1130' target='_blank' rel='noopener' title='SG1130 – course page on kth.se'>SG1130</a>: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8.</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span><span class="act a8" title="SG1130
 Kontrollskrivning Thu 2026-02-26 08:00 (P3 w7)">KS</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a8" title="SG1130
 Kontrollskrivning Thu 2027-05-13 08:00 (P4 w8)">KS</span><span class="act chg" title="SG1130
 Övrigt Thu 2027-05-13 10:00 (P4 w8)">Övr</span><span class="act a8 chg" title="SG1130
@@ -1076,60 +1362,129 @@ Föreläsning Wed 2026-02-18 10:00 (P3 w6)">F</span><span class="act chg" title=
 Räknestuga Wed 2026-02-18 13:00 (P3 w6)">R</span><span class="act a5 chg" title="SG1133 Mekanik I
 Workshop Fri 2026-02-20 13:00 (P3 w6)">W</span><span class="act a8 chg" title="SG1133 Mekanik I
 Kontrollskrivning Thu 2026-02-26 08:00 (P3 w7)">KS</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2026-03-17 13:00 (P4 w1)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2026-03-18 10:00 (P4 w1)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Wed 2026-03-18 13:00 (P4 w1)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2026-03-24 13:00 (P4 w2)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2026-03-31 13:00 (P4 w3)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Wed 2026-04-01 10:00 (P4 w3)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Thu 2026-04-02 10:00 (P4 w3)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Tue 2026-04-14 13:00 (P4 w4)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2026-04-15 10:00 (P4 w4)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Thu 2026-04-16 10:00 (P4 w4)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Fri 2026-04-17 10:00 (P4 w4)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2026-04-21 10:00 (P4 w5)">F</span><span class="act a4" title="SG1133 Mekanik I
-Seminarium Tue 2026-04-21 13:00 (P4 w5)">S</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2026-04-22 13:00 (P4 w5)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Mon 2026-04-27 13:00 (P4 w6)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2026-04-28 10:00 (P4 w6)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2026-04-29 13:00 (P4 w6)">F</span><span class="act a1 chg" title="SG1133 Mekanik I
+Föreläsning Tue 2026-03-17 13:00 (P4 w1)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2026-03-18 10:00 (P4 w1)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="SG1133 Mekanik I
+Övning Wed 2026-03-18 13:00 (P4 w1)
+Rooms: U21+U31 (140 seats)">Ö</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Tue 2026-03-24 13:00 (P4 w2)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Tue 2026-03-31 13:00 (P4 w3)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="SG1133 Mekanik I
+Övning Wed 2026-04-01 10:00 (P4 w3)
+Rooms: U21+U31 (140 seats)">Ö</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Thu 2026-04-02 10:00 (P4 w3)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="SG1133 Mekanik I
+Övning Tue 2026-04-14 13:00 (P4 w4)
+Rooms: U21+U31 (140 seats)">Ö</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2026-04-15 10:00 (P4 w4)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Thu 2026-04-16 10:00 (P4 w4)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="SG1133 Mekanik I
+Övning Fri 2026-04-17 10:00 (P4 w4)
+Rooms: U21+U31 (140 seats)">Ö</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Tue 2026-04-21 10:00 (P4 w5)
+Rooms: D2 (126 seats)">F</span><span class="act a4" title="SG1133 Mekanik I
+Seminarium Tue 2026-04-21 13:00 (P4 w5)
+Rooms: B21+B22+B23+B24 (118 seats)">S</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2026-04-22 13:00 (P4 w5)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="SG1133 Mekanik I
+Övning Mon 2026-04-27 13:00 (P4 w6)
+Rooms: U21+U31 (140 seats)">Ö</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Tue 2026-04-28 10:00 (P4 w6)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2026-04-29 13:00 (P4 w6)
+Rooms: D2 (126 seats)">F</span><span class="act a1 chg" title="SG1133 Mekanik I
 Föreläsning Tue 2026-05-05 13:00 (P4 w7)">F</span><span class="act chg" title="SG1133 Mekanik I
 Räknestuga Tue 2026-05-05 15:00 (P4 w7)">R</span><span class="act a5 chg" title="SG1133 Mekanik I
-Workshop Wed 2026-05-06 10:00 (P4 w7)">W</span><span class="act a4 chg" title="SG1133 Mekanik I
+Workshop Wed 2026-05-06 10:00 (P4 w7)
+Rooms: U21+U31 (140 seats)">W</span><span class="act a4 chg" title="SG1133 Mekanik I
 Seminarium Thu 2026-05-07 10:00 (P4 w7)">S</span><span class="act a1 chg" title="SG1133 Mekanik I
 Föreläsning Fri 2026-05-08 13:00 (P4 w7)">F</span><span class="act a8 chg" title="SG1133 Mekanik I
 Kontrollskrivning Mon 2026-05-11 13:00 (P4 w8)">KS</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2026-05-12 08:00 (P4 w8)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2026-05-13 08:00 (P4 w8)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Mon 2026-05-18 10:00 (P4 w9)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Mon 2026-05-18 13:00 (P4 w9)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2026-05-19 10:00 (P4 w9)">F</span><span class="act a8 chg" title="SG1133 Mekanik I
+Föreläsning Tue 2026-05-12 08:00 (P4 w8)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2026-05-13 08:00 (P4 w8)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="SG1133 Mekanik I
+Övning Mon 2026-05-18 10:00 (P4 w9)
+Rooms: U21+U31 (140 seats)">Ö</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Mon 2026-05-18 13:00 (P4 w9)
+Rooms: V2 (90 seats)">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Tue 2026-05-19 10:00 (P4 w9)
+Rooms: V2 (90 seats)">F</span><span class="act a8 chg" title="SG1133 Mekanik I
 Tentamen Fri 2026-05-29 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2027-01-12 15:00 (P3 w1)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Thu 2027-01-14 10:00 (P3 w1)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Fri 2027-01-15 10:00 (P3 w1)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2027-01-19 15:00 (P3 w2)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2027-01-20 10:00 (P3 w2)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Thu 2027-01-21 15:00 (P3 w2)">Ö</span><span class="act a1 chg" title="SG1133 Mekanik I
+Föreläsning Tue 2027-01-12 15:00 (P3 w1)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Thu 2027-01-14 10:00 (P3 w1)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+Övning Fri 2027-01-15 10:00 (P3 w1)
+Rooms: Q33+Q34 (120 seats)
+VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Tue 2027-01-19 15:00 (P3 w2)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2027-01-20 10:00 (P3 w2)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+Övning Thu 2027-01-21 15:00 (P3 w2)
+Rooms: Q31+Q33 (120 seats)
+VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1 chg" title="SG1133 Mekanik I
 Föreläsning Mon 2027-01-25 15:00 (P3 w3)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2027-01-27 10:00 (P3 w3)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Thu 2027-01-28 08:00 (P3 w3)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Mon 2027-02-01 15:00 (P3 w4)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2027-02-03 10:00 (P3 w4)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Fri 2027-02-05 13:00 (P3 w4)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Mon 2027-02-08 15:00 (P3 w5)">F</span><span class="act a4" title="SG1133 Mekanik I
-Seminarium Tue 2027-02-09 08:00 (P3 w5)">S</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2027-02-10 13:00 (P3 w5)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Fri 2027-02-12 13:00 (P3 w5)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Mon 2027-02-15 15:00 (P3 w6)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2027-02-17 10:00 (P3 w6)">F</span><span class="act a2 chg" title="SG1133 Mekanik I
-Övning Thu 2027-02-18 10:00 (P3 w6)">Ö</span><span class="act a5 chg" title="SG1133 Mekanik I
-Workshop Thu 2027-02-18 13:00 (P3 w6)">W</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Mon 2027-03-15 13:00 (P4 w1)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Wed 2027-03-17 10:00 (P4 w1)">F</span><span class="act a2" title="SG1133 Mekanik I
-Övning Thu 2027-03-18 13:00 (P4 w1)">Ö</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Mon 2027-03-22 13:00 (P4 w2)">F</span><span class="act a1" title="SG1133 Mekanik I
-Föreläsning Tue 2027-03-23 10:00 (P4 w2)">F</span><span class="act a2 chg" title="SG1133 Mekanik I
+Föreläsning Wed 2027-01-27 10:00 (P3 w3)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+Övning Thu 2027-01-28 08:00 (P3 w3)
+Rooms: Q31+Q33 (120 seats)
+VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Mon 2027-02-01 15:00 (P3 w4)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2027-02-03 10:00 (P3 w4)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act cap-much-lower" title="SG1133 Mekanik I
+Övning Fri 2027-02-05 13:00 (P3 w4)
+Rooms: Q26+Q31 (100 seats)
+VT26: U21+U31 (140 seats) → −29%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Mon 2027-02-08 15:00 (P3 w5)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a4" title="SG1133 Mekanik I
+Seminarium Tue 2027-02-09 08:00 (P3 w5)
+Rooms: Q31+Q33 (120 seats)
+VT26: B21+B22+B23+B24 (118 seats) → +2%">S</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2027-02-10 13:00 (P3 w5)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+Övning Fri 2027-02-12 13:00 (P3 w5)
+Rooms: Q31+Q33 (120 seats)
+VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Mon 2027-02-15 15:00 (P3 w6)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2027-02-17 10:00 (P3 w6)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a2 chg" title="SG1133 Mekanik I
+Övning Thu 2027-02-18 10:00 (P3 w6)">Ö</span><span class="act chg cap-lower" title="SG1133 Mekanik I
+Workshop Thu 2027-02-18 13:00 (P3 w6)
+Rooms: Q31+Q33 (120 seats)
+VT26: U21+U31 (140 seats) → −14%">W↓</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Mon 2027-03-15 13:00 (P4 w1)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Wed 2027-03-17 10:00 (P4 w1)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act cap-lower" title="SG1133 Mekanik I
+Övning Thu 2027-03-18 13:00 (P4 w1)
+Rooms: Q31+Q33 (120 seats)
+VT26: U21+U31 (140 seats) → −14%">Ö↓</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Mon 2027-03-22 13:00 (P4 w2)
+Rooms: D2 (126 seats)
+VT26: V2 (90 seats) → +40%">F</span><span class="act a1" title="SG1133 Mekanik I
+Föreläsning Tue 2027-03-23 10:00 (P4 w2)
+Rooms: D2 (126 seats)
+VT26: V2 (90 seats) → +40%">F</span><span class="act a2 chg" title="SG1133 Mekanik I
 Övning Wed 2027-03-24 10:00 (P4 w2)">Ö</span><span class="act a4 chg" title="SG1133 Mekanik I
 Seminarium Mon 2027-04-05 13:00 (P4 w3)">S</span><span class="act a1 chg" title="SG1133 Mekanik I
 Föreläsning Tue 2027-04-06 13:00 (P4 w3)">F</span><span class="act a1 chg" title="SG1133 Mekanik I
@@ -1242,52 +1597,118 @@ Föreläsning Tue 2026-05-19 10:00 (P4 w9)">F</span></td><td><span class="act a1
 Föreläsning Mon 2027-05-17 10:00 (P4 w9)">F</span></td></tr><tr class="diff"><td class="w">P4 exams</td><td><span class="act a8" title="SG1133 Mekanik I
 Tentamen Fri 2026-05-29 08:00 (P4 exams)">TEN</span></td><td><span class="act a8" title="SG1133 Mekanik I
 Tentamen Thu 2027-05-27 08:00 (P4 exams)">TEN</span><span class="act a8" title="SG1133 Mekanik I
-Tentamen Thu 2027-05-27 08:00 (P4 exams)">TEN</span></td></tr></tbody></table></div></details></details><details class='course' data-course-years='COPEN1'><summary>KD1000 Kemiska principer för hållbar utveckling<span class='cnt'>unchanged</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/KD1000' target='_blank' rel='noopener' title='KD1000 Kemiska principer för hållbar utveckling – course page on kth.se'>KD1000<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2026-03-16 10:00 (P4 w1)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Tue 2026-03-17 15:00 (P4 w1)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Fri 2026-03-20 09:00 (P4 w1)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2026-03-23 10:00 (P4 w2)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Wed 2026-03-25 10:00 (P4 w2)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Fri 2026-03-27 09:00 (P4 w2)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2026-03-30 10:00 (P4 w3)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Tue 2026-03-31 15:00 (P4 w3)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Thu 2026-04-02 09:00 (P4 w3)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2026-04-13 10:00 (P4 w4)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Wed 2026-04-15 13:00 (P4 w4)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Fri 2026-04-17 09:00 (P4 w4)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Fri 2026-04-17 13:00 (P4 w4)">F</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2026-04-20 10:00 (P4 w5)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Tue 2026-04-21 15:00 (P4 w5)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Fri 2026-04-24 09:00 (P4 w5)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2026-04-27 10:00 (P4 w6)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Tue 2026-04-28 08:00 (P4 w6)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Thu 2026-04-30 09:00 (P4 w6)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2026-05-04 13:00 (P4 w7)">F</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Thu 2026-05-07 13:00 (P4 w7)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Mon 2026-05-11 10:00 (P4 w8)">Ö×3</span><span class="act a8" title="KD1000 Kemiska principer för hållbar utveckling
+Tentamen Thu 2027-05-27 08:00 (P4 exams)">TEN</span></td></tr></tbody></table></div></details><details class='weeks'><summary class='sub'>Rooms: 23 occasion(s) compared with VT26, 10 in other rooms, 7 with a marked change in seats</summary><div class='tablewrap'><table class='wk rooms'><thead><tr><th>Occasion</th><th>VT26</th><th>VT27</th><th class='n'>Change</th></tr></thead><tbody><tr><td class='w'><span class="act a2">Ö</span> 2027-01-15 10:00</td><td>U21+U31 (140 seats)</td><td>Q33+Q34 (120 seats)</td><td class='n'><span class='capn cap-lower'>↓ −14%</span></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-01-21 15:00</td><td>U21+U31 (140 seats)</td><td>Q31+Q33 (120 seats)</td><td class='n'><span class='capn cap-lower'>↓ −14%</span></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-01-28 08:00</td><td>U21+U31 (140 seats)</td><td>Q31+Q33 (120 seats)</td><td class='n'><span class='capn cap-lower'>↓ −14%</span></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-02-05 13:00</td><td>U21+U31 (140 seats)</td><td>Q26+Q31 (100 seats)</td><td class='n'><span class='capn cap-much-lower'>↓ −29%</span></td></tr><tr><td class='w'><span class="act a4">S</span> 2027-02-09 08:00</td><td>B21+B22+B23+B24 (118 seats)</td><td>Q31+Q33 (120 seats)</td><td class='n'>+2%</td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-02-12 13:00</td><td>U21+U31 (140 seats)</td><td>Q31+Q33 (120 seats)</td><td class='n'><span class='capn cap-lower'>↓ −14%</span></td></tr><tr><td class='w'><span class="act a5">W</span> 2027-02-18 13:00</td><td>U21+U31 (140 seats)</td><td>Q31+Q33 (120 seats)</td><td class='n'><span class='capn cap-lower'>↓ −14%</span></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-03-18 13:00</td><td>U21+U31 (140 seats)</td><td>Q31+Q33 (120 seats)</td><td class='n'><span class='capn cap-lower'>↓ −14%</span></td></tr><tr><td class='w'><span class="act a1">F</span> 2027-03-22 13:00</td><td>V2 (90 seats)</td><td>D2 (126 seats)</td><td class='n'>+40%</td></tr><tr><td class='w'><span class="act a1">F</span> 2027-03-23 10:00</td><td>V2 (90 seats)</td><td>D2 (126 seats)</td><td class='n'>+40%</td></tr></tbody></table></div></details></details><details class='course' data-course-years='COPEN1'><summary>KD1000 Kemiska principer för hållbar utveckling<span class='cnt'>unchanged</span></summary><p class='sub'><a class='cl' href='https://www.kth.se/student/kurser/kurs/KD1000' target='_blank' rel='noopener' title='KD1000 Kemiska principer för hållbar utveckling – course page on kth.se'>KD1000<span class='ext' aria-hidden='true'>↗</span></a> course page on kth.se</p><p class='sub'>Sequence of occasions (outlined: differs from VT26):</p><div class='seq'><div class='seqrow'><span class='seqlbl'>VT26</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2026-03-16 10:00 (P4 w1)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Tue 2026-03-17 15:00 (P4 w1)
+Rooms: E33 (108 seats)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Fri 2026-03-20 09:00 (P4 w1)
+Rooms: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2026-03-23 10:00 (P4 w2)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Wed 2026-03-25 10:00 (P4 w2)
+Rooms: E33 (108 seats)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Fri 2026-03-27 09:00 (P4 w2)
+Rooms: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2026-03-30 10:00 (P4 w3)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Tue 2026-03-31 15:00 (P4 w3)
+Rooms: E33 (108 seats)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Thu 2026-04-02 09:00 (P4 w3)
+Rooms: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2026-04-13 10:00 (P4 w4)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Wed 2026-04-15 13:00 (P4 w4)
+Rooms: E33 (108 seats)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Fri 2026-04-17 09:00 (P4 w4)
+Rooms: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Fri 2026-04-17 13:00 (P4 w4)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2026-04-20 10:00 (P4 w5)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Tue 2026-04-21 15:00 (P4 w5)
+Rooms: E33 (108 seats)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Fri 2026-04-24 09:00 (P4 w5)
+Rooms: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2026-04-27 10:00 (P4 w6)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Tue 2026-04-28 08:00 (P4 w6)
+Rooms: E33 (108 seats)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Thu 2026-04-30 09:00 (P4 w6)
+Rooms: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2026-05-04 13:00 (P4 w7)
+Rooms: D2 (126 seats)">F</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Thu 2026-05-07 13:00 (P4 w7)
+Rooms: D2 (126 seats)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Mon 2026-05-11 10:00 (P4 w8)
+Rooms: E33 (108 seats)">Ö×3</span><span class="act a8" title="KD1000 Kemiska principer för hållbar utveckling
 Tentamen Tue 2026-05-26 08:00 (P4 exams)">TEN</span></div><div class='seqrow'><span class='seqlbl'>VT27</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2027-03-15 10:00 (P4 w1)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Wed 2027-03-17 13:00 (P4 w1)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Fri 2027-03-19 09:00 (P4 w1)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2027-03-22 10:00 (P4 w2)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Mon 2027-03-22 15:00 (P4 w2)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Thu 2027-03-25 09:00 (P4 w2)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2027-04-05 10:00 (P4 w3)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Tue 2027-04-06 10:00 (P4 w3)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Fri 2027-04-09 09:00 (P4 w3)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2027-04-12 10:00 (P4 w4)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Tue 2027-04-13 10:00 (P4 w4)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Fri 2027-04-16 09:00 (P4 w4)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Fri 2027-04-16 13:00 (P4 w4)">F</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2027-04-19 10:00 (P4 w5)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Tue 2027-04-20 10:00 (P4 w5)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Fri 2027-04-23 09:00 (P4 w5)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2027-04-26 10:00 (P4 w6)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Tue 2027-04-27 13:00 (P4 w6)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
-Lektion Fri 2027-04-30 09:00 (P4 w6)">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Mon 2027-05-03 10:00 (P4 w7)">F</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
-Föreläsning Tue 2027-05-04 13:00 (P4 w7)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
-Övning (3 parallel groups) Mon 2027-05-10 10:00 (P4 w8)">Ö×3</span><span class="act a8" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2027-03-15 10:00 (P4 w1)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Wed 2027-03-17 13:00 (P4 w1)
+Rooms: Q15 (120 seats)
+VT26: E33 (108 seats) → +11%">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Fri 2027-03-19 09:00 (P4 w1)
+Rooms: D2 (126 seats)
+VT26: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2027-03-22 10:00 (P4 w2)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Mon 2027-03-22 15:00 (P4 w2)
+Rooms: Q15 (120 seats)
+VT26: E33 (108 seats) → +11%">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Thu 2027-03-25 09:00 (P4 w2)
+Rooms: D2 (126 seats)
+VT26: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2027-04-05 10:00 (P4 w3)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Tue 2027-04-06 10:00 (P4 w3)
+Rooms: Q21+Q17+Q11 (121 seats)
+VT26: E33 (108 seats) → +12%">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Fri 2027-04-09 09:00 (P4 w3)
+Rooms: D2 (126 seats)
+VT26: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2027-04-12 10:00 (P4 w4)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Tue 2027-04-13 10:00 (P4 w4)
+Rooms: Q15 (120 seats)
+VT26: E33 (108 seats) → +11%">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Fri 2027-04-16 09:00 (P4 w4)
+Rooms: D2 (126 seats)
+VT26: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Fri 2027-04-16 13:00 (P4 w4)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2027-04-19 10:00 (P4 w5)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Tue 2027-04-20 10:00 (P4 w5)
+Rooms: Q15 (120 seats)
+VT26: E33 (108 seats) → +11%">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Fri 2027-04-23 09:00 (P4 w5)
+Rooms: D2 (126 seats)
+VT26: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2027-04-26 10:00 (P4 w6)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Tue 2027-04-27 13:00 (P4 w6)
+Rooms: Q17+Q15 (120 seats)
+VT26: E33 (108 seats) → +11%">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
+Lektion Fri 2027-04-30 09:00 (P4 w6)
+Rooms: D2 (126 seats)
+VT26: no room booked">Le</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Mon 2027-05-03 10:00 (P4 w7)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
+Föreläsning Tue 2027-05-04 13:00 (P4 w7)
+Rooms: D2 (126 seats)
+VT26: D2 (126 seats) → same">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
+Övning (3 parallel groups) Mon 2027-05-10 10:00 (P4 w8)
+Rooms: Q15+Q21 (131 seats)
+VT26: E33 (108 seats) → +21%">Ö×3</span><span class="act a8" title="KD1000 Kemiska principer för hållbar utveckling
 Tentamen Mon 2027-05-31 08:00 (P4 exams)">TEN</span></div></div><details class='weeks'><summary class='sub'>Week by week</summary><div class="tablewrap"><table class="wk"><thead><tr><th>Week</th><th>VT26</th><th>VT27</th></tr></thead><tbody><tr><td class="w">P4 w1</td><td><span class="act a1" title="KD1000 Kemiska principer för hållbar utveckling
 Föreläsning Mon 2026-03-16 10:00 (P4 w1)">F</span><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
 Övning (3 parallel groups) Tue 2026-03-17 15:00 (P4 w1)">Ö×3</span><span class="act a5" title="KD1000 Kemiska principer för hållbar utveckling
@@ -1334,7 +1755,7 @@ Föreläsning Tue 2027-05-04 13:00 (P4 w7)">F</span></td></tr><tr><td class="w">
 Övning (3 parallel groups) Mon 2026-05-11 10:00 (P4 w8)">Ö×3</span></td><td><span class="act a2" title="KD1000 Kemiska principer för hållbar utveckling
 Övning (3 parallel groups) Mon 2027-05-10 10:00 (P4 w8)">Ö×3</span></td></tr><tr><td class="w">P4 exams</td><td><span class="act a8" title="KD1000 Kemiska principer för hållbar utveckling
 Tentamen Tue 2026-05-26 08:00 (P4 exams)">TEN</span></td><td><span class="act a8" title="KD1000 Kemiska principer för hållbar utveckling
-Tentamen Mon 2027-05-31 08:00 (P4 exams)">TEN</span></td></tr></tbody></table></div></details></details><script>
+Tentamen Mon 2027-05-31 08:00 (P4 exams)">TEN</span></td></tr></tbody></table></div></details><details class='weeks'><summary class='sub'>Rooms: 22 occasion(s) compared with VT26, 13 in other rooms, 0 with a marked change in seats</summary><div class='tablewrap'><table class='wk rooms'><thead><tr><th>Occasion</th><th>VT26</th><th>VT27</th><th class='n'>Change</th></tr></thead><tbody><tr><td class='w'><span class="act a2">Ö</span> 2027-03-17 13:00</td><td>E33 (108 seats)</td><td>Q15 (120 seats)</td><td class='n'>+11%</td></tr><tr><td class='w'><span class="act a5">Le</span> 2027-03-19 09:00</td><td>no room booked</td><td>D2 (126 seats)</td><td class='n'></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-03-22 15:00</td><td>E33 (108 seats)</td><td>Q15 (120 seats)</td><td class='n'>+11%</td></tr><tr><td class='w'><span class="act a5">Le</span> 2027-03-25 09:00</td><td>no room booked</td><td>D2 (126 seats)</td><td class='n'></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-04-06 10:00</td><td>E33 (108 seats)</td><td>Q21+Q17+Q11 (121 seats)</td><td class='n'>+12%</td></tr><tr><td class='w'><span class="act a5">Le</span> 2027-04-09 09:00</td><td>no room booked</td><td>D2 (126 seats)</td><td class='n'></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-04-13 10:00</td><td>E33 (108 seats)</td><td>Q15 (120 seats)</td><td class='n'>+11%</td></tr><tr><td class='w'><span class="act a5">Le</span> 2027-04-16 09:00</td><td>no room booked</td><td>D2 (126 seats)</td><td class='n'></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-04-20 10:00</td><td>E33 (108 seats)</td><td>Q15 (120 seats)</td><td class='n'>+11%</td></tr><tr><td class='w'><span class="act a5">Le</span> 2027-04-23 09:00</td><td>no room booked</td><td>D2 (126 seats)</td><td class='n'></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-04-27 13:00</td><td>E33 (108 seats)</td><td>Q17+Q15 (120 seats)</td><td class='n'>+11%</td></tr><tr><td class='w'><span class="act a5">Le</span> 2027-04-30 09:00</td><td>no room booked</td><td>D2 (126 seats)</td><td class='n'></td></tr><tr><td class='w'><span class="act a2">Ö</span> 2027-05-10 10:00</td><td>E33 (108 seats)</td><td>Q15+Q21 (131 seats)</td><td class='n'>+21%</td></tr></tbody></table></div></details></details><script>
 (function () {
   const rows = Array.from(document.querySelectorAll('#issues tbody tr'));
   const q = document.getElementById('q'), acc = document.getElementById('acc');

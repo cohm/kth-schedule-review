@@ -77,13 +77,13 @@ def load_syllabi(ctx, syllabus_source, codes) -> None:
 
 def program_review(new: TermData, old: TermData | None, config: Config,
                    source: PlanSource | None, program: str | None = None,
-                   syllabus_source=None) -> ReviewResult:
+                   syllabus_source=None, room_source=None) -> ReviewResult:
     notes: list[str] = []
     plans = resolve_plans(new, source, program, notes)
     old_plans = resolve_plans(old, source, program, []) if old else {}
     if program:
         new.year_events = {k: v for k, v in new.year_events.items() if k[0] == program}
-    ctx = Context("program", new, old, config, plans, old_plans)
+    ctx = Context("program", new, old, config, plans, old_plans, rooms=room_source)
     load_syllabi(ctx, syllabus_source, new.courses())
     issues = dedupe(run_checks(ctx))
     apply_accepted(issues, config.accepted)

@@ -4,7 +4,7 @@ Everything is inline except the Figtree web font (Google Fonts), which
 degrades to Helvetica/Arial when offline.
 
 Sections: summary, issue table (filterable), exam calendar per term,
-per-course week-by-week structure comparison.
+room capacity overview, per-course structure comparison (with rooms).
 
 Colour use follows a fixed role scheme: severity uses KTH functional colours
 and always carries an icon + label; activity chips use the KTH palette in a
@@ -175,6 +175,23 @@ a.cl .ext { font-size: .8em; margin-left: 1px; color: var(--accent); }
 .themebtn { float: right; padding: 4px 10px; border: 1px solid var(--border); border-radius: 6px;
   background: var(--surface-1); color: var(--text-primary); cursor: pointer; }
 h1 { overflow-wrap: anywhere; }
+/* Room capacity vs reference: sequential yellow -> coral -> brick for fewer
+   seats (always with a ↓ and the numbers in the tooltip/table), a thick
+   border and ↑ for many more seats. */
+:root { --cap1: #FFBE00; --cap2: #E86A58; --cap3: #78001A; --cap3-text: #FFFFFF; }
+.act.cap-lower { background: color-mix(in srgb, var(--cap1) 55%, var(--surface-1)); }
+.act.cap-much-lower { background: color-mix(in srgb, var(--cap2) 70%, var(--surface-1)); }
+.act.cap-far-lower { background: var(--cap3); color: var(--cap3-text); }
+.act.cap-higher { box-shadow: inset 0 0 0 2px var(--text-secondary); }
+.capn { display: inline-block; min-width: 2.2em; padding: 0 6px; border-radius: 4px; text-align: center; font-weight: 600; }
+.capn.cap-lower { background: color-mix(in srgb, var(--cap1) 55%, var(--surface-1)); }
+.capn.cap-much-lower { background: color-mix(in srgb, var(--cap2) 70%, var(--surface-1)); }
+.capn.cap-far-lower { background: var(--cap3); color: var(--cap3-text); }
+.capn.cap-higher { box-shadow: inset 0 0 0 2px var(--text-secondary); }
+.capn.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
+.act.cap-nr { box-shadow: inset 0 0 0 2px var(--warning); }
+.capn.zero { color: var(--text-muted); font-weight: 400; }
+table.rooms td.n, table.rooms th.n { text-align: right; white-space: nowrap; }
 @media (max-width: 640px) {
   td.msg { min-width: 240px; } .tile { min-width: 0; flex: 1 1 28%; padding: 8px 10px; }
   .tile .n { font-size: 20px; } .themebtn { float: none; margin-bottom: 8px; }
@@ -389,16 +406,78 @@ def exam_calendar(td: TermData, flags: dict | None = None, courses: set[str] | N
     return "".join(h)
 
 
+CAP_ARROW = {"lower": "↓", "much-lower": "↓", "far-lower": "↓", "higher": "↑"}
+
+
+def _seats_txt(c: dict) -> str:
+    if c.get("digital"):
+        return "digital"
+    if c.get("no_room"):
+        return "no room booked"
+    rooms = "+".join(c["rooms"]) or "–"
+    return f"{rooms} ({c['seats']} seats)" if c["seats"] is not None else f"{rooms} (seats unknown)"
+
+
+def _change_txt(p: dict) -> str:
+    o, n = p["old"]["seats"], p["new"]["seats"]
+    if p["mode"]:
+        return p["mode"]
+    if o and n is not None:
+        return "same" if n == o else f"{(n - o) / o:+.0%}".replace("-", "−")
+    return ""
+
+
+def room_table(res: ReviewResult, code: str) -> str:
+    """The paired occasions whose rooms differ from the reference term."""
+    cmp = res.ctx.room_comparison.get(code)
+    if not cmp:
+        return ""
+    rows = [p for p in cmp["pairs"] if p["level"] or p["mode"] or p["old"]["rooms"] != p["new"]["rooms"]]
+    flagged = sum(1 for p in cmp["pairs"] if p["level"])
+    head = (f"Rooms: {len(cmp['pairs'])} occasion(s) compared with {esc(cmp['reference_term'])}, "
+            f"{len(rows)} in other rooms, {flagged} with a marked change in seats")
+    if not rows:
+        return f"<p class='sub'>{head}.</p>"
+    h = [f"<details class='weeks'><summary class='sub'>{head}</summary><div class='tablewrap'>"
+         f"<table class='wk rooms'><thead><tr><th>Occasion</th><th>{esc(cmp['reference_term'])}</th>"
+         f"<th>{esc(res.ctx.new.term)}</th><th class='n'>Change</th></tr></thead><tbody>"]
+    for p in rows:
+        lvl = p["level"]
+        badge = (f"<span class='capn cap-{lvl}'>{CAP_ARROW[lvl]} {esc(_change_txt(p))}</span>" if lvl
+                 else esc(_change_txt(p)))
+        h.append(f"<tr><td class='w'>{act_chip(p['abbrev'])} {esc(p['new_date'])}</td>"
+                 f"<td>{esc(_seats_txt(p['old']))}</td><td>{esc(_seats_txt(p['new']))}</td>"
+                 f"<td class='n'>{badge}</td></tr>")
+    h.append("</tbody></table></div></details>")
+    return "".join(h)
+
+
 def week_table(res: ReviewResult, code: str) -> str:
     ctx = res.ctx
     new_occ = occasions(ctx.new, code)
     old_occ = occasions(ctx.old, code) if ctx.old else []
+    cmp = ctx.room_comparison.get(code) or {"pairs": []}
+    by_new = {p["new_index"]: p for p in cmp["pairs"]}
+    by_old = {p["old_index"]: p for p in cmp["pairs"]}
 
-    def chip(o, extra=""):
+    def chip(o, extra="", pair=None, side="new"):
         par = f" ({o.parallel} parallel groups)" if o.parallel > 1 else ""
-        return act_chip(abbrev(o.activity) + (f"×{o.parallel}" if o.parallel > 1 else ""),
-                        f"{course_title(code)}\n{o.activity}{par} {o.first.start:%a %Y-%m-%d %H:%M}"
-                        f" ({week_label(o.week)})", extra)
+        title = (f"{course_title(code)}\n{o.activity}{par} {o.first.start:%a %Y-%m-%d %H:%M}"
+                 f" ({week_label(o.week)})")
+        label = abbrev(o.activity) + (f"×{o.parallel}" if o.parallel > 1 else "")
+        if pair:
+            title += f"\nRooms: {_seats_txt(pair[side])}"
+            if side == "new":
+                title += f"\n{cmp['reference_term']}: {_seats_txt(pair['old'])}"
+                if _change_txt(pair):
+                    title += f" → {_change_txt(pair)}"
+                if pair["level"]:
+                    extra += f" cap-{pair['level']}"
+                    label += CAP_ARROW[pair["level"]]
+                elif pair["mode"] == "no room booked":
+                    extra += " cap-nr"
+                    label += "?"
+        return act_chip(label, title, extra)
 
     # Sequence view: the order of occasions is what matters most; the
     # changed stretches (as in the findings) are outlined.
@@ -413,9 +492,9 @@ def week_table(res: ReviewResult, code: str) -> str:
         chg_new.update(range(ch[0][3], ch[-1][4]))
     old_t = ctx.old.term if ctx.old else "—"
     seq = ("<div class='seq'><div class='seqrow'><span class='seqlbl'>" + esc(old_t) + "</span>"
-           + "".join(chip(o, " chg" if i in chg_old else "") for i, o in enumerate(old_occ))
+           + "".join(chip(o, " chg" if i in chg_old else "", by_old.get(i), "old") for i, o in enumerate(old_occ))
            + "</div><div class='seqrow'><span class='seqlbl'>" + esc(ctx.new.term) + "</span>"
-           + "".join(chip(o, " chg" if i in chg_new else "") for i, o in enumerate(new_occ))
+           + "".join(chip(o, " chg" if i in chg_new else "", by_new.get(i)) for i, o in enumerate(new_occ))
            + "</div></div>")
 
     wo, wn = defaultdict(list), defaultdict(list)
@@ -436,6 +515,63 @@ def week_table(res: ReviewResult, code: str) -> str:
                  f'<td>{"".join(chip(o) for o in wo.get(k, []))}</td>'
                  f'<td>{"".join(chip(o) for o in wn.get(k, []))}</td></tr>')
     h.append("</tbody></table></div></details>")
+    h.append(room_table(res, code))
+    return "".join(h)
+
+
+ROOM_LEVELS = [("far-lower", "≥40% fewer"), ("much-lower", "≥20% fewer"), ("lower", "≥10% fewer"),
+               ("higher", "≥50% more")]
+
+
+def room_overview(res: ReviewResult, cy: dict, label_set: set) -> str:
+    ctx = res.ctx
+    if not ctx.room_comparison:
+        return ""
+    legend = "".join(f"<span><span class='capn cap-{lv}'>{CAP_ARROW[lv]}</span> {esc(t)} seats</span>"
+                     for lv, t in ROOM_LEVELS) + "<span><span class='capn cap-nr'>?</span> no room booked</span>"
+    h = [f"<h2 id='rooms'>Room capacity <span class='sub yearname'></span></h2>",
+         f"<p class='sub'>Seats booked per occasion compared with {esc(ctx.old.term)}: occasions are paired "
+         "where the sequence is unchanged (see Course structure), and the seats of all rooms of an occasion "
+         "are summed over its parallel group sessions. Seat counts are from "
+         "<a class='cl' href='https://www.kth.se/places' target='_blank' rel='noopener'>KTH Places</a>. "
+         "Exams are not included. The marks also appear on the occasions in each course's sequence.</p>",
+         f"<div class='legend'>{legend}</div>",
+         "<div class='tablewrap'><table class='rooms'><thead><tr><th>Course</th><th class='n'>Compared</th>"
+         + "".join(f"<th class='n'>{CAP_ARROW[lv]} {esc(t)}</th>" for lv, t in ROOM_LEVELS)
+         + "<th class='n'>No room booked</th><th class='n'>Not compared</th></tr></thead><tbody>"]
+    order = {lv: i for i, (lv, _) in enumerate(ROOM_LEVELS)}
+
+    def weight(item):
+        _, cmp = item
+        c = [sum(1 for p in cmp["pairs"] if p["level"] == lv) for lv, _ in ROOM_LEVELS]
+        return tuple(-x for x in c)
+
+    for code, cmp in sorted(ctx.room_comparison.items(), key=lambda kv: (weight(kv), kv[0])):
+        pairs = cmp["pairs"]
+        cnt = {lv: sum(1 for p in pairs if p["level"] == lv) for lv in order}
+        nr = sum(1 for p in pairs if p["mode"] == "no room booked")
+        why: Counter = Counter()
+        for p in pairs:
+            if p["mode"] == "no room booked":
+                continue
+            for side, term in (("old", ctx.old.term), ("new", ctx.new.term)):
+                c = p[side]
+                if c["seats"] is None:
+                    why[f"{term}: " + ("digital" if c["digital"] else "no room" if c["no_room"]
+                                       else "seats unknown for " + ", ".join(c["unknown"]))] += 1
+                    break
+        nc = sum(why.values())
+        nr_cell = f"<span class='capn cap-nr'>{nr}</span>" if nr else ""
+        tip = "\n".join(f"{n} × {w}" for w, n in why.most_common())
+        yrs = " ".join(sorted(cy.get(code, set()) & label_set)) or "*"
+        cells = "".join(f"<td class='n'><span class='capn {('cap-' + lv) if cnt[lv] else 'zero'}'>"
+                        f"{cnt[lv]}</span></td>" for lv in order)
+        h.append(f"<tr data-course-years='{esc(yrs)}'><td>{course_link(code)} "
+                 f"<span class='sub'>{esc(_NAMES.get(code, ''))}</span></td>"
+                 f"<td class='n'>{len(pairs)}</td>{cells}"
+                 f"<td class='n'>{nr_cell}</td>"
+                 f"<td class='n' title='{esc(tip)}'>{nc or ''}</td></tr>")
+    h.append("</tbody></table></div>")
     return "".join(h)
 
 
@@ -534,9 +670,11 @@ def render(res: ReviewResult) -> str:
         out.append(exam_calendar(ctx.old, None, ctx.courses))
         out.append("</details>")
 
+    out.append(room_overview(res, cy, label_set))
+
     # Course structure
     if ctx.old:
-        out.append("<h2>Course structure <span class='sub yearname'></span></h2>")
+        out.append("<h2 id='structure'>Course structure <span class='sub yearname'></span></h2>")
         out.append("<p class='sub'>Per course, the sequence of occasions in both terms; what counts is "
                    "the number of occasions and their order, not how they fall in weeks. Outlined: the "
                    "stretches that differ. ‘Week by week’ shows the same occasions per teaching week "

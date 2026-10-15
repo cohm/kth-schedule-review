@@ -174,7 +174,27 @@ courses taken in parallel must not overlap; students cannot be in two places.
 The report's per-year panel states the number of sessions checked and whether
 any overlap, so "no clashes" is visible as a result.
 
-### 5. Data quality
+### 5. Room capacity
+
+Each occasion's rooms are compared with the same occasion last year (paired
+through the sequence alignment of check 2, so only unchanged stretches are
+compared). The seats of all rooms of an occasion are summed over its
+parallel group sessions, since splitting a class into more groups in
+smaller rooms gives the same capacity. Seat counts come from KTH Places.
+
+- Fewer seats: ≥ 40 % fewer is likely too small unless the course shrank
+  (warning); ≥ 20 % worth asking (review); ≥ 10 % context (info).
+  Course sizes change, so check the number of registered students before
+  raising it; the reference is last year's rooms, not the actual need.
+- No room booked where last year had one: common in a remiss, but worth
+  asking about before the deadline.
+- Many more seats (≥ 50 %): usually harmless, but may mean a large hall
+  is booked that another course needs; noted for context.
+- Exams are left out (their rooms are booked centrally), as are rooms
+  without a seat count in Places (many labs) and digital occasions;
+  changes between digital and on campus are noted.
+
+### 6. Data quality
 
 - A teaching row tied to a course **round from another term** (e.g.
   "SK1104-51000 (HT25)" in VT27) is likely a stale round; ask the scheduler.

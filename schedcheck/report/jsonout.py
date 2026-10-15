@@ -35,6 +35,7 @@ def to_dict(res: ReviewResult) -> dict:
         "summary": dict(Counter(i.severity for i in issues if not i.accepted)),
         "accepted_count": sum(1 for i in issues if i.accepted),
         "issues": [i.to_dict() for i in issues],
+        "room_comparison": ctx.room_comparison,
     }
 
 

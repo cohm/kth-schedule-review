@@ -12,8 +12,8 @@ from .program import ReviewResult, dedupe, load_syllabi
 
 
 def course_review(codes: list[str], new: TermData, old: TermData | None,
-                  config: Config, syllabus_source=None) -> ReviewResult:
-    ctx = Context("course", new, old, config, courses=set(codes))
+                  config: Config, syllabus_source=None, room_source=None) -> ReviewResult:
+    ctx = Context("course", new, old, config, courses=set(codes), rooms=room_source)
     load_syllabi(ctx, syllabus_source, codes)
     issues = dedupe(run_checks(ctx))
     apply_accepted(issues, config.accepted)
