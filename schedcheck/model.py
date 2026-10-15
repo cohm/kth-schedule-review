@@ -92,6 +92,8 @@ class Export:
     range_end: dt.date | None
     events: list[Event]
     url: str = ""                # link to the schedule in TimeEdit, if known
+    exported_at: dt.datetime | None = None   # when TimeEdit generated the file (tz-aware)
+    exported_source: str = ""    # how that is known: metadata | file name | file date
 
     @property
     def label(self) -> str:

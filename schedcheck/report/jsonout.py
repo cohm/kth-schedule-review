@@ -12,6 +12,10 @@ from .status import all_year_status
 SCHEMA_VERSION = 1
 
 
+def _iso(t) -> str | None:
+    return t.isoformat(timespec="seconds") if t else None
+
+
 def to_dict(res: ReviewResult) -> dict:
     ctx = res.ctx
     issues = res.sorted_issues()
@@ -23,9 +27,12 @@ def to_dict(res: ReviewResult) -> dict:
         "term": ctx.new.term,
         "reference_term": ctx.old.term if ctx.old else None,
         "exports": [{"path": ex.path, "label": ex.label, "range": [str(ex.range_start), str(ex.range_end)],
-                     "url": ex.url or None} for ex in ctx.new.exports],
+                     "url": ex.url or None, "exported_at": _iso(ex.exported_at),
+                     "exported_source": ex.exported_source or None} for ex in ctx.new.exports],
         "reference_exports": [{"path": ex.path, "label": ex.label, "range": [str(ex.range_start), str(ex.range_end)],
-                               "url": ex.url or None} for ex in (ctx.old.exports if ctx.old else [])],
+                               "url": ex.url or None, "exported_at": _iso(ex.exported_at),
+                               "exported_source": ex.exported_source or None}
+                              for ex in (ctx.old.exports if ctx.old else [])],
         "calendar": {
             "periods": [[p, str(s), str(e)] for p, s, e in ctx.new.calendar.periods],
             "exam_windows": [[w.label, str(w.start), str(w.end)] for w in ctx.new.calendar.exam_windows],
@@ -48,7 +55,10 @@ def write(res: ReviewResult, out_dir: Path) -> Path:
 
 
 def text_summary(res: ReviewResult, show_info: bool = False) -> str:
+    from ..io.timeedit import export_time_text
     lines = [f"# {res.title}", ""]
+    lines.append(f"exported from TimeEdit: {res.ctx.new.term} {export_time_text(res.ctx.new.exports) or '?'}"
+                 + (f"; {res.ctx.old.term} {export_time_text(res.ctx.old.exports) or '?'}" if res.ctx.old else ""))
     for n in res.notes:
         lines.append(f"note: {n}")
     issues = res.sorted_issues()

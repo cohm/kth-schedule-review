@@ -111,3 +111,25 @@ class Links(unittest.TestCase):
         self.assertIn("kurs/FDD3431", out)
         for not_code in ("HT2025", "VT2027", "TEN1", "FB42"):
             self.assertNotIn(f"kurs/{not_code}", out)
+
+
+class ExportTime(unittest.TestCase):
+    def test_metadata_then_file_name(self):
+        import datetime as dt
+        import tempfile
+        import zipfile
+        from pathlib import Path
+        from schedcheck.io.timeedit import export_time_text, exported_at, read_export
+        from tests.helpers import HEADER_VT27, make_export
+        with tempfile.TemporaryDirectory() as tmp:
+            p = make_export(Path(tmp) / "TimeEdit_2026-10-14_20_03.xlsx", "XPROG1, Test",
+                            "2027-01-12 - 2027-08-29", [], HEADER_VT27)
+            t, how = exported_at(p)       # no metadata: TimeEdit's default file name (local time)
+            self.assertEqual((how, t.strftime("%Y-%m-%d %H:%M")), ("file name", "2026-10-14 20:03"))
+            with zipfile.ZipFile(p, "a") as z:
+                z.writestr("docProps/core.xml", '<cp:coreProperties xmlns:dcterms="x" xmlns:xsi="y">'
+                           '<dcterms:created xsi:type="dcterms:W3CDTF">2026-10-14T21:54:18Z</dcterms:created>'
+                           '</cp:coreProperties>')
+            t, how = exported_at(p)
+            self.assertEqual((how, t), ("metadata", dt.datetime(2026, 10, 14, 21, 54, 18, tzinfo=dt.timezone.utc)))
+            self.assertEqual(export_time_text([read_export(p)]), "2026-10-14 23:54")   # Stockholm, CEST

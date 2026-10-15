@@ -182,6 +182,61 @@ def _find_header(rows) -> int:
     raise ValueError("no header row with a start-date and activity column found")
 
 
+_CREATED_RE = re.compile(r"<dcterms:created[^>]*>([^<]+)</dcterms:created>")
+_NAME_TIME_RE = re.compile(r"(\d{4}-\d{2}-\d{2})_(\d{2})_(\d{2})")
+LOCAL_TZ = "Europe/Stockholm"
+
+
+def _local_tz():
+    try:
+        from zoneinfo import ZoneInfo
+        return ZoneInfo(LOCAL_TZ)
+    except Exception:          # no tz database: fall back to UTC
+        return dt.timezone.utc
+
+
+def exported_at(path: str | Path) -> tuple[dt.datetime | None, str]:
+    """When TimeEdit generated the file, and how we know: the 'created' time
+    in the workbook metadata (set by TimeEdit's exporter), else the time in
+    TimeEdit's default file name (TimeEdit_2026-10-14_20_03.xlsx, local
+    time), else the file's modification time (changes if the file is edited)."""
+    path = Path(path)
+    try:
+        with zipfile.ZipFile(path) as z:
+            m = _CREATED_RE.search(z.read("docProps/core.xml").decode("utf-8", "replace"))
+        if m:
+            return dt.datetime.fromisoformat(m.group(1).replace("Z", "+00:00")), "metadata"
+    except (KeyError, zipfile.BadZipFile, ValueError, OSError):
+        pass
+    m = _NAME_TIME_RE.search(path.name)
+    if m:
+        try:
+            t = dt.datetime.fromisoformat(f"{m.group(1)}T{m.group(2)}:{m.group(3)}")
+            return t.replace(tzinfo=_local_tz()), "file name"
+        except ValueError:
+            pass
+    try:
+        return dt.datetime.fromtimestamp(path.stat().st_mtime, dt.timezone.utc), "file date"
+    except OSError:
+        return None, ""
+
+
+def export_time_text(exports) -> str:
+    """'2026-10-14 23:54' (local time), or a range if the files differ by more
+    than a few minutes; '' if unknown. Marks times only known from file dates."""
+    ts = sorted(ex.exported_at for ex in exports if ex.exported_at)
+    if not ts:
+        return ""
+    tz = _local_tz()
+    a, b = ts[0].astimezone(tz), ts[-1].astimezone(tz)
+    txt = f"{a:%Y-%m-%d %H:%M}"
+    if (b - a) > dt.timedelta(minutes=10):
+        txt += f"–{b:%H:%M}" if a.date() == b.date() else f" – {b:%Y-%m-%d %H:%M}"
+    if any(ex.exported_source == "file date" for ex in exports if ex.exported_at):
+        txt += " (file date)"
+    return txt
+
+
 def read_export(path: str | Path) -> Export:
     path = Path(path)
     rows = read_xlsx_rows(path)
@@ -236,7 +291,9 @@ def read_export(path: str | Path) -> Export:
             comment=rec.get("comment", ""),
         ))
     events.sort(key=lambda e: (e.start, e.row))
-    return Export(str(path), title, program, year, spec, r_start, r_end, events)
+    when, how = exported_at(path)
+    return Export(str(path), title, program, year, spec, r_start, r_end, events,
+                  exported_at=when, exported_source=how)
 
 
 def read_folder(folder: str | Path) -> list[Export]:

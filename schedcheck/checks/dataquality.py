@@ -3,6 +3,8 @@ clerical errors or that make the other checks less reliable.
 """
 from __future__ import annotations
 
+import datetime as dt
+
 from collections import defaultdict
 
 from ..model import Issue
@@ -74,6 +76,16 @@ def check_dataquality(ctx: Context) -> list[Issue]:
                             "Exports have different date ranges: "
                             + "; ".join(f"{ex.label} {ex.range_start}..{ex.range_end}" for ex in td.exports),
                             key="ranges"))
+    # The remiss can change during the review period, so exports of one
+    # review should be taken at the same time.
+    times = [ex.exported_at for ex in td.exports if ex.exported_at]
+    if times and max(times) - min(times) > dt.timedelta(hours=1):
+        from ..io.timeedit import export_time_text
+        issues.append(Issue("info", "dataquality.export-times", td.term, None,
+                            "The exports were taken at different times ("
+                            + "; ".join(f"{ex.label} {export_time_text([ex])}" for ex in td.exports)
+                            + "); the schedule may have changed in between. Re-export together "
+                            "if in doubt.", key="times"))
     if td.dropped_out_of_term:
         n = len(td.dropped_out_of_term)
         first = min(e.date for e in td.dropped_out_of_term)

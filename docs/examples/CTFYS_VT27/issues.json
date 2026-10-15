@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-15T12:31:19",
+ "generated": "2026-10-15T15:57:14",
  "review": "program",
  "title": "CTFYS VT27 vs VT26",
  "term": "VT27",
@@ -13,7 +13,9 @@
     "2027-01-12",
     "2027-08-29"
    ],
-   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z76g3Y20y6046Y12701gQY6Q5547.html"
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z76g3Y20y6046Y12701gQY6Q5547.html",
+   "exported_at": "2026-10-14T21:54:18+00:00",
+   "exported_source": "metadata"
   },
   {
    "path": "../VT27/remiss/CTFYS2_VT27_remiss.xlsx",
@@ -22,7 +24,9 @@
     "2027-01-12",
     "2027-08-29"
    ],
-   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z66g3Y20y6096Y16701gQY6Q5547.html"
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z66g3Y20y6096Y16701gQY6Q5547.html",
+   "exported_at": "2026-10-14T21:54:19+00:00",
+   "exported_source": "metadata"
   },
   {
    "path": "../VT27/remiss/CTFYS3_VT27_remiss.xlsx",
@@ -31,7 +35,9 @@
     "2027-01-12",
     "2027-08-29"
    ],
-   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z06g3Y20y6066Y14701gQY6Q5547.html"
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z06g3Y20y6066Y14701gQY6Q5547.html",
+   "exported_at": "2026-10-14T21:54:21+00:00",
+   "exported_source": "metadata"
   }
  ],
  "reference_exports": [
@@ -42,7 +48,9 @@
     "2026-01-13",
     "2026-08-23"
    ],
-   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7461Z362X757Q63Y570yZ05Q7.html"
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7461Z362X757Q63Y570yZ05Q7.html",
+   "exported_at": "2026-10-14T21:54:34+00:00",
+   "exported_source": "metadata"
   },
   {
    "path": "../VT27/reference/CTFYS2_VT26_final.xlsx",
@@ -51,7 +59,9 @@
     "2026-01-13",
     "2026-08-23"
    ],
-   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7961Z366X756Q63Y570yZ05Q7.html"
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7961Z366X756Q63Y570yZ05Q7.html",
+   "exported_at": "2026-10-14T21:54:35+00:00",
+   "exported_source": "metadata"
   },
   {
    "path": "../VT27/reference/CTFYS3_VT26_final.xlsx",
@@ -60,7 +70,9 @@
     "2026-01-13",
     "2026-08-23"
    ],
-   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7661Z364X750Q63Y570yZ05Q7.html"
+   "url": "https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7661Z364X750Q63Y570yZ05Q7.html",
+   "exported_at": "2026-10-14T21:54:37+00:00",
+   "exported_source": "metadata"
   }
  ],
  "calendar": {

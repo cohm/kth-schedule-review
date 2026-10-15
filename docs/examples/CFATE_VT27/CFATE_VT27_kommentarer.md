@@ -2,6 +2,8 @@
 
 _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och formulera om innan det skickas till schemaläggarna._
 
+_Granskat schema exporterat ur TimeEdit 2026-10-14 23:54; referens (VT26) exporterad 2026-10-14 23:54._
+
 Scheman i TimeEdit: [CFATE1 VT27](https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z86g3Y20y6086Y19701gQY6Q5547.html), [CFATE2 VT27](https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z76g3Y20y6006Y18701gQY6Q5547.html), [CFATE3 VT27](https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z56g3Y20y6096Y18701gQY6Q5547.html), [CFATE1 VT26](https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7861Z369X758Q63Y570yZ05Q7.html), [CFATE2 VT26](https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7061Z368X757Q63Y570yZ05Q7.html), [CFATE3 VT26](https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g1QY7961Z368X755Q63Y570yZ05Q7.html)
 
 ## [MF1024](https://www.kth.se/student/kurser/kurs/MF1024)

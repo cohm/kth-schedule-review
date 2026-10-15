@@ -27,3 +27,14 @@ Exports contain teachers' names, rooms and comments. Keep them out of version
 control (the repo's `.gitignore` excludes `*.xlsx`). The reports do not
 include staff names, but they do quote the remiss-comment column; check
 their content before sharing them publicly.
+
+## Export time
+
+The remiss can change while it is out for review, so the report states when
+each schedule was exported. TimeEdit writes the time into the file's
+metadata (`docProps/core.xml`, "created"); for files without it, the time in
+TimeEdit's default file name (`TimeEdit_2026-10-14_20_03.xlsx`) or, last,
+the file's modification date is used (marked "file date"). Export all
+programme years of a review together; if they were taken more than an hour
+apart, the review notes it (`dataquality.export-times`).
+

@@ -34,6 +34,8 @@ T = {
         "ask_move": "Går det att sprida ut dem mer?",
         "ask_intended": "Är detta avsiktligt?",
         "schedules": "Scheman i TimeEdit",
+        "exported": "Granskat schema exporterat ur TimeEdit {new}; referens ({ref}) exporterad {old}.",
+        "exported_noref": "Granskat schema exporterat ur TimeEdit {new}.",
     },
     "en": {
         "title": "Remiss comments (draft)",
@@ -55,6 +57,8 @@ T = {
         "ask_move": "Could they be spread further apart?",
         "ask_intended": "Is this intended?",
         "schedules": "Schedules in TimeEdit",
+        "exported": "Reviewed schedule exported from TimeEdit {new}; reference ({ref}) exported {old}.",
+        "exported_noref": "Reviewed schedule exported from TimeEdit {new}.",
     },
 }
 
@@ -229,6 +233,12 @@ def render(res: ReviewResult, lang: str = "sv") -> str:
         return (code == "", worst, code)
 
     lines = [f"# {t['title']}: {res.title}", "", f"_{t['intro']}_", ""]
+    from ..io.timeedit import export_time_text
+    new_t = export_time_text(res.ctx.new.exports)
+    old_t = export_time_text(res.ctx.old.exports) if res.ctx.old else ""
+    if new_t:
+        lines += [f"_{t['exported'].format(new=new_t, ref=res.ctx.old.term, old=old_t or '?')}_"
+                  if res.ctx.old else f"_{t['exported_noref'].format(new=new_t)}_", ""]
     links = [f"[{ex.label} {td.term}]({ex.url})" for td in (res.ctx.new, res.ctx.old) if td
              for ex in sorted(td.exports, key=lambda e: e.label) if ex.url]
     if links:

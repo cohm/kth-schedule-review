@@ -2,6 +2,8 @@
 
 _Utkast genererat av schedcheck. Granska, stryk det som inte är relevant och formulera om innan det skickas till schemaläggarna._
 
+_Granskat schema exporterat ur TimeEdit 2026-10-14 23:54; referens (VT26) exporterad 2026-10-14 23:54._
+
 Scheman i TimeEdit: [CTMAT1 VT27](https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z96g7Y20y6096Y12700gQY6Q5548.html), [CTMAT2 VT27](https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z96g8Y20y6046Y16705gQY6Q5548.html), [CTMAT3 VT27](https://cloud.timeedit.net/kth/web/staff01/ri15Q235X46Z07Q6Z96g9Y20y6016Y15706gQY6Q5548.html), [CTMAT1 VT26](https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g0QY8961Z362X759Q67Y570yZ05Q7.html), [CTMAT2 VT26](https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g5QY8461Z366X759Q68Y570yZ05Q7.html), [CTMAT3 VT26](https://cloud.timeedit.net/kth/web/staff01/ri15760Yg65011Q0g6QY8161Z365X759Q69Y570yZ05Q7.html)
 
 ## [DD2352](https://www.kth.se/student/kurser/kurs/DD2352)

@@ -19,6 +19,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 from ..checks.structure import abbrev, occasions, week_label
+from ..io.timeedit import export_time_text
 from ..model import SEVERITIES, severity_rank
 from ..reviews.program import ReviewResult
 from ..term import TermData
@@ -618,9 +619,12 @@ def render(res: ReviewResult) -> str:
            f"<title>Schedule review {esc(res.title)}</title><style>{CSS}</style></head><body><main>",
            "<button class='themebtn' id='theme' type='button'>Toggle theme</button>",
            f"<div class='kthhead'>{LOGO_SVG}<h1>Schedule review: {esc(res.title)}</h1></div>"]
-    sub = f"Under review: {esc(ctx.new.term)} ({schedule_links(ctx.new)})"
+    def exported(td):
+        t = export_time_text(td.exports)
+        return f", exported from TimeEdit <strong>{esc(t)}</strong>" if t else ""
+    sub = f"Under review: {esc(ctx.new.term)} ({schedule_links(ctx.new)}){exported(ctx.new)}"
     if ctx.old:
-        sub += f" · reference: {esc(ctx.old.term)} ({schedule_links(ctx.old)})"
+        sub += f"<br>Reference: {esc(ctx.old.term)} ({schedule_links(ctx.old)}){exported(ctx.old)}"
     out.append(f"<p class='sub'>{sub}</p>")
 
     if len(labels) > 1:
@@ -642,9 +646,11 @@ def render(res: ReviewResult) -> str:
                         f"<span>{linkify(l['text'])}</span></li>" for l in year_status(res, key))
         links = []
         for td in (ctx.new, ctx.old):
-            ex = next((e for e in (td.exports if td else []) if e.label == lb and e.url), None)
+            ex = next((e for e in (td.exports if td else []) if e.label == lb), None)
             if ex:
-                links.append(schedule_link(ex, f"{td.term} schedule"))
+                when = export_time_text([ex])
+                txt = f"{td.term} schedule" + (f" (exported {when})" if when else "")
+                links.append(schedule_link(ex, txt) if ex.url else esc(txt))
         links_html = f" <span class='sub'>· {' · '.join(links)}</span>" if links else ""
         out.append(f"<section class='status' data-course-years='{esc(lb)}'>"
                    f"<h3>What was checked: {esc(lb)}{links_html}</h3><ul>{items}</ul></section>")
