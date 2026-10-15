@@ -1,4 +1,8 @@
-"""Machine-readable output (issues.json), the interface for the agent layer."""
+"""Machine-readable output (issues.json), the interface for the agent layer.
+
+Texts (issue messages and questions, notes, year status) are given in both
+languages as {"sv": ..., "en": ...}; codes and data are language-neutral.
+"""
 from __future__ import annotations
 
 import datetime as dt
@@ -6,10 +10,12 @@ import json
 from collections import Counter
 from pathlib import Path
 
+from ..i18n import SEVERITY, T
 from ..reviews.program import ReviewResult
 from .status import all_year_status
 
-SCHEMA_VERSION = 1
+# 2: texts as {"sv", "en"} (message, ask, notes, year_status); export times and links.
+SCHEMA_VERSION = 2
 
 
 def _iso(t) -> str | None:
@@ -35,8 +41,10 @@ def to_dict(res: ReviewResult) -> dict:
                               for ex in (ctx.old.exports if ctx.old else [])],
         "calendar": {
             "periods": [[p, str(s), str(e)] for p, s, e in ctx.new.calendar.periods],
-            "exam_windows": [[w.label, str(w.start), str(w.end)] for w in ctx.new.calendar.exam_windows],
-            "reexam_windows": [[w.label, str(w.start), str(w.end)] for w in ctx.new.calendar.reexam_windows],
+            "exam_windows": [[T(w.text("sv"), w.text("en")), str(w.start), str(w.end)]
+                             for w in ctx.new.calendar.exam_windows],
+            "reexam_windows": [[T(w.text("sv"), w.text("en")), str(w.start), str(w.end)]
+                               for w in ctx.new.calendar.reexam_windows],
         },
         "notes": res.notes,
         "year_status": all_year_status(res),
@@ -54,22 +62,26 @@ def write(res: ReviewResult, out_dir: Path) -> Path:
     return p
 
 
-def text_summary(res: ReviewResult, show_info: bool = False) -> str:
+def text_summary(res: ReviewResult, show_info: bool = False, lang: str = "sv") -> str:
     from ..io.timeedit import export_time_text
+    sv = lang == "sv"
+    ctx = res.ctx
     lines = [f"# {res.title}", ""]
-    lines.append(f"exported from TimeEdit: {res.ctx.new.term} {export_time_text(res.ctx.new.exports) or '?'}"
-                 + (f"; {res.ctx.old.term} {export_time_text(res.ctx.old.exports) or '?'}" if res.ctx.old else ""))
+    lines.append(("exporterat ur TimeEdit: " if sv else "exported from TimeEdit: ")
+                 + f"{ctx.new.term} {export_time_text(ctx.new.exports, lang) or '?'}"
+                 + (f"; {ctx.old.term} {export_time_text(ctx.old.exports, lang) or '?'}" if ctx.old else ""))
     for n in res.notes:
-        lines.append(f"note: {n}")
+        lines.append(f"{'not' if sv else 'note'}: {n[lang]}")
     issues = res.sorted_issues()
     c = Counter(i.severity for i in issues if not i.accepted)
     lines.append("")
-    lines.append("summary: " + ", ".join(f"{k} {c.get(k, 0)}" for k in ("error", "warning", "review", "info"))
-                 + f", accepted {sum(1 for i in issues if i.accepted)}")
+    lines.append(("sammanfattning: " if sv else "summary: ")
+                 + ", ".join(f"{SEVERITY[k][lang].lower()} {c.get(k, 0)}" for k in ("error", "warning", "review", "info"))
+                 + f", {'accepterade' if sv else 'accepted'} {sum(1 for i in issues if i.accepted)}")
     lines.append("")
     for i in issues:
         if i.severity == "info" and not show_info:
             continue
-        acc = f" [accepted: {i.accepted}]" if i.accepted else ""
-        lines.append(f"[{i.severity.upper():7}] {i.check:28} {i.scope:8} {i.message}{acc}")
+        acc = f" [{'accepterat' if sv else 'accepted'}: {i.accepted}]" if i.accepted else ""
+        lines.append(f"[{SEVERITY[i.severity][lang].upper():7}] {i.check:28} {i.scope:8} {i.text(lang)}{acc}")
     return "\n".join(lines)

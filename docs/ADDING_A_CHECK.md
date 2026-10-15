@@ -4,18 +4,23 @@ Checks live in `schedcheck/checks/`. A check is a function that receives a
 `Context` and returns a list of `Issue`s:
 
 ```python
+from ..i18n import T
 from ..model import Issue
 from . import Context, register
 
-@register("rooms", ("program", "course"), "Lectures in rooms far apart on the same day")
-def check_rooms(ctx: Context) -> list[Issue]:
+@register("walking", ("program", "course"), "Lectures in buildings far apart, back to back")
+def check_walking(ctx: Context) -> list[Issue]:
     issues = []
     for e in ctx.new.events:
         if not any(ctx.wants(c) for c in e.codes):
             continue
         ...
-        issues.append(Issue("warning", "rooms.far-apart", scope, course, message,
-                            key="stable-id", evidence=[e.cite()], details={...}))
+        issues.append(Issue(
+            "warning", "walking.far-apart", scope, course,
+            T(f"{course}: {a} och {b} ligger direkt efter varandra i olika campus.",
+              f"{course}: {a} and {b} are back to back on different campuses."),
+            ask=T("Går det att flytta det ena?", "Could one of them be moved?"),
+            key="stable-id", evidence=[e.cite()], details={...}))
     return issues
 ```
 
@@ -40,9 +45,13 @@ Conventions:
   the same finding, so accept lists keep working.
 - **`evidence`**: `Event.cite()` strings, so every finding can be checked in the
   source export.
-- **`details`**: structured data for reports and comment drafts. If the check
-  should produce good Swedish comment drafts, add a case to
-  `schedcheck/report/comments.py`.
+- **Text in both languages.** `message` is `T(sv=..., en=...)` (see
+  `schedcheck/i18n.py`); `Issue` refuses a text missing either language.
+  Build both from the same data, next to each other, so they cannot drift.
+  `ask` (optional, also `T`) is the question the comment draft appends, e.g.
+  "Ska den läggas in?". Use the terms in [GLOSSARY.md](GLOSSARY.md); helpers in
+  `i18n` format weekdays (`when`, `weekday`) and lists (`join`).
+- **`details`**: structured, language-neutral data for reports and agents.
 - No programme-specific logic in code. Put programme knowledge in
   `programs/<PROG>.toml` and read it through `Config`.
 - Add a test in `tests/` using the synthetic export helpers in `tests/helpers.py`.

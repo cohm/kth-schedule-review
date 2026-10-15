@@ -107,16 +107,29 @@ class Issue:
     check: str                   # e.g. "coverage.missing-course"
     scope: str                   # e.g. "CTFYS2" or "SF1674" or "CTFYS"
     course: str | None
-    message: str                 # English, human readable
+    message: dict[str, str]      # {"sv": ..., "en": ...}, see i18n.T
     key: str = ""                # stable id within (check, course) for accept-lists
     evidence: list[str] = field(default_factory=list)  # Event.cite() strings
     details: dict = field(default_factory=dict)        # structured data for reports
     accepted: str | None = None  # note from accept-list, if accepted
+    ask: dict[str, str] | None = None  # question appended in comment drafts, {"sv", "en"}
+
+    def __post_init__(self):
+        from .i18n import LANGS
+        for name in ("message", "ask"):
+            v = getattr(self, name)
+            if v is None and name == "ask":
+                continue
+            if not isinstance(v, dict) or any(not v.get(lang) for lang in LANGS):
+                raise ValueError(f"{self.check}: {name} must have a text for each of {LANGS}: {v!r}")
+
+    def text(self, lang: str) -> str:
+        return self.message[lang]
 
     def to_dict(self) -> dict:
         return {
             "severity": self.severity, "check": self.check, "scope": self.scope,
-            "course": self.course, "key": self.key, "message": self.message,
+            "course": self.course, "key": self.key, "message": self.message, "ask": self.ask,
             "evidence": self.evidence, "details": self.details,
             "accepted": self.accepted,
         }

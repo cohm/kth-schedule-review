@@ -1,6 +1,6 @@
 {
- "schema": 1,
- "generated": "2026-10-15T15:57:16",
+ "schema": 2,
+ "generated": "2026-10-15T16:44:23",
  "review": "program",
  "title": "COPEN VT27 vs VT26",
  "term": "VT27",
@@ -46,73 +46,133 @@
   ],
   "exam_windows": [
    [
-    "P3 exams",
+    {
+     "sv": "P3 tentaperiod",
+     "en": "P3 exams"
+    },
     "2027-03-05",
     "2027-03-12"
    ],
    [
-    "P4 exams",
+    {
+     "sv": "P4 tentaperiod",
+     "en": "P4 exams"
+    },
     "2027-05-24",
     "2027-05-31"
    ]
   ],
   "reexam_windows": [
    [
-    "re-exams 03-30..04-02",
+    {
+     "sv": "omtentor 03-30..04-02",
+     "en": "re-exams 03-30..04-02"
+    },
     "2027-03-30",
     "2027-04-02"
    ],
    [
-    "re-exams 06-01..06-04",
+    {
+     "sv": "omtentor 06-01..06-04",
+     "en": "re-exams 06-01..06-04"
+    },
     "2027-06-01",
     "2027-06-04"
    ],
    [
-    "re-exams 08-16..08-27",
+    {
+     "sv": "omtentor 08-16..08-27",
+     "en": "re-exams 08-16..08-27"
+    },
     "2027-08-16",
     "2027-08-27"
    ]
   ]
  },
  "notes": [
-  "COPEN1: study plan cohort HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/COPEN-HT2026.json)"
+  {
+   "sv": "COPEN1: utbildningsplan för kull HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/COPEN-HT2026.json)",
+   "en": "COPEN1: study plan cohort HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/COPEN-HT2026.json)"
+  }
  ],
  "year_status": {
   "COPEN1": [
    {
-    "check": "Study-plan courses",
+    "check": {
+     "sv": "Kurser i utbildningsplanen",
+     "en": "Study-plan courses"
+    },
     "status": "ok",
-    "text": "All 5 courses in the HT2026 study plan for VT27 are scheduled."
+    "text": {
+     "sv": "Alla 5 kurser i utbildningsplanen för kull HT2026 för VT27 är schemalagda.",
+     "en": "All 5 courses in the HT2026 study plan for VT27 are scheduled."
+    }
    },
    {
-    "check": "Exams scheduled",
+    "check": {
+     "sv": "Schemalagda tentamina",
+     "en": "Exams scheduled"
+    },
     "status": "warning",
-    "text": "1 missing exam/re-exam (1 warning)."
+    "text": {
+     "sv": "1 saknad(e) tentamen/omtentamen (1 varning).",
+     "en": "1 missing exam/re-exam (1 warning)."
+    }
    },
    {
-    "check": "Exam spacing (ordinary exams and KS)",
+    "check": {
+     "sv": "Avstånd mellan tentamina (ordinarie och KS)",
+     "en": "Exam spacing (ordinary exams and KS)"
+    },
     "status": "warning",
-    "text": "10 exams checked: none on the same day; 1 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 1 warning, 1 info."
+    "text": {
+     "sv": "10 tentamina kontrollerade: inga samma dag; 1 par dagar i rad; 1 par med en dag emellan. Rapporterat: 1 varning, 1 info.",
+     "en": "10 exams checked: none on the same day; 1 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 1 warning, 1 info."
+    }
    },
    {
-    "check": "Re-exam spacing",
+    "check": {
+     "sv": "Avstånd mellan omtentor",
+     "en": "Re-exam spacing"
+    },
     "status": "info",
-    "text": "11 exams checked: none on the same day; 3 pair(s) on consecutive days; 3 pair(s) two days apart. Reported: 2 info."
+    "text": {
+     "sv": "11 tentamina kontrollerade: inga samma dag; 3 par dagar i rad; 3 par med en dag emellan. Rapporterat: 2 info.",
+     "en": "11 exams checked: none on the same day; 3 pair(s) on consecutive days; 3 pair(s) two days apart. Reported: 2 info."
+    }
    },
    {
-    "check": "Teaching overlaps",
+    "check": {
+     "sv": "Krockar i undervisningen",
+     "en": "Teaching overlaps"
+    },
     "status": "ok",
-    "text": "202 sessions checked: no two sessions of different courses overlap. No course overlaps with itself."
+    "text": {
+     "sv": "202 tillfällen kontrollerade: inga tillfällen i olika kurser krockar. Ingen kurs krockar med sig själv.",
+     "en": "202 sessions checked: no two sessions of different courses overlap. No course overlaps with itself."
+    }
    },
    {
-    "check": "Structure vs VT26",
+    "check": {
+     "sv": "Struktur jämfört med VT26",
+     "en": "Structure vs VT26"
+    },
     "status": "review",
-    "text": "11 courses compared with VT26: 7 with differences to judge (DD1310, SA1007, SF1546, SF1626, SG1130, SG1132, SG1133)."
+    "text": {
+     "sv": "11 kurser jämförda med VT26: 7 med skillnader att bedöma (DD1310, SA1007, SF1546, SF1626, SG1130, SG1132, SG1133).",
+     "en": "11 courses compared with VT26: 7 with differences to judge (DD1310, SA1007, SF1546, SF1626, SG1130, SG1132, SG1133)."
+    }
    },
    {
-    "check": "Room seats vs VT26",
+    "check": {
+     "sv": "Lokalplatser jämfört med VT26",
+     "en": "Room seats vs VT26"
+    },
     "status": "warning",
-    "text": "134 occasions in 5 courses compared with VT26: 3 course(s) with ≥20% fewer seats on some occasion (SA1007, SF1626, SG1133)."
+    "text": {
+     "sv": "134 tillfällen i 5 kurser jämförda med VT26: 3 kurs(er) med minst 20 % färre platser vid något tillfälle (SA1007, SF1626, SG1133).",
+     "en": "134 occasions in 5 courses compared with VT26: 3 course(s) with ≥20% fewer seats on some occasion (SA1007, SF1626, SG1133)."
+    }
    }
   ]
  },
@@ -129,7 +189,14 @@
    "scope": "COPEN1",
    "course": "DD1310",
    "key": "DD1310+SF1546:2027-03-11:2027-03-12",
-   "message": "DD1310 (ordinary, Thu 2027-03-11 14:00) and SF1546 (ordinary, Fri 2027-03-12 14:00): consecutive days. Both are mandatory for this programme year.",
+   "message": {
+    "sv": "DD1310 (ordinarie tentamen, tor 2027-03-11 14:00) och SF1546 (ordinarie tentamen, fre 2027-03-12 14:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen.",
+    "en": "DD1310 (exam, Thu 2027-03-11 14:00) and SF1546 (exam, Fri 2027-03-12 14:00): consecutive days. Both are mandatory for this programme year."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:120 2027-03-11 14:00-15:00 Kontrollskrivning",
     "COPEN1_VT27_remiss.xlsx:122 2027-03-12 14:00-17:00 Tentamen"
@@ -163,7 +230,14 @@
    "scope": "COPEN1",
    "course": "SG1133",
    "key": "SG1133",
-   "message": "SG1133 has no re-exam scheduled this term, but the study plan has an exam in P3/P4; it had an ordinary exam in VT26 (2026-05-29); its syllabus (valid from VT2020) has TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp.",
+   "message": {
+    "sv": "SG1133 har ingen omtentamen schemalagd denna termin, men utbildningsplanen har tentamen i P3/P4; den hade ordinarie tentamen VT26 (2026-05-29); kursplanen (giltig från VT2020) har TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp.",
+    "en": "SG1133 has no re-exam scheduled this term, but the study plan has an exam in P3/P4; it had an ordinary exam in VT26 (2026-05-29); its syllabus (valid from VT2020) has TEN2 – Problemtentamen, 4,5 hp, TEN1 – Teoritentamen, 3 hp."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "plan_exam_periods": [
@@ -192,7 +266,14 @@
    "scope": "SF1626",
    "course": "SF1626",
    "key": "capacity",
-   "message": "SF1626: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats. Largest reductions: F 2027-02-26: F1 462 → E1 212.",
+   "message": {
+    "sv": "SF1626: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser. Störst minskning: F 2027-02-26: F1 462 → E1 212.",
+    "en": "SF1626: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats. Largest reductions: F 2027-02-26: F1 462 → E1 212."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:102 2027-02-26 08:00-10:00 Föreläsning"
    ],
@@ -229,7 +310,14 @@
    "scope": "DD1310",
    "course": "DD1310",
    "key": "DD1310",
-   "message": "DD1310 has teaching in VT27 but had none in VT26.",
+   "message": {
+    "sv": "DD1310 har undervisning VT27 men hade ingen VT26.",
+    "en": "DD1310 has teaching in VT27 but had none in VT26."
+   },
+   "ask": {
+    "sv": "Stämmer det att den ska ingå?",
+    "en": "Is it meant to be included?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -240,7 +328,14 @@
    "scope": "SA1007",
    "course": "SA1007",
    "key": "capacity",
-   "message": "SA1007: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 1 with ≥50% more seats, 1 with no room booked (had rooms in VT26), 1 changed between digital and on campus. Largest reductions: Red 2027-04-15: B21+B22+B23+B24+B25 148 → B21+B22+B23+B24 118.",
+   "message": {
+    "sv": "SA1007: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 20 % färre platser, 1 med minst 50 % fler platser, 1 utan bokad lokal (hade lokal VT26), 1 som bytt mellan digitalt och på campus. Störst minskning: Red 2027-04-15: B21+B22+B23+B24+B25 148 → B21+B22+B23+B24 118.",
+    "en": "SA1007: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 1 with ≥50% more seats, 1 with no room booked (had rooms in VT26), 1 changed between digital and on campus. Largest reductions: Red 2027-04-15: B21+B22+B23+B24+B25 148 → B21+B22+B23+B24 118."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:176 2027-04-15 13:00-15:00 Redovisning"
    ],
@@ -284,7 +379,14 @@
    "scope": "SA1007",
    "course": "SA1007",
    "key": "Föreläsning:7>8,Seminarium:5>4",
-   "message": "SA1007: number of occasions changed (VT26→VT27): Föreläsning 7→8; Seminarium 5→4. Sequence: P4 w4: … Mässa Red [S] Red S … → … Mässa Red [F] Red S ….",
+   "message": {
+    "sv": "SA1007: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 7→8; Seminarium 5→4. Sekvens (VT26 → VT27): P4 v4: … Mässa Red [S] Red S … → … Mässa Red [F] Red S ….",
+    "en": "SA1007: number of occasions changed (VT26→VT27): Föreläsning 7→8; Seminarium 5→4. Sequence: P4 w4: … Mässa Red [S] Red S … → … Mässa Red [F] Red S …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -980,7 +1082,14 @@
    "scope": "SF1546",
    "course": "SF1546",
    "key": "Redovisning:6>5",
-   "message": "SF1546: number of occasions changed (VT26→VT27): Redovisning 6→5. Sequence: P4 w4: … DL Red [Red] DL Red … → … DL Red [–] DL Red ….",
+   "message": {
+    "sv": "SF1546: antalet tillfällen har ändrats (VT26→VT27): Redovisning 6→5. Sekvens (VT26 → VT27): P4 v4: … DL Red [Red] DL Red … → … DL Red [–] DL Red ….",
+    "en": "SF1546: number of occasions changed (VT26→VT27): Redovisning 6→5. Sequence: P4 w4: … DL Red [Red] DL Red … → … DL Red [–] DL Red …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -2223,7 +2332,14 @@
    "scope": "SF1626",
    "course": "SF1626",
    "key": "Föreläsning:24>21",
-   "message": "SF1626: number of occasions changed (VT26→VT27): Föreläsning 24→21. Sequence: P3 w1–w3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 w5–w7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W ….",
+   "message": {
+    "sv": "SF1626: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 24→21. Sekvens (VT26 → VT27): P3 v1–3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 v5–7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W ….",
+    "en": "SF1626: number of occasions changed (VT26→VT27): Föreläsning 24→21. Sequence: P3 w1–3: [F W F F W S F F W F F W S F] F W … → [–] F W …; P3 w5–7: … W F [–] F W … → … W F [W S F F W F W S F F W] F W …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -3497,7 +3613,14 @@
    "scope": "SF1626",
    "course": "SF1626",
    "key": "shifts:28",
-   "message": "SF1626: 28 occasion(s) moved ≥2 teaching weeks: Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Seminarium P3 w4→P3 w2 (+22 more).",
+   "message": {
+    "sv": "SF1626: 28 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Föreläsning P3 v3→P3 v1; Workshop P3 v3→P3 v1; Föreläsning P3 v3→P3 v1; Föreläsning P3 v3→P3 v1; Workshop P3 v3→P3 v1; Seminarium P3 v4→P3 v2 (+22 till).",
+    "en": "SF1626: 28 occasion(s) moved ≥2 teaching weeks: Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Föreläsning P3 w3→P3 w1; Workshop P3 w3→P3 w1; Seminarium P3 w4→P3 w2 (+22 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:8 2027-01-12 10:00-12:00 Föreläsning",
     "COPEN1_VT27_remiss.xlsx:9 2027-01-12 13:00-15:00 Workshop",
@@ -3517,7 +3640,14 @@
    "scope": "SG1130",
    "course": "SG1130",
    "key": "Tentamen:0>2,Övrigt:0>1",
-   "message": "SG1130: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN].",
+   "message": {
+    "sv": "SG1130: antalet tillfällen har ändrats (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sekvens (VT26 → VT27): P4 v8–P4 tentaperiod: KS [–] → KS [Övr TEN TEN].",
+    "en": "SG1130: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -3674,7 +3804,14 @@
    "scope": "SG1130",
    "course": "SG1130",
    "key": "shifts:1",
-   "message": "SG1130: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8.",
+   "message": {
+    "sv": "SG1130: 1 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Kontrollskrivning P3 v7→P4 v8.",
+    "en": "SG1130: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:217 2027-05-13 08:00-10:00 Kontrollskrivning"
    ],
@@ -3689,7 +3826,14 @@
    "scope": "SG1132",
    "course": "SG1132",
    "key": "Tentamen:0>2,Övrigt:0>1",
-   "message": "SG1132: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN].",
+   "message": {
+    "sv": "SG1132: antalet tillfällen har ändrats (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sekvens (VT26 → VT27): P4 v8–P4 tentaperiod: KS [–] → KS [Övr TEN TEN].",
+    "en": "SG1132: number of occasions changed (VT26→VT27): Tentamen 0→2; Övrigt 0→1. Sequence: P4 w8–P4 exams: KS [–] → KS [Övr TEN TEN]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -3846,7 +3990,14 @@
    "scope": "SG1132",
    "course": "SG1132",
    "key": "shifts:1",
-   "message": "SG1132: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8.",
+   "message": {
+    "sv": "SG1132: 1 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Kontrollskrivning P3 v7→P4 v8.",
+    "en": "SG1132: 1 occasion(s) moved ≥2 teaching weeks: Kontrollskrivning P3 w7→P4 w8."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:217 2027-05-13 08:00-10:00 Kontrollskrivning"
    ],
@@ -3861,7 +4012,14 @@
    "scope": "SG1133",
    "course": "SG1133",
    "key": "capacity",
-   "message": "SG1133: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 6 with ≥10% fewer seats. Largest reductions: Ö 2027-02-05: U21+U31 140 → Q26+Q31 100; Ö 2027-01-15: U21+U31 140 → Q33+Q34 120; Ö 2027-01-21: U21+U31 140 → Q31+Q33 120; Ö 2027-01-28: U21+U31 140 → Q31+Q33 120.",
+   "message": {
+    "sv": "SG1133: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 20 % färre platser, 6 med minst 10 % färre platser. Störst minskning: Ö 2027-02-05: U21+U31 140 → Q26+Q31 100; Ö 2027-01-15: U21+U31 140 → Q33+Q34 120; Ö 2027-01-21: U21+U31 140 → Q31+Q33 120; Ö 2027-01-28: U21+U31 140 → Q31+Q33 120.",
+    "en": "SG1133: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 6 with ≥10% fewer seats. Largest reductions: Ö 2027-02-05: U21+U31 140 → Q26+Q31 100; Ö 2027-01-15: U21+U31 140 → Q33+Q34 120; Ö 2027-01-21: U21+U31 140 → Q31+Q33 120; Ö 2027-01-28: U21+U31 140 → Q31+Q33 120."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:66 2027-02-05 13:00-15:00 Övning",
     "COPEN1_VT27_remiss.xlsx:17 2027-01-15 10:00-12:00 Övning",
@@ -3945,7 +4103,14 @@
    "scope": "SG1133",
    "course": "SG1133",
    "key": "Kontrollskrivning:2>1,Räknestuga:3>0,Tentamen:1>2,Övning:9>11,Övrigt:0>1",
-   "message": "SG1133: number of occasions changed (VT26→VT27): Kontrollskrivning 2→1; Räknestuga 3→0; Tentamen 1→2; Övning 9→11; Övrigt 0→1. Sequence: P3 w1–w7: [F Ö F F F R F F Ö S F F Ö F R W KS] F F … → [–] F F …; P3 w3: … F Ö [–] F Ö … → … F Ö [F] F Ö …; P3 w6: … F F [F R W S F KS] F F … → … F F [Ö W] F F …; P4 w2–P4 exams: … F F [TEN] → … F F [Ö S F F Ö F F Ö F Ö F F F S W F KS Övr F TEN TEN].",
+   "message": {
+    "sv": "SG1133: antalet tillfällen har ändrats (VT26→VT27): Kontrollskrivning 2→1; Räknestuga 3→0; Tentamen 1→2; Övning 9→11; Övrigt 0→1. Sekvens (VT26 → VT27): P3 v1–7: [F Ö F F F R F F Ö S F F Ö F R W KS] F F … → [–] F F …; P3 v3: … F Ö [–] F Ö … → … F Ö [F] F Ö …; P3 v6: … F F [F R W S F KS] F F … → … F F [Ö W] F F …; P4 v2–P4 tentaperiod: … F F [TEN] → … F F [Ö S F F Ö F F Ö F Ö F F F S W F KS Övr F TEN TEN].",
+    "en": "SG1133: number of occasions changed (VT26→VT27): Kontrollskrivning 2→1; Räknestuga 3→0; Tentamen 1→2; Övning 9→11; Övrigt 0→1. Sequence: P3 w1–7: [F Ö F F F R F F Ö S F F Ö F R W KS] F F … → [–] F F …; P3 w3: … F Ö [–] F Ö … → … F Ö [F] F Ö …; P3 w6: … F F [F R W S F KS] F F … → … F F [Ö W] F F …; P4 w2–P4 exams: … F F [TEN] → … F F [Ö S F F Ö F F Ö F Ö F F F S W F KS Övr F TEN TEN]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -5479,7 +5644,14 @@
    "scope": "SG1133",
    "course": "SG1133",
    "key": "shifts:23",
-   "message": "SG1133: 23 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w1→P3 w1; Föreläsning P4 w1→P3 w1; Övning P4 w1→P3 w1; Föreläsning P4 w2→P3 w2; Föreläsning P4 w3→P3 w2; Övning P4 w3→P3 w2 (+17 more).",
+   "message": {
+    "sv": "SG1133: 23 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Föreläsning P4 v1→P3 v1; Föreläsning P4 v1→P3 v1; Övning P4 v1→P3 v1; Föreläsning P4 v2→P3 v2; Föreläsning P4 v3→P3 v2; Övning P4 v3→P3 v2 (+17 till).",
+    "en": "SG1133: 23 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w1→P3 w1; Föreläsning P4 w1→P3 w1; Övning P4 w1→P3 w1; Föreläsning P4 w2→P3 w2; Föreläsning P4 w3→P3 w2; Övning P4 w3→P3 w2 (+17 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:10 2027-01-12 15:00-17:00 Föreläsning",
     "COPEN1_VT27_remiss.xlsx:14 2027-01-14 10:00-12:00 Föreläsning",
@@ -5499,7 +5671,11 @@
    "scope": "COPEN1",
    "course": "DD1310",
    "key": "DD1310",
-   "message": "DD1310 is scheduled for COPEN1 but the plan has no credits for it this term.",
+   "message": {
+    "sv": "DD1310 är schemalagd för COPEN1, men utbildningsplanen ger inga poäng för den denna termin.",
+    "en": "DD1310 is scheduled for COPEN1 but the plan has no credits for it this term."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -5510,7 +5686,14 @@
    "scope": "COPEN1",
    "course": "DD1310",
    "key": "DD1310+SF1546:2027-06-01:2027-06-02",
-   "message": "DD1310 (reexam, Tue 2027-06-01 14:00) and SF1546 (reexam, Wed 2027-06-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "DD1310 (omtentamen, tis 2027-06-01 14:00) och SF1546 (omtentamen, ons 2027-06-02 14:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "DD1310 (re-exam, Tue 2027-06-01 14:00) and SF1546 (re-exam, Wed 2027-06-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:243 2027-06-01 14:00-15:00 Kontrollskrivning",
     "COPEN1_VT27_remiss.xlsx:245 2027-06-02 14:00-17:00 Omtenta"
@@ -5544,7 +5727,14 @@
    "scope": "COPEN1",
    "course": "SF1626",
    "key": "SF1626+DD1310:2027-03-09:2027-03-11",
-   "message": "SF1626 (ordinary, Tue 2027-03-09 14:00) and DD1310 (ordinary, Thu 2027-03-11 14:00): two days apart. Both are mandatory for this programme year.",
+   "message": {
+    "sv": "SF1626 (ordinarie tentamen, tis 2027-03-09 14:00) och DD1310 (ordinarie tentamen, tor 2027-03-11 14:00) ligger med bara en dag emellan. Båda kurserna är obligatoriska för årskursen.",
+    "en": "SF1626 (exam, Tue 2027-03-09 14:00) and DD1310 (exam, Thu 2027-03-11 14:00): two days apart. Both are mandatory for this programme year."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:116 2027-03-09 14:00-17:00 Tentamen",
     "COPEN1_VT27_remiss.xlsx:120 2027-03-11 14:00-15:00 Kontrollskrivning"
@@ -5578,7 +5768,14 @@
    "scope": "COPEN1",
    "course": "SF1626",
    "key": "SF1626+DD1310:2027-08-25:2027-08-26",
-   "message": "SF1626 (reexam, Wed 2027-08-25 14:00) and DD1310 (reexam, Thu 2027-08-26 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "SF1626 (omtentamen, ons 2027-08-25 14:00) och DD1310 (omtentamen, tor 2027-08-26 14:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "SF1626 (re-exam, Wed 2027-08-25 14:00) and DD1310 (re-exam, Thu 2027-08-26 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:263 2027-08-25 14:00-17:00 Omtenta",
     "COPEN1_VT27_remiss.xlsx:265 2027-08-26 14:00-15:00 Kontrollskrivning"
@@ -5612,7 +5809,11 @@
    "scope": "COPEN1",
    "course": "SG1130",
    "key": "SG1130",
-   "message": "SG1130 is scheduled for COPEN1 but it is not in the study plan.",
+   "message": {
+    "sv": "SG1130 är schemalagd för COPEN1, men den finns inte i utbildningsplanen.",
+    "en": "SG1130 is scheduled for COPEN1 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -5623,7 +5824,11 @@
    "scope": "COPEN1",
    "course": "SG1132",
    "key": "SG1132",
-   "message": "SG1132 is scheduled for COPEN1 but it is not in the study plan.",
+   "message": {
+    "sv": "SG1132 är schemalagd för COPEN1, men den finns inte i utbildningsplanen.",
+    "en": "SG1132 is scheduled for COPEN1 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -5634,7 +5839,11 @@
    "scope": "KD1000",
    "course": "KD1000",
    "key": "['P4 day 2 (Tue 08:00)']>['P4 day 6 (Mon 08:00)']",
-   "message": "KD1000: ordinary exam position in the exam window changed: VT26 P4 day 2 (Tue 08:00) → VT27 P4 day 6 (Mon 08:00).",
+   "message": {
+    "sv": "KD1000: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 2 (tis 08:00) → VT27 P4 dag 6 (mån 08:00).",
+    "en": "KD1000: ordinary exam position in the exam window changed: VT26 P4 day 2 (Tue 08:00) → VT27 P4 day 6 (Mon 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:240 2027-05-31 08:00-12:00 Tentamen"
    ],
@@ -5647,7 +5856,11 @@
    "scope": "SA1007",
    "course": "SA1007",
    "key": "2027-03-02 10:00:00",
-   "message": "Existing remiss comment on COPEN1_VT27_remiss.xlsx:108 2027-03-02 10:00-12:00 Redovisning: “Eget arbete dag men annars blir det tre aktiviteter på samma dag”",
+   "message": {
+    "sv": "Befintlig remisskommentar på COPEN1_VT27_remiss.xlsx:108 2027-03-02 10:00-12:00 Redovisning: ”Eget arbete dag men annars blir det tre aktiviteter på samma dag”",
+    "en": "Existing remiss comment on COPEN1_VT27_remiss.xlsx:108 2027-03-02 10:00-12:00 Redovisning: “Eget arbete dag men annars blir det tre aktiviteter på samma dag”"
+   },
+   "ask": null,
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:108 2027-03-02 10:00-12:00 Redovisning"
    ],
@@ -5660,7 +5873,11 @@
    "scope": "SF1546",
    "course": "SF1546",
    "key": "['P3 day 5 (Thu 14:00)']>['P3 day 6 (Fri 14:00)']",
-   "message": "SF1546: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 14:00) → VT27 P3 day 6 (Fri 14:00).",
+   "message": {
+    "sv": "SF1546: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 5 (tor 14:00) → VT27 P3 dag 6 (fre 14:00).",
+    "en": "SF1546: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 14:00) → VT27 P3 day 6 (Fri 14:00)."
+   },
+   "ask": null,
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:122 2027-03-12 14:00-17:00 Tentamen"
    ],
@@ -5673,7 +5890,14 @@
    "scope": "SF1546",
    "course": "SF1546",
    "key": "capacity",
-   "message": "SF1546: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats, 2 changed between digital and on campus. Largest reductions: F 2027-02-24: F2 238 → E1 212.",
+   "message": {
+    "sv": "SF1546: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 10 % färre platser, 2 som bytt mellan digitalt och på campus. Störst minskning: F 2027-02-24: F2 238 → E1 212.",
+    "en": "SF1546: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats, 2 changed between digital and on campus. Largest reductions: F 2027-02-24: F2 238 → E1 212."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:99 2027-02-24 13:00-15:00 Föreläsning"
    ],
@@ -5710,7 +5934,11 @@
    "scope": "SG1130",
    "course": "SG1130",
    "key": "2027-05-27 08:00:00",
-   "message": "Existing remiss comment on COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen: “Stämmer alla examinationsmoduler för denna TEN och OMTE?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen: ”Stämmer alla examinationsmoduler för denna TEN och OMTE?”",
+    "en": "Existing remiss comment on COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen: “Stämmer alla examinationsmoduler för denna TEN och OMTE?”"
+   },
+   "ask": null,
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen"
    ],
@@ -5723,7 +5951,11 @@
    "scope": "SG1133",
    "course": "SG1133",
    "key": "['P4 day 5 (Fri 08:00)']>['P4 day 4 (Thu 08:00)']",
-   "message": "SG1133: ordinary exam position in the exam window changed: VT26 P4 day 5 (Fri 08:00) → VT27 P4 day 4 (Thu 08:00).",
+   "message": {
+    "sv": "SG1133: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 5 (fre 08:00) → VT27 P4 dag 4 (tor 08:00).",
+    "en": "SG1133: ordinary exam position in the exam window changed: VT26 P4 day 5 (Fri 08:00) → VT27 P4 day 4 (Thu 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "COPEN1_VT27_remiss.xlsx:235 2027-05-27 08:00-12:00 Tentamen"
    ],

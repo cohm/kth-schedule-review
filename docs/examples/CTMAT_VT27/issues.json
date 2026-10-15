@@ -1,6 +1,6 @@
 {
- "schema": 1,
- "generated": "2026-10-15T15:57:15",
+ "schema": 2,
+ "generated": "2026-10-15T16:44:22",
  "review": "program",
  "title": "CTMAT VT27 vs VT26",
  "term": "VT27",
@@ -90,170 +90,347 @@
   ],
   "exam_windows": [
    [
-    "P3 exams",
+    {
+     "sv": "P3 tentaperiod",
+     "en": "P3 exams"
+    },
     "2027-03-05",
     "2027-03-12"
    ],
    [
-    "P4 exams",
+    {
+     "sv": "P4 tentaperiod",
+     "en": "P4 exams"
+    },
     "2027-05-24",
     "2027-05-31"
    ]
   ],
   "reexam_windows": [
    [
-    "re-exams 03-30..04-02",
+    {
+     "sv": "omtentor 03-30..04-02",
+     "en": "re-exams 03-30..04-02"
+    },
     "2027-03-30",
     "2027-04-02"
    ],
    [
-    "re-exams 06-01..06-04",
+    {
+     "sv": "omtentor 06-01..06-04",
+     "en": "re-exams 06-01..06-04"
+    },
     "2027-06-01",
     "2027-06-04"
    ],
    [
-    "re-exams 08-16..08-27",
+    {
+     "sv": "omtentor 08-16..08-27",
+     "en": "re-exams 08-16..08-27"
+    },
     "2027-08-16",
     "2027-08-27"
    ]
   ]
  },
  "notes": [
-  "Study plan data for CTMAT is marked as not verified in ProgramVisualization; treat coverage results with care.",
-  "CTMAT1: study plan cohort HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTMAT-HT2026.json)",
-  "CTMAT2: study plan cohort HT2025 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTMAT-HT2025.json)",
-  "CTMAT3: study plan cohort HT2024 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTMAT-HT2024.json)"
+  {
+   "sv": "Utbildningsplanen för CTMAT är inte markerad som verifierad i ProgramVisualization; tolka resultaten om kurstäckning med försiktighet.",
+   "en": "Study plan data for CTMAT is marked as not verified in ProgramVisualization; treat coverage results with care."
+  },
+  {
+   "sv": "CTMAT1: utbildningsplan för kull HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTMAT-HT2026.json)",
+   "en": "CTMAT1: study plan cohort HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTMAT-HT2026.json)"
+  },
+  {
+   "sv": "CTMAT2: utbildningsplan för kull HT2025 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTMAT-HT2025.json)",
+   "en": "CTMAT2: study plan cohort HT2025 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTMAT-HT2025.json)"
+  },
+  {
+   "sv": "CTMAT3: utbildningsplan för kull HT2024 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTMAT-HT2024.json)",
+   "en": "CTMAT3: study plan cohort HT2024 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTMAT-HT2024.json)"
+  }
  ],
  "year_status": {
   "CTMAT1": [
    {
-    "check": "Study-plan courses",
+    "check": {
+     "sv": "Kurser i utbildningsplanen",
+     "en": "Study-plan courses"
+    },
     "status": "ok",
-    "text": "All 4 courses in the HT2026 study plan for VT27 are scheduled."
+    "text": {
+     "sv": "Alla 4 kurser i utbildningsplanen för kull HT2026 för VT27 är schemalagda.",
+     "en": "All 4 courses in the HT2026 study plan for VT27 are scheduled."
+    }
    },
    {
-    "check": "Exams scheduled",
+    "check": {
+     "sv": "Schemalagda tentamina",
+     "en": "Exams scheduled"
+    },
     "status": "ok",
-    "text": "Every course with an exam has an ordinary exam and a re-exam."
+    "text": {
+     "sv": "Varje kurs med tentamen har en ordinarie tentamen och en omtentamen.",
+     "en": "Every course with an exam has an ordinary exam and a re-exam."
+    }
    },
    {
-    "check": "Exam spacing (ordinary exams and KS)",
+    "check": {
+     "sv": "Avstånd mellan tentamina (ordinarie och KS)",
+     "en": "Exam spacing (ordinary exams and KS)"
+    },
     "status": "info",
-    "text": "5 exams checked: none on the same day; none on consecutive days; 1 pair(s) two days apart. Reported: 1 info."
+    "text": {
+     "sv": "5 tentamina kontrollerade: inga samma dag; inga dagar i rad; 1 par med en dag emellan. Rapporterat: 1 info.",
+     "en": "5 exams checked: none on the same day; none on consecutive days; 1 pair(s) two days apart. Reported: 1 info."
+    }
    },
    {
-    "check": "Re-exam spacing",
+    "check": {
+     "sv": "Avstånd mellan omtentor",
+     "en": "Re-exam spacing"
+    },
     "status": "ok",
-    "text": "5 exams checked: none on the same day; none on consecutive days; 1 pair(s) two days apart."
+    "text": {
+     "sv": "5 tentamina kontrollerade: inga samma dag; inga dagar i rad; 1 par med en dag emellan.",
+     "en": "5 exams checked: none on the same day; none on consecutive days; 1 pair(s) two days apart."
+    }
    },
    {
-    "check": "Teaching overlaps",
+    "check": {
+     "sv": "Krockar i undervisningen",
+     "en": "Teaching overlaps"
+    },
     "status": "ok",
-    "text": "158 sessions checked: no two sessions of different courses overlap. No course overlaps with itself."
+    "text": {
+     "sv": "158 tillfällen kontrollerade: inga tillfällen i olika kurser krockar. Ingen kurs krockar med sig själv.",
+     "en": "158 sessions checked: no two sessions of different courses overlap. No course overlaps with itself."
+    }
    },
    {
-    "check": "Retaken by year 2",
+    "check": {
+     "sv": "Omtentor i årskurs 2",
+     "en": "Retaken by year 2"
+    },
     "status": "warning",
-    "text": "6 exam pair(s) close in time for year 2 students retaking CTMAT1 courses (2 warning, 4 info)."
+    "text": {
+     "sv": "6 par av tentamina ligger nära i tid för studenter i årskurs 2 som tenterar om kurser från CTMAT1 (2 varning, 4 info).",
+     "en": "6 exam pair(s) close in time for year 2 students retaking CTMAT1 courses (2 warning, 4 info)."
+    }
    },
    {
-    "check": "Structure vs VT26",
+    "check": {
+     "sv": "Struktur jämfört med VT26",
+     "en": "Structure vs VT26"
+    },
     "status": "review",
-    "text": "8 courses compared with VT26: 4 with differences to judge (DD1328, DD1396, SA1006, SF1672)."
+    "text": {
+     "sv": "8 kurser jämförda med VT26: 4 med skillnader att bedöma (DD1328, DD1396, SA1006, SF1672).",
+     "en": "8 courses compared with VT26: 4 with differences to judge (DD1328, DD1396, SA1006, SF1672)."
+    }
    },
    {
-    "check": "Room seats vs VT26",
+    "check": {
+     "sv": "Lokalplatser jämfört med VT26",
+     "en": "Room seats vs VT26"
+    },
     "status": "warning",
-    "text": "145 occasions in 6 courses compared with VT26: 4 course(s) with ≥20% fewer seats on some occasion (DD1328, SF1550, SF1674, SG1115)."
+    "text": {
+     "sv": "145 tillfällen i 6 kurser jämförda med VT26: 4 kurs(er) med minst 20 % färre platser vid något tillfälle (DD1328, SF1550, SF1674, SG1115).",
+     "en": "145 occasions in 6 courses compared with VT26: 4 course(s) with ≥20% fewer seats on some occasion (DD1328, SF1550, SF1674, SG1115)."
+    }
    }
   ],
   "CTMAT2": [
    {
-    "check": "Study-plan courses",
+    "check": {
+     "sv": "Kurser i utbildningsplanen",
+     "en": "Study-plan courses"
+    },
     "status": "ok",
-    "text": "All 6 courses in the HT2025 study plan for VT27 are scheduled."
+    "text": {
+     "sv": "Alla 6 kurser i utbildningsplanen för kull HT2025 för VT27 är schemalagda.",
+     "en": "All 6 courses in the HT2025 study plan for VT27 are scheduled."
+    }
    },
    {
-    "check": "Exams scheduled",
+    "check": {
+     "sv": "Schemalagda tentamina",
+     "en": "Exams scheduled"
+    },
     "status": "warning",
-    "text": "1 missing exam/re-exam (1 warning)."
+    "text": {
+     "sv": "1 saknad(e) tentamen/omtentamen (1 varning).",
+     "en": "1 missing exam/re-exam (1 warning)."
+    }
    },
    {
-    "check": "Exam spacing (ordinary exams and KS)",
+    "check": {
+     "sv": "Avstånd mellan tentamina (ordinarie och KS)",
+     "en": "Exam spacing (ordinary exams and KS)"
+    },
     "status": "ok",
-    "text": "6 exams checked: none on the same day; none on consecutive days; 2 pair(s) two days apart."
+    "text": {
+     "sv": "6 tentamina kontrollerade: inga samma dag; inga dagar i rad; 2 par med en dag emellan.",
+     "en": "6 exams checked: none on the same day; none on consecutive days; 2 pair(s) two days apart."
+    }
    },
    {
-    "check": "Re-exam spacing",
+    "check": {
+     "sv": "Avstånd mellan omtentor",
+     "en": "Re-exam spacing"
+    },
     "status": "info",
-    "text": "8 exams checked: none on the same day; 3 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 1 info."
+    "text": {
+     "sv": "8 tentamina kontrollerade: inga samma dag; 3 par dagar i rad; 1 par med en dag emellan. Rapporterat: 1 info.",
+     "en": "8 exams checked: none on the same day; 3 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 1 info."
+    }
    },
    {
-    "check": "Teaching overlaps",
+    "check": {
+     "sv": "Krockar i undervisningen",
+     "en": "Teaching overlaps"
+    },
     "status": "warning",
-    "text": "232 sessions checked: 14 overlapping session pair(s); reported for 10 course pair(s) (3 warning, 7 info). No course overlaps with itself."
+    "text": {
+     "sv": "232 tillfällen kontrollerade: 14 par av tillfällen krockar; rapporterat för 10 kurspar (3 varning, 7 info). Ingen kurs krockar med sig själv.",
+     "en": "232 sessions checked: 14 overlapping session pair(s); reported for 10 course pair(s) (3 warning, 7 info). No course overlaps with itself."
+    }
    },
    {
-    "check": "Retaking year 1 courses",
+    "check": {
+     "sv": "Omtentor från årskurs 1",
+     "en": "Retaking year 1 courses"
+    },
     "status": "warning",
-    "text": "6 exam pair(s) close in time with year 1 courses that CTMAT2 students may be retaking (2 warning, 4 info)."
+    "text": {
+     "sv": "6 par av tentamina ligger nära kurser från årskurs 1 som studenter i CTMAT2 kan behöva tentera om (2 varning, 4 info).",
+     "en": "6 exam pair(s) close in time with year 1 courses that CTMAT2 students may be retaking (2 warning, 4 info)."
+    }
    },
    {
-    "check": "Retaken by year 3",
+    "check": {
+     "sv": "Omtentor i årskurs 3",
+     "en": "Retaken by year 3"
+    },
     "status": "info",
-    "text": "1 exam pair(s) close in time for year 3 students retaking CTMAT2 courses (1 info)."
+    "text": {
+     "sv": "1 par av tentamina ligger nära i tid för studenter i årskurs 3 som tenterar om kurser från CTMAT2 (1 info).",
+     "en": "1 exam pair(s) close in time for year 3 students retaking CTMAT2 courses (1 info)."
+    }
    },
    {
-    "check": "Structure vs VT26",
+    "check": {
+     "sv": "Struktur jämfört med VT26",
+     "en": "Structure vs VT26"
+    },
     "status": "review",
-    "text": "10 courses compared with VT26: 4 with differences to judge (SA1006, SF1691, SF1693, SF1930)."
+    "text": {
+     "sv": "10 kurser jämförda med VT26: 4 med skillnader att bedöma (SA1006, SF1691, SF1693, SF1930).",
+     "en": "10 courses compared with VT26: 4 with differences to judge (SA1006, SF1691, SF1693, SF1930)."
+    }
    },
    {
-    "check": "Room seats vs VT26",
+    "check": {
+     "sv": "Lokalplatser jämfört med VT26",
+     "en": "Room seats vs VT26"
+    },
     "status": "warning",
-    "text": "213 occasions in 7 courses compared with VT26: 4 course(s) with ≥20% fewer seats on some occasion (SF1677, SF1678, SF1679, SF1691)."
+    "text": {
+     "sv": "213 tillfällen i 7 kurser jämförda med VT26: 4 kurs(er) med minst 20 % färre platser vid något tillfälle (SF1677, SF1678, SF1679, SF1691).",
+     "en": "213 occasions in 7 courses compared with VT26: 4 course(s) with ≥20% fewer seats on some occasion (SF1677, SF1678, SF1679, SF1691)."
+    }
    }
   ],
   "CTMAT3": [
    {
-    "check": "Study-plan courses",
+    "check": {
+     "sv": "Kurser i utbildningsplanen",
+     "en": "Study-plan courses"
+    },
     "status": "info",
-    "text": "1 of 21 study-plan courses/groups not scheduled (1 info)."
+    "text": {
+     "sv": "1 av 21 kurser/kursgrupper i utbildningsplanen är inte schemalagda (1 info).",
+     "en": "1 of 21 study-plan courses/groups not scheduled (1 info)."
+    }
    },
    {
-    "check": "Exams scheduled",
+    "check": {
+     "sv": "Schemalagda tentamina",
+     "en": "Exams scheduled"
+    },
     "status": "error",
-    "text": "2 missing exam/re-exam (1 error, 1 warning)."
+    "text": {
+     "sv": "2 saknad(e) tentamen/omtentamen (1 fel, 1 varning).",
+     "en": "2 missing exam/re-exam (1 error, 1 warning)."
+    }
    },
    {
-    "check": "Exam spacing (ordinary exams and KS)",
+    "check": {
+     "sv": "Avstånd mellan tentamina (ordinarie och KS)",
+     "en": "Exam spacing (ordinary exams and KS)"
+    },
     "status": "warning",
-    "text": "27 exams checked: 11 pair(s) on the same day; 9 pair(s) on consecutive days; 6 pair(s) two days apart. Reported: 4 warning, 5 info."
+    "text": {
+     "sv": "27 tentamina kontrollerade: 11 par samma dag; 9 par dagar i rad; 6 par med en dag emellan. Rapporterat: 4 varning, 5 info.",
+     "en": "27 exams checked: 11 pair(s) on the same day; 9 pair(s) on consecutive days; 6 pair(s) two days apart. Reported: 4 warning, 5 info."
+    }
    },
    {
-    "check": "Re-exam spacing",
+    "check": {
+     "sv": "Avstånd mellan omtentor",
+     "en": "Re-exam spacing"
+    },
     "status": "info",
-    "text": "18 exams checked: 11 pair(s) on the same day; 20 pair(s) on consecutive days; 11 pair(s) two days apart. Reported: 4 info."
+    "text": {
+     "sv": "18 tentamina kontrollerade: 11 par samma dag; 20 par dagar i rad; 11 par med en dag emellan. Rapporterat: 4 info.",
+     "en": "18 exams checked: 11 pair(s) on the same day; 20 pair(s) on consecutive days; 11 pair(s) two days apart. Reported: 4 info."
+    }
    },
    {
-    "check": "Teaching overlaps",
+    "check": {
+     "sv": "Krockar i undervisningen",
+     "en": "Teaching overlaps"
+    },
     "status": "error",
-    "text": "651 sessions checked: 742 overlapping session pair(s); reported for 54 course pair(s) (1 error, 7 warning, 46 info). No course overlaps with itself."
+    "text": {
+     "sv": "651 tillfällen kontrollerade: 742 par av tillfällen krockar; rapporterat för 54 kurspar (1 fel, 7 varning, 46 info). Ingen kurs krockar med sig själv.",
+     "en": "651 sessions checked: 742 overlapping session pair(s); reported for 54 course pair(s) (1 error, 7 warning, 46 info). No course overlaps with itself."
+    }
    },
    {
-    "check": "Retaking year 2 courses",
+    "check": {
+     "sv": "Omtentor från årskurs 2",
+     "en": "Retaking year 2 courses"
+    },
     "status": "info",
-    "text": "1 exam pair(s) close in time with year 2 courses that CTMAT3 students may be retaking (1 info)."
+    "text": {
+     "sv": "1 par av tentamina ligger nära kurser från årskurs 2 som studenter i CTMAT3 kan behöva tentera om (1 info).",
+     "en": "1 exam pair(s) close in time with year 2 courses that CTMAT3 students may be retaking (1 info)."
+    }
    },
    {
-    "check": "Structure vs VT26",
+    "check": {
+     "sv": "Struktur jämfört med VT26",
+     "en": "Structure vs VT26"
+    },
     "status": "review",
-    "text": "29 courses compared with VT26: 20 with differences to judge (DD1367, DD1420, DD232V, DD2352, DD2421, DH1623, DH1624, EL2810, EP1100, FDD3431, FSF3812, SA1006, SA114X, SA115X, SA118X, SA120X, SE1055, SF1691, SF2701, SI1155)."
+    "text": {
+     "sv": "29 kurser jämförda med VT26: 20 med skillnader att bedöma (DD1367, DD1420, DD232V, DD2352, DD2421, DH1623, DH1624, EL2810, EP1100, FDD3431, FSF3812, SA1006, SA114X, SA115X, SA118X, SA120X, SE1055, SF1691, SF2701, SI1155).",
+     "en": "29 courses compared with VT26: 20 with differences to judge (DD1367, DD1420, DD232V, DD2352, DD2421, DH1623, DH1624, EL2810, EP1100, FDD3431, FSF3812, SA1006, SA114X, SA115X, SA118X, SA120X, SE1055, SF1691, SF2701, SI1155)."
+    }
    },
    {
-    "check": "Room seats vs VT26",
+    "check": {
+     "sv": "Lokalplatser jämfört med VT26",
+     "en": "Room seats vs VT26"
+    },
     "status": "warning",
-    "text": "676 occasions in 24 courses compared with VT26: 11 course(s) with ≥20% fewer seats on some occasion (DD1367, DD2352, EL2810, EP1100, SF1677, SF1678, SF1691, SF2812, SF2930, SG1217, SI1155)."
+    "text": {
+     "sv": "676 tillfällen i 24 kurser jämförda med VT26: 11 kurs(er) med minst 20 % färre platser vid något tillfälle (DD1367, DD2352, EL2810, EP1100, SF1677, SF1678, SF1691, SF2812, SF2930, SG1217, SI1155).",
+     "en": "676 occasions in 24 courses compared with VT26: 11 course(s) with ≥20% fewer seats on some occasion (DD1367, DD2352, EL2810, EP1100, SF1677, SF1678, SF1691, SF2812, SF2930, SG1217, SI1155)."
+    }
    }
   ]
  },
@@ -271,7 +448,14 @@
    "scope": "CTMAT3",
    "course": "DD2352",
    "key": "DD2352",
-   "message": "DD2352 has no ordinary exam in an exam window, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp.",
+   "message": {
+    "sv": "DD2352 har ingen ordinarie tentamen i tentamensperioden, men den hade ordinarie tentamen VT26 (2026-05-25); kursplanen (giltig från HT2026) har TEN2 – Skriftlig tentamen, 3 hp.",
+    "en": "DD2352 has no ordinary exam in an exam window, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "reference_term": "VT26",
@@ -295,7 +479,14 @@
    "scope": "CTMAT3",
    "course": "SF1677",
    "key": "SF1677+SF1678",
-   "message": "SF1677 and SF1678: 1 overlapping session(s): Fri 2027-01-15 15:00-17:00 Övning / Övning. Both are required for eligibility to TMAKM. The same pair overlapped 2 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF1678 har 1 tillfälle(n) som krockar: fre 2027-01-15 15:00-17:00 Övning / Övning. Båda kurserna krävs för behörighet till TMAKM, så många studenter läser båda. VT26: 2 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF1678: 1 overlapping session(s): Fri 2027-01-15 15:00-17:00 Övning / Övning. Both are required for eligibility to TMAKM. The same pair overlapped 2 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:50 2027-01-15 15:00-17:00 Övning",
     "CTMAT3_VT27_remiss.xlsx:51 2027-01-15 15:00-17:00 Övning"
@@ -335,7 +526,14 @@
    "scope": "CTMAT2",
    "course": "SF1672",
    "key": "SF1672+SF1681:2027-04-01:2027-04-01",
-   "message": "SF1672 (reexam, Thu 2027-04-01 08:00) and SF1681 (reexam, Thu 2027-04-01 08:00): overlapping. Affects CTMAT2 students retaking SF1672 from year 1.",
+   "message": {
+    "sv": "SF1672 (omtentamen, tor 2027-04-01 08:00) och SF1681 (omtentamen, tor 2027-04-01 08:00) ligger samtidigt. Påverkar studenter i CTMAT2 som behöver tentera om SF1672 från årskurs 1.",
+    "en": "SF1672 (re-exam, Thu 2027-04-01 08:00) and SF1681 (re-exam, Thu 2027-04-01 08:00): overlapping. Affects CTMAT2 students retaking SF1672 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:124 2027-04-01 08:00-11:00 Omtenta",
     "CTMAT2_VT27_remiss.xlsx:173 2027-04-01 08:00-13:00 Omtenta"
@@ -369,7 +567,14 @@
    "scope": "CTMAT2",
    "course": "SF1679",
    "key": "SF1679+SF1691",
-   "message": "SF1679 and SF1691: 2 overlapping session(s): Thu 2027-02-04 13:00-15:00 Övning / Övning; Thu 2027-02-11 13:00-15:00 Övning / Övning. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "SF1679 och SF1691 har 2 tillfälle(n) som krockar: tor 2027-02-04 13:00-15:00 Övning / Övning; tor 2027-02-11 13:00-15:00 Övning / Övning. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "SF1679 and SF1691: 2 overlapping session(s): Thu 2027-02-04 13:00-15:00 Övning / Övning; Thu 2027-02-11 13:00-15:00 Övning / Övning. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:68 2027-02-04 13:00-15:00 Övning",
     "CTMAT2_VT27_remiss.xlsx:69 2027-02-04 13:00-15:00 Övning",
@@ -426,7 +631,14 @@
    "scope": "CTMAT2",
    "course": "SF1691",
    "key": "SF1691+SF1693",
-   "message": "SF1691 and SF1693: 3 overlapping session(s): Wed 2027-01-20 13:00-15:00 Övning / Övning; Thu 2027-01-28 10:00-12:00 Föreläsning / Föreläsning; Wed 2027-02-17 13:00-15:00 Övning / Övning. One mandatory course and one elective. The same pair overlapped 1 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SF1693 har 3 tillfälle(n) som krockar: ons 2027-01-20 13:00-15:00 Övning / Övning; tor 2027-01-28 10:00-12:00 Föreläsning / Föreläsning; ons 2027-02-17 13:00-15:00 Övning / Övning. Den ena kursen är obligatorisk, den andra valbar. VT26: 1 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SF1693: 3 overlapping session(s): Wed 2027-01-20 13:00-15:00 Övning / Övning; Thu 2027-01-28 10:00-12:00 Föreläsning / Föreläsning; Wed 2027-02-17 13:00-15:00 Övning / Övning. One mandatory course and one elective. The same pair overlapped 1 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:31 2027-01-20 13:00-15:00 Övning",
     "CTMAT2_VT27_remiss.xlsx:32 2027-01-20 13:00-15:00 Övning",
@@ -500,7 +712,14 @@
    "scope": "CTMAT2",
    "course": "SF1691",
    "key": "SF1691+SH1017",
-   "message": "SF1691 and SH1017: 6 overlapping session(s): Thu 2027-03-18 15:00-17:00 Övning / Övning; Tue 2027-03-23 15:00-17:00 Föreläsning / Workshop; Wed 2027-03-24 15:00-17:00 Föreläsning / Föreläsning; Thu 2027-04-15 15:00-17:00 Föreläsning / Övning (+2 more). One mandatory course and one elective. The same pair overlapped 1 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SH1017 har 6 tillfälle(n) som krockar: tor 2027-03-18 15:00-17:00 Övning / Övning; tis 2027-03-23 15:00-17:00 Föreläsning / Workshop; ons 2027-03-24 15:00-17:00 Föreläsning / Föreläsning; tor 2027-04-15 15:00-17:00 Föreläsning / Övning (+2 till). Den ena kursen är obligatorisk, den andra valbar. VT26: 1 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SH1017: 6 overlapping session(s): Thu 2027-03-18 15:00-17:00 Övning / Övning; Tue 2027-03-23 15:00-17:00 Föreläsning / Workshop; Wed 2027-03-24 15:00-17:00 Föreläsning / Föreläsning; Thu 2027-04-15 15:00-17:00 Föreläsning / Övning (+2 more). One mandatory course and one elective. The same pair overlapped 1 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:144 2027-03-18 15:00-17:00 Övning",
     "CTMAT2_VT27_remiss.xlsx:145 2027-03-18 15:00-17:00 Övning",
@@ -619,7 +838,14 @@
    "scope": "CTMAT2",
    "course": "SF1693",
    "key": "SF1693",
-   "message": "SF1693 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-03-12); its syllabus (valid from HT2021) has TEN1 – Skriftlig tentamen, 6 hp.",
+   "message": {
+    "sv": "SF1693 har ingen omtentamen schemalagd denna termin, men den hade ordinarie tentamen VT26 (2026-03-12); kursplanen (giltig från HT2021) har TEN1 – Skriftlig tentamen, 6 hp.",
+    "en": "SF1693 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-03-12); its syllabus (valid from HT2021) has TEN1 – Skriftlig tentamen, 6 hp."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "reference_term": "VT26",
@@ -643,7 +869,14 @@
    "scope": "CTMAT2",
    "course": "SG1115",
    "key": "SG1115+SH1017:2027-08-17:2027-08-17",
-   "message": "SG1115 (reexam, Tue 2027-08-17 08:00) and SH1017 (reexam, Tue 2027-08-17 08:00): overlapping. Affects CTMAT2 students retaking SG1115 from year 1.",
+   "message": {
+    "sv": "SG1115 (omtentamen, tis 2027-08-17 08:00) och SH1017 (omtentamen, tis 2027-08-17 08:00) ligger samtidigt. Påverkar studenter i CTMAT2 som behöver tentera om SG1115 från årskurs 1.",
+    "en": "SG1115 (re-exam, Tue 2027-08-17 08:00) and SH1017 (re-exam, Tue 2027-08-17 08:00): overlapping. Affects CTMAT2 students retaking SG1115 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:213 2027-08-17 08:00-13:00 Omtenta",
     "CTMAT2_VT27_remiss.xlsx:284 2027-08-17 08:00-13:00 Omtenta"
@@ -677,7 +910,14 @@
    "scope": "CTMAT3",
    "course": "DD1367",
    "key": "DD1367+DD1420",
-   "message": "DD1367 and DD1420: 1 overlapping session(s): Tue 2027-02-16 13:00-15:00 Seminarium / Examination. Electives in the same subject (DD), plausibly taken together. No overlap in VT26.",
+   "message": {
+    "sv": "DD1367 och DD1420 har 1 tillfälle(n) som krockar: tis 2027-02-16 13:00-15:00 Seminarium / Examination. Valbara kurser inom samma ämne (DD), som ofta läses tillsammans. Inga krockar VT26.",
+    "en": "DD1367 and DD1420: 1 overlapping session(s): Tue 2027-02-16 13:00-15:00 Seminarium / Examination. Electives in the same subject (DD), plausibly taken together. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:282 2027-02-16 13:00-15:00 Seminarium",
     "CTMAT3_VT27_remiss.xlsx:280 2027-02-16 13:00-15:00 Examination"
@@ -717,7 +957,14 @@
    "scope": "CTMAT3",
    "course": "DD1367",
    "key": "DD1367+SA1006",
-   "message": "DD1367 and SA1006: 2 overlapping session(s): Fri 2027-04-16 10:00-12:00 Seminarium / Seminarium; Thu 2027-04-22 13:00-17:00 Redovisning / Seminarium. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "DD1367 och SA1006 har 2 tillfälle(n) som krockar: fre 2027-04-16 10:00-12:00 Seminarium / Seminarium; tor 2027-04-22 13:00-17:00 Redovisning / Seminarium. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "DD1367 and SA1006: 2 overlapping session(s): Fri 2027-04-16 10:00-12:00 Seminarium / Seminarium; Thu 2027-04-22 13:00-17:00 Redovisning / Seminarium. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:536 2027-04-16 10:00-12:00 Seminarium",
     "CTMAT3_VT27_remiss.xlsx:537 2027-04-16 10:00-12:00 Seminarium",
@@ -774,7 +1021,14 @@
    "scope": "CTMAT3",
    "course": "DD2352",
    "key": "DD2352",
-   "message": "DD2352 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp.",
+   "message": {
+    "sv": "DD2352 har ingen omtentamen schemalagd denna termin, men den hade ordinarie tentamen VT26 (2026-05-25); kursplanen (giltig från HT2026) har TEN2 – Skriftlig tentamen, 3 hp.",
+    "en": "DD2352 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "reference_term": "VT26",
@@ -798,7 +1052,14 @@
    "scope": "CTMAT3",
    "course": "EP1100",
    "key": "EP1100+FSF3812:2027-03-05:2027-03-05",
-   "message": "EP1100 (ordinary, Fri 2027-03-05 08:00) and FSF3812 (ordinary, Fri 2027-03-05 08:00): overlapping. At least one course is not in the study plan for this year.",
+   "message": {
+    "sv": "EP1100 (ordinarie tentamen, fre 2027-03-05 08:00) och FSF3812 (ordinarie tentamen, fre 2027-03-05 08:00) ligger samtidigt. Minst en av kurserna finns inte i utbildningsplanen för årskursen.",
+    "en": "EP1100 (exam, Fri 2027-03-05 08:00) and FSF3812 (exam, Fri 2027-03-05 08:00): overlapping. At least one course is not in the study plan for this year."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:369 2027-03-05 08:00-11:00 Examination",
     "CTMAT3_VT27_remiss.xlsx:370 2027-03-05 08:00-13:00 Tentamen"
@@ -832,7 +1093,14 @@
    "scope": "CTMAT3",
    "course": "FSF3812",
    "key": "FSF3812+DD1420:2027-03-05:2027-03-05",
-   "message": "FSF3812 (ordinary, Fri 2027-03-05 08:00) and DD1420 (ordinary, Fri 2027-03-05 14:00): same day. At least one course is not in the study plan for this year.",
+   "message": {
+    "sv": "FSF3812 (ordinarie tentamen, fre 2027-03-05 08:00) och DD1420 (ordinarie tentamen, fre 2027-03-05 14:00) ligger samma dag. Minst en av kurserna finns inte i utbildningsplanen för årskursen.",
+    "en": "FSF3812 (exam, Fri 2027-03-05 08:00) and DD1420 (exam, Fri 2027-03-05 14:00): same day. At least one course is not in the study plan for this year."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:370 2027-03-05 08:00-13:00 Tentamen",
     "CTMAT3_VT27_remiss.xlsx:372 2027-03-05 14:00-16:00 Examination"
@@ -866,7 +1134,14 @@
    "scope": "CTMAT3",
    "course": "SA1006",
    "key": "SA1006+SF2955",
-   "message": "SA1006 and SF2955: 2 overlapping session(s): Thu 2027-04-08 13:00-15:00 Seminarium / Lektion; Thu 2027-04-22 13:00-15:00 Seminarium / Lektion. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "SA1006 och SF2955 har 2 tillfälle(n) som krockar: tor 2027-04-08 13:00-15:00 Seminarium / Lektion; tor 2027-04-22 13:00-15:00 Seminarium / Lektion. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "SA1006 and SF2955: 2 overlapping session(s): Thu 2027-04-08 13:00-15:00 Seminarium / Lektion; Thu 2027-04-22 13:00-15:00 Seminarium / Lektion. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:493 2027-04-08 13:00-15:00 Seminarium",
     "CTMAT3_VT27_remiss.xlsx:492 2027-04-08 13:00-15:00 Lektion",
@@ -923,7 +1198,14 @@
    "scope": "CTMAT3",
    "course": "SF1677",
    "key": "SF1677+SF2955",
-   "message": "SF1677 and SF2955: 5 overlapping session(s): Tue 2027-04-06 13:00-15:00 Föreläsning / Lektion; Wed 2027-04-07 13:00-15:00 Övning / Lektion; Wed 2027-04-21 10:00-12:00 Föreläsning / Lektion; Thu 2027-04-29 10:00-12:00 Föreläsning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 2 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF2955 har 5 tillfälle(n) som krockar: tis 2027-04-06 13:00-15:00 Föreläsning / Lektion; ons 2027-04-07 13:00-15:00 Övning / Lektion; ons 2027-04-21 10:00-12:00 Föreläsning / Lektion; tor 2027-04-29 10:00-12:00 Föreläsning / Lektion (+1 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 2 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF2955: 5 overlapping session(s): Tue 2027-04-06 13:00-15:00 Föreläsning / Lektion; Wed 2027-04-07 13:00-15:00 Övning / Lektion; Wed 2027-04-21 10:00-12:00 Föreläsning / Lektion; Thu 2027-04-29 10:00-12:00 Föreläsning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 2 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:476 2027-04-06 13:00-15:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:479 2027-04-06 13:00-15:00 Lektion",
@@ -1027,7 +1309,14 @@
    "scope": "CTMAT3",
    "course": "SF1678",
    "key": "SF1678+SF2812",
-   "message": "SF1678 and SF2812: 9 overlapping session(s): Mon 2027-01-18 10:00-12:00 Föreläsning / Lektion; Mon 2027-01-25 10:00-12:00 Föreläsning / Lektion; Thu 2027-01-28 15:00-17:00 Övning / Lektion; Mon 2027-02-01 10:00-12:00 Föreläsning / Lektion (+5 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1678 och SF2812 har 9 tillfälle(n) som krockar: mån 2027-01-18 10:00-12:00 Föreläsning / Lektion; mån 2027-01-25 10:00-12:00 Föreläsning / Lektion; tor 2027-01-28 15:00-17:00 Övning / Lektion; mån 2027-02-01 10:00-12:00 Föreläsning / Lektion (+5 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1678 and SF2812: 9 overlapping session(s): Mon 2027-01-18 10:00-12:00 Föreläsning / Lektion; Mon 2027-01-25 10:00-12:00 Föreläsning / Lektion; Thu 2027-01-28 15:00-17:00 Övning / Lektion; Mon 2027-02-01 10:00-12:00 Föreläsning / Lektion (+5 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:53 2027-01-18 10:00-12:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:55 2027-01-18 10:00-12:00 Lektion",
@@ -1191,7 +1480,14 @@
    "scope": "CTMAT3",
    "course": "SF1691",
    "key": "SF1691+SF2955:2027-05-28:2027-05-28",
-   "message": "SF1691 (ordinary, Fri 2027-05-28 08:00) and SF2955 (ordinary, Fri 2027-05-28 08:00): overlapping. Electives in the same subject (SF), plausibly taken together.",
+   "message": {
+    "sv": "SF1691 (ordinarie tentamen, fre 2027-05-28 08:00) och SF2955 (ordinarie tentamen, fre 2027-05-28 08:00) ligger samtidigt. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans.",
+    "en": "SF1691 (exam, Fri 2027-05-28 08:00) and SF2955 (exam, Fri 2027-05-28 08:00): overlapping. Electives in the same subject (SF), plausibly taken together."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:677 2027-05-28 08:00-13:00 Tentamen",
     "CTMAT3_VT27_remiss.xlsx:678 2027-05-28 08:00-13:00 Tentamen"
@@ -1225,7 +1521,14 @@
    "scope": "CTMAT3",
    "course": "SF1691",
    "key": "SF1691+SF2930",
-   "message": "SF1691 and SF2930: 5 overlapping session(s): Thu 2027-01-28 10:00-12:00 Föreläsning / Lektion; Mon 2027-02-01 15:00-17:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Thu 2027-02-18 13:00-15:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SF2930 har 5 tillfälle(n) som krockar: tor 2027-01-28 10:00-12:00 Föreläsning / Lektion; mån 2027-02-01 15:00-17:00 Föreläsning / Lektion; tor 2027-02-04 13:00-15:00 Övning / Lektion; tor 2027-02-18 13:00-15:00 Övning / Lektion (+1 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 1 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SF2930: 5 overlapping session(s): Thu 2027-01-28 10:00-12:00 Föreläsning / Lektion; Mon 2027-02-01 15:00-17:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Thu 2027-02-18 13:00-15:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:134 2027-01-28 10:00-12:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:136 2027-01-28 10:00-12:00 Lektion",
@@ -1329,7 +1632,14 @@
    "scope": "CTMAT3",
    "course": "SF2701",
    "key": "SF2701+SF1678:2027-05-31:2027-05-31",
-   "message": "SF2701 (ordinary, Mon 2027-05-31 08:00) and SF1678 (ordinary, Mon 2027-05-31 14:00): same day. Electives in the same subject (SF), plausibly taken together.",
+   "message": {
+    "sv": "SF2701 (ordinarie tentamen, mån 2027-05-31 08:00) och SF1678 (ordinarie tentamen, mån 2027-05-31 14:00) ligger samma dag. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans.",
+    "en": "SF2701 (exam, Mon 2027-05-31 08:00) and SF1678 (exam, Mon 2027-05-31 14:00): same day. Electives in the same subject (SF), plausibly taken together."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:681 2027-05-31 08:00-13:00 Tentamen",
     "CTMAT3_VT27_remiss.xlsx:683 2027-05-31 14:00-18:00 Tentamen"
@@ -1363,7 +1673,14 @@
    "scope": "CTMAT3",
    "course": "SF2701",
    "key": "SF2701+SF2955",
-   "message": "SF2701 and SF2955: 6 overlapping session(s): Tue 2027-03-16 13:00-15:00 Föreläsning / Lektion; Thu 2027-03-25 08:00-10:00 Övning / Lektion; Tue 2027-04-06 13:00-15:00 Föreläsning / Lektion; Tue 2027-04-13 13:00-15:00 Övning / Lektion (+2 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 2 time(s) in VT26.",
+   "message": {
+    "sv": "SF2701 och SF2955 har 6 tillfälle(n) som krockar: tis 2027-03-16 13:00-15:00 Föreläsning / Lektion; tor 2027-03-25 08:00-10:00 Övning / Lektion; tis 2027-04-06 13:00-15:00 Föreläsning / Lektion; tis 2027-04-13 13:00-15:00 Övning / Lektion (+2 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 2 krock(ar) mellan samma kurser.",
+    "en": "SF2701 and SF2955: 6 overlapping session(s): Tue 2027-03-16 13:00-15:00 Föreläsning / Lektion; Thu 2027-03-25 08:00-10:00 Övning / Lektion; Tue 2027-04-06 13:00-15:00 Föreläsning / Lektion; Tue 2027-04-13 13:00-15:00 Övning / Lektion (+2 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 2 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:398 2027-03-16 13:00-15:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:400 2027-03-16 13:00-15:00 Lektion",
@@ -1482,7 +1799,14 @@
    "scope": "DD1367",
    "course": "DD1367",
    "key": "capacity",
-   "message": "DD1367: room seats compared with VT26 per occasion: 7 with ≥40% fewer seats, 6 with ≥20% fewer seats, 3 with ≥10% fewer seats. Largest reductions: S 2027-04-12: D41+E35+E51+E52 178 → Rinman 20; S 2027-05-24: M311+M312 100 → Lallerstedt 25; S 2027-05-21: M311+M312 100 → B26 30; S 2027-04-05: E31+E35+E51+E52+E53 212 → E31+E33+E34 100.",
+   "message": {
+    "sv": "DD1367: lokalernas platser jämfört med VT26 per tillfälle: 7 med minst 40 % färre platser, 6 med minst 20 % färre platser, 3 med minst 10 % färre platser. Störst minskning: S 2027-04-12: D41+E35+E51+E52 178 → Rinman 20; S 2027-05-24: M311+M312 100 → Lallerstedt 25; S 2027-05-21: M311+M312 100 → B26 30; S 2027-04-05: E31+E35+E51+E52+E53 212 → E31+E33+E34 100.",
+    "en": "DD1367: room seats compared with VT26 per occasion: 7 with ≥40% fewer seats, 6 with ≥20% fewer seats, 3 with ≥10% fewer seats. Largest reductions: S 2027-04-12: D41+E35+E51+E52 178 → Rinman 20; S 2027-05-24: M311+M312 100 → Lallerstedt 25; S 2027-05-21: M311+M312 100 → B26 30; S 2027-04-05: E31+E35+E51+E52+E53 212 → E31+E33+E34 100."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:511 2027-04-12 15:00-17:00 Seminarium",
     "CTMAT3_VT27_remiss.xlsx:669 2027-05-24 15:00-17:00 Seminarium",
@@ -1569,7 +1893,14 @@
    "scope": "DD2352",
    "course": "DD2352",
    "key": "capacity",
-   "message": "DD2352: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 11 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: F 2027-01-25: D2+K1 250 → K2 103; DL 2027-02-11: 4V4Gul+4V6 Bru 76 → 4V5Grö+4V6 Bru 56; Ö 2027-01-14: W43 140 → Q36+Q21 111; F 2027-01-27: D2 126 → B3 101.",
+   "message": {
+    "sv": "DD2352: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser, 2 med minst 20 % färre platser, 11 med minst 10 % färre platser, 1 med minst 50 % fler platser. Störst minskning: F 2027-01-25: D2+K1 250 → K2 103; DL 2027-02-11: 4V4Gul+4V6 Bru 76 → 4V5Grö+4V6 Bru 56; Ö 2027-01-14: W43 140 → Q36+Q21 111; F 2027-01-27: D2 126 → B3 101.",
+    "en": "DD2352: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 11 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: F 2027-01-25: D2+K1 250 → K2 103; DL 2027-02-11: 4V4Gul+4V6 Bru 76 → 4V5Grö+4V6 Bru 56; Ö 2027-01-14: W43 140 → Q36+Q21 111; F 2027-01-27: D2 126 → B3 101."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:104 2027-01-25 13:00-15:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:242 2027-02-11 09:00-12:00 Datorlaboration",
@@ -1649,7 +1980,14 @@
    "scope": "EL2810",
    "course": "EL2810",
    "key": "capacity",
-   "message": "EL2810: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 1 with ≥20% fewer seats, 4 with ≥10% fewer seats. Largest reductions: DL 2027-02-03: XQ23+XQ25 128 → XQ23 64; Ö 2027-02-25: E53 76 → B21+B23 60; Ö 2027-02-16: E53 76 → B23+D42 62; Ö 2027-01-28: E33 72 → B26+B24 60.",
+   "message": {
+    "sv": "EL2810: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser, 1 med minst 20 % färre platser, 4 med minst 10 % färre platser. Störst minskning: DL 2027-02-03: XQ23+XQ25 128 → XQ23 64; Ö 2027-02-25: E53 76 → B21+B23 60; Ö 2027-02-16: E53 76 → B23+D42 62; Ö 2027-01-28: E33 72 → B26+B24 60.",
+    "en": "EL2810: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 1 with ≥20% fewer seats, 4 with ≥10% fewer seats. Largest reductions: DL 2027-02-03: XQ23+XQ25 128 → XQ23 64; Ö 2027-02-25: E53 76 → B21+B23 60; Ö 2027-02-16: E53 76 → B23+D42 62; Ö 2027-01-28: E33 72 → B26+B24 60."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:180 2027-02-03 13:00-15:00 Datorlaboration",
     "CTMAT3_VT27_remiss.xlsx:342 2027-02-25 08:00-10:00 Övning",
@@ -1729,7 +2067,14 @@
    "scope": "EP1100",
    "course": "EP1100",
    "key": "capacity",
-   "message": "EP1100: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 4 with ≥10% fewer seats. Largest reductions: Le 2027-01-27: U51 71 → E31 36; Le 2027-01-12: D35 32 → D33 26; Le 2027-01-14: D35 32 → D33 26; Le 2027-02-23: D35 32 → D33 26.",
+   "message": {
+    "sv": "EP1100: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser, 4 med minst 10 % färre platser. Störst minskning: Le 2027-01-27: U51 71 → E31 36; Le 2027-01-12: D35 32 → D33 26; Le 2027-01-14: D35 32 → D33 26; Le 2027-02-23: D35 32 → D33 26.",
+    "en": "EP1100: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 4 with ≥10% fewer seats. Largest reductions: Le 2027-01-27: U51 71 → E31 36; Le 2027-01-12: D35 32 → D33 26; Le 2027-01-14: D35 32 → D33 26; Le 2027-02-23: D35 32 → D33 26."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:122 2027-01-27 08:00-10:00 Lektion",
     "CTMAT3_VT27_remiss.xlsx:12 2027-01-12 13:00-15:00 Lektion",
@@ -1805,7 +2150,14 @@
    "scope": "SA1006",
    "course": "SA1006",
    "key": "SA1006-51999 (HT25)",
-   "message": "6 VT27 teaching row(s) reference course round SA1006-51999 (HT25), expected a HT26 or VT27 round. Possibly a stale round; check with the scheduler.",
+   "message": {
+    "sv": "6 undervisningsrad(er) VT27 är kopplade till kurstillfälle SA1006-51999 (HT25), väntat var ett tillfälle HT26 eller VT27. Troligen ett gammalt tillfälle.",
+    "en": "6 VT27 teaching row(s) reference course round SA1006-51999 (HT25), expected a HT26 or VT27 round. Possibly a stale round; check with the scheduler."
+   },
+   "ask": {
+    "sv": "Ska de kopplas till innevarande kurstillfälle?",
+    "en": "Should they be linked to the current course round?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:137 2027-04-08 13:00-15:00 Seminarium",
     "CTMAT1_VT27_remiss.xlsx:152 2027-04-16 10:00-12:00 Seminarium",
@@ -1820,7 +2172,14 @@
    "scope": "SF1550",
    "course": "SF1550",
    "key": "capacity",
-   "message": "SF1550: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: DL 2027-01-14: 4V4Gul+4V6 Bru 76 → 4V6 Bru 40; Red 2027-02-17: 4V5Grö+E31 52 → 4V4Gul 36; DL 2027-01-28: 4V4Gul+4V6 Bru 76 → 4V5Grö+4V6 Bru 56; Red 2027-02-18: 4V6 Bru 40 → 4V4Gul 36.",
+   "message": {
+    "sv": "SF1550: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser, 2 med minst 20 % färre platser, 1 med minst 10 % färre platser. Störst minskning: DL 2027-01-14: 4V4Gul+4V6 Bru 76 → 4V6 Bru 40; Red 2027-02-17: 4V5Grö+E31 52 → 4V4Gul 36; DL 2027-01-28: 4V4Gul+4V6 Bru 76 → 4V5Grö+4V6 Bru 56; Red 2027-02-18: 4V6 Bru 40 → 4V4Gul 36.",
+    "en": "SF1550: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: DL 2027-01-14: 4V4Gul+4V6 Bru 76 → 4V6 Bru 40; Red 2027-02-17: 4V5Grö+E31 52 → 4V4Gul 36; DL 2027-01-28: 4V4Gul+4V6 Bru 76 → 4V5Grö+4V6 Bru 56; Red 2027-02-18: 4V6 Bru 40 → 4V4Gul 36."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:13 2027-01-14 15:00-17:00 Datorlaboration",
     "CTMAT1_VT27_remiss.xlsx:68 2027-02-17 15:00-17:00 Redovisning",
@@ -1900,7 +2259,14 @@
    "scope": "SF1677",
    "course": "SF1677",
    "key": "capacity",
-   "message": "SF1677: room seats compared with VT26 per occasion: 2 with ≥40% fewer seats, 2 with ≥20% fewer seats, 35 with ≥50% more seats. Largest reductions: Ö 2027-05-04: W42+W43 140 → M33 60; Ö 2027-04-07: Q33+Q34 120 → Q31 60; Ö 2027-02-26: V33+V35 96 → Q34 60; Ö 2027-02-05: Q22+Q26 80 → Q31 60.",
+   "message": {
+    "sv": "SF1677: lokalernas platser jämfört med VT26 per tillfälle: 2 med minst 40 % färre platser, 2 med minst 20 % färre platser, 35 med minst 50 % fler platser. Störst minskning: Ö 2027-05-04: W42+W43 140 → M33 60; Ö 2027-04-07: Q33+Q34 120 → Q31 60; Ö 2027-02-26: V33+V35 96 → Q34 60; Ö 2027-02-05: Q22+Q26 80 → Q31 60.",
+    "en": "SF1677: room seats compared with VT26 per occasion: 2 with ≥40% fewer seats, 2 with ≥20% fewer seats, 35 with ≥50% more seats. Largest reductions: Ö 2027-05-04: W42+W43 140 → M33 60; Ö 2027-04-07: Q33+Q34 120 → Q31 60; Ö 2027-02-26: V33+V35 96 → Q34 60; Ö 2027-02-05: Q22+Q26 80 → Q31 60."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:237 2027-05-04 13:00-15:00 Övning",
     "CTMAT2_VT27_remiss.xlsx:181 2027-04-07 13:00-15:00 Övning",
@@ -1980,7 +2346,14 @@
    "scope": "SF1678",
    "course": "SF1678",
    "key": "capacity",
-   "message": "SF1678: room seats compared with VT26 per occasion: 8 with ≥40% fewer seats, 1 with ≥20% fewer seats, 5 with ≥10% fewer seats. Largest reductions: Ö 2027-01-28: Q34+Q36 120 → Q33 60; Ö 2027-02-18: Q31+Q33 120 → Q31 60; Ö 2027-03-19: Q34+Q36 120 → Q34 60; F 2027-05-10: Q33+Q34 120 → Q31 60.",
+   "message": {
+    "sv": "SF1678: lokalernas platser jämfört med VT26 per tillfälle: 8 med minst 40 % färre platser, 1 med minst 20 % färre platser, 5 med minst 10 % färre platser. Störst minskning: Ö 2027-01-28: Q34+Q36 120 → Q33 60; Ö 2027-02-18: Q31+Q33 120 → Q31 60; Ö 2027-03-19: Q34+Q36 120 → Q34 60; F 2027-05-10: Q33+Q34 120 → Q31 60.",
+    "en": "SF1678: room seats compared with VT26 per occasion: 8 with ≥40% fewer seats, 1 with ≥20% fewer seats, 5 with ≥10% fewer seats. Largest reductions: Ö 2027-01-28: Q34+Q36 120 → Q33 60; Ö 2027-02-18: Q31+Q33 120 → Q31 60; Ö 2027-03-19: Q34+Q36 120 → Q34 60; F 2027-05-10: Q33+Q34 120 → Q31 60."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:54 2027-01-28 15:00-17:00 Övning",
     "CTMAT2_VT27_remiss.xlsx:104 2027-02-18 15:00-17:00 Övning",
@@ -2060,7 +2433,14 @@
    "scope": "SF1679",
    "course": "SF1679",
    "key": "capacity",
-   "message": "SF1679: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 3 with ≥10% fewer seats, 7 with ≥50% more seats. Largest reductions: F 2027-01-22: F2 238 → B3 101; F 2027-02-09: B2 131 → M3 98; F 2027-02-10: B2 131 → B1 101; F 2027-01-12: D2 126 → B3 101.",
+   "message": {
+    "sv": "SF1679: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser, 2 med minst 20 % färre platser, 3 med minst 10 % färre platser, 7 med minst 50 % fler platser. Störst minskning: F 2027-01-22: F2 238 → B3 101; F 2027-02-09: B2 131 → M3 98; F 2027-02-10: B2 131 → B1 101; F 2027-01-12: D2 126 → B3 101.",
+    "en": "SF1679: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 3 with ≥10% fewer seats, 7 with ≥50% more seats. Largest reductions: F 2027-01-22: F2 238 → B3 101; F 2027-02-09: B2 131 → M3 98; F 2027-02-10: B2 131 → B1 101; F 2027-01-12: D2 126 → B3 101."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:38 2027-01-22 10:00-12:00 Föreläsning",
     "CTMAT2_VT27_remiss.xlsx:79 2027-02-09 13:00-15:00 Föreläsning",
@@ -2136,7 +2516,14 @@
    "scope": "SF2812",
    "course": "SF2812",
    "key": "capacity",
-   "message": "SF2812: room seats compared with VT26 per occasion: 15 with ≥40% fewer seats, 10 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: Le 2027-02-03: K1 124 → D41 40; Le 2027-02-24: U51 71 → V01 40; Le 2027-01-14: U21 70 → V01 40; Le 2027-01-15: W42 70 → V01 40.",
+   "message": {
+    "sv": "SF2812: lokalernas platser jämfört med VT26 per tillfälle: 15 med minst 40 % färre platser, 10 med minst 20 % färre platser, 1 med minst 10 % färre platser. Störst minskning: Le 2027-02-03: K1 124 → D41 40; Le 2027-02-24: U51 71 → V01 40; Le 2027-01-14: U21 70 → V01 40; Le 2027-01-15: W42 70 → V01 40.",
+    "en": "SF2812: room seats compared with VT26 per occasion: 15 with ≥40% fewer seats, 10 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: Le 2027-02-03: K1 124 → D41 40; Le 2027-02-24: U51 71 → V01 40; Le 2027-01-14: U21 70 → V01 40; Le 2027-01-15: W42 70 → V01 40."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:179 2027-02-03 10:00-12:00 Lektion",
     "CTMAT3_VT27_remiss.xlsx:337 2027-02-24 10:00-12:00 Lektion",
@@ -2212,7 +2599,14 @@
    "scope": "SG1115",
    "course": "SG1115",
    "key": "capacity",
-   "message": "SG1115: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 8 with ≥10% fewer seats. Largest reductions: Ö 2027-04-28: Q15+Q17+V01 120 → E33+E36 72; P 2027-05-11: E51+E52 94 → E33+E36 72; W 2027-05-04: Q15+Q21 91 → D32+E31 72; Ö 2027-03-18: Q15+Q17 80 → E33+E36 72.",
+   "message": {
+    "sv": "SG1115: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser, 2 med minst 20 % färre platser, 8 med minst 10 % färre platser. Störst minskning: Ö 2027-04-28: Q15+Q17+V01 120 → E33+E36 72; P 2027-05-11: E51+E52 94 → E33+E36 72; W 2027-05-04: Q15+Q21 91 → D32+E31 72; Ö 2027-03-18: Q15+Q17 80 → E33+E36 72.",
+    "en": "SG1115: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 8 with ≥10% fewer seats. Largest reductions: Ö 2027-04-28: Q15+Q17+V01 120 → E33+E36 72; P 2027-05-11: E51+E52 94 → E33+E36 72; W 2027-05-04: Q15+Q21 91 → D32+E31 72; Ö 2027-03-18: Q15+Q17 80 → E33+E36 72."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:167 2027-04-28 13:00-15:00 Övning",
     "CTMAT1_VT27_remiss.xlsx:183 2027-05-11 10:00-12:00 Projektarbete",
@@ -2297,7 +2691,14 @@
    "scope": "SG1217",
    "course": "SG1217",
    "key": "capacity",
-   "message": "SG1217: room seats compared with VT26 per occasion: 5 with ≥40% fewer seats, 2 with ≥20% fewer seats, 5 with ≥10% fewer seats, 3 with ≥50% more seats. Largest reductions: Ö 2027-02-18: U41+U51 143 → E33+E34 64; F 2027-01-27: M1 262 → B2 131; Ö 2027-01-29: U31+U41 142 → D41+D42 72; Ö 2027-02-11: U21+U31 140 → Q22+Q26 80.",
+   "message": {
+    "sv": "SG1217: lokalernas platser jämfört med VT26 per tillfälle: 5 med minst 40 % färre platser, 2 med minst 20 % färre platser, 5 med minst 10 % färre platser, 3 med minst 50 % fler platser. Störst minskning: Ö 2027-02-18: U41+U51 143 → E33+E34 64; F 2027-01-27: M1 262 → B2 131; Ö 2027-01-29: U31+U41 142 → D41+D42 72; Ö 2027-02-11: U21+U31 140 → Q22+Q26 80.",
+    "en": "SG1217: room seats compared with VT26 per occasion: 5 with ≥40% fewer seats, 2 with ≥20% fewer seats, 5 with ≥10% fewer seats, 3 with ≥50% more seats. Largest reductions: Ö 2027-02-18: U41+U51 143 → E33+E34 64; F 2027-01-27: M1 262 → B2 131; Ö 2027-01-29: U31+U41 142 → D41+D42 72; Ö 2027-02-11: U21+U31 140 → Q22+Q26 80."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:298 2027-02-18 10:00-12:00 Övning",
     "CTMAT3_VT27_remiss.xlsx:127 2027-01-27 13:00-15:00 Föreläsning",
@@ -2379,7 +2780,14 @@
    "scope": "SI1155",
    "course": "SI1155",
    "key": "capacity",
-   "message": "SI1155: room seats compared with VT26 per occasion: 20 with ≥40% fewer seats, 6 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: Ö 2027-04-12: FR4 267 → FA31+FA32 82; F 2027-03-16: FR4 267 → FD5 114; F 2027-03-17: FR4 267 → FD5 114; F 2027-03-19: FR4 267 → FD5 114.",
+   "message": {
+    "sv": "SI1155: lokalernas platser jämfört med VT26 per tillfälle: 20 med minst 40 % färre platser, 6 med minst 20 % färre platser, 1 med minst 10 % färre platser. Störst minskning: Ö 2027-04-12: FR4 267 → FA31+FA32 82; F 2027-03-16: FR4 267 → FD5 114; F 2027-03-17: FR4 267 → FD5 114; F 2027-03-19: FR4 267 → FD5 114.",
+    "en": "SI1155: room seats compared with VT26 per occasion: 20 with ≥40% fewer seats, 6 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: Ö 2027-04-12: FR4 267 → FA31+FA32 82; F 2027-03-16: FR4 267 → FD5 114; F 2027-03-17: FR4 267 → FD5 114; F 2027-03-19: FR4 267 → FD5 114."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:512 2027-04-12 15:00-17:00 Övning",
     "CTMAT3_VT27_remiss.xlsx:395 2027-03-16 08:00-10:00 Föreläsning",
@@ -2456,7 +2864,14 @@
    "scope": "DD1328",
    "course": "DD1328",
    "key": "capacity",
-   "message": "DD1328: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 10 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: Ö 2027-03-19: D32+D33+D4448 90 → D41+D42 72; Ö 2027-03-24: D32+D33+D4448 90 → E35+E36 80; Ö 2027-04-09: D32+D33+D4448 90 → E35+E36 80; F 2027-01-12: Q2 80 → V3 72.",
+   "message": {
+    "sv": "DD1328: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 20 % färre platser, 10 med minst 10 % färre platser, 1 med minst 50 % fler platser. Störst minskning: Ö 2027-03-19: D32+D33+D4448 90 → D41+D42 72; Ö 2027-03-24: D32+D33+D4448 90 → E35+E36 80; Ö 2027-04-09: D32+D33+D4448 90 → E35+E36 80; F 2027-01-12: Q2 80 → V3 72.",
+    "en": "DD1328: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 10 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: Ö 2027-03-19: D32+D33+D4448 90 → D41+D42 72; Ö 2027-03-24: D32+D33+D4448 90 → E35+E36 80; Ö 2027-04-09: D32+D33+D4448 90 → E35+E36 80; F 2027-01-12: Q2 80 → V3 72."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:104 2027-03-19 10:00-12:00 Övning",
     "CTMAT1_VT27_remiss.xlsx:112 2027-03-24 13:00-15:00 Övning",
@@ -2541,7 +2956,14 @@
    "scope": "DD1328",
    "course": "DD1328",
    "key": "Datorlaboration:15>13,Föreläsning:13>14,Workshop:0>3,Övning:7>4",
-   "message": "DD1328: number of occasions changed (VT26→VT27): Datorlaboration 15→13; Föreläsning 13→14; Workshop 0→3; Övning 7→4. Sequence: P3 w2: F F [Ö F F DL Ö] DL DL … → F F [F F W] DL DL …; P3 w6–w7: … F F [Ö F F DL Ö] DL DL … → … F F [F F W DL] DL DL …; P4 w3–w7: … Ö F [Ö DL F DL F DL DL DL DL] → … Ö F [DL Ö F F DL Ö F W DL DL DL].",
+   "message": {
+    "sv": "DD1328: antalet tillfällen har ändrats (VT26→VT27): Datorlaboration 15→13; Föreläsning 13→14; Workshop 0→3; Övning 7→4. Sekvens (VT26 → VT27): P3 v2: F F [Ö F F DL Ö] DL DL … → F F [F F W] DL DL …; P3 v6–7: … F F [Ö F F DL Ö] DL DL … → … F F [F F W DL] DL DL …; P4 v3–7: … Ö F [Ö DL F DL F DL DL DL DL] → … Ö F [DL Ö F F DL Ö F W DL DL DL].",
+    "en": "DD1328: number of occasions changed (VT26→VT27): Datorlaboration 15→13; Föreläsning 13→14; Workshop 0→3; Övning 7→4. Sequence: P3 w2: F F [Ö F F DL Ö] DL DL … → F F [F F W] DL DL …; P3 w6–7: … F F [Ö F F DL Ö] DL DL … → … F F [F F W DL] DL DL …; P4 w3–7: … Ö F [Ö DL F DL F DL DL DL DL] → … Ö F [DL Ö F F DL Ö F W DL DL DL]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -3661,7 +4083,14 @@
    "scope": "DD1367",
    "course": "DD1367",
    "key": "Föreläsning:2>1,Handledning:6>5,Seminarium:21>27",
-   "message": "DD1367: number of occasions changed (VT26→VT27): Föreläsning 2→1; Handledning 6→5; Seminarium 21→27. Sequence: P3 w6: … S S [F] Handledning S … → … S S [S] Handledning S …; P4 w4–w5: … Ö S [Red S Handledning] Handledning S … → … Ö S [S S S S S Red S] Handledning S ….",
+   "message": {
+    "sv": "DD1367: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 2→1; Handledning 6→5; Seminarium 21→27. Sekvens (VT26 → VT27): P3 v6: … S S [F] Handledning S … → … S S [S] Handledning S …; P4 v4–5: … Ö S [Red S Handledning] Handledning S … → … Ö S [S S S S S Red S] Handledning S ….",
+    "en": "DD1367: number of occasions changed (VT26→VT27): Föreläsning 2→1; Handledning 6→5; Seminarium 21→27. Sequence: P3 w6: … S S [F] Handledning S … → … S S [S] Handledning S …; P4 w4–5: … Ö S [Red S Handledning] Handledning S … → … Ö S [S S S S S Red S] Handledning S …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -4691,7 +5120,14 @@
    "scope": "DD1367",
    "course": "DD1367",
    "key": "shifts:1",
-   "message": "DD1367: 1 occasion(s) moved ≥2 teaching weeks: Seminarium P4 exams→P4 w9.",
+   "message": {
+    "sv": "DD1367: 1 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Seminarium P4 tentaperiod→P4 v9.",
+    "en": "DD1367: 1 occasion(s) moved ≥2 teaching weeks: Seminarium P4 exams→P4 w9."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:663 2027-05-21 13:00-15:00 Seminarium"
    ],
@@ -4706,7 +5142,14 @@
    "scope": "DD1396",
    "course": "DD1396",
    "key": "Datorlaboration:3>4,Föreläsning:3>4",
-   "message": "DD1396: number of occasions changed (VT26→VT27): Datorlaboration 3→4; Föreläsning 3→4. Sequence: P4 w4: … F DL [–] → … F DL [F DL].",
+   "message": {
+    "sv": "DD1396: antalet tillfällen har ändrats (VT26→VT27): Datorlaboration 3→4; Föreläsning 3→4. Sekvens (VT26 → VT27): P4 v4: … F DL [–] → … F DL [F DL].",
+    "en": "DD1396: number of occasions changed (VT26→VT27): Datorlaboration 3→4; Föreläsning 3→4. Sequence: P4 w4: … F DL [–] → … F DL [F DL]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -4959,7 +5402,14 @@
    "scope": "DD1420",
    "course": "DD1420",
    "key": "Examination:0>4,Lektion:4>0",
-   "message": "DD1420: number of occasions changed (VT26→VT27): Examination 0→4; Lektion 4→0. Sequence: P3 w1–P3 exams: F [Le F Le F Le F Le] → F [EX F EX F EX F EX].",
+   "message": {
+    "sv": "DD1420: antalet tillfällen har ändrats (VT26→VT27): Examination 0→4; Lektion 4→0. Sekvens (VT26 → VT27): P3 v1–P3 tentaperiod: F [Le F Le F Le F Le] → F [EX F EX F EX F EX].",
+    "en": "DD1420: number of occasions changed (VT26→VT27): Examination 0→4; Lektion 4→0. Sequence: P3 w1–P3 exams: F [Le F Le F Le F Le] → F [EX F EX F EX F EX]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -5295,7 +5745,14 @@
    "scope": "DD232V",
    "course": "DD232V",
    "key": "DD232V",
-   "message": "DD232V has teaching in VT27 but had none in VT26.",
+   "message": {
+    "sv": "DD232V har undervisning VT27 men hade ingen VT26.",
+    "en": "DD232V has teaching in VT27 but had none in VT26."
+   },
+   "ask": {
+    "sv": "Stämmer det att den ska ingå?",
+    "en": "Is it meant to be included?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -5306,7 +5763,14 @@
    "scope": "DD2352",
    "course": "DD2352",
    "key": "Tentamen:1>0",
-   "message": "DD2352: number of occasions changed (VT26→VT27): Tentamen 1→0. Sequence: P4 w1–w5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F].",
+   "message": {
+    "sv": "DD2352: antalet tillfällen har ändrats (VT26→VT27): Tentamen 1→0. Sekvens (VT26 → VT27): P4 v1–5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F].",
+    "en": "DD2352: number of occasions changed (VT26→VT27): Tentamen 1→0. Sequence: P4 w1–5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -6245,7 +6709,14 @@
    "scope": "DD2352",
    "course": "DD2352",
    "key": "shifts:2",
-   "message": "DD2352: 2 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w1→P3 w6; Datorlaboration P4 w2→P4 w4.",
+   "message": {
+    "sv": "DD2352: 2 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Föreläsning P4 v1→P3 v6; Datorlaboration P4 v2→P4 v4.",
+    "en": "DD2352: 2 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w1→P3 w6; Datorlaboration P4 w2→P4 w4."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:267 2027-02-15 13:00-15:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:522 2027-04-14 09:00-12:00 Datorlaboration"
@@ -6261,7 +6732,14 @@
    "scope": "DD2421",
    "course": "DD2421",
    "key": "EXA1,TEN1>TEN1",
-   "message": "DD2421: exam modules on ordinary exams changed: EXA1, TEN1 → TEN1.",
+   "message": {
+    "sv": "DD2421: examinationsmodulerna på ordinarie tentamen har ändrats: EXA1, TEN1 → TEN1.",
+    "en": "DD2421: exam modules on ordinary exams changed: EXA1, TEN1 → TEN1."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt? (Kontrollera kursplanen.)",
+    "en": "Is this intended? (Check the syllabus.)"
+   },
    "evidence": [],
    "details": {
     "old": [
@@ -6280,7 +6758,14 @@
    "scope": "DH1623",
    "course": "DH1623",
    "key": "Föreläsning:5>6,Handledning:0>4,Lektion:5>0,Redovisning:0>5",
-   "message": "DH1623: number of occasions changed (VT26→VT27): Föreläsning 5→6; Handledning 0→4; Lektion 5→0; Redovisning 0→5. Sequence: P3 w2–w8: F [Le F Le F Le F Le F Le S] → F [Handledning Red F Handledning Red F Handledning Red F Handledning Red F S F Red].",
+   "message": {
+    "sv": "DH1623: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 5→6; Handledning 0→4; Lektion 5→0; Redovisning 0→5. Sekvens (VT26 → VT27): P3 v2–8: F [Le F Le F Le F Le F Le S] → F [Handledning Red F Handledning Red F Handledning Red F Handledning Red F S F Red].",
+    "en": "DH1623: number of occasions changed (VT26→VT27): Föreläsning 5→6; Handledning 0→4; Lektion 5→0; Redovisning 0→5. Sequence: P3 w2–8: F [Le F Le F Le F Le F Le S] → F [Handledning Red F Handledning Red F Handledning Red F Handledning Red F S F Red]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -6858,7 +7343,14 @@
    "scope": "DH1624",
    "course": "DH1624",
    "key": "Redovisning:1>0",
-   "message": "DH1624: number of occasions changed (VT26→VT27): Redovisning 1→0. Sequence: P4 exams: … Handledning Handledning [Red] → … Handledning Handledning [–].",
+   "message": {
+    "sv": "DH1624: antalet tillfällen har ändrats (VT26→VT27): Redovisning 1→0. Sekvens (VT26 → VT27): P4 tentaperiod: … Handledning Handledning [Red] → … Handledning Handledning [–].",
+    "en": "DH1624: number of occasions changed (VT26→VT27): Redovisning 1→0. Sequence: P4 exams: … Handledning Handledning [Red] → … Handledning Handledning [–]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -7217,7 +7709,14 @@
    "scope": "EL2810",
    "course": "EL2810",
    "key": "order",
-   "message": "EL2810: same occasions in a different order: P3 w6: … F Ö [F DL] F Ö … → … F Ö [DL F] F Ö ….",
+   "message": {
+    "sv": "EL2810: samma tillfällen som VT26 men i annan ordning (VT26 → VT27): P3 v6: … F Ö [F DL] F Ö … → … F Ö [DL F] F Ö ….",
+    "en": "EL2810: same occasions in a different order: P3 w6: … F Ö [F DL] F Ö … → … F Ö [DL F] F Ö …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -7934,7 +8433,14 @@
    "scope": "EP1100",
    "course": "EP1100",
    "key": "Laboration:2>1",
-   "message": "EP1100: number of occasions changed (VT26→VT27): Laboration 2→1. Sequence: P3 w1: [Le] Le Le … → [–] Le Le …; P3 w6–w7: … Le Le [EX Le Le L L] Le EX → … Le Le [Le EX Le Le L] Le EX.",
+   "message": {
+    "sv": "EP1100: antalet tillfällen har ändrats (VT26→VT27): Laboration 2→1. Sekvens (VT26 → VT27): P3 v1: [Le] Le Le … → [–] Le Le …; P3 v6–7: … Le Le [EX Le Le L L] Le EX → … Le Le [Le EX Le Le L] Le EX.",
+    "en": "EP1100: number of occasions changed (VT26→VT27): Laboration 2→1. Sequence: P3 w1: [Le] Le Le … → [–] Le Le …; P3 w6–7: … Le Le [EX Le Le L L] Le EX → … Le Le [Le EX Le Le L] Le EX."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -8524,7 +9030,14 @@
    "scope": "FDD3431",
    "course": "FDD3431",
    "key": "Föreläsning:0>12",
-   "message": "FDD3431: number of occasions changed (VT26→VT27): Föreläsning 0→12. Sequence: P3 w1–w7: [–] TEN → [F F F F F F F F F F F F] TEN.",
+   "message": {
+    "sv": "FDD3431: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 0→12. Sekvens (VT26 → VT27): P3 v1–7: [–] TEN → [F F F F F F F F F F F F] TEN.",
+    "en": "FDD3431: number of occasions changed (VT26→VT27): Föreläsning 0→12. Sequence: P3 w1–7: [–] TEN → [F F F F F F F F F F F F] TEN."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -8838,7 +9351,14 @@
    "scope": "FDD3431",
    "course": "FDD3431",
    "key": "EXA1,TEN1>TEN1",
-   "message": "FDD3431: exam modules on ordinary exams changed: EXA1, TEN1 → TEN1.",
+   "message": {
+    "sv": "FDD3431: examinationsmodulerna på ordinarie tentamen har ändrats: EXA1, TEN1 → TEN1.",
+    "en": "FDD3431: exam modules on ordinary exams changed: EXA1, TEN1 → TEN1."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt? (Kontrollera kursplanen.)",
+    "en": "Is this intended? (Check the syllabus.)"
+   },
    "evidence": [],
    "details": {
     "old": [
@@ -8857,7 +9377,14 @@
    "scope": "FSF3812",
    "course": "FSF3812",
    "key": "Lektion:12>0",
-   "message": "FSF3812: number of occasions changed (VT26→VT27): Lektion 12→0. Sequence: P3 w5–w8: [Le Le Le Le Le Le Le Le Le Le Le Le] TEN → [–] TEN.",
+   "message": {
+    "sv": "FSF3812: antalet tillfällen har ändrats (VT26→VT27): Lektion 12→0. Sekvens (VT26 → VT27): P3 v5–8: [Le Le Le Le Le Le Le Le Le Le Le Le] TEN → [–] TEN.",
+    "en": "FSF3812: number of occasions changed (VT26→VT27): Lektion 12→0. Sequence: P3 w5–8: [Le Le Le Le Le Le Le Le Le Le Le Le] TEN → [–] TEN."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -9132,7 +9659,14 @@
    "scope": "IS1200",
    "course": "IS1200",
    "key": "IS1200",
-   "message": "IS1200 had teaching in VT26 but none in VT27.",
+   "message": {
+    "sv": "IS1200 hade undervisning VT26 men har ingen VT27.",
+    "en": "IS1200 had teaching in VT26 but none in VT27."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -9143,7 +9677,14 @@
    "scope": "IS1500",
    "course": "IS1500",
    "key": "IS1500",
-   "message": "IS1500 had teaching in VT26 but none in VT27.",
+   "message": {
+    "sv": "IS1500 hade undervisning VT26 men har ingen VT27.",
+    "en": "IS1500 had teaching in VT26 but none in VT27."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -9154,7 +9695,14 @@
    "scope": "SA1006",
    "course": "SA1006",
    "key": "shifts:5",
-   "message": "SA1006: 5 occasion(s) moved ≥2 teaching weeks: Seminarium P4 w1→P4 w3; Seminarium P4 w2→P4 w4; Seminarium P4 w3→P4 w5; Seminarium P4 w4→P4 w6; Seminarium P4 w5→P4 w7.",
+   "message": {
+    "sv": "SA1006: 5 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Seminarium P4 v1→P4 v3; Seminarium P4 v2→P4 v4; Seminarium P4 v3→P4 v5; Seminarium P4 v4→P4 v6; Seminarium P4 v5→P4 v7.",
+    "en": "SA1006: 5 occasion(s) moved ≥2 teaching weeks: Seminarium P4 w1→P4 w3; Seminarium P4 w2→P4 w4; Seminarium P4 w3→P4 w5; Seminarium P4 w4→P4 w6; Seminarium P4 w5→P4 w7."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:137 2027-04-08 13:00-15:00 Seminarium",
     "CTMAT1_VT27_remiss.xlsx:152 2027-04-16 10:00-12:00 Seminarium",
@@ -9173,7 +9721,14 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "Information:0>1,Projektarbete:48>64,Seminarium:3>0",
-   "message": "SA114X: number of occasions changed (VT26→VT27): Information 0→1; Projektarbete 48→64; Seminarium 3→0. Sequence: P3 w1: [P P P P P S] P P … → [Info] P P …; P4 w1–w7: … P P [S P S] P P … → … P P [P P P P P P P P P P P P P P P P P P P P P P] P P ….",
+   "message": {
+    "sv": "SA114X: antalet tillfällen har ändrats (VT26→VT27): Information 0→1; Projektarbete 48→64; Seminarium 3→0. Sekvens (VT26 → VT27): P3 v1: [P P P P P S] P P … → [Info] P P …; P4 v1–7: … P P [S P S] P P … → … P P [P P P P P P P P P P P P P P P P P P P P P P] P P ….",
+    "en": "SA114X: number of occasions changed (VT26→VT27): Information 0→1; Projektarbete 48→64; Seminarium 3→0. Sequence: P3 w1: [P P P P P S] P P … → [Info] P P …; P4 w1–7: … P P [S P S] P P … → … P P [P P P P P P P P P P P P P P P P P P P P P P] P P …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -11036,7 +11591,14 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "shifts:39",
-   "message": "SA114X: 39 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2 (+33 more).",
+   "message": {
+    "sv": "SA114X: 39 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Projektarbete P3 v3→P3 v1; Projektarbete P3 v3→P3 v1; Projektarbete P3 v3→P3 v1; Projektarbete P3 v4→P3 v2; Projektarbete P3 v4→P3 v2; Projektarbete P3 v4→P3 v2 (+33 till).",
+    "en": "SA114X: 39 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2 (+33 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:22 2027-01-13 10:00-12:00 Projektarbete",
     "CTMAT3_VT27_remiss.xlsx:25 2027-01-13 13:00-17:00 Projektarbete",
@@ -11056,7 +11618,14 @@
    "scope": "SA115X",
    "course": "SA115X",
    "key": "Information:0>1,Projektarbete:48>64,Seminarium:3>0",
-   "message": "SA115X: number of occasions changed (VT26→VT27): Information 0→1; Projektarbete 48→64; Seminarium 3→0. Sequence: P3 w1: [P P P P P S] P P … → [Info] P P …; P4 w1–w7: … P P [S P S] P P … → … P P [P P P P P P P P P P P P P P P P P P P P P P] P P ….",
+   "message": {
+    "sv": "SA115X: antalet tillfällen har ändrats (VT26→VT27): Information 0→1; Projektarbete 48→64; Seminarium 3→0. Sekvens (VT26 → VT27): P3 v1: [P P P P P S] P P … → [Info] P P …; P4 v1–7: … P P [S P S] P P … → … P P [P P P P P P P P P P P P P P P P P P P P P P] P P ….",
+    "en": "SA115X: number of occasions changed (VT26→VT27): Information 0→1; Projektarbete 48→64; Seminarium 3→0. Sequence: P3 w1: [P P P P P S] P P … → [Info] P P …; P4 w1–7: … P P [S P S] P P … → … P P [P P P P P P P P P P P P P P P P P P P P P P] P P …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -12914,7 +13483,14 @@
    "scope": "SA115X",
    "course": "SA115X",
    "key": "shifts:37",
-   "message": "SA115X: 37 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2 (+31 more).",
+   "message": {
+    "sv": "SA115X: 37 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Projektarbete P3 v3→P3 v1; Projektarbete P3 v3→P3 v1; Projektarbete P3 v3→P3 v1; Projektarbete P3 v4→P3 v2; Projektarbete P3 v4→P3 v2; Projektarbete P3 v4→P3 v2 (+31 till).",
+    "en": "SA115X: 37 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2 (+31 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:22 2027-01-13 10:00-12:00 Projektarbete",
     "CTMAT3_VT27_remiss.xlsx:25 2027-01-13 13:00-17:00 Projektarbete",
@@ -12934,7 +13510,14 @@
    "scope": "SA118X",
    "course": "SA118X",
    "key": "Information:0>1,Projektarbete:48>64,Seminarium:3>0",
-   "message": "SA118X: number of occasions changed (VT26→VT27): Information 0→1; Projektarbete 48→64; Seminarium 3→0. Sequence: P3 w1: [P P P P P S] P P … → [Info] P P …; P4 w1–w7: … P P [S P S] P P … → … P P [P P P P P P P P P P P P P P P P P P P P P P] P P ….",
+   "message": {
+    "sv": "SA118X: antalet tillfällen har ändrats (VT26→VT27): Information 0→1; Projektarbete 48→64; Seminarium 3→0. Sekvens (VT26 → VT27): P3 v1: [P P P P P S] P P … → [Info] P P …; P4 v1–7: … P P [S P S] P P … → … P P [P P P P P P P P P P P P P P P P P P P P P P] P P ….",
+    "en": "SA118X: number of occasions changed (VT26→VT27): Information 0→1; Projektarbete 48→64; Seminarium 3→0. Sequence: P3 w1: [P P P P P S] P P … → [Info] P P …; P4 w1–7: … P P [S P S] P P … → … P P [P P P P P P P P P P P P P P P P P P P P P P] P P …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -14792,7 +15375,14 @@
    "scope": "SA118X",
    "course": "SA118X",
    "key": "shifts:37",
-   "message": "SA118X: 37 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2 (+31 more).",
+   "message": {
+    "sv": "SA118X: 37 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Projektarbete P3 v3→P3 v1; Projektarbete P3 v3→P3 v1; Projektarbete P3 v3→P3 v1; Projektarbete P3 v4→P3 v2; Projektarbete P3 v4→P3 v2; Projektarbete P3 v4→P3 v2 (+31 till).",
+    "en": "SA118X: 37 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w3→P3 w1; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2; Projektarbete P3 w4→P3 w2 (+31 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:22 2027-01-13 10:00-12:00 Projektarbete",
     "CTMAT3_VT27_remiss.xlsx:25 2027-01-13 13:00-17:00 Projektarbete",
@@ -14812,7 +15402,14 @@
    "scope": "SA120X",
    "course": "SA120X",
    "key": "Information:1>2,Projektarbete:57>64,Seminarium:2>0",
-   "message": "SA120X: number of occasions changed (VT26→VT27): Information 1→2; Projektarbete 57→64; Seminarium 2→0. Sequence: P3 w1: [–] Info P … → [Info] Info P …; P4 w5–w6: … P P [S P S] P P … → … P P [P P P P P P P P] P P ….",
+   "message": {
+    "sv": "SA120X: antalet tillfällen har ändrats (VT26→VT27): Information 1→2; Projektarbete 57→64; Seminarium 2→0. Sekvens (VT26 → VT27): P3 v1: [–] Info P … → [Info] Info P …; P4 v5–6: … P P [S P S] P P … → … P P [P P P P P P P P] P P ….",
+    "en": "SA120X: number of occasions changed (VT26→VT27): Information 1→2; Projektarbete 57→64; Seminarium 2→0. Sequence: P3 w1: [–] Info P … → [Info] Info P …; P4 w5–6: … P P [S P S] P P … → … P P [P P P P P P P P] P P …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -16741,7 +17338,14 @@
    "scope": "SA120X",
    "course": "SA120X",
    "key": "shifts:14",
-   "message": "SA120X: 14 occasion(s) moved ≥2 teaching weeks: Projektarbete P4 w1→P3 w8; Projektarbete P4 w1→P3 w8; Projektarbete P4 w1→P3 exams; Projektarbete P4 w1→P3 exams; Projektarbete P4 w2→P3 exams; Projektarbete P4 w2→P3 exams (+8 more).",
+   "message": {
+    "sv": "SA120X: 14 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Projektarbete P4 v1→P3 v8; Projektarbete P4 v1→P3 v8; Projektarbete P4 v1→P3 tentaperiod; Projektarbete P4 v1→P3 tentaperiod; Projektarbete P4 v2→P3 tentaperiod; Projektarbete P4 v2→P3 tentaperiod (+8 till).",
+    "en": "SA120X: 14 occasion(s) moved ≥2 teaching weeks: Projektarbete P4 w1→P3 w8; Projektarbete P4 w1→P3 w8; Projektarbete P4 w1→P3 exams; Projektarbete P4 w1→P3 exams; Projektarbete P4 w2→P3 exams; Projektarbete P4 w2→P3 exams (+8 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:364 2027-03-02 08:00-12:00 Projektarbete",
     "CTMAT3_VT27_remiss.xlsx:366 2027-03-02 13:00-17:00 Projektarbete",
@@ -16761,7 +17365,14 @@
    "scope": "SE1055",
    "course": "SE1055",
    "key": "TEN1,TEN2>TEN1",
-   "message": "SE1055: exam modules on ordinary exams changed: TEN1, TEN2 → TEN1.",
+   "message": {
+    "sv": "SE1055: examinationsmodulerna på ordinarie tentamen har ändrats: TEN1, TEN2 → TEN1.",
+    "en": "SE1055: exam modules on ordinary exams changed: TEN1, TEN2 → TEN1."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt? (Kontrollera kursplanen.)",
+    "en": "Is this intended? (Check the syllabus.)"
+   },
    "evidence": [],
    "details": {
     "old": [
@@ -16780,7 +17391,14 @@
    "scope": "SF1672",
    "course": "SF1672",
    "key": "SF1672",
-   "message": "SF1672 had teaching in VT26 but none in VT27.",
+   "message": {
+    "sv": "SF1672 hade undervisning VT26 men har ingen VT27.",
+    "en": "SF1672 had teaching in VT26 but none in VT27."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -16791,7 +17409,14 @@
    "scope": "SF1674",
    "course": "SF1674",
    "key": "capacity",
-   "message": "SF1674: room seats compared with VT26 per occasion: 3 with ≥20% fewer seats, 4 with ≥10% fewer seats. Largest reductions: Ö 2027-02-19: U61+V01+W38+W42+W43 288 → E35+E36+E51+E52+E53 212; Ö 2027-02-10: V21+V32+V33+V34+V35 256 → D32+D34+D41+E31+E36 196; Ö 2027-02-01: V11+V12+V21+V32+V34 230 → E31+E33+E34+E36+E52 182; F 2027-02-19: Q1 281 → F2 238.",
+   "message": {
+    "sv": "SF1674: lokalernas platser jämfört med VT26 per tillfälle: 3 med minst 20 % färre platser, 4 med minst 10 % färre platser. Störst minskning: Ö 2027-02-19: U61+V01+W38+W42+W43 288 → E35+E36+E51+E52+E53 212; Ö 2027-02-10: V21+V32+V33+V34+V35 256 → D32+D34+D41+E31+E36 196; Ö 2027-02-01: V11+V12+V21+V32+V34 230 → E31+E33+E34+E36+E52 182; F 2027-02-19: Q1 281 → F2 238.",
+    "en": "SF1674: room seats compared with VT26 per occasion: 3 with ≥20% fewer seats, 4 with ≥10% fewer seats. Largest reductions: Ö 2027-02-19: U61+V01+W38+W42+W43 288 → E35+E36+E51+E52+E53 212; Ö 2027-02-10: V21+V32+V33+V34+V35 256 → D32+D34+D41+E31+E36 196; Ö 2027-02-01: V11+V12+V21+V32+V34 230 → E31+E33+E34+E36+E52 182; F 2027-02-19: Q1 281 → F2 238."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:73 2027-02-19 15:00-17:00 Övning",
     "CTMAT1_VT27_remiss.xlsx:55 2027-02-10 13:00-15:00 Övning",
@@ -16891,7 +17516,14 @@
    "scope": "SF1691",
    "course": "SF1691",
    "key": "capacity",
-   "message": "SF1691: room seats compared with VT26 per occasion: 2 with ≥20% fewer seats, 5 with ≥10% fewer seats, 22 with ≥50% more seats. Largest reductions: Ö 2027-03-25: V33+V35 96 → U31 70; Ö 2027-02-17: V33+V35 96 → W37 72; Ö 2027-02-18: E51+E53 86 → U21 70; Ö 2027-04-28: E51+E53 86 → U21 70.",
+   "message": {
+    "sv": "SF1691: lokalernas platser jämfört med VT26 per tillfälle: 2 med minst 20 % färre platser, 5 med minst 10 % färre platser, 22 med minst 50 % fler platser. Störst minskning: Ö 2027-03-25: V33+V35 96 → U31 70; Ö 2027-02-17: V33+V35 96 → W37 72; Ö 2027-02-18: E51+E53 86 → U21 70; Ö 2027-04-28: E51+E53 86 → U21 70.",
+    "en": "SF1691: room seats compared with VT26 per occasion: 2 with ≥20% fewer seats, 5 with ≥10% fewer seats, 22 with ≥50% more seats. Largest reductions: Ö 2027-03-25: V33+V35 96 → U31 70; Ö 2027-02-17: V33+V35 96 → W37 72; Ö 2027-02-18: E51+E53 86 → U21 70; Ö 2027-04-28: E51+E53 86 → U21 70."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:162 2027-03-25 08:00-10:00 Övning",
     "CTMAT2_VT27_remiss.xlsx:98 2027-02-17 13:00-15:00 Övning",
@@ -16971,7 +17603,14 @@
    "scope": "SF1691",
    "course": "SF1691",
    "key": "Övning:19>16",
-   "message": "SF1691: number of occasions changed (VT26→VT27): Övning 19→16. Sequence: P3 w7–P4 w1: … Ö Ö [Ö F F F Ö] Ö Ö … → … Ö Ö [F F F] Ö Ö …; P4 w3: … Ö F [Ö] Ö Ö … → … Ö F [–] Ö Ö ….",
+   "message": {
+    "sv": "SF1691: antalet tillfällen har ändrats (VT26→VT27): Övning 19→16. Sekvens (VT26 → VT27): P3 v7–P4 v1: … Ö Ö [Ö F F F Ö] Ö Ö … → … Ö Ö [F F F] Ö Ö …; P4 v3: … Ö F [Ö] Ö Ö … → … Ö F [–] Ö Ö ….",
+    "en": "SF1691: number of occasions changed (VT26→VT27): Övning 19→16. Sequence: P3 w7–P4 w1: … Ö Ö [Ö F F F Ö] Ö Ö … → … Ö Ö [F F F] Ö Ö …; P4 w3: … Ö F [Ö] Ö Ö … → … Ö F [–] Ö Ö …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -18123,7 +18762,14 @@
    "scope": "SF1693",
    "course": "SF1693",
    "key": "order",
-   "message": "SF1693: same occasions in a different order: P3 w3: … DL F [F Ö] DL F … → … DL F [Ö F] DL F …; P3 w7: … F Ö [DL F] Ö Ö … → … F Ö [F DL] Ö Ö ….",
+   "message": {
+    "sv": "SF1693: samma tillfällen som VT26 men i annan ordning (VT26 → VT27): P3 v3: … DL F [F Ö] DL F … → … DL F [Ö F] DL F …; P3 v7: … F Ö [DL F] Ö Ö … → … F Ö [F DL] Ö Ö ….",
+    "en": "SF1693: same occasions in a different order: P3 w3: … DL F [F Ö] DL F … → … DL F [Ö F] DL F …; P3 w7: … F Ö [DL F] Ö Ö … → … F Ö [F DL] Ö Ö …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -19043,7 +19689,14 @@
    "scope": "SF1930",
    "course": "SF1930",
    "key": "SF1930",
-   "message": "SF1930 has teaching in VT27 but had none in VT26.",
+   "message": {
+    "sv": "SF1930 har undervisning VT27 men hade ingen VT26.",
+    "en": "SF1930 has teaching in VT27 but had none in VT26."
+   },
+   "ask": {
+    "sv": "Stämmer det att den ska ingå?",
+    "en": "Is it meant to be included?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -19054,7 +19707,14 @@
    "scope": "SF2701",
    "course": "SF2701",
    "key": "order",
-   "message": "SF2701: same occasions in a different order: P4 w1: [–] F F … → [F] F F …; P4 w2: … F Ö [F] F F … → … F Ö [–] F F ….",
+   "message": {
+    "sv": "SF2701: samma tillfällen som VT26 men i annan ordning (VT26 → VT27): P4 v1: [–] F F … → [F] F F …; P4 v2: … F Ö [F] F F … → … F Ö [–] F F ….",
+    "en": "SF2701: same occasions in a different order: P4 w1: [–] F F … → [F] F F …; P4 w2: … F Ö [F] F F … → … F Ö [–] F F …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -19792,7 +20452,14 @@
    "scope": "SF2930",
    "course": "SF2930",
    "key": "capacity",
-   "message": "SF2930: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 5 with ≥10% fewer seats, 4 with ≥50% more seats. Largest reductions: Le 2027-01-19: Q1 281 → D1 216; Le 2027-01-28: M1+M31 296 → F2 238; Le 2027-01-22: E1+E51 260 → E1 212; Le 2027-02-09: M1 262 → D1 216.",
+   "message": {
+    "sv": "SF2930: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 20 % färre platser, 5 med minst 10 % färre platser, 4 med minst 50 % fler platser. Störst minskning: Le 2027-01-19: Q1 281 → D1 216; Le 2027-01-28: M1+M31 296 → F2 238; Le 2027-01-22: E1+E51 260 → E1 212; Le 2027-02-09: M1 262 → D1 216.",
+    "en": "SF2930: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 5 with ≥10% fewer seats, 4 with ≥50% more seats. Largest reductions: Le 2027-01-19: Q1 281 → D1 216; Le 2027-01-28: M1+M31 296 → F2 238; Le 2027-01-22: E1+E51 260 → E1 212; Le 2027-02-09: M1 262 → D1 216."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:69 2027-01-19 15:00-17:00 Lektion",
     "CTMAT3_VT27_remiss.xlsx:136 2027-01-28 10:00-12:00 Lektion",
@@ -19870,7 +20537,14 @@
    "scope": "SI1155",
    "course": "SI1155",
    "key": "order",
-   "message": "SI1155: same occasions in a different order: P4 w2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F ….",
+   "message": {
+    "sv": "SI1155: samma tillfällen som VT26 men i annan ordning (VT26 → VT27): P4 v2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F ….",
+    "en": "SI1155: same occasions in a different order: P4 w2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -20815,7 +21489,11 @@
    "scope": "CTMAT1",
    "course": "DD1396",
    "key": "DD1396",
-   "message": "DD1396 is scheduled for CTMAT1 but it is not in the study plan.",
+   "message": {
+    "sv": "DD1396 är schemalagd för CTMAT1, men den finns inte i utbildningsplanen.",
+    "en": "DD1396 is scheduled for CTMAT1 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -20826,7 +21504,11 @@
    "scope": "CTMAT1",
    "course": "SA1006",
    "key": "SA1006",
-   "message": "SA1006 is scheduled for CTMAT1 but the plan has no credits for it this term.",
+   "message": {
+    "sv": "SA1006 är schemalagd för CTMAT1, men utbildningsplanen ger inga poäng för den denna termin.",
+    "en": "SA1006 is scheduled for CTMAT1 but the plan has no credits for it this term."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -20837,7 +21519,14 @@
    "scope": "CTMAT1",
    "course": "SF1550",
    "key": "SF1550+SG1115:2027-05-25:2027-05-27",
-   "message": "SF1550 (ordinary, Tue 2027-05-25 14:00) and SG1115 (ordinary, Thu 2027-05-27 08:00): two days apart. Both are mandatory for this programme year.",
+   "message": {
+    "sv": "SF1550 (ordinarie tentamen, tis 2027-05-25 14:00) och SG1115 (ordinarie tentamen, tor 2027-05-27 08:00) ligger med bara en dag emellan. Båda kurserna är obligatoriska för årskursen.",
+    "en": "SF1550 (exam, Tue 2027-05-25 14:00) and SG1115 (exam, Thu 2027-05-27 08:00): two days apart. Both are mandatory for this programme year."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:195 2027-05-25 14:00-17:00 Tentamen",
     "CTMAT1_VT27_remiss.xlsx:198 2027-05-27 08:00-13:00 Tentamen"
@@ -20871,7 +21560,14 @@
    "scope": "CTMAT2",
    "course": "8XCBIOT",
    "key": "8XCBIOT+SF1691",
-   "message": "8XCBIOT and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCBIOT och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCBIOT and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:102 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT2_VT27_remiss.xlsx:103 2027-02-18 13:00-15:00 Övning"
@@ -20911,7 +21607,14 @@
    "scope": "CTMAT2",
    "course": "8XCENMI",
    "key": "8XCENMI+SF1691",
-   "message": "8XCENMI and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCENMI och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCENMI and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:102 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT2_VT27_remiss.xlsx:103 2027-02-18 13:00-15:00 Övning"
@@ -20951,7 +21654,14 @@
    "scope": "CTMAT2",
    "course": "8XCTKEM",
    "key": "8XCTKEM+SF1691",
-   "message": "8XCTKEM and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTKEM och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCTKEM and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:102 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT2_VT27_remiss.xlsx:103 2027-02-18 13:00-15:00 Övning"
@@ -20991,7 +21701,14 @@
    "scope": "CTMAT2",
    "course": "8XCTMAT",
    "key": "8XCTMAT+SF1677",
-   "message": "8XCTMAT and SF1677: 1 overlapping session(s): Fri 2027-04-16 12:00-15:00 Information / Övning. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTMAT och SF1677 har 1 tillfälle(n) som krockar: fre 2027-04-16 12:00-15:00 Information / Övning. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "8XCTMAT and SF1677: 1 overlapping session(s): Fri 2027-04-16 12:00-15:00 Information / Övning. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:204 2027-04-16 12:00-15:00 Information",
     "CTMAT2_VT27_remiss.xlsx:205 2027-04-16 13:00-15:00 Övning"
@@ -21031,7 +21748,14 @@
    "scope": "CTMAT2",
    "course": "8XCTMAT",
    "key": "8XCTMAT+SF1691",
-   "message": "8XCTMAT and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTMAT och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "8XCTMAT and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:102 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT2_VT27_remiss.xlsx:103 2027-02-18 13:00-15:00 Övning"
@@ -21071,7 +21795,14 @@
    "scope": "CTMAT2",
    "course": "8XTIKED",
    "key": "8XTIKED+SF1691",
-   "message": "8XTIKED and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XTIKED och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XTIKED and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:102 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT2_VT27_remiss.xlsx:103 2027-02-18 13:00-15:00 Övning"
@@ -21111,7 +21842,11 @@
    "scope": "CTMAT2",
    "course": "DD1385",
    "key": "DD1385",
-   "message": "DD1385 is scheduled for CTMAT2 but the plan has no credits for it this term.",
+   "message": {
+    "sv": "DD1385 är schemalagd för CTMAT2, men utbildningsplanen ger inga poäng för den denna termin.",
+    "en": "DD1385 is scheduled for CTMAT2 but the plan has no credits for it this term."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -21122,7 +21857,14 @@
    "scope": "CTMAT2",
    "course": "DD1385",
    "key": "DD1385+SF1672:2027-03-31:2027-04-01",
-   "message": "DD1385 (reexam, Wed 2027-03-31 09:00) and SF1672 (reexam, Thu 2027-04-01 08:00): consecutive days. Affects CTMAT2 students retaking SF1672 from year 1.",
+   "message": {
+    "sv": "DD1385 (omtentamen, ons 2027-03-31 09:00) och SF1672 (omtentamen, tor 2027-04-01 08:00) ligger dagar i rad. Påverkar studenter i CTMAT2 som behöver tentera om SF1672 från årskurs 1.",
+    "en": "DD1385 (re-exam, Wed 2027-03-31 09:00) and SF1672 (re-exam, Thu 2027-04-01 08:00): consecutive days. Affects CTMAT2 students retaking SF1672 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:171 2027-03-31 09:00-13:00 Kontrollskrivning",
     "CTMAT1_VT27_remiss.xlsx:124 2027-04-01 08:00-11:00 Omtenta"
@@ -21156,7 +21898,14 @@
    "scope": "CTMAT2",
    "course": "DD1385",
    "key": "DD1385+SF1681:2027-03-31:2027-04-01",
-   "message": "DD1385 (reexam, Wed 2027-03-31 09:00) and SF1681 (reexam, Thu 2027-04-01 08:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "DD1385 (omtentamen, ons 2027-03-31 09:00) och SF1681 (omtentamen, tor 2027-04-01 08:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "DD1385 (re-exam, Wed 2027-03-31 09:00) and SF1681 (re-exam, Thu 2027-04-01 08:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:171 2027-03-31 09:00-13:00 Kontrollskrivning",
     "CTMAT2_VT27_remiss.xlsx:173 2027-04-01 08:00-13:00 Omtenta"
@@ -21190,7 +21939,11 @@
    "scope": "CTMAT2",
    "course": "SA1006",
    "key": "SA1006",
-   "message": "SA1006 is scheduled for CTMAT2 but the plan has no credits for it this term.",
+   "message": {
+    "sv": "SA1006 är schemalagd för CTMAT2, men utbildningsplanen ger inga poäng för den denna termin.",
+    "en": "SA1006 is scheduled for CTMAT2 but the plan has no credits for it this term."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -21201,7 +21954,14 @@
    "scope": "CTMAT2",
    "course": "SF1674",
    "key": "SF1674+SF1693:2027-03-11:2027-03-12",
-   "message": "SF1674 (ordinary, Thu 2027-03-11 08:00) and SF1693 (ordinary, Fri 2027-03-12 08:00): consecutive days. Affects CTMAT2 students retaking SF1674 from year 1.",
+   "message": {
+    "sv": "SF1674 (ordinarie tentamen, tor 2027-03-11 08:00) och SF1693 (ordinarie tentamen, fre 2027-03-12 08:00) ligger dagar i rad. Påverkar studenter i CTMAT2 som behöver tentera om SF1674 från årskurs 1.",
+    "en": "SF1674 (exam, Thu 2027-03-11 08:00) and SF1693 (exam, Fri 2027-03-12 08:00): consecutive days. Affects CTMAT2 students retaking SF1674 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:94 2027-03-11 08:00-13:00 Tentamen",
     "CTMAT2_VT27_remiss.xlsx:132 2027-03-12 08:00-13:00 Tentamen"
@@ -21235,7 +21995,14 @@
    "scope": "CTMAT2",
    "course": "SF1677",
    "key": "SF1677+SF1678",
-   "message": "SF1677 and SF1678: 1 overlapping session(s): Fri 2027-01-15 15:00-17:00 Övning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 2 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF1678 har 1 tillfälle(n) som krockar: fre 2027-01-15 15:00-17:00 Övning / Övning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 2 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF1678: 1 overlapping session(s): Fri 2027-01-15 15:00-17:00 Övning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 2 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:22 2027-01-15 15:00-17:00 Övning",
     "CTMAT2_VT27_remiss.xlsx:23 2027-01-15 15:00-17:00 Övning"
@@ -21275,7 +22042,14 @@
    "scope": "CTMAT2",
    "course": "SF1918",
    "key": "SF1918+DD1385:2027-03-30:2027-03-31",
-   "message": "SF1918 (reexam, Tue 2027-03-30 08:00) and DD1385 (reexam, Wed 2027-03-31 09:00): consecutive days. Affects CTMAT2 students retaking SF1918 from year 1.",
+   "message": {
+    "sv": "SF1918 (omtentamen, tis 2027-03-30 08:00) och DD1385 (omtentamen, ons 2027-03-31 09:00) ligger dagar i rad. Påverkar studenter i CTMAT2 som behöver tentera om SF1918 från årskurs 1.",
+    "en": "SF1918 (re-exam, Tue 2027-03-30 08:00) and DD1385 (re-exam, Wed 2027-03-31 09:00): consecutive days. Affects CTMAT2 students retaking SF1918 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:120 2027-03-30 08:00-13:00 Omtenta",
     "CTMAT2_VT27_remiss.xlsx:171 2027-03-31 09:00-13:00 Kontrollskrivning"
@@ -21309,7 +22083,11 @@
    "scope": "CTMAT2",
    "course": "SF1930",
    "key": "SF1930",
-   "message": "SF1930 is scheduled for CTMAT2 but the plan has no credits for it this term.",
+   "message": {
+    "sv": "SF1930 är schemalagd för CTMAT2, men utbildningsplanen ger inga poäng för den denna termin.",
+    "en": "SF1930 is scheduled for CTMAT2 but the plan has no credits for it this term."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -21320,7 +22098,14 @@
    "scope": "CTMAT2",
    "course": "SH1017",
    "key": "SH1017+SF1550:2027-05-24:2027-05-25",
-   "message": "SH1017 (ordinary, Mon 2027-05-24 08:00) and SF1550 (ordinary, Tue 2027-05-25 14:00): consecutive days. Affects CTMAT2 students retaking SF1550 from year 1.",
+   "message": {
+    "sv": "SH1017 (ordinarie tentamen, mån 2027-05-24 08:00) och SF1550 (ordinarie tentamen, tis 2027-05-25 14:00) ligger dagar i rad. Påverkar studenter i CTMAT2 som behöver tentera om SF1550 från årskurs 1.",
+    "en": "SH1017 (exam, Mon 2027-05-24 08:00) and SF1550 (exam, Tue 2027-05-25 14:00): consecutive days. Affects CTMAT2 students retaking SF1550 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:261 2027-05-24 08:00-13:00 Tentamen",
     "CTMAT1_VT27_remiss.xlsx:195 2027-05-25 14:00-17:00 Tentamen"
@@ -21354,7 +22139,14 @@
    "scope": "CTMAT3",
    "course": "8XCBIOT",
    "key": "8XCBIOT+DD1367",
-   "message": "8XCBIOT and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCBIOT och DD1367 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Handledning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCBIOT and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:297 2027-02-18 08:00-12:00 Handledning"
@@ -21394,7 +22186,14 @@
    "scope": "CTMAT3",
    "course": "8XCBIOT",
    "key": "8XCBIOT+EL2810",
-   "message": "8XCBIOT and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCBIOT och EL2810 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCBIOT and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:300 2027-02-18 13:00-15:00 Föreläsning"
@@ -21434,7 +22233,14 @@
    "scope": "CTMAT3",
    "course": "8XCBIOT",
    "key": "8XCBIOT+SE1055",
-   "message": "8XCBIOT and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCBIOT och SE1055 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCBIOT and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:301 2027-02-18 13:00-15:00 Föreläsning"
@@ -21474,7 +22280,14 @@
    "scope": "CTMAT3",
    "course": "8XCBIOT",
    "key": "8XCBIOT+SF1691",
-   "message": "8XCBIOT and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCBIOT och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCBIOT and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:303 2027-02-18 13:00-15:00 Övning"
@@ -21514,7 +22327,14 @@
    "scope": "CTMAT3",
    "course": "8XCBIOT",
    "key": "8XCBIOT+SF2930",
-   "message": "8XCBIOT and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCBIOT och SF2930 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Lektion. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCBIOT and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:302 2027-02-18 13:00-15:00 Lektion"
@@ -21554,7 +22374,14 @@
    "scope": "CTMAT3",
    "course": "8XCBIOT",
    "key": "8XCBIOT+SG1217",
-   "message": "8XCBIOT and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCBIOT och SG1217 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCBIOT and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:298 2027-02-18 10:00-12:00 Övning"
@@ -21594,7 +22421,14 @@
    "scope": "CTMAT3",
    "course": "8XCBIOT",
    "key": "8XCBIOT+SI1162",
-   "message": "8XCBIOT and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCBIOT och SI1162 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCBIOT and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:304 2027-02-18 13:00-15:00 Övning"
@@ -21634,7 +22468,14 @@
    "scope": "CTMAT3",
    "course": "8XCENMI",
    "key": "8XCENMI+DD1367",
-   "message": "8XCENMI and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCENMI och DD1367 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Handledning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCENMI and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:297 2027-02-18 08:00-12:00 Handledning"
@@ -21674,7 +22515,14 @@
    "scope": "CTMAT3",
    "course": "8XCENMI",
    "key": "8XCENMI+EL2810",
-   "message": "8XCENMI and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCENMI och EL2810 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCENMI and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:300 2027-02-18 13:00-15:00 Föreläsning"
@@ -21714,7 +22562,14 @@
    "scope": "CTMAT3",
    "course": "8XCENMI",
    "key": "8XCENMI+SE1055",
-   "message": "8XCENMI and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCENMI och SE1055 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCENMI and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:301 2027-02-18 13:00-15:00 Föreläsning"
@@ -21754,7 +22609,14 @@
    "scope": "CTMAT3",
    "course": "8XCENMI",
    "key": "8XCENMI+SF1691",
-   "message": "8XCENMI and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCENMI och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCENMI and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:303 2027-02-18 13:00-15:00 Övning"
@@ -21794,7 +22656,14 @@
    "scope": "CTMAT3",
    "course": "8XCENMI",
    "key": "8XCENMI+SF2930",
-   "message": "8XCENMI and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCENMI och SF2930 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Lektion. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCENMI and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:302 2027-02-18 13:00-15:00 Lektion"
@@ -21834,7 +22703,14 @@
    "scope": "CTMAT3",
    "course": "8XCENMI",
    "key": "8XCENMI+SG1217",
-   "message": "8XCENMI and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCENMI och SG1217 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCENMI and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:298 2027-02-18 10:00-12:00 Övning"
@@ -21874,7 +22750,14 @@
    "scope": "CTMAT3",
    "course": "8XCENMI",
    "key": "8XCENMI+SI1162",
-   "message": "8XCENMI and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCENMI och SI1162 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCENMI and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:304 2027-02-18 13:00-15:00 Övning"
@@ -21914,7 +22797,14 @@
    "scope": "CTMAT3",
    "course": "8XCTKEM",
    "key": "8XCTKEM+DD1367",
-   "message": "8XCTKEM and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTKEM och DD1367 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Handledning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCTKEM and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:297 2027-02-18 08:00-12:00 Handledning"
@@ -21954,7 +22844,14 @@
    "scope": "CTMAT3",
    "course": "8XCTKEM",
    "key": "8XCTKEM+EL2810",
-   "message": "8XCTKEM and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTKEM och EL2810 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCTKEM and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:300 2027-02-18 13:00-15:00 Föreläsning"
@@ -21994,7 +22891,14 @@
    "scope": "CTMAT3",
    "course": "8XCTKEM",
    "key": "8XCTKEM+SE1055",
-   "message": "8XCTKEM and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTKEM och SE1055 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCTKEM and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:301 2027-02-18 13:00-15:00 Föreläsning"
@@ -22034,7 +22938,14 @@
    "scope": "CTMAT3",
    "course": "8XCTKEM",
    "key": "8XCTKEM+SF1691",
-   "message": "8XCTKEM and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTKEM och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCTKEM and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:303 2027-02-18 13:00-15:00 Övning"
@@ -22074,7 +22985,14 @@
    "scope": "CTMAT3",
    "course": "8XCTKEM",
    "key": "8XCTKEM+SF2930",
-   "message": "8XCTKEM and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTKEM och SF2930 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Lektion. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCTKEM and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:302 2027-02-18 13:00-15:00 Lektion"
@@ -22114,7 +23032,14 @@
    "scope": "CTMAT3",
    "course": "8XCTKEM",
    "key": "8XCTKEM+SG1217",
-   "message": "8XCTKEM and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTKEM och SG1217 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCTKEM and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:298 2027-02-18 10:00-12:00 Övning"
@@ -22154,7 +23079,14 @@
    "scope": "CTMAT3",
    "course": "8XCTKEM",
    "key": "8XCTKEM+SI1162",
-   "message": "8XCTKEM and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTKEM och SI1162 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCTKEM and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:304 2027-02-18 13:00-15:00 Övning"
@@ -22194,7 +23126,14 @@
    "scope": "CTMAT3",
    "course": "8XCTMAT",
    "key": "8XCTMAT+DD1367",
-   "message": "8XCTMAT and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTMAT och DD1367 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Handledning. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "8XCTMAT and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:297 2027-02-18 08:00-12:00 Handledning"
@@ -22234,7 +23173,14 @@
    "scope": "CTMAT3",
    "course": "8XCTMAT",
    "key": "8XCTMAT+EL2810",
-   "message": "8XCTMAT and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTMAT och EL2810 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "8XCTMAT and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:300 2027-02-18 13:00-15:00 Föreläsning"
@@ -22274,7 +23220,14 @@
    "scope": "CTMAT3",
    "course": "8XCTMAT",
    "key": "8XCTMAT+SE1055",
-   "message": "8XCTMAT and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTMAT och SE1055 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "8XCTMAT and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:301 2027-02-18 13:00-15:00 Föreläsning"
@@ -22314,7 +23267,14 @@
    "scope": "CTMAT3",
    "course": "8XCTMAT",
    "key": "8XCTMAT+SF1691",
-   "message": "8XCTMAT and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTMAT och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "8XCTMAT and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:303 2027-02-18 13:00-15:00 Övning"
@@ -22354,7 +23314,14 @@
    "scope": "CTMAT3",
    "course": "8XCTMAT",
    "key": "8XCTMAT+SF2930",
-   "message": "8XCTMAT and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTMAT och SF2930 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Lektion. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "8XCTMAT and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:302 2027-02-18 13:00-15:00 Lektion"
@@ -22394,7 +23361,14 @@
    "scope": "CTMAT3",
    "course": "8XCTMAT",
    "key": "8XCTMAT+SG1217",
-   "message": "8XCTMAT and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTMAT och SG1217 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "8XCTMAT and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:298 2027-02-18 10:00-12:00 Övning"
@@ -22434,7 +23408,14 @@
    "scope": "CTMAT3",
    "course": "8XCTMAT",
    "key": "8XCTMAT+SI1162",
-   "message": "8XCTMAT and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "8XCTMAT och SI1162 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "8XCTMAT and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:304 2027-02-18 13:00-15:00 Övning"
@@ -22474,7 +23455,14 @@
    "scope": "CTMAT3",
    "course": "8XTIKED",
    "key": "8XTIKED+DD1367",
-   "message": "8XTIKED and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XTIKED och DD1367 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Handledning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XTIKED and DD1367: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Handledning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:297 2027-02-18 08:00-12:00 Handledning"
@@ -22514,7 +23502,14 @@
    "scope": "CTMAT3",
    "course": "8XTIKED",
    "key": "8XTIKED+EL2810",
-   "message": "8XTIKED and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XTIKED och EL2810 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XTIKED and EL2810: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:300 2027-02-18 13:00-15:00 Föreläsning"
@@ -22554,7 +23549,14 @@
    "scope": "CTMAT3",
    "course": "8XTIKED",
    "key": "8XTIKED+SE1055",
-   "message": "8XTIKED and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XTIKED och SE1055 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XTIKED and SE1055: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:301 2027-02-18 13:00-15:00 Föreläsning"
@@ -22594,7 +23596,14 @@
    "scope": "CTMAT3",
    "course": "8XTIKED",
    "key": "8XTIKED+SF1691",
-   "message": "8XTIKED and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XTIKED och SF1691 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XTIKED and SF1691: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:303 2027-02-18 13:00-15:00 Övning"
@@ -22634,7 +23643,14 @@
    "scope": "CTMAT3",
    "course": "8XTIKED",
    "key": "8XTIKED+SF2930",
-   "message": "8XTIKED and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XTIKED och SF2930 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Lektion. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XTIKED and SF2930: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Lektion. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:302 2027-02-18 13:00-15:00 Lektion"
@@ -22674,7 +23690,14 @@
    "scope": "CTMAT3",
    "course": "8XTIKED",
    "key": "8XTIKED+SG1217",
-   "message": "8XTIKED and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XTIKED och SG1217 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XTIKED and SG1217: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:298 2027-02-18 10:00-12:00 Övning"
@@ -22714,7 +23737,14 @@
    "scope": "CTMAT3",
    "course": "8XTIKED",
    "key": "8XTIKED+SI1162",
-   "message": "8XTIKED and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XTIKED och SI1162 har 1 tillfälle(n) som krockar: tor 2027-02-18 10:00-15:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XTIKED and SI1162: 1 overlapping session(s): Thu 2027-02-18 10:00-15:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:299 2027-02-18 10:00-15:00 Övrigt",
     "CTMAT3_VT27_remiss.xlsx:304 2027-02-18 13:00-15:00 Övning"
@@ -22754,7 +23784,14 @@
    "scope": "CTMAT3",
    "course": "DD1367",
    "key": "DD1367+DD2352",
-   "message": "DD1367 and DD2352: 4 overlapping session(s): Thu 2027-01-28 13:00-15:00 Seminarium / Övning; Wed 2027-02-03 13:00-15:00 Seminarium / Övning; Mon 2027-02-15 13:00-15:00 Seminarium / Föreläsning; Thu 2027-04-15 10:00-12:00 Seminarium / Föreläsning. Electives in the same subject (DD), plausibly taken together. The same pair overlapped 4 time(s) in VT26.",
+   "message": {
+    "sv": "DD1367 och DD2352 har 4 tillfälle(n) som krockar: tor 2027-01-28 13:00-15:00 Seminarium / Övning; ons 2027-02-03 13:00-15:00 Seminarium / Övning; mån 2027-02-15 13:00-15:00 Seminarium / Föreläsning; tor 2027-04-15 10:00-12:00 Seminarium / Föreläsning. Valbara kurser inom samma ämne (DD), som ofta läses tillsammans. VT26: 4 krock(ar) mellan samma kurser.",
+    "en": "DD1367 and DD2352: 4 overlapping session(s): Thu 2027-01-28 13:00-15:00 Seminarium / Övning; Wed 2027-02-03 13:00-15:00 Seminarium / Övning; Mon 2027-02-15 13:00-15:00 Seminarium / Föreläsning; Thu 2027-04-15 10:00-12:00 Seminarium / Föreläsning. Electives in the same subject (DD), plausibly taken together. The same pair overlapped 4 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:138 2027-01-28 13:00-15:00 Seminarium",
     "CTMAT3_VT27_remiss.xlsx:139 2027-01-28 13:00-15:00 Övning",
@@ -22843,7 +23880,11 @@
    "scope": "CTMAT3",
    "course": "DD232V",
    "key": "DD232V",
-   "message": "DD232V is scheduled for CTMAT3 but it is not in the study plan.",
+   "message": {
+    "sv": "DD232V är schemalagd för CTMAT3, men den finns inte i utbildningsplanen.",
+    "en": "DD232V is scheduled for CTMAT3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -22854,7 +23895,14 @@
    "scope": "CTMAT3",
    "course": "DD2421",
    "key": "DD2421+SG1217:2027-03-11:2027-03-11",
-   "message": "DD2421 (ordinary, Thu 2027-03-11 08:00) and SG1217 (ordinary, Thu 2027-03-11 08:00): overlapping. Electives; only a problem for students taking both.",
+   "message": {
+    "sv": "DD2421 (ordinarie tentamen, tor 2027-03-11 08:00) och SG1217 (ordinarie tentamen, tor 2027-03-11 08:00) ligger samtidigt. Valbara kurser – påverkar bara studenter som läser båda.",
+    "en": "DD2421 (exam, Thu 2027-03-11 08:00) and SG1217 (exam, Thu 2027-03-11 08:00): overlapping. Electives; only a problem for students taking both."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:382 2027-03-11 08:00-12:00 Tentamen",
     "CTMAT3_VT27_remiss.xlsx:383 2027-03-11 08:00-13:00 Tentamen"
@@ -22888,7 +23936,14 @@
    "scope": "CTMAT3",
    "course": "EF112X",
    "key": "EF112X",
-   "message": "EF112X Examensarbete inom elektroteknik, grundnivå [conditionallyElective] (option in 'Kandidatexamensarbete') is in the study plan for CTMAT3 in P3/P4 but not in the schedule.",
+   "message": {
+    "sv": "EF112X Examensarbete inom elektroteknik, grundnivå [villkorligt valfri] (alternativ i 'Kandidatexamensarbete') ingår i utbildningsplanen för CTMAT3 i P3/P4 men finns inte i schemat.",
+    "en": "EF112X Examensarbete inom elektroteknik, grundnivå [conditionally elective] (option in 'Kandidatexamensarbete') is in the study plan for CTMAT3 in P3/P4 but not in the schedule."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "name": "Examensarbete inom elektroteknik, grundnivå",
@@ -22907,7 +23962,14 @@
    "scope": "CTMAT3",
    "course": "EL2810",
    "key": "EL2810+SI1162:2027-03-12:2027-03-12",
-   "message": "EL2810 (ordinary, Fri 2027-03-12 08:00) and SI1162 (ordinary, Fri 2027-03-12 08:00): overlapping. Electives; only a problem for students taking both.",
+   "message": {
+    "sv": "EL2810 (ordinarie tentamen, fre 2027-03-12 08:00) och SI1162 (ordinarie tentamen, fre 2027-03-12 08:00) ligger samtidigt. Valbara kurser – påverkar bara studenter som läser båda.",
+    "en": "EL2810 (exam, Fri 2027-03-12 08:00) and SI1162 (exam, Fri 2027-03-12 08:00): overlapping. Electives; only a problem for students taking both."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:385 2027-03-12 08:00-13:00 Tentamen",
     "CTMAT3_VT27_remiss.xlsx:386 2027-03-12 08:00-13:00 Tentamen"
@@ -22941,7 +24003,14 @@
    "scope": "CTMAT3",
    "course": "EL2810",
    "key": "EL2810+FSF3812:2027-06-02:2027-06-02",
-   "message": "EL2810 (reexam, Wed 2027-06-02 08:00) and FSF3812 (reexam, Wed 2027-06-02 08:00): overlapping. At least one course is not in the study plan for this year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "EL2810 (omtentamen, ons 2027-06-02 08:00) och FSF3812 (omtentamen, ons 2027-06-02 08:00) ligger samtidigt. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "EL2810 (re-exam, Wed 2027-06-02 08:00) and FSF3812 (re-exam, Wed 2027-06-02 08:00): overlapping. At least one course is not in the study plan for this year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:688 2027-06-02 08:00-13:00 Omtenta",
     "CTMAT3_VT27_remiss.xlsx:689 2027-06-02 08:00-13:00 Omtenta"
@@ -22975,7 +24044,14 @@
    "scope": "CTMAT3",
    "course": "EL2810",
    "key": "EL2810+FDD3431:2027-06-02:2027-06-02",
-   "message": "EL2810 (reexam, Wed 2027-06-02 08:00) and FDD3431 (reexam, Wed 2027-06-02 14:00): same day. At least one course is not in the study plan for this year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "EL2810 (omtentamen, ons 2027-06-02 08:00) och FDD3431 (omtentamen, ons 2027-06-02 14:00) ligger samma dag. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "EL2810 (re-exam, Wed 2027-06-02 08:00) and FDD3431 (re-exam, Wed 2027-06-02 14:00): same day. At least one course is not in the study plan for this year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:688 2027-06-02 08:00-13:00 Omtenta",
     "CTMAT3_VT27_remiss.xlsx:691 2027-06-02 14:00-18:00 Omtenta"
@@ -23009,7 +24085,14 @@
    "scope": "CTMAT3",
    "course": "EP1100",
    "key": "EP1100+DD1420:2027-03-05:2027-03-05",
-   "message": "EP1100 (ordinary, Fri 2027-03-05 08:00) and DD1420 (ordinary, Fri 2027-03-05 14:00): same day. Electives; only a problem for students taking both.",
+   "message": {
+    "sv": "EP1100 (ordinarie tentamen, fre 2027-03-05 08:00) och DD1420 (ordinarie tentamen, fre 2027-03-05 14:00) ligger samma dag. Valbara kurser – påverkar bara studenter som läser båda.",
+    "en": "EP1100 (exam, Fri 2027-03-05 08:00) and DD1420 (exam, Fri 2027-03-05 14:00): same day. Electives; only a problem for students taking both."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:369 2027-03-05 08:00-11:00 Examination",
     "CTMAT3_VT27_remiss.xlsx:372 2027-03-05 14:00-16:00 Examination"
@@ -23043,7 +24126,11 @@
    "scope": "CTMAT3",
    "course": "FDD3431",
    "key": "FDD3431",
-   "message": "FDD3431 is scheduled for CTMAT3 but it is not in the study plan.",
+   "message": {
+    "sv": "FDD3431 är schemalagd för CTMAT3, men den finns inte i utbildningsplanen.",
+    "en": "FDD3431 is scheduled for CTMAT3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -23054,7 +24141,14 @@
    "scope": "CTMAT3",
    "course": "FDD3431",
    "key": "FDD3431+EL2810:2027-03-11:2027-03-12",
-   "message": "FDD3431 (ordinary, Thu 2027-03-11 08:00) and EL2810 (ordinary, Fri 2027-03-12 08:00): consecutive days. At least one course is not in the study plan for this year.",
+   "message": {
+    "sv": "FDD3431 (ordinarie tentamen, tor 2027-03-11 08:00) och EL2810 (ordinarie tentamen, fre 2027-03-12 08:00) ligger dagar i rad. Minst en av kurserna finns inte i utbildningsplanen för årskursen.",
+    "en": "FDD3431 (exam, Thu 2027-03-11 08:00) and EL2810 (exam, Fri 2027-03-12 08:00): consecutive days. At least one course is not in the study plan for this year."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:382 2027-03-11 08:00-12:00 Tentamen",
     "CTMAT3_VT27_remiss.xlsx:385 2027-03-12 08:00-13:00 Tentamen"
@@ -23088,7 +24182,14 @@
    "scope": "CTMAT3",
    "course": "FDD3431",
    "key": "FDD3431+SI1162:2027-03-11:2027-03-12",
-   "message": "FDD3431 (ordinary, Thu 2027-03-11 08:00) and SI1162 (ordinary, Fri 2027-03-12 08:00): consecutive days. At least one course is not in the study plan for this year.",
+   "message": {
+    "sv": "FDD3431 (ordinarie tentamen, tor 2027-03-11 08:00) och SI1162 (ordinarie tentamen, fre 2027-03-12 08:00) ligger dagar i rad. Minst en av kurserna finns inte i utbildningsplanen för årskursen.",
+    "en": "FDD3431 (exam, Thu 2027-03-11 08:00) and SI1162 (exam, Fri 2027-03-12 08:00): consecutive days. At least one course is not in the study plan for this year."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:382 2027-03-11 08:00-12:00 Tentamen",
     "CTMAT3_VT27_remiss.xlsx:386 2027-03-12 08:00-13:00 Tentamen"
@@ -23122,7 +24223,11 @@
    "scope": "CTMAT3",
    "course": "FSF3812",
    "key": "FSF3812",
-   "message": "FSF3812 is scheduled for CTMAT3 but it is not in the study plan.",
+   "message": {
+    "sv": "FSF3812 är schemalagd för CTMAT3, men den finns inte i utbildningsplanen.",
+    "en": "FSF3812 is scheduled for CTMAT3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -23133,7 +24238,14 @@
    "scope": "CTMAT3",
    "course": "FSF3812",
    "key": "FSF3812+DD2421:2027-06-02:2027-06-02",
-   "message": "FSF3812 (reexam, Wed 2027-06-02 08:00) and DD2421 (reexam, Wed 2027-06-02 14:00): same day. At least one course is not in the study plan for this year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "FSF3812 (omtentamen, ons 2027-06-02 08:00) och DD2421 (omtentamen, ons 2027-06-02 14:00) ligger samma dag. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "FSF3812 (re-exam, Wed 2027-06-02 08:00) and DD2421 (re-exam, Wed 2027-06-02 14:00): same day. At least one course is not in the study plan for this year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:689 2027-06-02 08:00-13:00 Omtenta",
     "CTMAT3_VT27_remiss.xlsx:691 2027-06-02 14:00-18:00 Omtenta"
@@ -23167,7 +24279,11 @@
    "scope": "CTMAT3",
    "course": "SA1006",
    "key": "SA1006",
-   "message": "SA1006 is scheduled for CTMAT3 but the plan has no credits for it this term.",
+   "message": {
+    "sv": "SA1006 är schemalagd för CTMAT3, men utbildningsplanen ger inga poäng för den denna termin.",
+    "en": "SA1006 is scheduled for CTMAT3 but the plan has no credits for it this term."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -23178,7 +24294,11 @@
    "scope": "CTMAT3",
    "course": "SA114X",
    "key": "SA114X",
-   "message": "SA114X is scheduled for CTMAT3 but it is not in the study plan.",
+   "message": {
+    "sv": "SA114X är schemalagd för CTMAT3, men den finns inte i utbildningsplanen.",
+    "en": "SA114X is scheduled for CTMAT3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -23189,7 +24309,11 @@
    "scope": "CTMAT3",
    "course": "SA115X",
    "key": "SA115X",
-   "message": "SA115X is scheduled for CTMAT3 but it is not in the study plan.",
+   "message": {
+    "sv": "SA115X är schemalagd för CTMAT3, men den finns inte i utbildningsplanen.",
+    "en": "SA115X is scheduled for CTMAT3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -23200,7 +24324,11 @@
    "scope": "CTMAT3",
    "course": "SA118X",
    "key": "SA118X",
-   "message": "SA118X is scheduled for CTMAT3 but it is not in the study plan.",
+   "message": {
+    "sv": "SA118X är schemalagd för CTMAT3, men den finns inte i utbildningsplanen.",
+    "en": "SA118X is scheduled for CTMAT3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -23211,7 +24339,14 @@
    "scope": "CTMAT3",
    "course": "SF1677",
    "key": "SF1677+SF2701",
-   "message": "SF1677 and SF2701: 3 overlapping session(s): Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Thu 2027-04-08 10:00-12:00 Föreläsning / Övning; Thu 2027-04-29 13:00-15:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 8 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF2701 har 3 tillfälle(n) som krockar: tis 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; tor 2027-04-08 10:00-12:00 Föreläsning / Övning; tor 2027-04-29 13:00-15:00 Föreläsning / Föreläsning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 8 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF2701: 3 overlapping session(s): Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Thu 2027-04-08 10:00-12:00 Föreläsning / Övning; Thu 2027-04-29 13:00-15:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 8 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:476 2027-04-06 13:00-15:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:477 2027-04-06 13:00-15:00 Föreläsning",
@@ -23285,7 +24420,14 @@
    "scope": "CTMAT3",
    "course": "SF1677",
    "key": "SF1677+SF2812",
-   "message": "SF1677 and SF2812: 1 overlapping session(s): Thu 2027-02-25 10:00-12:00 Föreläsning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF2812 har 1 tillfälle(n) som krockar: tor 2027-02-25 10:00-12:00 Föreläsning / Lektion. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 4 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF2812: 1 overlapping session(s): Thu 2027-02-25 10:00-12:00 Föreläsning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:344 2027-02-25 10:00-12:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:346 2027-02-25 10:00-12:00 Lektion"
@@ -23325,7 +24467,14 @@
    "scope": "CTMAT3",
    "course": "SF1677",
    "key": "SF1677+SF2930",
-   "message": "SF1677 and SF2930: 5 overlapping session(s): Tue 2027-01-12 15:00-17:00 Föreläsning / Lektion; Thu 2027-01-14 08:00-10:00 Föreläsning / Lektion; Tue 2027-01-26 15:00-17:00 Föreläsning / Lektion; Wed 2027-01-27 15:00-17:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF2930 har 5 tillfälle(n) som krockar: tis 2027-01-12 15:00-17:00 Föreläsning / Lektion; tor 2027-01-14 08:00-10:00 Föreläsning / Lektion; tis 2027-01-26 15:00-17:00 Föreläsning / Lektion; ons 2027-01-27 15:00-17:00 Övning / Lektion (+1 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF2930: 5 overlapping session(s): Tue 2027-01-12 15:00-17:00 Föreläsning / Lektion; Thu 2027-01-14 08:00-10:00 Föreläsning / Lektion; Tue 2027-01-26 15:00-17:00 Föreläsning / Lektion; Wed 2027-01-27 15:00-17:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:14 2027-01-12 15:00-17:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:17 2027-01-12 15:00-17:00 Lektion",
@@ -23429,7 +24578,14 @@
    "scope": "CTMAT3",
    "course": "SF1678",
    "key": "SF1678+SF2701",
-   "message": "SF1678 and SF2701: 4 overlapping session(s): Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Thu 2027-04-15 10:00-12:00 Övning / Föreläsning; Wed 2027-04-21 13:00-15:00 Föreläsning / Föreläsning; Tue 2027-04-27 13:00-15:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1678 och SF2701 har 4 tillfälle(n) som krockar: ons 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; tor 2027-04-15 10:00-12:00 Övning / Föreläsning; ons 2027-04-21 13:00-15:00 Föreläsning / Föreläsning; tis 2027-04-27 13:00-15:00 Föreläsning / Övning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1678 and SF2701: 4 overlapping session(s): Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Thu 2027-04-15 10:00-12:00 Övning / Föreläsning; Wed 2027-04-21 13:00-15:00 Föreläsning / Föreläsning; Tue 2027-04-27 13:00-15:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:439 2027-03-24 08:00-10:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:440 2027-03-24 08:00-10:00 Föreläsning",
@@ -23518,7 +24674,14 @@
    "scope": "CTMAT3",
    "course": "SF1678",
    "key": "SF1678+SF2930",
-   "message": "SF1678 and SF2930: 4 overlapping session(s): Tue 2027-01-19 15:00-17:00 Föreläsning / Lektion; Mon 2027-02-08 10:00-12:00 Föreläsning / Lektion; Thu 2027-02-11 08:00-10:00 Övning / Lektion; Thu 2027-02-25 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26.",
+   "message": {
+    "sv": "SF1678 och SF2930 har 4 tillfälle(n) som krockar: tis 2027-01-19 15:00-17:00 Föreläsning / Lektion; mån 2027-02-08 10:00-12:00 Föreläsning / Lektion; tor 2027-02-11 08:00-10:00 Övning / Lektion; tor 2027-02-25 13:00-15:00 Övning / Lektion. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 6 krock(ar) mellan samma kurser.",
+    "en": "SF1678 and SF2930: 4 overlapping session(s): Tue 2027-01-19 15:00-17:00 Föreläsning / Lektion; Mon 2027-02-08 10:00-12:00 Föreläsning / Lektion; Thu 2027-02-11 08:00-10:00 Övning / Lektion; Thu 2027-02-25 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:68 2027-01-19 15:00-17:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:69 2027-01-19 15:00-17:00 Lektion",
@@ -23607,7 +24770,14 @@
    "scope": "CTMAT3",
    "course": "SF1678",
    "key": "SF1678+SF2955",
-   "message": "SF1678 and SF2955: 2 overlapping session(s): Wed 2027-03-17 10:00-12:00 Föreläsning / Lektion; Tue 2027-04-27 13:00-15:00 Föreläsning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26.",
+   "message": {
+    "sv": "SF1678 och SF2955 har 2 tillfälle(n) som krockar: ons 2027-03-17 10:00-12:00 Föreläsning / Lektion; tis 2027-04-27 13:00-15:00 Föreläsning / Lektion. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 4 krock(ar) mellan samma kurser.",
+    "en": "SF1678 and SF2955: 2 overlapping session(s): Wed 2027-03-17 10:00-12:00 Föreläsning / Lektion; Tue 2027-04-27 13:00-15:00 Föreläsning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:405 2027-03-17 10:00-12:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:406 2027-03-17 10:00-12:00 Lektion",
@@ -23664,7 +24834,14 @@
    "scope": "CTMAT3",
    "course": "SF1681",
    "key": "SF1681+SF1811:2027-04-01:2027-04-02",
-   "message": "SF1681 (reexam, Thu 2027-04-01 08:00) and SF1811 (reexam, Fri 2027-04-02 08:00): consecutive days. Affects CTMAT3 students retaking SF1681 from year 2.",
+   "message": {
+    "sv": "SF1681 (omtentamen, tor 2027-04-01 08:00) och SF1811 (omtentamen, fre 2027-04-02 08:00) ligger dagar i rad. Påverkar studenter i CTMAT3 som behöver tentera om SF1681 från årskurs 2.",
+    "en": "SF1681 (re-exam, Thu 2027-04-01 08:00) and SF1811 (re-exam, Fri 2027-04-02 08:00): consecutive days. Affects CTMAT3 students retaking SF1681 from year 2."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:173 2027-04-01 08:00-13:00 Omtenta",
     "CTMAT3_VT27_remiss.xlsx:464 2027-04-02 08:00-13:00 Omtenta"
@@ -23698,7 +24875,14 @@
    "scope": "CTMAT3",
    "course": "SF1691",
    "key": "SF1691+SF2701",
-   "message": "SF1691 and SF2701: 3 overlapping session(s): Fri 2027-03-19 08:00-10:00 Övning / Föreläsning; Thu 2027-03-25 08:00-10:00 Övning / Övning; Fri 2027-04-23 08:00-10:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SF2701 har 3 tillfälle(n) som krockar: fre 2027-03-19 08:00-10:00 Övning / Föreläsning; tor 2027-03-25 08:00-10:00 Övning / Övning; fre 2027-04-23 08:00-10:00 Föreläsning / Övning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 6 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SF2701: 3 overlapping session(s): Fri 2027-03-19 08:00-10:00 Övning / Föreläsning; Thu 2027-03-25 08:00-10:00 Övning / Övning; Fri 2027-04-23 08:00-10:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:418 2027-03-19 08:00-10:00 Övning",
     "CTMAT3_VT27_remiss.xlsx:417 2027-03-19 08:00-10:00 Föreläsning",
@@ -23772,7 +24956,14 @@
    "scope": "CTMAT3",
    "course": "SF1691",
    "key": "SF1691+SF2812",
-   "message": "SF1691 and SF2812: 3 overlapping session(s): Thu 2027-01-14 15:00-17:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Thu 2027-02-11 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SF2812 har 3 tillfälle(n) som krockar: tor 2027-01-14 15:00-17:00 Föreläsning / Lektion; tor 2027-02-04 13:00-15:00 Övning / Lektion; tor 2027-02-11 13:00-15:00 Övning / Lektion. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SF2812: 3 overlapping session(s): Thu 2027-01-14 15:00-17:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Thu 2027-02-11 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:38 2027-01-14 15:00-17:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:39 2027-01-14 15:00-17:00 Lektion",
@@ -23846,7 +25037,14 @@
    "scope": "CTMAT3",
    "course": "SF1691",
    "key": "SF1691+SF2955",
-   "message": "SF1691 and SF2955: 3 overlapping session(s): Tue 2027-03-23 15:00-17:00 Föreläsning / Lektion; Thu 2027-03-25 08:00-10:00 Övning / Lektion; Fri 2027-05-28 08:00-13:00 Tentamen / Tentamen. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SF2955 har 3 tillfälle(n) som krockar: tis 2027-03-23 15:00-17:00 Föreläsning / Lektion; tor 2027-03-25 08:00-10:00 Övning / Lektion; fre 2027-05-28 08:00-13:00 Tentamen / Tentamen. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 4 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SF2955: 3 overlapping session(s): Tue 2027-03-23 15:00-17:00 Föreläsning / Lektion; Thu 2027-03-25 08:00-10:00 Övning / Lektion; Fri 2027-05-28 08:00-13:00 Tentamen / Tentamen. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:435 2027-03-23 15:00-17:00 Föreläsning",
     "CTMAT3_VT27_remiss.xlsx:437 2027-03-23 15:00-17:00 Lektion",
@@ -23920,7 +25118,14 @@
    "scope": "CTMAT3",
    "course": "SF1811",
    "key": "SF1811+EI1320:2027-04-02:2027-04-02",
-   "message": "SF1811 (reexam, Fri 2027-04-02 08:00) and EI1320 (reexam, Fri 2027-04-02 14:00): same day. One mandatory course and one elective. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "SF1811 (omtentamen, fre 2027-04-02 08:00) och EI1320 (omtentamen, fre 2027-04-02 14:00) ligger samma dag. Den ena kursen är obligatorisk, den andra valbar. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "SF1811 (re-exam, Fri 2027-04-02 08:00) and EI1320 (re-exam, Fri 2027-04-02 14:00): same day. One mandatory course and one elective. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:464 2027-04-02 08:00-13:00 Omtenta",
     "CTMAT3_VT27_remiss.xlsx:466 2027-04-02 14:00-18:00 Omtenta"
@@ -23954,7 +25159,14 @@
    "scope": "CTMAT3",
    "course": "SF2812",
    "key": "SF2812+SF2930",
-   "message": "SF2812 and SF2930: 3 overlapping session(s): Thu 2027-02-04 13:00-15:00 Lektion / Lektion; Mon 2027-02-08 10:00-12:00 Lektion / Lektion; Thu 2027-02-25 13:00-15:00 Lektion / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26.",
+   "message": {
+    "sv": "SF2812 och SF2930 har 3 tillfälle(n) som krockar: tor 2027-02-04 13:00-15:00 Lektion / Lektion; mån 2027-02-08 10:00-12:00 Lektion / Lektion; tor 2027-02-25 13:00-15:00 Lektion / Lektion. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 6 krock(ar) mellan samma kurser.",
+    "en": "SF2812 and SF2930: 3 overlapping session(s): Thu 2027-02-04 13:00-15:00 Lektion / Lektion; Mon 2027-02-08 10:00-12:00 Lektion / Lektion; Thu 2027-02-25 13:00-15:00 Lektion / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:193 2027-02-04 13:00-15:00 Lektion",
     "CTMAT3_VT27_remiss.xlsx:194 2027-02-04 13:00-15:00 Lektion",
@@ -24028,7 +25240,11 @@
    "scope": "DD1328",
    "course": "DD1328",
    "key": "2027-01-21 09:00:00",
-   "message": "Existing remiss comment on CTMAT1_VT27_remiss.xlsx:22 2027-01-21 09:00-12:00 Workshop: “Vad menas med labbsal?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT1_VT27_remiss.xlsx:22 2027-01-21 09:00-12:00 Workshop: ”Vad menas med labbsal?”",
+    "en": "Existing remiss comment on CTMAT1_VT27_remiss.xlsx:22 2027-01-21 09:00-12:00 Workshop: “Vad menas med labbsal?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:22 2027-01-21 09:00-12:00 Workshop"
    ],
@@ -24041,7 +25257,11 @@
    "scope": "DD1328",
    "course": "DD1328",
    "key": "2027-02-19 09:00:00",
-   "message": "Existing remiss comment on CTMAT1_VT27_remiss.xlsx:71 2027-02-19 09:00-12:00 Workshop: “Vad menas med labbsal?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT1_VT27_remiss.xlsx:71 2027-02-19 09:00-12:00 Workshop: ”Vad menas med labbsal?”",
+    "en": "Existing remiss comment on CTMAT1_VT27_remiss.xlsx:71 2027-02-19 09:00-12:00 Workshop: “Vad menas med labbsal?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:71 2027-02-19 09:00-12:00 Workshop"
    ],
@@ -24054,7 +25274,11 @@
    "scope": "DD1367",
    "course": "DD1367",
    "key": "2027-05-24 08:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:664 2027-05-24 08:00-10:00 Seminarium: “Egen sal?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:664 2027-05-24 08:00-10:00 Seminarium: ”Egen sal?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:664 2027-05-24 08:00-10:00 Seminarium: “Egen sal?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:664 2027-05-24 08:00-10:00 Seminarium"
    ],
@@ -24067,7 +25291,11 @@
    "scope": "DD1367",
    "course": "DD1367",
    "key": "2027-05-24 10:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:666 2027-05-24 10:00-12:00 Seminarium: “Egen sal?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:666 2027-05-24 10:00-12:00 Seminarium: ”Egen sal?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:666 2027-05-24 10:00-12:00 Seminarium: “Egen sal?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:666 2027-05-24 10:00-12:00 Seminarium"
    ],
@@ -24080,7 +25308,11 @@
    "scope": "DD1367",
    "course": "DD1367",
    "key": "2027-05-24 13:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:667 2027-05-24 13:00-15:00 Seminarium: “Egen sal?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:667 2027-05-24 13:00-15:00 Seminarium: ”Egen sal?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:667 2027-05-24 13:00-15:00 Seminarium: “Egen sal?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:667 2027-05-24 13:00-15:00 Seminarium"
    ],
@@ -24093,7 +25325,11 @@
    "scope": "DD1367",
    "course": "DD1367",
    "key": "2027-05-24 15:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:669 2027-05-24 15:00-17:00 Seminarium: “Egen sal?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:669 2027-05-24 15:00-17:00 Seminarium: ”Egen sal?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:669 2027-05-24 15:00-17:00 Seminarium: “Egen sal?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:669 2027-05-24 15:00-17:00 Seminarium"
    ],
@@ -24106,7 +25342,14 @@
    "scope": "DD1420",
    "course": "DD1420",
    "key": "capacity",
-   "message": "DD1420: room seats compared with VT26 per occasion: 1 with ≥50% more seats.",
+   "message": {
+    "sv": "DD1420: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 50 % fler platser.",
+    "en": "DD1420: room seats compared with VT26 per occasion: 1 with ≥50% more seats."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -24128,7 +25371,11 @@
    "scope": "DD2421",
    "course": "DD2421",
    "key": "['P3 day 4 (Wed 14:00)']>['P3 day 5 (Thu 08:00)']",
-   "message": "DD2421: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 14:00) → VT27 P3 day 5 (Thu 08:00).",
+   "message": {
+    "sv": "DD2421: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 4 (ons 14:00) → VT27 P3 dag 5 (tor 08:00).",
+    "en": "DD2421: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 14:00) → VT27 P3 day 5 (Thu 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:382 2027-03-11 08:00-12:00 Tentamen"
    ],
@@ -24141,7 +25388,14 @@
    "scope": "DH1623",
    "course": "DH1623",
    "key": "capacity",
-   "message": "DH1623: room seats compared with VT26 per occasion: 1 with ≥50% more seats.",
+   "message": {
+    "sv": "DH1623: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 50 % fler platser.",
+    "en": "DH1623: room seats compared with VT26 per occasion: 1 with ≥50% more seats."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -24163,7 +25417,11 @@
    "scope": "DH1623",
    "course": "DH1623",
    "key": "Seminarium 1→3",
-   "message": "DH1623: max number of parallel group sessions changed: Seminarium 1→3.",
+   "message": {
+    "sv": "DH1623: största antalet parallella grupptillfällen har ändrats: Seminarium 1→3.",
+    "en": "DH1623: max number of parallel group sessions changed: Seminarium 1→3."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -24174,7 +25432,11 @@
    "scope": "DH1624",
    "course": "DH1624",
    "key": "2027-05-17 15:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:652 2027-05-17 15:00-17:00 Handledning: “Det är endast en undervisningsdag i vecka 20...sen Eget arbete. Ska det vara två st HNDL på måndagen?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:652 2027-05-17 15:00-17:00 Handledning: ”Det är endast en undervisningsdag i vecka 20...sen Eget arbete. Ska det vara två st HNDL på måndagen?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:652 2027-05-17 15:00-17:00 Handledning: “Det är endast en undervisningsdag i vecka 20...sen Eget arbete. Ska det vara två st HNDL på måndagen?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:652 2027-05-17 15:00-17:00 Handledning"
    ],
@@ -24187,7 +25449,14 @@
    "scope": "DH1624",
    "course": "DH1624",
    "key": "capacity",
-   "message": "DH1624: room seats compared with VT26 per occasion: 8 with ≥50% more seats.",
+   "message": {
+    "sv": "DH1624: lokalernas platser jämfört med VT26 per tillfälle: 8 med minst 50 % fler platser.",
+    "en": "DH1624: room seats compared with VT26 per occasion: 8 with ≥50% more seats."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -24209,7 +25478,11 @@
    "scope": "EL2810",
    "course": "EL2810",
    "key": "['P3 day 3 (Tue 08:00)']>['P3 day 6 (Fri 08:00)']",
-   "message": "EL2810: ordinary exam position in the exam window changed: VT26 P3 day 3 (Tue 08:00) → VT27 P3 day 6 (Fri 08:00).",
+   "message": {
+    "sv": "EL2810: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 3 (tis 08:00) → VT27 P3 dag 6 (fre 08:00).",
+    "en": "EL2810: ordinary exam position in the exam window changed: VT26 P3 day 3 (Tue 08:00) → VT27 P3 day 6 (Fri 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:385 2027-03-12 08:00-13:00 Tentamen"
    ],
@@ -24222,7 +25495,11 @@
    "scope": "EP1100",
    "course": "EP1100",
    "key": "['P3 day 4 (Wed 08:00)']>['P3 day 1 (Fri 08:00)']",
-   "message": "EP1100: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 08:00) → VT27 P3 day 1 (Fri 08:00).",
+   "message": {
+    "sv": "EP1100: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 4 (ons 08:00) → VT27 P3 dag 1 (fre 08:00).",
+    "en": "EP1100: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 08:00) → VT27 P3 day 1 (Fri 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:369 2027-03-05 08:00-11:00 Examination"
    ],
@@ -24235,7 +25512,11 @@
    "scope": "FDD3431",
    "course": "FDD3431",
    "key": "['P3 day 4 (Wed 14:00)']>['P3 day 5 (Thu 08:00)']",
-   "message": "FDD3431: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 14:00) → VT27 P3 day 5 (Thu 08:00).",
+   "message": {
+    "sv": "FDD3431: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 4 (ons 14:00) → VT27 P3 dag 5 (tor 08:00).",
+    "en": "FDD3431: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 14:00) → VT27 P3 day 5 (Thu 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:382 2027-03-11 08:00-12:00 Tentamen"
    ],
@@ -24248,7 +25529,11 @@
    "scope": "FSF3812",
    "course": "FSF3812",
    "key": "FSF3812-10866 (VT26)",
-   "message": "1 exam row(s) reference course round FSF3812-10866 (VT26) (plausible for re-exams of an older round).",
+   "message": {
+    "sv": "1 examinationsrad(er) är kopplade till kurstillfälle FSF3812-10866 (VT26) (rimligt för omtentor av ett äldre tillfälle).",
+    "en": "1 exam row(s) reference course round FSF3812-10866 (VT26) (plausible for re-exams of an older round)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:370 2027-03-05 08:00-13:00 Tentamen"
    ],
@@ -24261,7 +25546,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-02-04 08:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:189 2027-02-04 08:00-12:00 Projektarbete: “Ett extra tillfälle, ska detta vara med i vecka 5?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:189 2027-02-04 08:00-12:00 Projektarbete: ”Ett extra tillfälle, ska detta vara med i vecka 5?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:189 2027-02-04 08:00-12:00 Projektarbete: “Ett extra tillfälle, ska detta vara med i vecka 5?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:189 2027-02-04 08:00-12:00 Projektarbete"
    ],
@@ -24274,7 +25563,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-03-02 08:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:364 2027-03-02 08:00-12:00 Projektarbete: “Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:364 2027-03-02 08:00-12:00 Projektarbete: ”Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:364 2027-03-02 08:00-12:00 Projektarbete: “Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:364 2027-03-02 08:00-12:00 Projektarbete"
    ],
@@ -24287,7 +25580,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-03-02 13:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:366 2027-03-02 13:00-17:00 Projektarbete: “Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:366 2027-03-02 13:00-17:00 Projektarbete: ”Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:366 2027-03-02 13:00-17:00 Projektarbete: “Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:366 2027-03-02 13:00-17:00 Projektarbete"
    ],
@@ -24300,7 +25597,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-03-08 08:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:374 2027-03-08 08:00-12:00 Projektarbete: “Ska dessa tillfällen verkligen ligga i vecka 10 när det är Tentavecka?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:374 2027-03-08 08:00-12:00 Projektarbete: ”Ska dessa tillfällen verkligen ligga i vecka 10 när det är Tentavecka?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:374 2027-03-08 08:00-12:00 Projektarbete: “Ska dessa tillfällen verkligen ligga i vecka 10 när det är Tentavecka?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:374 2027-03-08 08:00-12:00 Projektarbete"
    ],
@@ -24313,7 +25614,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-03-25 08:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:449 2027-03-25 08:00-12:00 Projektarbete: “Fredagen är långfredagen...”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:449 2027-03-25 08:00-12:00 Projektarbete: ”Fredagen är långfredagen...”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:449 2027-03-25 08:00-12:00 Projektarbete: “Fredagen är långfredagen...”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:449 2027-03-25 08:00-12:00 Projektarbete"
    ],
@@ -24326,7 +25631,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-04-30 13:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:600 2027-04-30 13:00-17:00 Projektarbete: “Detta pass ligger på Valborgmässoafton...ska det vara kvar?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:600 2027-04-30 13:00-17:00 Projektarbete: ”Detta pass ligger på Valborgmässoafton...ska det vara kvar?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:600 2027-04-30 13:00-17:00 Projektarbete: “Detta pass ligger på Valborgmässoafton...ska det vara kvar?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:600 2027-04-30 13:00-17:00 Projektarbete"
    ],
@@ -24339,7 +25648,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-05-07 13:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:625 2027-05-07 13:00-17:00 Projektarbete: “Detta pass ligger på fre när det är Eget arbete, klämdag. Ska det ligga kvar?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:625 2027-05-07 13:00-17:00 Projektarbete: ”Detta pass ligger på fre när det är Eget arbete, klämdag. Ska det ligga kvar?”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:625 2027-05-07 13:00-17:00 Projektarbete: “Detta pass ligger på fre när det är Eget arbete, klämdag. Ska det ligga kvar?”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:625 2027-05-07 13:00-17:00 Projektarbete"
    ],
@@ -24352,7 +25665,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-05-10 08:00:00",
-   "message": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:626 2027-05-10 08:00-17:00 Redovisning: “Onsdagen gick inte, därför må och tis”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTMAT3_VT27_remiss.xlsx:626 2027-05-10 08:00-17:00 Redovisning: ”Onsdagen gick inte, därför må och tis”",
+    "en": "Existing remiss comment on CTMAT3_VT27_remiss.xlsx:626 2027-05-10 08:00-17:00 Redovisning: “Onsdagen gick inte, därför må och tis”"
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:626 2027-05-10 08:00-17:00 Redovisning"
    ],
@@ -24365,7 +25682,14 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "capacity",
-   "message": "SA114X: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats. Largest reductions: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212.",
+   "message": {
+    "sv": "SA114X: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 10 % färre platser. Störst minskning: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212.",
+    "en": "SA114X: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats. Largest reductions: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:630 2027-05-11 08:00-17:00 Redovisning"
    ],
@@ -24407,7 +25731,14 @@
    "scope": "SA115X",
    "course": "SA115X",
    "key": "capacity",
-   "message": "SA115X: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats. Largest reductions: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212.",
+   "message": {
+    "sv": "SA115X: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 10 % färre platser. Störst minskning: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212.",
+    "en": "SA115X: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats. Largest reductions: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:630 2027-05-11 08:00-17:00 Redovisning"
    ],
@@ -24449,7 +25780,14 @@
    "scope": "SA118X",
    "course": "SA118X",
    "key": "capacity",
-   "message": "SA118X: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats. Largest reductions: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212.",
+   "message": {
+    "sv": "SA118X: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 10 % färre platser. Störst minskning: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212.",
+    "en": "SA118X: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats. Largest reductions: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:630 2027-05-11 08:00-17:00 Redovisning"
    ],
@@ -24491,7 +25829,14 @@
    "scope": "SA120X",
    "course": "SA120X",
    "key": "capacity",
-   "message": "SA120X: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212.",
+   "message": {
+    "sv": "SA120X: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 10 % färre platser, 1 med minst 50 % fler platser. Störst minskning: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212.",
+    "en": "SA120X: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: Red 2027-05-11: U21+U31+U41+U61 248 → U21+U31+U41 212."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:630 2027-05-11 08:00-17:00 Redovisning"
    ],
@@ -24533,7 +25878,11 @@
    "scope": "SE1055",
    "course": "SE1055",
    "key": "['P4 day 1 (Mon 14:00)']>['P4 day 1 (Mon 08:00)']",
-   "message": "SE1055: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 14:00) → VT27 P4 day 1 (Mon 08:00).",
+   "message": {
+    "sv": "SE1055: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 1 (mån 14:00) → VT27 P4 dag 1 (mån 08:00).",
+    "en": "SE1055: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 14:00) → VT27 P4 day 1 (Mon 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:665 2027-05-24 08:00-13:00 Tentamen"
    ],
@@ -24546,7 +25895,14 @@
    "scope": "SE1055",
    "course": "SE1055",
    "key": "capacity",
-   "message": "SE1055: room seats compared with VT26 per occasion: 1 with ≥50% more seats.",
+   "message": {
+    "sv": "SE1055: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 50 % fler platser.",
+    "en": "SE1055: room seats compared with VT26 per occasion: 1 with ≥50% more seats."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -24568,7 +25924,11 @@
    "scope": "SF1550",
    "course": "SF1550",
    "key": "['P4 day 1 (Mon 14:00)']>['P4 day 2 (Tue 14:00)']",
-   "message": "SF1550: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 14:00) → VT27 P4 day 2 (Tue 14:00).",
+   "message": {
+    "sv": "SF1550: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 1 (mån 14:00) → VT27 P4 dag 2 (tis 14:00).",
+    "en": "SF1550: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 14:00) → VT27 P4 day 2 (Tue 14:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT1_VT27_remiss.xlsx:195 2027-05-25 14:00-17:00 Tentamen"
    ],
@@ -24581,7 +25941,11 @@
    "scope": "SF1693",
    "course": "SF1693",
    "key": "['P3 day 5 (Thu 08:00)']>['P3 day 6 (Fri 08:00)']",
-   "message": "SF1693: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 08:00) → VT27 P3 day 6 (Fri 08:00).",
+   "message": {
+    "sv": "SF1693: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 5 (tor 08:00) → VT27 P3 dag 6 (fre 08:00).",
+    "en": "SF1693: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 08:00) → VT27 P3 day 6 (Fri 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT2_VT27_remiss.xlsx:132 2027-03-12 08:00-13:00 Tentamen"
    ],
@@ -24594,7 +25958,14 @@
    "scope": "SF1693",
    "course": "SF1693",
    "key": "capacity",
-   "message": "SF1693: room seats compared with VT26 per occasion: 19 with ≥50% more seats.",
+   "message": {
+    "sv": "SF1693: lokalernas platser jämfört med VT26 per tillfälle: 19 med minst 50 % fler platser.",
+    "en": "SF1693: room seats compared with VT26 per occasion: 19 with ≥50% more seats."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -24616,7 +25987,14 @@
    "scope": "SF2701",
    "course": "SF2701",
    "key": "capacity",
-   "message": "SF2701: room seats compared with VT26 per occasion: 10 with ≥50% more seats.",
+   "message": {
+    "sv": "SF2701: lokalernas platser jämfört med VT26 per tillfälle: 10 med minst 50 % fler platser.",
+    "en": "SF2701: room seats compared with VT26 per occasion: 10 with ≥50% more seats."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -24638,7 +26016,14 @@
    "scope": "SF2955",
    "course": "SF2955",
    "key": "capacity",
-   "message": "SF2955: room seats compared with VT26 per occasion: 1 with ≥50% more seats, 4 changed between digital and on campus.",
+   "message": {
+    "sv": "SF2955: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 50 % fler platser, 4 som bytt mellan digitalt och på campus.",
+    "en": "SF2955: room seats compared with VT26 per occasion: 1 with ≥50% more seats, 4 changed between digital and on campus."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -24660,7 +26045,11 @@
    "scope": "SG1217",
    "course": "SG1217",
    "key": "['P3 day 6 (Fri 08:00)']>['P3 day 5 (Thu 08:00)']",
-   "message": "SG1217: ordinary exam position in the exam window changed: VT26 P3 day 6 (Fri 08:00) → VT27 P3 day 5 (Thu 08:00).",
+   "message": {
+    "sv": "SG1217: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 6 (fre 08:00) → VT27 P3 dag 5 (tor 08:00).",
+    "en": "SG1217: ordinary exam position in the exam window changed: VT26 P3 day 6 (Fri 08:00) → VT27 P3 day 5 (Thu 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:383 2027-03-11 08:00-13:00 Tentamen"
    ],
@@ -24673,7 +26062,11 @@
    "scope": "SI1155",
    "course": "SI1155",
    "key": "['P4 day 4 (Thu 14:00)']>['P4 day 4 (Thu 08:00)']",
-   "message": "SI1155: ordinary exam position in the exam window changed: VT26 P4 day 4 (Thu 14:00) → VT27 P4 day 4 (Thu 08:00).",
+   "message": {
+    "sv": "SI1155: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 4 (tor 14:00) → VT27 P4 dag 4 (tor 08:00).",
+    "en": "SI1155: ordinary exam position in the exam window changed: VT26 P4 day 4 (Thu 14:00) → VT27 P4 day 4 (Thu 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:675 2027-05-27 08:00-13:00 Tentamen"
    ],
@@ -24686,7 +26079,11 @@
    "scope": "SI1162",
    "course": "SI1162",
    "key": "['P3 day 5 (Thu 08:00)']>['P3 day 6 (Fri 08:00)']",
-   "message": "SI1162: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 08:00) → VT27 P3 day 6 (Fri 08:00).",
+   "message": {
+    "sv": "SI1162: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 5 (tor 08:00) → VT27 P3 dag 6 (fre 08:00).",
+    "en": "SI1162: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 08:00) → VT27 P3 day 6 (Fri 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTMAT3_VT27_remiss.xlsx:386 2027-03-12 08:00-13:00 Tentamen"
    ],

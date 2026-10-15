@@ -2,7 +2,7 @@
 
 Checks KTH TimeEdit schedule exports (remiss) against study plans and a reference
 schedule. Domain rules: `docs/PROCESS.md` (read it before changing checks or
-judging findings). Usage: `README.md`. Extending: `docs/ADDING_A_CHECK.md`.
+judging findings). Usage: `README.en.md` (Swedish: `README.md`). Extending: `docs/ADDING_A_CHECK.md`.
 
 ## Layout
 
@@ -26,3 +26,7 @@ judging findings). Usage: `README.md`. Extending: `docs/ADDING_A_CHECK.md`.
 - Course pages list examiners: `io/kursinfo.py` must only ever extract exam modules, syllabus
   validity and round dates.
 - Issue `key`s must stay stable across runs (accept lists depend on them).
+- Every user-facing text in both languages: `i18n.T(sv, en)`, Swedish default; terms from
+  `docs/GLOSSARY.md`. User docs in both (`README.md` sv, `README.en.md`, `docs/*.sv.md`); developer
+  docs (this file, CONTRIBUTING, ADDING_A_CHECK, PROCESS) in English. Python 3.11: no f-strings
+  reusing the enclosing quote character.

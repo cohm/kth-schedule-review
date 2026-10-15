@@ -1,6 +1,15 @@
-# Examples: VT27 remiss reviews
+# Examples: VT27 remiss reviews / Exempel: granskningar av remissen VT27
 
-Real runs of `schedcheck`, kept as worked examples of what the tool finds.
+*Svenska:* riktiga körningar av `schedcheck`, sparade som exempel på vad
+verktyget hittar. Rapporterna öppnas på svenska och har en knapp för
+engelska; kommentarsutkasten är på svenska. Det här är ögonblicksbilder av
+*preliminära* scheman (remissen den 14 oktober 2026), inte de slutliga
+scheman för VT27. Exporterna finns inte i repot, och resultatet innehåller
+inga namn på personal.
+
+*English:* real runs of `schedcheck`, kept as worked examples of what the
+tool finds. The reports open in Swedish and have a button for English; the
+draft comments are in Swedish.
 **Overview page:** <https://cohm.github.io/kth-schedule-review/docs/examples/>
 
 | Programme | Report | Draft comments |

@@ -16,6 +16,7 @@ from __future__ import annotations
 
 from itertools import combinations
 
+from ..i18n import KIND, T, both, weekday
 from ..model import Issue
 from ..term import Exam, course_prefix
 from . import Context, YearPlan, register
@@ -82,13 +83,42 @@ def _eligibility(ctx: Context, yp: YearPlan | None) -> dict[str, set[str]]:
     return groups
 
 
-def _pair_issue(ctx, a: Exam, b: Exam, sev: str, why: str, rel: str, scope: str, check: str,
+def relation_text(relation: str, masters=(), prefix: str = "") -> dict:
+    """Why a pair matters (how likely the same students take both), in both languages."""
+    ms = ", ".join(sorted(masters))
+    return {
+        "mandatory": T("Båda kurserna är obligatoriska för årskursen.",
+                       "Both are mandatory for this programme year."),
+        "eligibility": T(f"Båda kurserna krävs för behörighet till {ms}, så många studenter läser båda.",
+                         f"Both are required for eligibility to {ms}."),
+        "mandatory+elective": T("Den ena kursen är obligatorisk, den andra valbar.",
+                                "One mandatory course and one elective."),
+        "unplanned": T("Minst en av kurserna finns inte i utbildningsplanen för årskursen.",
+                       "At least one course is not in the study plan for this year."),
+        "same-subject": T(f"Valbara kurser inom samma ämne ({prefix}), som ofta läses tillsammans.",
+                          f"Electives in the same subject ({prefix}), plausibly taken together."),
+        "electives": T("Valbara kurser – påverkar bara studenter som läser båda.",
+                       "Electives; only a problem for students taking both."),
+    }[relation]
+
+
+WHY = {"overlapping": T("samtidigt", "overlapping"), "same day": T("samma dag", "same day"),
+       "consecutive days": T("dagar i rad", "consecutive days"),
+       "two days apart": T("med bara en dag emellan", "two days apart")}
+
+
+def _pair_issue(ctx, a: Exam, b: Exam, sev: str, why: str, rel: dict, scope: str, check: str,
                 relation: str = ""):
     x, y = sorted([a, b], key=lambda e: (e.event.start, e.course))
+    w = WHY.get(why, T(why, why))
+
+    def desc(e, lang):
+        return f"{e.course} ({KIND[e.kind][lang]}, {weekday(e.date, lang)} {e.event.start:%Y-%m-%d %H:%M})"
     return Issue(
         sev, check, scope, x.course,
-        f"{x.course} ({x.kind}, {x.event.start:%a %Y-%m-%d %H:%M}) and {y.course} "
-        f"({y.kind}, {y.event.start:%a %Y-%m-%d %H:%M}): {why}. {rel}",
+        T(f"{desc(x, 'sv')} och {desc(y, 'sv')} ligger {w['sv']}. {rel['sv']}",
+          f"{desc(x, 'en')} and {desc(y, 'en')}: {w['en']}. {rel['en']}"),
+        ask=T("Går det att sprida ut dem mer?", "Could they be spread further apart?"),
         key=f"{x.course}+{y.course}:{x.date}:{y.date}",
         evidence=[x.event.cite(), y.event.cite()],
         details={"courses": [x.course, y.course], "dates": [str(x.date), str(y.date)],
@@ -142,24 +172,28 @@ def check_exams(ctx: Context) -> list[Issue]:
             mand_a, mand_b = ca == "mandatory", cb == "mandatory"
             shared = [m for m, cs in elig.items() if a.course in cs and b.course in cs]
             if mand_a and mand_b:
-                steps, rel, relation = 0, "Both are mandatory for this programme year.", "mandatory"
+                steps, relation = 0, "mandatory"
             elif shared:
-                steps, rel, relation = 0, f"Both are required for eligibility to {', '.join(sorted(shared))}.", "eligibility:" + ",".join(sorted(shared))
+                steps, relation = 0, "eligibility"
             elif mand_a or mand_b:
-                steps, rel, relation = 1, "One mandatory course and one elective.", "mandatory+elective"
+                steps, relation = 1, "mandatory+elective"
             elif "unknown" in (ca, cb):
-                steps, rel, relation = 1, "At least one course is not in the study plan for this year.", "unplanned"
+                steps, relation = 1, "unplanned"
             elif course_prefix(a.course) == course_prefix(b.course):
-                steps, rel, relation = 1, (f"Electives in the same subject ({course_prefix(a.course)}), "
-                                           "plausibly taken together."), "same-subject"
+                steps, relation = 1, "same-subject"
             else:
-                steps, rel, relation = 2, "Electives; only a problem for students taking both.", "electives"
+                steps, relation = 2, "electives"
+            rel = relation_text(relation, shared, course_prefix(a.course))
+            if relation == "eligibility":
+                relation += ":" + ",".join(sorted(shared))
             if a.kind == "reexam":
                 steps += 1
-                rel += " Re-exams (affects students retaking both)."
+                rel = T(rel["sv"] + " Omtentor (påverkar studenter som tenterar om båda).",
+                        rel["en"] + " Re-exams (affects students retaking both).")
             if "partial" in (a.kind, b.kind):
                 steps += 1
-                rel += " Includes a partial exam/KS."
+                rel = T(rel["sv"] + " Gäller en kontrollskrivning/delexamination.",
+                        rel["en"] + " Includes a partial exam/KS.")
             sev = soften(sev, steps)
             if sev and new_pair(scope, a, b):
                 issues.append(_pair_issue(ctx, a, b, sev, why, rel, scope, "exams.spacing",
@@ -184,8 +218,9 @@ def check_exams(ctx: Context) -> list[Issue]:
                     sev, why = base_severity(a, b, th)
                     sev = soften(sev, 1)
                     if sev and new_pair(scope, a, b):
-                        rel = (f"Affects {scope} students retaking {b.course} "
-                               f"from year {year - 1}.")
+                        rel = T(f"Påverkar studenter i {scope} som behöver tentera om {b.course} "
+                                f"från årskurs {year - 1}.",
+                                f"Affects {scope} students retaking {b.course} from year {year - 1}.")
                         issues.append(_pair_issue(ctx, a, b, sev, why, rel, scope,
                                                   "exams.reexam-path", f"retake:{b.course}:{year - 1}"))
 
@@ -201,23 +236,28 @@ def check_exams(ctx: Context) -> list[Issue]:
             pos_new = [_window_pos(ctx.new, x) for x in new]
             pos_old = [_window_pos(ctx.old, x) for x in old]
             if pos_new != pos_old:
+                po = both(lambda lang: ", ".join(_window_pos(ctx.old, x, lang) for x in old))
+                pn = both(lambda lang: ", ".join(_window_pos(ctx.new, x, lang) for x in new))
                 issues.append(Issue(
                     "info", "exams.moved", code, code,
-                    f"{code}: ordinary exam position in the exam window changed: "
-                    f"{ctx.old.term} {', '.join(pos_old)} → {ctx.new.term} {', '.join(pos_new)}.",
+                    T(f"{code}: ordinarie tentamens plats i tentamensperioden har ändrats: "
+                      f"{ctx.old.term} {po['sv']} → {ctx.new.term} {pn['sv']}.",
+                      f"{code}: ordinary exam position in the exam window changed: "
+                      f"{ctx.old.term} {po['en']} → {ctx.new.term} {pn['en']}."),
                     key=f"{pos_old}>{pos_new}",
                     evidence=[x.event.cite() for x in new]))
     return issues
 
 
-def _window_pos(td, x: Exam) -> str:
+def _window_pos(td, x: Exam, lang: str = "en") -> str:
     w = next((w for w in td.calendar.exam_windows if x.date in w), None)
     if not w:
-        return f"{x.date} (outside window)"
+        return f"{x.date} ({'utanför tentamensperioden' if lang == 'sv' else 'outside window'})"
     # Count working days from the window start.
     d, n = w.start, 0
     while d < x.date:
         if d.weekday() < 5:
             n += 1
         d = d.fromordinal(d.toordinal() + 1)
-    return f"{w.label.split()[0]} day {n + 1} ({x.event.start:%a %H:%M})"
+    return (f"{w.label.split()[0]} {'dag' if lang == 'sv' else 'day'} {n + 1} "
+            f"({weekday(x.date, lang)} {x.event.start:%H:%M})")

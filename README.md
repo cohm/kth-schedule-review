@@ -1,140 +1,155 @@
 # kth-schedule-review
 
-Checks preliminary KTH schedules ("remiss") exported from TimeEdit, so programme
-directors and teachers can give feedback faster and miss less.
+**Svenska** · [English](README.en.md)
 
-It compares the schedule under review with
+Granskar preliminära KTH-scheman (remiss) exporterade ur TimeEdit, så att
+programansvariga och lärare kan ge återkoppling snabbare och missa mindre.
 
-- the **study plan** of each cohort (from [ProgramVisualization](https://github.com/cohm/ProgramVisualization)),
-- a **reference schedule**, typically last year's final schedule,
+Schemat som granskas jämförs med
 
-and reports:
+- **utbildningsplanen** för varje kull (från [ProgramVisualization](https://github.com/cohm/ProgramVisualization)),
+- ett **referensschema**, normalt förra årets slutliga schema,
 
-| Check | What it finds |
+och verktyget rapporterar:
+
+| Kontroll | Vad den hittar |
 |---|---|
-| `coverage` | study-plan courses missing from the schedule (and scheduled courses not in the plan); courses without an ordinary exam or a re-exam, when the study plan, last year's schedule or the syllabus says there should be one |
-| `structure` | per course: changed number of lectures/exercises/labs…, changed order, occasions moved ≥ 2 teaching weeks, changed exam modules |
-| `exams` | exams of courses taken in parallel on the same or consecutive days; re-exam paths (year N students retaking year N−1 courses); elective pairs ranked by how likely students take both (master-eligibility groups from the study plan count as "both") |
-| `teaching` | lectures, exercises, labs etc. of courses taken in parallel that overlap in time; graded by whether whole classes or single groups are affected and how likely students take both courses |
-| `syllabus` | scheduled exam modules against the current syllabus from the kth.se course page (e.g. TEN1 scheduled after the syllabus changed to TEN2); the syllabus also counts as evidence that an exam is missing |
-| `rooms` | per course and occasion, seats in the booked rooms against last year's (from [KTH Places](https://www.kth.se/places)): ≥ 10 / 20 / 40 % fewer seats, ≥ 50 % more, occasions without a room booked |
-| `dataquality` | stale course-round codes, exports whose date range misses the August re-exams, existing remiss comments |
+| `coverage` | kurser i utbildningsplanen som saknas i schemat (och schemalagda kurser som inte finns i planen); kurser utan ordinarie tentamen eller omtentamen, när utbildningsplanen, förra årets schema eller kursplanen säger att det ska finnas en |
+| `structure` | per kurs: ändrat antal föreläsningar/övningar/laborationer…, ändrad ordning, tillfällen flyttade ≥ 2 undervisningsveckor, ändrade examinationsmoduler |
+| `exams` | tentamina i kurser som läses parallellt samma dag eller dagar i rad; omtentavägar (studenter i årskurs N som tenterar om kurser från årskurs N−1); par av valbara kurser rangordnade efter hur troligt det är att studenter läser båda (behörighetsgrupper för masterprogram i utbildningsplanen räknas som "båda") |
+| `teaching` | föreläsningar, övningar, laborationer m.m. i kurser som läses parallellt och krockar i tid; graderat efter om hela klassen eller enskilda grupper berörs och hur troligt det är att studenter läser båda kurserna |
+| `syllabus` | schemalagda examinationsmoduler mot den gällande kursplanen från kursens sida på kth.se (t.ex. TEN1 schemalagd fast kursplanen har bytt till TEN2); kursplanen räknas också som belägg för att en tentamen saknas |
+| `rooms` | per kurs och tillfälle, platserna i de bokade lokalerna jämfört med förra året (från [KTH Places](https://www.kth.se/places)): ≥ 10 / 20 / 40 % färre platser, ≥ 50 % fler, tillfällen utan bokad lokal |
+| `dataquality` | gamla kurstillfälleskoder, exporter vars datumintervall missar omtentorna i augusti, befintliga remisskommentarer |
 
-Outputs: a self-contained **HTML report**, **draft remiss comments** (Swedish or
-English, Markdown) and **`issues.json`** for scripts and AI agents.
-Nothing is ever sent anywhere; you edit and send the comments yourself.
+Resultat: en fristående **HTML-rapport** (svenska och engelska, går att
+växla), **utkast till remisskommentarer** (Markdown och HTML, svenska eller
+engelska) och **`issues.json`** för skript och AI-agenter. Inget skickas
+någonstans; du redigerar och skickar kommentarerna själv.
 
-Requires Python ≥ 3.11 and nothing else.
+Kräver Python ≥ 3.11 och inget annat.
 
-**Example:** the review of the CTFYS VT27 remiss —
-[report](https://cohm.github.io/kth-schedule-review/docs/examples/CTFYS_VT27/CTFYS_VT27_review.html),
-[draft comments](docs/examples/CTFYS_VT27/CTFYS_VT27_kommentarer.md), [about](docs/examples/README.md).
+**Exempel:** granskningen av remissen för CTFYS VT27 —
+[rapport](https://cohm.github.io/kth-schedule-review/docs/examples/CTFYS_VT27/CTFYS_VT27_review.html),
+[kommentarsutkast](docs/examples/CTFYS_VT27/CTFYS_VT27_kommentarer.md), [om exemplen](docs/examples/README.md).
 
-## Quick start
+## Kom igång
 
-1. Export the schedules from TimeEdit as .xlsx, one file per programme year,
-   for the term under review and for the reference term (see
-   [docs/EXPORTING.md](docs/EXPORTING.md)), or let `schedcheck fetch` open the
-   exports in your (logged-in) browser and `schedcheck collect` file them (see
-   [docs/FETCHING.md](docs/FETCHING.md)). Put them in two folders, e.g.
+1. Exportera schemana ur TimeEdit som .xlsx, en fil per årskurs, för terminen
+   som granskas och för referensterminen (se [docs/EXPORTING.sv.md](docs/EXPORTING.sv.md)),
+   eller låt `schedcheck fetch` öppna exporterna i din (inloggade) webbläsare
+   och `schedcheck collect` arkivera dem (se [docs/FETCHING.sv.md](docs/FETCHING.sv.md)).
+   Lägg dem i två mappar, t.ex.
 
    ```
    VT27/remiss/      TimeEdit_….xlsx  (CTFYS1, CTFYS2, CTFYS3)
-   VT27/reference/   TimeEdit_….xlsx  (last year's final schedule)
+   VT27/reference/   TimeEdit_….xlsx  (förra årets slutliga schema)
    ```
 
-2. Run a programme review:
+2. Kör en programgranskning:
 
    ```sh
    python3 -m schedcheck program --new VT27/remiss --old VT27/reference --out VT27/reports
    ```
 
-   The programme and programme years are read from the export headers; study
-   plans are downloaded from ProgramVisualization, and exam modules from the
-   courses' kth.se pages (only modules and round dates are kept), cached in
-   `~/.cache/schedcheck`. `--no-syllabus` skips the course pages. Room seat
-   counts come from KTH Places (a first run reads ~115 building pages and one
-   page per room used, a few minutes; then cached for 30 days); `--no-rooms`
-   skips this, and `--rooms FILE` adds capacities Places lacks:
+   Program och årskurser läses från exporternas huvud; utbildningsplanerna
+   hämtas från ProgramVisualization och examinationsmodulerna från kursernas
+   sidor på kth.se (bara moduler och kurstillfällenas datum sparas), med
+   cache i `~/.cache/schedcheck`. `--no-syllabus` hoppar över kurssidorna.
+   Lokalernas antal platser kommer från KTH Places (första körningen läser
+   ~115 byggnadssidor och en sida per använd lokal, några minuter; sedan
+   cache i 30 dagar); `--no-rooms` hoppar över detta, och `--rooms FIL`
+   lägger till antal platser som saknas i Places:
 
    ```toml
    [capacity]
-   "012:024" = 16        # room name as in the export
+   "012:024" = 16        # lokalens namn som i exporten
    "Wenström" = 24
    ```
 
-   With `--timeedit workspace/timeedit.toml` (the config of `fetch`), the
-   report also links each programme year to its schedule in TimeEdit.
+   Med `--timeedit workspace/timeedit.toml` (konfigurationen för `fetch`)
+   länkar rapporten dessutom varje årskurs till dess schema i TimeEdit.
 
-3. Open `VT27/reports/<PROG>_<term>_review.html`, read
-   `<PROG>_<term>_kommentarer.md`, and edit the comments before sending.
+3. Öppna `VT27/reports/<PROG>_<termin>_review.html`, läs
+   `<PROG>_<termin>_kommentarer.md` och redigera kommentarerna innan du skickar dem.
 
-A teacher can review just their course(s), no study plan needed:
+En lärare kan granska bara sina egna kurser, utan utbildningsplan:
 
 ```sh
 python3 -m schedcheck course SF1674 --new VT27/remiss --old VT27/reference --out reports/SF1674
 ```
 
-`python3 -m schedcheck dump FOLDER [--course CODE …]` prints what the parser
-understood, which is the first thing to look at when a result seems wrong.
+`python3 -m schedcheck dump MAPP [--course KOD …]` skriver ut vad tolkningen
+förstod, det första att titta på när ett resultat verkar fel.
 
-## Severities
+## Språk
 
-| | meaning |
+Svenska är standard. `--lang en` (eller `SCHEDCHECK_LANG=en`) byter språk för
+kommandots meddelanden och hjälptexter, kommentarsutkasten (`*_comments.md` i
+stället för `*_kommentarer.md`) och språket rapporten öppnas i; rapporten
+innehåller alltid båda och har en knapp för att växla. `issues.json` har
+varje text på båda språken. Termerna följer [docs/GLOSSARY.md](docs/GLOSSARY.md).
+
+## Allvarlighetsgrader
+
+| | betydelse |
 |---|---|
-| **error** | almost certainly needs fixing (missing mandatory course or exam, clashing mandatory exams) |
-| **warning** | probably needs fixing or asking about |
-| **review** | a difference from the reference schedule; may well be intended, a human should judge |
-| **info** | context; hidden by default in the report |
+| **fel** | behöver nästan säkert rättas (saknad obligatorisk kurs eller tentamen, obligatoriska tentamina som krockar) |
+| **varning** | behöver troligen rättas eller frågas om |
+| **granska** | en skillnad mot referensschemat; kan mycket väl vara avsiktlig, en människa bör bedöma |
+| **info** | sammanhang; dolt som standard i rapporten |
 
-## Accepting known differences
+## Acceptera kända skillnader
 
-When a difference is confirmed as intended, record it so reruns stay quiet:
+När en skillnad är bekräftad som avsiktlig, anteckna det så att nya körningar
+inte tar upp den igen:
 
 ```toml
-# workspace/accepted.toml (not committed)
+# workspace/accepted.toml (checkas inte in)
 [[accepted]]
 check = "structure.counts"
 course = "DD1327"
-note = "New workshop format, confirmed with examiner 2026-10-20"
+note = "Nytt workshopupplägg, bekräftat med examinator 2026-10-20"
 ```
 
 ```sh
 python3 -m schedcheck program … --accepted workspace/accepted.toml
 ```
 
-`key` (from `issues.json`) can be added to accept one specific instance only.
+`key` (från `issues.json`) kan läggas till för att bara acceptera ett visst fall.
 
-## Programme-specific settings
+## Programspecifika inställningar
 
-Optional `programs/<PROG>.toml` files hold shared, programme-level knowledge:
-threshold overrides and extra master-eligibility groups. See
-[programs/EXAMPLE.toml](programs/EXAMPLE.toml). Most programmes need none.
+Valfria filer `programs/<PROG>.toml` innehåller gemensam kunskap på
+programnivå: andra tröskelvärden och extra behörighetsgrupper för
+masterprogram. Se [programs/EXAMPLE.toml](programs/EXAMPLE.toml). De flesta
+program behöver ingen.
 
-## Using it with an AI agent
+## Med en AI-agent
 
 [`skills/schedule-remiss-review/SKILL.md`](skills/schedule-remiss-review/SKILL.md)
-is a Claude Code skill that runs the tool, triages the findings and polishes the
-comment draft. [docs/PROCESS.md](docs/PROCESS.md) is the domain description it
-relies on and is also a good read for humans new to the remiss process.
+är en Claude Code-skill som kör verktyget, sorterar fynden och putsar
+kommentarsutkastet. [docs/PROCESS.md](docs/PROCESS.md) (på engelska)
+beskriver remissprocessen som den bygger på och är också läsvärd för den som
+är ny i remissarbetet.
 
-To install the skill in a project: `ln -s /path/to/kth-schedule-review/skills/schedule-remiss-review .claude/skills/`
+Installera skillen i ett projekt: `ln -s /sökväg/till/kth-schedule-review/skills/schedule-remiss-review .claude/skills/`
 
-## Limitations
+## Begränsningar
 
-- Only programmes (and cohorts) that ProgramVisualization covers get study-plan
-  checks; others still get structure, exam and data-quality checks.
-- Term structure (exam and re-exam windows) is derived from the "Examinationsdag"
-  and "Omexamination" marker rows in the exports. Exports without them give
-  weaker results.
-- "Same subject" for electives is guessed from the course-code prefix (SF, SI, …).
+- Bara program (och kullar) som finns i ProgramVisualization får kontroller
+  mot utbildningsplanen; andra får ändå kontroller av struktur, tentamina och
+  datakvalitet.
+- Terminens struktur (tentamens- och omtentaperioder) härleds från
+  markeringsraderna "Examinationsdag" och "Omexamination" i exporterna.
+  Exporter utan dem ger svagare resultat.
+- "Samma ämne" för valbara kurser gissas från kurskodens prefix (SF, SI, …).
 
-## Development
+## Utveckling
+
+Utvecklardokumentationen är på engelska: [README.en.md](README.en.md#development),
+[CONTRIBUTING.md](CONTRIBUTING.md), [docs/ADDING_A_CHECK.md](docs/ADDING_A_CHECK.md).
 
 ```sh
 python3 -m unittest discover -s tests -t .
 ```
-
-Tests use synthetic exports generated in code; never add real exports to the
-repo. Curated example outputs live in `docs/examples/`, checked for personal
-data before they are added. See [CONTRIBUTING.md](CONTRIBUTING.md) and [docs/ADDING_A_CHECK.md](docs/ADDING_A_CHECK.md).

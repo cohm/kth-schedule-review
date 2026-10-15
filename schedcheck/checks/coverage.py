@@ -4,10 +4,16 @@ and courses with exams have an ordinary exam and a re-exam.
 from __future__ import annotations
 
 from ..calendar import TERM_PERIODS
+from ..i18n import T
 from ..model import Issue
 from ..term import REEXAM_ACTIVITY_PREFIXES
 from . import Context, register
-from .syllabus import exam_reasons, only_syllabus
+from .syllabus import exam_reasons, only_syllabus, reasons_text
+
+CATEGORY = {"mandatory": T("obligatorisk", "mandatory"),
+            "conditionallyElective": T("villkorligt valfri", "conditionally elective"),
+            "recommended": T("rekommenderad", "recommended"),
+            "electivePlaceholder": T("valfri", "elective")}
 
 MISSING_SEVERITY = {
     "mandatory": "error",
@@ -30,13 +36,17 @@ def check_coverage(ctx: Context) -> list[Issue]:
         present = {c for e in year_events for c in e.codes}
 
         if yp.plan is None:
+            note = yp.note or T("okänd orsak", "unknown reason")
             issues.append(Issue("warning", "coverage.no-plan", scope, None,
-                                f"No study plan available for {scope}: {yp.note}. "
-                                "Coverage could not be checked.", key=scope))
+                                T(f"Ingen utbildningsplan tillgänglig för {scope}: {note['sv']}. "
+                                  "Kurstäckningen kunde inte kontrolleras.",
+                                  f"No study plan available for {scope}: {note['en']}. "
+                                  "Coverage could not be checked."), key=scope))
             continue
-        if "approximated" in yp.note:
+        if yp.approximated and yp.note:
             issues.append(Issue("info", "coverage.plan-approximated", scope, None,
-                                f"Study plan for {scope} (cohort {yp.cohort}) is {yp.note}.",
+                                T(f"Utbildningsplanen för {scope} (kull {yp.cohort}) är {yp.note['sv']}.",
+                                  f"Study plan for {scope} (cohort {yp.cohort}) is {yp.note['en']}."),
                                 key=scope))
 
         expected = yp.plan.expected(year, periods, yp.specialization)
@@ -48,9 +58,11 @@ def check_coverage(ctx: Context) -> list[Issue]:
                 if sum(g.period_credits.get(p, 0) or 0 for p in periods) <= 0:
                     continue
                 if not set(g.options) & present:
+                    opts = ", ".join(g.options)
                     issues.append(Issue("error", "coverage.group-empty", scope, None,
-                                        f"None of the options in '{g.name}' ({', '.join(g.options)}) "
-                                        "is scheduled.", key=g.name))
+                                        T(f"Ingen av kurserna i '{g.name}' ({opts}) är schemalagd för {scope}.",
+                                          f"None of the options in '{g.name}' ({opts}) is scheduled."),
+                                        key=g.name))
 
         pick_groups = {o: g for g in yp.plan.groups_for(year, yp.specialization)
                        if g.kind == "pickN" for o in g.options}
@@ -61,11 +73,16 @@ def check_coverage(ctx: Context) -> list[Issue]:
             g = pick_groups.get(e.code)
             if g and set(g.options) & present:
                 sev = "info"  # another option of a pick-one group is scheduled
-            where = f" (option in '{e.group}')" if e.group else ""
+            cat = CATEGORY.get(e.category, T(e.category, e.category))
+            per = "/".join(e.periods) or ctx.new.term
             issues.append(Issue(sev, "coverage.missing-course", scope, e.code,
-                                f"{e.code} {e.name} [{e.category}]{where} is in the study plan "
-                                f"for {scope} in {'/'.join(e.periods) or ctx.new.term} "
-                                "but not in the schedule.", key=e.code,
+                                T(f"{e.code} {e.name} [{cat['sv']}]"
+                                  + (f" (alternativ i '{e.group}')" if e.group else "")
+                                  + f" ingår i utbildningsplanen för {scope} i {per} men finns inte i schemat.",
+                                  f"{e.code} {e.name} [{cat['en']}]"
+                                  + (f" (option in '{e.group}')" if e.group else "")
+                                  + f" is in the study plan for {scope} in {per} but not in the schedule."),
+                                ask=T("Ska den läggas in?", "Should it be added?"), key=e.code,
                                 details={"name": e.name, "category": e.category,
                                          "periods": e.periods, "group": e.group}))
 
@@ -73,13 +90,16 @@ def check_coverage(ctx: Context) -> list[Issue]:
         # which are normally re-exams of earlier courses in the programme).
         for code in sorted(taught - exp_codes):
             if code in yp.plan.courses and yp.plan.courses[code].year not in (None, year):
-                where = f"the plan places it in year {yp.plan.courses[code].year}"
+                y = yp.plan.courses[code].year
+                where = T(f"utbildningsplanen har den i årskurs {y}", f"the plan places it in year {y}")
             elif code in yp.plan.courses:
-                where = "the plan has no credits for it this term"
+                where = T("utbildningsplanen ger inga poäng för den denna termin",
+                          "the plan has no credits for it this term")
             else:
-                where = "it is not in the study plan"
+                where = T("den finns inte i utbildningsplanen", "it is not in the study plan")
             issues.append(Issue("info", "coverage.unplanned-course", scope, code,
-                                f"{code} is scheduled for {scope} but {where}.", key=code))
+                                T(f"{code} är schemalagd för {scope}, men {where['sv']}.",
+                                  f"{code} is scheduled for {scope} but {where['en']}."), key=code))
 
         # Exam presence: an ordinary exam (in an exam window) and a later re-exam.
         # Expected if the study plan, last year's schedule or the current
@@ -99,18 +119,26 @@ def check_coverage(ctx: Context) -> list[Issue]:
             reasons, ref = exam_reasons(ctx, code, plan_periods.get(code, ()))
             if not reasons:
                 continue
-            why = "; ".join(reasons)
+            why = reasons_text(reasons)
             cx = [x for x in ctx.new.exams() if x.course == code]
             weak = only_syllabus(ref)
-            note = (f" (Only the syllabus says so; for a course outside the mandatory plan the exam may be "
-                    f"scheduled without {scope} and not appear in this export.)" if weak else "")
+            note = (T(" (Bara kursplanen säger det; för en kurs utanför den obligatoriska planen kan "
+                      f"tentamen vara schemalagd utan {scope} och då inte synas i denna export.)",
+                      " (Only the syllabus says so; for a course outside the mandatory plan the exam may be "
+                      f"scheduled without {scope} and not appear in this export.)") if weak else T("", ""))
             if not any(x.kind == "ordinary" for x in cx):
                 issues.append(Issue("warning" if weak else "error", "coverage.missing-exam", scope, code,
-                                    f"{code} has no ordinary exam in an exam window, but {why}.{note}",
+                                    T(f"{code} har ingen ordinarie tentamen i tentamensperioden, men "
+                                      f"{why['sv']}.{note['sv']}",
+                                      f"{code} has no ordinary exam in an exam window, but {why['en']}.{note['en']}"),
+                                    ask=T("Ska den läggas in?", "Should it be added?"),
                                     key=code, details=ref,
                                     evidence=[x.event.cite() for x in cx]))
             if not any(x.kind == "reexam" for x in cx):
                 issues.append(Issue("info" if weak else "warning", "coverage.missing-reexam", scope, code,
-                                    f"{code} has no re-exam scheduled this term, but {why}.{note}",
+                                    T(f"{code} har ingen omtentamen schemalagd denna termin, men "
+                                      f"{why['sv']}.{note['sv']}",
+                                      f"{code} has no re-exam scheduled this term, but {why['en']}.{note['en']}"),
+                                    ask=T("Ska den läggas in?", "Should it be added?"),
                                     key=code, details=ref))
     return issues

@@ -81,13 +81,18 @@ class StudyPlan:
     groups: list[OptionGroup]
     source: str
 
-    def year_confidence(self, year: int) -> str:
+    def year_confidence(self, year: int) -> dict[str, str]:
+        """How reliable the plan is for a year, e.g. {"en": "exact"} or
+        "approximated from HT2023 (high)", in both languages."""
+        from ..i18n import T
         for y in self.years_meta:
             if y.get("year") == year:
                 if y.get("approximated"):
-                    return f"approximated from {y.get('sourceCohort')} ({y.get('confidence', 'unknown')})"
-                return y.get("confidence", "exact")
-        return "unknown"
+                    src, conf = y.get("sourceCohort"), y.get("confidence", "unknown")
+                    return T(f"uppskattad från {src} ({conf})", f"approximated from {src} ({conf})")
+                c = y.get("confidence", "exact")
+                return T("exakt" if c == "exact" else c, c)
+        return T("okänd", "unknown")
 
     def _applies(self, specs: list[str], spec: str | None) -> bool:
         return not specs or spec is None or spec in specs

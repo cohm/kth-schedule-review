@@ -221,7 +221,7 @@ def exported_at(path: str | Path) -> tuple[dt.datetime | None, str]:
         return None, ""
 
 
-def export_time_text(exports) -> str:
+def export_time_text(exports, lang: str = "en") -> str:
     """'2026-10-14 23:54' (local time), or a range if the files differ by more
     than a few minutes; '' if unknown. Marks times only known from file dates."""
     ts = sorted(ex.exported_at for ex in exports if ex.exported_at)
@@ -233,7 +233,7 @@ def export_time_text(exports) -> str:
     if (b - a) > dt.timedelta(minutes=10):
         txt += f"–{b:%H:%M}" if a.date() == b.date() else f" – {b:%Y-%m-%d %H:%M}"
     if any(ex.exported_source == "file date" for ex in exports if ex.exported_at):
-        txt += " (file date)"
+        txt += " (filens datum)" if lang == "sv" else " (file date)"
     return txt
 
 

@@ -1,4 +1,4 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap'><title>Schedule reviews VT27 (remiss)</title><style>
+<!doctype html><html lang='sv' data-lang='sv'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap'><title>Schemagranskningar VT27 (remiss)</title><style>
 /* KTH Graphical Profile (Grafisk manual v1.2, 2024), as defined in
    https://github.com/cohm/kth-doc-templates. The profile defines no dark
    theme; the dark tokens below keep the KTH hues, stepped for a dark surface. */
@@ -164,12 +164,17 @@ h1 { overflow-wrap: anywhere; }
 .act.cap-nr::after { content: "?"; }
 .capn.zero { color: var(--text-muted); font-weight: 400; }
 table.rooms td.n, table.rooms th.n { text-align: right; white-space: nowrap; }
+/* Language: both texts are in the page; the other one is hidden. */
+:root[data-lang="sv"] .l-en, :root[data-lang="en"] .l-sv { display: none !important; }
+.topbtns { float: right; display: flex; gap: 6px; }
+.topbtns .themebtn { float: none; }
 @media (max-width: 640px) {
+  .topbtns { float: none; margin-bottom: 8px; }
   td.msg { min-width: 240px; } .tile { min-width: 0; flex: 1 1 28%; padding: 8px 10px; }
   .tile .n { font-size: 20px; } .themebtn { float: none; margin-bottom: 8px; }
   .yearbar .sub { display: none; }
 }
-</style></head><body><main><div class='kthhead'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 502" fill="currentColor" role="img" aria-label="KTH"><path d="M234.5,481.4c4.8-5.4,9.9-11.2,13.5-14.8c7.1-7.1,14.4-7,14.4-7s-8.4-4.1-17.2,4.7c-2.4,2.4-7.7,8.4-13.1,14.5
+</style></head><body><main><div class='topbtns'><button class='themebtn' id='lang' type='button'>English</button><button class='themebtn' id='theme' type='button'><span class='l-sv' lang='sv'>Byt tema</span><span class='l-en' lang='en'>Toggle theme</span></button></div><div class='kthhead'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 502" fill="currentColor" role="img" aria-label="KTH"><path d="M234.5,481.4c4.8-5.4,9.9-11.2,13.5-14.8c7.1-7.1,14.4-7,14.4-7s-8.4-4.1-17.2,4.7c-2.4,2.4-7.7,8.4-13.1,14.5
 	c-2-2.2-3.9-4.4-5.7-6.4c2-2.2,3.9-4.2,5.4-5.8c7.1-7.1,14.4-7,14.4-7s-8.4-4.1-17.2,4.7c-1.1,1.1-2.9,3.1-5,5.4
 	c-2.1-2.4-3.9-4.3-5-5.4c-8.8-8.8-17.2-4.7-17.2-4.7s7.3-0.1,14.4,7c1.6,1.6,3.4,3.6,5.4,5.8c-1.8,2-3.8,4.2-5.7,6.4
 	c-5.4-6.1-10.8-12.1-13.1-14.5c-8.8-8.8-17.2-4.7-17.2-4.7s7.3-0.1,14.4,7c3.6,3.6,8.7,9.4,13.5,14.8c-4.5,5.1-8.9,9.9-11.3,12.3
@@ -598,4 +603,81 @@ table.rooms td.n, table.rooms th.n { text-align: right; white-space: nowrap; }
 	c-0.4-1.8,0.8-3.5,2.5-3.8l6.4-1.3c1.8-0.4,3.5,0.8,3.9,2.5C196.4,126.4,195.3,128.1,193.5,128.5L193.5,128.5z M224,126.7l-6.7-3.8
 	l6.7-3.8l6.7,3.8L224,126.7L224,126.7z M264.7,127.3c-0.4,1.8-2.1,2.9-3.9,2.5l-6.4-1.3c-1.8-0.4-2.9-2.1-2.6-3.8
 	c0.4-1.8,2.1-2.9,3.9-2.5l6.4,1.3C263.9,123.8,265.1,125.5,264.7,127.3L264.7,127.3z M284,133.1c2.4-0.4,5-0.8,6.4-1.1
-	c0.4,1.2,1,2.7,1.5,3.9c-1.1,0.6-2.6,1.4-3.7,2C287.2,137,285.5,135,284,133.1L284,133.1z"/></svg><h1>Schedule reviews VT27 (remiss)</h1></div><p class='sub'>Automated checks of preliminary TimeEdit schedules against the study plans and last year's final schedule. Each report shows, per programme year, what was checked and what was found.</p><div class='tablewrap'><table><thead><tr><th>Review</th><th><span class="sev sev-error"><span class="i" aria-hidden="true">✖</span>Error</span></th><th><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span>Warning</span></th><th><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span>Review</span></th><th><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></th><th>Draft comments</th><th>Generated</th></tr></thead><tbody><tr><td><a class='cl' href='CFATE_VT27/CFATE_VT27_review.html'>CFATE VT27 vs VT26</a></td><td>2</td><td>25</td><td>55</td><td>103</td><td><a class='cl' href='CFATE_VT27/CFATE_VT27_kommentarer.html'>comments</a></td><td class='sub'>2026-10-15</td></tr><tr><td><a class='cl' href='COPEN_VT27/COPEN_VT27_review.html'>COPEN VT27 vs VT26</a></td><td>0</td><td>3</td><td>13</td><td>12</td><td><a class='cl' href='COPEN_VT27/COPEN_VT27_kommentarer.html'>comments</a></td><td class='sub'>2026-10-15</td></tr><tr><td><a class='cl' href='CTFYS_VT27/CTFYS_VT27_review.html'>CTFYS VT27 vs VT26</a></td><td>3</td><td>35</td><td>58</td><td>92</td><td><a class='cl' href='CTFYS_VT27/CTFYS_VT27_kommentarer.html'>comments</a></td><td class='sub'>2026-10-15</td></tr><tr><td><a class='cl' href='CTMAT_VT27/CTMAT_VT27_review.html'>CTMAT VT27 vs VT26</a> <span class='sub'>(study-plan data not verified)</span></td><td>2</td><td>31</td><td>38</td><td>120</td><td><a class='cl' href='CTMAT_VT27/CTMAT_VT27_kommentarer.html'>comments</a></td><td class='sub'>2026-10-15</td></tr></tbody></table></div><p class='sub'>Generated with <a class='cl' href='https://github.com/cohm/kth-schedule-review'>kth-schedule-review</a>.</p></main></body></html>
+	c0.4,1.2,1,2.7,1.5,3.9c-1.1,0.6-2.6,1.4-3.7,2C287.2,137,285.5,135,284,133.1L284,133.1z"/></svg><h1><span class='l-sv' lang='sv'>Schemagranskningar VT27 (remiss)</span><span class='l-en' lang='en'>Schedule reviews VT27 (remiss)</span></h1></div><p class='sub'><span class='l-sv' lang='sv'>Automatiska kontroller av preliminära TimeEdit-scheman mot utbildningsplanerna och förra årets slutliga schema. Varje rapport visar, per årskurs, vad som kontrollerades och vad som hittades.</span><span class='l-en' lang='en'>Automated checks of preliminary TimeEdit schedules against the study plans and last year&#x27;s final schedule. Each report shows, per programme year, what was checked and what was found.</span></p><div class='tablewrap'><table><thead><tr><th><span class='l-sv' lang='sv'>Granskning</span><span class='l-en' lang='en'>Review</span></th><th><span class="sev sev-error"><span class="i" aria-hidden="true">✖</span><span class='l-sv' lang='sv'>Fel</span><span class='l-en' lang='en'>Error</span></span></th><th><span class="sev sev-warning"><span class="i" aria-hidden="true">▲</span><span class='l-sv' lang='sv'>Varning</span><span class='l-en' lang='en'>Warning</span></span></th><th><span class="sev sev-review"><span class="i" aria-hidden="true">◆</span><span class='l-sv' lang='sv'>Granska</span><span class='l-en' lang='en'>Review</span></span></th><th><span class="sev sev-info"><span class="i" aria-hidden="true">●</span>Info</span></th><th><span class='l-sv' lang='sv'>Kommentarsutkast</span><span class='l-en' lang='en'>Draft comments</span></th><th><span class='l-sv' lang='sv'>Skapad</span><span class='l-en' lang='en'>Generated</span></th></tr></thead><tbody><tr><td><a class='cl' href='CFATE_VT27/CFATE_VT27_review.html'>CFATE VT27 vs VT26</a></td><td>2</td><td>25</td><td>55</td><td>103</td><td><a class='cl' href='CFATE_VT27/CFATE_VT27_kommentarer.html'>svenska</a></td><td class='sub'>2026-10-15</td></tr><tr><td><a class='cl' href='COPEN_VT27/COPEN_VT27_review.html'>COPEN VT27 vs VT26</a></td><td>0</td><td>3</td><td>13</td><td>12</td><td><a class='cl' href='COPEN_VT27/COPEN_VT27_kommentarer.html'>svenska</a></td><td class='sub'>2026-10-15</td></tr><tr><td><a class='cl' href='CTFYS_VT27/CTFYS_VT27_review.html'>CTFYS VT27 vs VT26</a></td><td>3</td><td>35</td><td>58</td><td>92</td><td><a class='cl' href='CTFYS_VT27/CTFYS_VT27_kommentarer.html'>svenska</a></td><td class='sub'>2026-10-15</td></tr><tr><td><a class='cl' href='CTMAT_VT27/CTMAT_VT27_review.html'>CTMAT VT27 vs VT26</a> <span class='sub'>(<span class='l-sv' lang='sv'>utbildningsplanens data inte verifierad</span><span class='l-en' lang='en'>study-plan data not verified</span>)</span></td><td>2</td><td>31</td><td>38</td><td>120</td><td><a class='cl' href='CTMAT_VT27/CTMAT_VT27_kommentarer.html'>svenska</a></td><td class='sub'>2026-10-15</td></tr></tbody></table></div><p class='sub'><span class='l-sv' lang='sv'>Skapad med</span><span class='l-en' lang='en'>Generated with</span> <a class='cl' href='https://github.com/cohm/kth-schedule-review'>kth-schedule-review</a>.</p><script>
+(function () {
+  const root = document.documentElement;
+  const rows = Array.from(document.querySelectorAll('#issues tbody tr'));
+  const q = document.getElementById('q'), acc = document.getElementById('acc');
+  const sev = Array.from(document.querySelectorAll('input[name=sev]'));
+  const years = Array.from(document.querySelectorAll('input[name=year]'));
+  const ALL = '*';
+  // Language: the page default (from --lang), or the reader's earlier choice.
+  let lang = root.dataset.lang;
+  try { const s = localStorage.getItem('schedcheck-lang'); if (s === 'sv' || s === 'en') lang = s; } catch (e) {}
+  // Default year: the first programme year; a choice made earlier is remembered.
+  let year = years.length > 1 ? years[1].value : ALL;
+  try { const saved = localStorage.getItem('schedcheck-year');
+        if (saved && years.some(y => y.value === saved)) year = saved; } catch (e) {}
+  years.forEach(y => { y.checked = y.value === year; });
+
+  const inYear = el => year === ALL || el.dataset.years === ALL
+    || el.dataset.years.split(' ').includes(year);
+
+  function apply() {
+    if (!q) return;
+    const on = new Set(sev.filter(s => s.checked).map(s => s.value));
+    const text = q.value.trim().toLowerCase();
+    let shown = 0;
+    const counts = {error: 0, warning: 0, review: 0, info: 0}; let accepted = 0;
+    rows.forEach(r => {
+      const y = inYear(r);
+      if (y) { if (r.dataset.acc === '1') accepted++; else counts[r.dataset.sev]++; }
+      const ok = y && on.has(r.dataset.sev) && (acc.checked || r.dataset.acc !== '1')
+        && (!text || r.textContent.toLowerCase().includes(text));
+      r.classList.toggle('hidden', !ok); if (ok) shown++;
+    });
+    document.getElementById('shown').textContent = shown + (lang === 'sv' ? ' visas' : ' shown');
+    Object.entries(counts).forEach(([k, v]) => { document.getElementById('n-' + k).textContent = v; });
+    document.getElementById('n-accepted').textContent = accepted;
+    document.querySelectorAll('.cal tbody tr[data-year]').forEach(tr => {
+      tr.classList.toggle('sel', year !== ALL && tr.dataset.year === year);
+      tr.classList.toggle('dim', year !== ALL && tr.dataset.year !== year);
+    });
+    document.querySelectorAll('[data-course-years]').forEach(d => {
+      const ys = d.dataset.courseYears;
+      d.classList.toggle('hidden', !(year === ALL || ys === ALL || ys.split(' ').includes(year)));
+    });
+    document.querySelectorAll('.yearname').forEach(e => {
+      e.textContent = year === ALL ? (lang === 'sv' ? 'alla årskurser' : 'all years') : year; });
+  }
+  function setLang(l) {
+    lang = l; root.dataset.lang = l; root.lang = l;
+    ['title', 'placeholder', 'aria-label'].forEach(a => {
+      const key = s => s + a.replace(/(^|-)([a-z])/g, (m, d, c) => c.toUpperCase());
+      document.querySelectorAll('[data-en-' + a + ']').forEach(e => e.setAttribute(a, e.dataset[key(l)]));
+    });
+    const lb = document.getElementById('lang');
+    if (lb) lb.textContent = l === 'sv' ? 'English' : 'Svenska';
+    apply();
+  }
+  years.forEach(y => y.addEventListener('change', () => {
+    year = y.value;
+    try { localStorage.setItem('schedcheck-year', year); } catch (e) {}
+    apply();
+  }));
+  [q, acc, ...sev].filter(Boolean).forEach(el => el.addEventListener('input', apply));
+  const lb = document.getElementById('lang');
+  if (lb) lb.addEventListener('click', () => {
+    const l = lang === 'sv' ? 'en' : 'sv';
+    try { localStorage.setItem('schedcheck-lang', l); } catch (e) {}
+    setLang(l);
+  });
+  setLang(lang);
+  const btn = document.getElementById('theme');
+  if (btn) btn.addEventListener('click', () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = dark ? 'light' : 'dark';
+  });
+})();
+</script></main></body></html>

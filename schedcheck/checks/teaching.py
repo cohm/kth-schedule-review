@@ -31,10 +31,11 @@ from __future__ import annotations
 
 from collections import defaultdict
 
+from ..i18n import T, both, when
 from ..model import Event, Issue
 from ..term import REEXAM_ACTIVITY_PREFIXES, course_prefix
 from . import Context, register
-from .exams import LADDER, _category, _eligibility, alternatives, soften
+from .exams import LADDER, _category, _eligibility, alternatives, relation_text, soften
 
 OPTIONAL_ACTIVITIES = ("räknestuga", "övrigt", "projektarbete", "eget arbete", "frivillig",
                        "öppet hus", "mässa")
@@ -138,19 +139,20 @@ def check_teaching(ctx: Context) -> list[Issue]:
             mand = {"mandatory", "programme"}
             shared = [m for m, cs in elig.items() if x in cs and y in cs]
             if cx in mand and cy in mand:
-                steps, rel, relation = 0, "Both are mandatory for this programme year.", "mandatory"
+                steps, relation = 0, "mandatory"
             elif shared:
-                steps, rel, relation = 0, (f"Both are required for eligibility to "
-                                           f"{', '.join(sorted(shared))}."), "eligibility:" + ",".join(sorted(shared))
+                steps, relation = 0, "eligibility"
             elif cx in mand or cy in mand:
-                steps, rel, relation = 1, "One mandatory course and one elective.", "mandatory+elective"
+                steps, relation = 1, "mandatory+elective"
             elif "unknown" in (cx, cy):
-                steps, rel, relation = 1, "At least one course is not in the study plan for this year.", "unplanned"
+                steps, relation = 1, "unplanned"
             elif course_prefix(x) == course_prefix(y):
-                steps, rel, relation = 1, (f"Electives in the same subject ({course_prefix(x)}), "
-                                           "plausibly taken together."), "same-subject"
+                steps, relation = 1, "same-subject"
             else:
                 continue  # unrelated electives: only counted in the status summary
+            rel = relation_text(relation, shared, course_prefix(x))
+            if relation == "eligibility":
+                relation += ":" + ",".join(sorted(shared))
             worst = min((s for _, _, s in sessions), key=LADDER.index)
             n_old = old_counts.get((x, y), 0)
             # Elective pairs that overlapped at least as much last year are a
@@ -160,14 +162,19 @@ def check_teaching(ctx: Context) -> list[Issue]:
             sev = soften(worst, steps)
             if sev is None:
                 continue
-            hist = (f" The same pair overlapped {n_old} time(s) in {ctx.old.term}." if n_old
-                    else (f" No overlap in {ctx.old.term}." if ctx.old else ""))
-            listed = "; ".join(f"{ea.start:%a %Y-%m-%d %H:%M}-{max(ea.end, eb.end):%H:%M} "
-                               f"{ea.activity} / {eb.activity}" for ea, eb, _ in sessions[:4])
-            more = f" (+{len(sessions) - 4} more)" if len(sessions) > 4 else ""
+            ref = ctx.old.term if ctx.old else ""
+            hist = (T(f" {ref}: {n_old} krock(ar) mellan samma kurser.",
+                      f" The same pair overlapped {n_old} time(s) in {ref}.") if n_old
+                    else T(f" Inga krockar {ref}.", f" No overlap in {ref}.") if ctx.old else T("", ""))
+            listed = both(lambda lang: "; ".join(
+                f"{when(ea.start, max(ea.end, eb.end), lang)} {ea.activity} / {eb.activity}"
+                for ea, eb, _ in sessions[:4]) + _more(len(sessions) - 4, lang))
+            n = len(sessions)
             issues.append(Issue(
                 sev, "teaching.overlap", scope, x,
-                f"{x} and {y}: {len(sessions)} overlapping session(s): {listed}{more}. {rel}{hist}",
+                T(f"{x} och {y} har {n} tillfälle(n) som krockar: {listed['sv']}. {rel['sv']}{hist['sv']}",
+                  f"{x} and {y}: {n} overlapping session(s): {listed['en']}. {rel['en']}{hist['en']}"),
+                ask=T("Går det att flytta något av dem?", "Could one be moved?"),
                 key=f"{x}+{y}",
                 evidence=[e.cite() for ea, eb, _ in sessions[:3] for e in (ea, eb)],
                 details={"courses": [x, y], "count": len(sessions), "relation": relation,
@@ -181,6 +188,10 @@ def check_teaching(ctx: Context) -> list[Issue]:
                                       for ea, eb, _ in sessions]},
             ))
     return issues
+
+
+def _more(n: int, lang: str) -> str:
+    return f" (+{n} {'till' if lang == 'sv' else 'more'})" if n > 0 else ""
 
 
 def self_overlaps(events: list[Event], code: str) -> list[tuple[Event, Event]]:
@@ -220,20 +231,29 @@ def check_self_overlap(ctx: Context) -> list[Issue]:
                 continue
             n_old = len(self_overlaps(old_evs, code)) if ctx.old else 0
             both_whole = all(_is_whole_class(a) and _is_whole_class(b) for a, b in pairs)
-            why = ("Both sessions are marked as whole class, so either students are expected in "
-                   "two places or the group labels are wrong." if both_whole else
-                   "A whole-class session overlaps a group session, or one group has two sessions "
-                   "at once.")
-            hist = (f" The same pattern occurred {n_old} time(s) in {ctx.old.term}." if n_old
-                    else (f" Not in {ctx.old.term}." if ctx.old else ""))
-            listed = "; ".join(
-                f"{a.start:%a %Y-%m-%d} {a.start:%H:%M}-{a.end:%H:%M} {a.activity} / "
-                f"{b.start:%H:%M}-{b.end:%H:%M} {b.activity}" for a, b in pairs[:4])
-            more = f" (+{len(pairs) - 4} more)" if len(pairs) > 4 else ""
+            why = (T("Båda tillfällena är markerade som helklass, så antingen förväntas studenterna vara "
+                     "på två ställen samtidigt eller så är gruppangivelserna fel.",
+                     "Both sessions are marked as whole class, so either students are expected in "
+                     "two places or the group labels are wrong.") if both_whole else
+                   T("Ett helklasstillfälle krockar med ett grupptillfälle, eller så har en grupp två "
+                     "tillfällen samtidigt.",
+                     "A whole-class session overlaps a group session, or one group has two sessions "
+                     "at once."))
+            ref = ctx.old.term if ctx.old else ""
+            hist = (T(f" Samma mönster fanns {ref} ({n_old} gång(er)).",
+                      f" The same pattern occurred {n_old} time(s) in {ref}.") if n_old
+                    else T(f" Fanns inte {ref}.", f" Not in {ref}.") if ctx.old else T("", ""))
+            listed = both(lambda lang: "; ".join(
+                f"{when(a.start, a.end, lang)} {a.activity} / {b.start:%H:%M}-{b.end:%H:%M} {b.activity}"
+                for a, b in pairs[:4]) + _more(len(pairs) - 4, lang))
+            n = len(pairs)
             issues.append(Issue(
                 "warning", "teaching.self-overlap", scope, code,
-                f"{code} clashes with itself: {len(pairs)} overlapping session pair(s): "
-                f"{listed}{more}. {why}{hist}",
+                T(f"{code} krockar med sig själv: {n} par av tillfällen överlappar: {listed['sv']}. "
+                  f"{why['sv']}{hist['sv']}",
+                  f"{code} clashes with itself: {n} overlapping session pair(s): {listed['en']}. "
+                  f"{why['en']}{hist['en']}"),
+                ask=T("Ska de delas upp i grupper eller flyttas?", "Should these be split into groups, or moved?"),
                 key=f"{code}:{len(pairs)}",
                 evidence=[e.cite() for a, b in pairs[:3] for e in (a, b)],
                 details={"count": len(pairs), "reference_count": n_old,

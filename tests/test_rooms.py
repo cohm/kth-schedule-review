@@ -132,7 +132,8 @@ class Compare(unittest.TestCase):
         [i] = [i for i in self.res.issues if i.check == "rooms.capacity"]
         self.assertEqual(i.severity, "warning")
         self.assertEqual(i.details["counts"]["far-lower"], 1)
-        self.assertIn("FR4 267 → FD5 114", i.message)
+        self.assertIn("FR4 267 → FD5 114", i.message["en"])
+        self.assertIn("minst 40 % färre platser", i.message["sv"])
         self.assertEqual(i.details["no_room"], 1)
 
 

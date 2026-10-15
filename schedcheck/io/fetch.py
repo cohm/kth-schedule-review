@@ -42,7 +42,16 @@ from dataclasses import dataclass
 from pathlib import Path
 from urllib.parse import urlencode
 
+from ..i18n import T
 from .timeedit import read_export
+
+
+class FetchError(ValueError):
+    """A configuration/request problem, with its text in both languages."""
+
+    def __init__(self, text: dict):
+        super().__init__(text["en"])
+        self.text = text
 
 # Layout parameters as in TimeEdit's own export links; they do not change the
 # exported data, but keeping them identical makes requests look like the UI's.
@@ -66,7 +75,7 @@ def load_config(path: str | Path) -> FetchConfig:
              for t, (a, b) in data.get("terms", {}).items()}
     for key in ("base", "views", "objects"):
         if key not in data:
-            raise ValueError(f"{path}: missing '{key}'")
+            raise FetchError(T(f"{path}: '{key}' saknas", f"{path}: missing '{key}'"))
     return FetchConfig(data["base"], dict(data["views"]), dict(data["objects"]), terms,
                        {**DEFAULT_PARAMS, **data.get("params", {})})
 
@@ -75,11 +84,16 @@ def export_url(cfg: FetchConfig, label: str, term: str, view: str) -> str:
     try:
         start, end = cfg.terms[term]
     except KeyError:
-        raise ValueError(f"term {term} has no dates in the config [terms] table") from None
+        raise FetchError(T(f"terminen {term} har inga datum i konfigurationens [terms]-tabell",
+                           f"term {term} has no dates in the config [terms] table")) from None
     if view not in cfg.views:
-        raise ValueError(f"unknown view '{view}' (config has: {', '.join(cfg.views)})")
+        vs = ", ".join(cfg.views)
+        raise FetchError(T(f"okänd vy '{view}' (konfigurationen har: {vs})",
+                           f"unknown view '{view}' (config has: {vs})"))
     if label not in cfg.objects:
-        raise ValueError(f"no TimeEdit object for {label} (config has: {', '.join(cfg.objects)})")
+        os_ = ", ".join(cfg.objects)
+        raise FetchError(T(f"inget TimeEdit-objekt för {label} (konfigurationen har: {os_})",
+                           f"no TimeEdit object for {label} (config has: {os_})"))
     q = {"h": "t", "sid": str(cfg.views[view]), "p": f"{start:%Y%m%d}.x,{end:%Y%m%d}.x",
          "objects": cfg.objects[label], **cfg.params}
     return f"{cfg.base}?{urlencode(q, safe='.')}"
@@ -94,7 +108,9 @@ def select_labels(cfg: FetchConfig, wanted: list[str] | None) -> list[str]:
     for w in wanted:
         hits = [lb for lb in cfg.objects if lb == w or lb.rstrip("0123456789") == w]
         if not hits:
-            raise ValueError(f"'{w}' matches nothing in the config (has: {', '.join(cfg.objects)})")
+            os_ = ", ".join(cfg.objects)
+            raise FetchError(T(f"'{w}' matchar inget i konfigurationen (som har: {os_})",
+                               f"'{w}' matches nothing in the config (has: {os_})"))
         out += [h for h in hits if h not in out]
     return out
 
@@ -108,7 +124,8 @@ def plan_requests(cfg: FetchConfig, labels: list[str], sets: list[tuple[str, str
     The destination may contain {program}, {term} and {view} placeholders."""
     terms = [t for t, _, _ in sets]
     if len(set(terms)) != len(terms):
-        raise ValueError("each term may be requested once: files are told apart by their date range")
+        raise FetchError(T("varje termin kan bara begäras en gång: filerna skiljs åt på datumintervallet",
+                           "each term may be requested once: files are told apart by their date range"))
     out = []
     for term, view, dest in sets:
         start, end = cfg.terms[term] if term in cfg.terms else (None, None)
@@ -227,7 +244,7 @@ def link_exports(exports, cfg: FetchConfig, view: str | None = None) -> int:
 class CollectResult:
     filed: list[tuple[Path, Path]]     # (source, destination)
     missing: list[dict]                # requests without a matching file
-    ignored: list[tuple[Path, str]]    # (file, reason)
+    ignored: list[tuple[Path, dict]]   # (file, reason {"sv", "en"})
 
 
 def collect(src: str | Path, manifest: str | Path = MANIFEST, copy: bool = False,
@@ -246,15 +263,17 @@ def collect(src: str | Path, manifest: str | Path = MANIFEST, copy: bool = False
         try:
             ex = read_export(p)
         except Exception as e:  # not a TimeEdit export
-            ignored.append((p, f"unreadable: {e}"))
+            ignored.append((p, T(f"kunde inte läsas: {e}", f"unreadable: {e}")))
             continue
         key = (ex.label, str(ex.range_start), str(ex.range_end))
         r = wanted.get(key)
         if r is None:
-            ignored.append((p, f"{ex.label} {ex.range_start}..{ex.range_end} was not requested"))
+            what = f"{ex.label} {ex.range_start}..{ex.range_end}"
+            ignored.append((p, T(f"{what} begärdes inte", f"{what} was not requested")))
             continue
         if key in done:
-            ignored.append((p, f"older duplicate of {ex.label} {r['term']}"))
+            ignored.append((p, T(f"äldre dubblett av {ex.label} {r['term']}",
+                                 f"older duplicate of {ex.label} {r['term']}")))
             continue
         dest_dir = Path(r["dest"])
         dest_dir.mkdir(parents=True, exist_ok=True)

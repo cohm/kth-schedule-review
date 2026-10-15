@@ -22,7 +22,8 @@ class YearPlan:
     specialization: str | None
     cohort: str | None
     plan: StudyPlan | None
-    note: str = ""             # why the plan is missing / how reliable it is
+    note: dict | None = None   # why the plan is missing / how reliable it is, {"sv", "en"}
+    approximated: bool = False
 
 
 @dataclass

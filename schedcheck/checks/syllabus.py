@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import re
 
+from ..i18n import T, join
 from ..model import Issue
 from . import Context, register
 
@@ -46,11 +47,13 @@ def only_syllabus(details: dict) -> bool:
     return not details.get("plan_exam_periods") and not details.get("reference_ordinary")
 
 
-def exam_reasons(ctx: Context, code: str, plan_exam_periods=()) -> tuple[list[str], dict]:
-    """English reasons an ordinary exam is expected, and details for reports."""
+def exam_reasons(ctx: Context, code: str, plan_exam_periods=()) -> tuple[list[dict], dict]:
+    """Reasons an ordinary exam is expected (texts in both languages), and
+    details for reports."""
     reasons, details = [], {}
     if plan_exam_periods:
-        reasons.append(f"the study plan has an exam in {'/'.join(plan_exam_periods)}")
+        ps = "/".join(plan_exam_periods)
+        reasons.append(T(f"utbildningsplanen har tentamen i {ps}", f"the study plan has an exam in {ps}"))
         details["plan_exam_periods"] = list(plan_exam_periods)
     if ctx.old:
         old_ex = [x for x in ctx.old.exams() if x.course == code]
@@ -62,7 +65,8 @@ def exam_reasons(ctx: Context, code: str, plan_exam_periods=()) -> tuple[list[st
         details["reference_reexam"] = [f"{x.event.start:%Y-%m-%d %H:%M} {x.event.activity}"
                                        for x in old_ex if x.kind == "reexam"]
         if ordinary:
-            reasons.append(f"it had an ordinary exam in {ctx.old.term} ({ordinary[0].date})")
+            reasons.append(T(f"den hade ordinarie tentamen {ctx.old.term} ({ordinary[0].date})",
+                             f"it had an ordinary exam in {ctx.old.term} ({ordinary[0].date})"))
     syl = ctx.syllabi.get(code)
     if syl and syl.written:
         ends = round_ends_in_term(syl, ctx)
@@ -70,9 +74,14 @@ def exam_reasons(ctx: Context, code: str, plan_exam_periods=()) -> tuple[list[st
         details["syllabus_written"] = [m.label() for m in syl.written]
         details["syllabus_round_ends_in_term"] = ends
         if ends is not False:
-            reasons.append(f"its syllabus (valid from {syl.valid_from}) has "
-                           + ", ".join(m.label() for m in syl.written))
+            mods = ", ".join(m.label() for m in syl.written)
+            reasons.append(T(f"kursplanen (giltig från {syl.valid_from}) har {mods}",
+                             f"its syllabus (valid from {syl.valid_from}) has {mods}"))
     return reasons, details
+
+
+def reasons_text(reasons: list[dict]) -> dict:
+    return T("; ".join(r["sv"] for r in reasons), "; ".join(r["en"] for r in reasons))
 
 
 @register("syllabus", ("program", "course"), "Scheduled exam modules against the current syllabus")
@@ -104,11 +113,14 @@ def check_syllabus(ctx: Context) -> list[Issue]:
                     allowed |= {m.code for m in o.modules}
             unknown = sorted(expand_modules(x.event.exam_modules) - allowed)
             if unknown:
+                u, mods = ", ".join(unknown), ", ".join(m.label() for m in syl.modules)
                 issues.append(Issue(
                     "warning", "syllabus.unknown-module", code, code,
-                    f"{code}: {x.event.activity} on {x.date} is registered as {', '.join(unknown)}, which the "
-                    f"current syllabus (valid from {syl.valid_from}) does not have; its exam modules are "
-                    + ", ".join(m.label() for m in syl.modules) + ".",
+                    T(f"{code}: {x.event.activity} {x.date} är registrerad som {u}, som den gällande "
+                      f"kursplanen (giltig från {syl.valid_from}) inte har; dess examinationsmoduler är {mods}.",
+                      f"{code}: {x.event.activity} on {x.date} is registered as {u}, which the current "
+                      f"syllabus (valid from {syl.valid_from}) does not have; its exam modules are {mods}."),
+                    ask=T("Ska modulen ändras?", "Should the module be changed?"),
                     key=f"{x.date}:{','.join(unknown)}", evidence=[x.event.cite()],
                     details={"scheduled": unknown, "syllabus_valid_from": syl.valid_from,
                              "syllabus_modules": [m.label() for m in syl.modules]}))
@@ -119,19 +131,26 @@ def check_syllabus(ctx: Context) -> list[Issue]:
             # (A course running over two terms may examine some modules in the other one.)
             missing = sorted(written - listed)
             if missing:
+                mods = ", ".join(m.label() for m in syl.written if m.code in missing)
+                sched = ", ".join(sorted(listed))
                 issues.append(Issue(
                     "review", "syllabus.module-not-scheduled", code, code,
-                    f"{code}: the syllabus (valid from {syl.valid_from}) has "
-                    + ", ".join(m.label() for m in syl.written if m.code in missing)
-                    + f", but no scheduled ordinary exam lists it (scheduled: {', '.join(sorted(listed))}).",
+                    T(f"{code}: kursplanen (giltig från {syl.valid_from}) har {mods}, men ingen schemalagd "
+                      f"ordinarie tentamen anger den (schemalagt: {sched}).",
+                      f"{code}: the syllabus (valid from {syl.valid_from}) has {mods}, but no scheduled "
+                      f"ordinary exam lists it (scheduled: {sched})."),
+                    ask=T("Ska den läggas in?", "Should it be added?"),
                     key=",".join(missing), evidence=[x.event.cite() for x in ordinary[:2]],
                     details={"missing": missing, "scheduled": sorted(listed),
                              "syllabus_valid_from": syl.valid_from}))
     if ctx.syllabus_errors and ctx.review in ("program", "course"):
         codes = sorted(c for c in ctx.syllabus_errors if ctx.wants(c))
         if codes:
+            cs = ", ".join(codes)
             issues.append(Issue("info", "syllabus.unavailable", ctx.new.term, None,
-                                f"No syllabus data could be fetched for {len(codes)} course(s): "
-                                f"{', '.join(codes)}. Exam-module checks skipped for them.",
+                                T(f"Kursplanen kunde inte hämtas för {len(codes)} kurs(er): {cs}. "
+                                  "Examinationsmodulerna kontrollerades inte för dem.",
+                                  f"No syllabus data could be fetched for {len(codes)} course(s): {cs}. "
+                                  "Exam-module checks skipped for them."),
                                 key="unavailable", details={"courses": codes}))
     return issues

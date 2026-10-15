@@ -7,6 +7,7 @@ from __future__ import annotations
 
 from ..checks import Context, run_checks
 from ..config import Config, apply_accepted
+from ..i18n import T
 from ..term import TermData
 from .program import ReviewResult, dedupe, load_syllabi
 
@@ -19,9 +20,9 @@ def course_review(codes: list[str], new: TermData, old: TermData | None,
     apply_accepted(issues, config.accepted)
     notes = []
     for c in codes:
-        if not new.course_events(c):
-            notes.append(f"{c} does not occur in the {new.term} exports.")
-        if old and not old.course_events(c):
-            notes.append(f"{c} does not occur in the {old.term} exports.")
+        for td in (new, old):
+            if td and not td.course_events(c):
+                notes.append(T(f"{c} finns inte i exporterna för {td.term}.",
+                               f"{c} does not occur in the {td.term} exports."))
     title = f"{', '.join(codes)} {new.term}" + (f" vs {old.term}" if old else "")
     return ReviewResult("course", title, ctx, issues, notes)

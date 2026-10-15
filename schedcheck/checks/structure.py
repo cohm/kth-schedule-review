@@ -15,6 +15,7 @@ import difflib
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 
+from ..i18n import T, both
 from ..model import Event, Issue
 from ..term import REEXAM_ACTIVITY_PREFIXES, TermData
 from . import Context, register
@@ -41,10 +42,13 @@ class Occasion:
         return f"{w} {self.activity}{p}"
 
 
-def week_label(week) -> str:
+def week_label(week, lang: str = "en") -> str:
+    """'P3 w2' / 'P3 v2'; the period's exam window: 'P3 exams' / 'P3 tentaperiod'."""
     if not week:
         return "?"
-    return f"{week[0]} exams" if week[1] == 0 else f"{week[0]} w{week[1]}"
+    if week[1] == 0:
+        return f"{week[0]} {'tentaperiod' if lang == 'sv' else 'exams'}"
+    return f"{week[0]} {'v' if lang == 'sv' else 'w'}{week[1]}"
 
 
 def _is_whole_class(e: Event) -> bool:
@@ -255,26 +259,26 @@ def sequence_hunks(d: CourseDiff, context: int = 2) -> list[dict]:
     return hunks
 
 
-def _where(w, label=None) -> str:
-    label = label or week_label
+def _where(w, lang: str = "en") -> str:
     if not w:
         return "?"
     a, b = (tuple(x) for x in w)
     if a == b:
-        return label(a)
+        return week_label(a, lang)
     if a[0] == b[0] and a[1] and b[1]:
-        return f"{label(a)}–w{b[1]}" if label is week_label else f"{label(a)}–{b[1]}"
-    return f"{label(a)}–{label(b)}"
+        return f"{week_label(a, lang)}–{b[1]}"
+    return f"{week_label(a, lang)}–{week_label(b, lang)}"
 
 
-def describe_hunks(hunks: list[dict], limit: int = 4, label=None) -> list[str]:
+def describe_hunks(hunks: list[dict], limit: int = 4, lang: str = "en") -> list[str]:
     out = []
     for h in hunks[:limit]:
         pre = "" if h["starts"] else "… "
         post = "" if h["ends"] else " …"
-        out.append(f"{_where(h['where'], label)}: {pre}{h['old']}{post} → {pre}{h['new']}{post}")
+        out.append(f"{_where(h['where'], lang)}: {pre}{h['old']}{post} → {pre}{h['new']}{post}")
     if len(hunks) > limit:
-        out.append(f"… and {len(hunks) - limit} more")
+        out.append(f"… {'och' if lang == 'sv' else 'and'} {len(hunks) - limit} "
+                   f"{'till' if lang == 'sv' else 'more'}")
     return out
 
 
@@ -293,12 +297,15 @@ def check_structure(ctx: Context) -> list[Issue]:
         in_new, in_old = taught(ctx.new, code), taught(ctx.old, code)
         if in_old and not in_new:
             issues.append(Issue("review", "structure.course-gone", code, code,
-                                f"{code} had teaching in {ctx.old.term} but none in {ctx.new.term}.",
-                                key=code))
+                                T(f"{code} hade undervisning {ctx.old.term} men har ingen {ctx.new.term}.",
+                                  f"{code} had teaching in {ctx.old.term} but none in {ctx.new.term}."),
+                                ask=T("Är detta avsiktligt?", "Is this intended?"), key=code))
             continue
         if in_new and not in_old:
             issues.append(Issue("review", "structure.course-new", code, code,
-                                f"{code} has teaching in {ctx.new.term} but had none in {ctx.old.term}.",
+                                T(f"{code} har undervisning {ctx.new.term} men hade ingen {ctx.old.term}.",
+                                  f"{code} has teaching in {ctx.new.term} but had none in {ctx.old.term}."),
+                                ask=T("Stämmer det att den ska ingå?", "Is it meant to be included?"),
                                 key=code))
             continue
         if not in_new:
@@ -318,18 +325,25 @@ def check_structure(ctx: Context) -> list[Issue]:
         # (e.g. F Ö F F Ö ...), not how that sequence is spread over weeks;
         # large shifts in time are reported separately (week-shift).
         count_changes = {a: v for a, v in d.counts.items() if v[0] != v[1]}
-        desc = "; ".join(describe_hunks(hunks))
+        desc = both(lambda lang: "; ".join(describe_hunks(hunks, lang=lang)))
+        intended = T("Är detta avsiktligt?", "Is this intended?")
         if count_changes:
             txt = "; ".join(f"{a} {o}→{n}" for a, (o, n) in count_changes.items())
+            o_t, n_t = ctx.old.term, ctx.new.term
             issues.append(Issue("review", "structure.counts", code, code,
-                                f"{code}: number of occasions changed ({ctx.old.term}→{ctx.new.term}): "
-                                f"{txt}. Sequence: {desc}.",
+                                T(f"{code}: antalet tillfällen har ändrats ({o_t}→{n_t}): {txt}. "
+                                  f"Sekvens ({o_t} → {n_t}): {desc['sv']}.",
+                                  f"{code}: number of occasions changed ({o_t}→{n_t}): {txt}. "
+                                  f"Sequence: {desc['en']}."),
+                                ask=intended,
                                 key=",".join(f"{a}:{o}>{n}" for a, (o, n) in count_changes.items()),
                                 details=details))
         elif hunks:
             issues.append(Issue("review", "structure.order", code, code,
-                                f"{code}: same occasions in a different order: {desc}.",
-                                key="order", details=details))
+                                T(f"{code}: samma tillfällen som {ctx.old.term} men i annan ordning "
+                                  f"({ctx.old.term} → {ctx.new.term}): {desc['sv']}.",
+                                  f"{code}: same occasions in a different order: {desc['en']}."),
+                                ask=intended, key="order", details=details))
 
         # Without a study plan (course review) nothing else notices a lost exam.
         if ctx.review == "course":
@@ -337,11 +351,16 @@ def check_structure(ctx: Context) -> list[Issue]:
             has = [x for x in ctx.new.exams(ctx.new.course_events(code)) if x.kind == "ordinary"]
             if not has:
                 from .syllabus import exam_reasons
+                from .syllabus import reasons_text
                 reasons, ref = exam_reasons(ctx, code)
                 if reasons:
+                    why = reasons_text(reasons)
                     issues.append(Issue("warning", "structure.exam-gone", code, code,
-                                        f"{code} has no ordinary exam in an exam window in {ctx.new.term}, "
-                                        f"but {'; '.join(reasons)}.",
+                                        T(f"{code} har ingen ordinarie tentamen i tentamensperioden "
+                                          f"{ctx.new.term}, men {why['sv']}.",
+                                          f"{code} has no ordinary exam in an exam window in {ctx.new.term}, "
+                                          f"but {why['en']}."),
+                                        ask=T("Ska den läggas in?", "Should it be added?"),
                                         key=code, details=ref, evidence=[x.event.cite() for x in had[:2]]))
 
         # Week shifts within aligned stretches.
@@ -357,12 +376,19 @@ def check_structure(ctx: Context) -> list[Issue]:
                 elif a.week and b.week and a.week != b.week:
                     shifts.append((a, b, None))
         if shifts:
-            desc = "; ".join(
-                f"{a.activity} {week_label(a.week)}→{week_label(b.week)}" for a, b, _ in shifts[:6])
-            more = f" (+{len(shifts) - 6} more)" if len(shifts) > 6 else ""
+            def shift_desc(lang):
+                more = len(shifts) - 6
+                return ("; ".join(f"{a.activity} {week_label(a.week, lang)}→{week_label(b.week, lang)}"
+                                  for a, b, _ in shifts[:6])
+                        + (f" (+{more} {'till' if lang == 'sv' else 'more'})" if more > 0 else ""))
+            sd = both(shift_desc)
             issues.append(Issue("review", "structure.week-shift", code, code,
-                                f"{code}: {len(shifts)} occasion(s) moved ≥{WEEK_SHIFT_THRESHOLD} teaching "
-                                f"weeks: {desc}{more}.", key=f"shifts:{len(shifts)}",
+                                T(f"{code}: {len(shifts)} tillfälle(n) har flyttats minst {WEEK_SHIFT_THRESHOLD} "
+                                  f"undervisningsveckor jämfört med {ctx.old.term}: {sd['sv']}.",
+                                  f"{code}: {len(shifts)} occasion(s) moved ≥{WEEK_SHIFT_THRESHOLD} teaching "
+                                  f"weeks: {sd['en']}."),
+                                ask=T("Är detta avsiktligt?", "Is this intended?"),
+                                key=f"shifts:{len(shifts)}",
                                 evidence=[b.first.cite() for _, b, _ in shifts[:6]],
                                 details={"reference_term": ctx.old.term}))
 
@@ -378,7 +404,8 @@ def check_structure(ctx: Context) -> list[Issue]:
         if par_changes:
             txt = "; ".join(f"{a} {o}→{n}" for a, (o, n) in sorted(par_changes.items()))
             issues.append(Issue("info", "structure.parallel-groups", code, code,
-                                f"{code}: max number of parallel group sessions changed: {txt}.",
+                                T(f"{code}: största antalet parallella grupptillfällen har ändrats: {txt}.",
+                                  f"{code}: max number of parallel group sessions changed: {txt}."),
                                 key=txt))
 
         # Exam modules on ordinary exams.
@@ -387,9 +414,12 @@ def check_structure(ctx: Context) -> list[Issue]:
         mods_new = {m for x in ctx.new.exams(ctx.new.course_events(code)) if x.kind == "ordinary"
                     for m in x.event.exam_modules}
         if mods_old and mods_new and mods_old != mods_new:
+            mo, mn = ", ".join(sorted(mods_old)), ", ".join(sorted(mods_new))
             issues.append(Issue("review", "structure.exam-modules", code, code,
-                                f"{code}: exam modules on ordinary exams changed: "
-                                f"{', '.join(sorted(mods_old))} → {', '.join(sorted(mods_new))}.",
+                                T(f"{code}: examinationsmodulerna på ordinarie tentamen har ändrats: {mo} → {mn}.",
+                                  f"{code}: exam modules on ordinary exams changed: {mo} → {mn}."),
+                                ask=T("Är detta avsiktligt? (Kontrollera kursplanen.)",
+                                      "Is this intended? (Check the syllabus.)"),
                                 key=f"{','.join(sorted(mods_old))}>{','.join(sorted(mods_new))}",
                                 details={"old": sorted(mods_old), "new": sorted(mods_new)}))
     return issues

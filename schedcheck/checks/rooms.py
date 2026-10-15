@@ -15,6 +15,7 @@ room that cannot be found are not compared.
 """
 from __future__ import annotations
 
+from ..i18n import T, both
 from ..model import Issue
 from ..term import is_exam_activity
 from . import Context, register
@@ -23,8 +24,12 @@ from .structure import Occasion, abbrev, diff_course, occasions, week_label
 LEVELS = ((0.6, "far-lower"), (0.8, "much-lower"), (0.9, "lower"))
 INCREASE = 1.5
 LEVEL_SEVERITY = {"far-lower": "warning", "much-lower": "review", "lower": "info", "higher": "info"}
-LEVEL_TEXT = {"far-lower": "≥40% fewer", "much-lower": "≥20% fewer", "lower": "≥10% fewer",
-              "higher": "≥50% more"}
+LEVEL_TEXT = {"far-lower": T("minst 40 % färre", "≥40% fewer"), "much-lower": T("minst 20 % färre", "≥20% fewer"),
+              "lower": T("minst 10 % färre", "≥10% fewer"), "higher": T("minst 50 % fler", "≥50% more")}
+# Pair "mode" codes (details) -> text.
+MODE_TEXT = {"now digital": T("nu digitalt", "now digital"),
+             "no longer digital": T("inte längre digitalt", "no longer digital"),
+             "no room booked": T("ingen lokal bokad", "no room booked")}
 
 
 def grade(old: int, new: int) -> str | None:
@@ -127,20 +132,31 @@ def check_rooms(ctx: Context) -> list[Issue]:
                     + (["review"] if no_room else []),
                     key=("warning", "review", "info").index, default="info")
         counts = {lv: sum(1 for p in flagged if p["level"] == lv) for lv in LEVEL_TEXT}
-        summary = ", ".join(f"{n} with {LEVEL_TEXT[lv]} seats" for lv, n in counts.items() if n)
-        if no_room:
-            summary += (", " if summary else "") + (f"{len(no_room)} with no room booked "
-                                                    f"(had rooms in {ctx.old.term})")
-        if modes:
-            summary += (", " if summary else "") + f"{len(modes)} changed between digital and on campus"
+        ref = ctx.old.term
+
+        def summary(lang):
+            sv = lang == "sv"
+            parts = [f"{n} {'med' if sv else 'with'} {LEVEL_TEXT[lv][lang]} {'platser' if sv else 'seats'}"
+                     for lv, n in counts.items() if n]
+            if no_room:
+                parts.append(f"{len(no_room)} utan bokad lokal (hade lokal {ref})" if sv else
+                             f"{len(no_room)} with no room booked (had rooms in {ref})")
+            if modes:
+                parts.append(f"{len(modes)} som bytt mellan digitalt och på campus" if sv else
+                             f"{len(modes)} changed between digital and on campus")
+            return ", ".join(parts)
         ex = sorted((p for p in flagged if p["level"] and p["level"] != "higher"),
                     key=lambda p: p["new"]["seats"] / p["old"]["seats"])[:4]
         ex_txt = "; ".join(f"{p['abbrev']} {p['new_date'][:10]}: {'+'.join(p['old']['rooms'])} "
                            f"{p['old']['seats']} → {'+'.join(p['new']['rooms'])} {p['new']['seats']}"
                            for p in ex)
+        sm = both(summary)
         issues.append(Issue(worst, "rooms.capacity", code, code,
-                            f"{code}: room seats compared with {ctx.old.term} per occasion: {summary}"
-                            + (f". Largest reductions: {ex_txt}." if ex_txt else "."),
+                            T(f"{code}: lokalernas platser jämfört med {ref} per tillfälle: {sm['sv']}"
+                              + (f". Störst minskning: {ex_txt}." if ex_txt else "."),
+                              f"{code}: room seats compared with {ref} per occasion: {sm['en']}"
+                              + (f". Largest reductions: {ex_txt}." if ex_txt else ".")),
+                            ask=T("Räcker platserna?", "Are there enough seats?"),
                             key="capacity", evidence=[p["cite"] for p in ex],
                             details={"counts": counts, "reference_term": ctx.old.term,
                                      "digital_changes": len(modes), "no_room": len(no_room),
@@ -149,20 +165,31 @@ def check_rooms(ctx: Context) -> list[Issue]:
                                                   "new_rooms": p["new"]["rooms"], "new_seats": p["new"]["seats"]}
                                                  for p in ex]}))
     if unknown:
-        why = {"unknown": "not found in KTH Places", "no-seats": "without a seat count in KTH Places",
-               "ambiguous": "matching several rooms with different seat counts in KTH Places"}
+        why = {"unknown": T("som inte finns i KTH Places", "not found in KTH Places"),
+               "no-seats": T("utan antal platser i KTH Places", "without a seat count in KTH Places"),
+               "ambiguous": T("som matchar flera lokaler med olika antal platser i KTH Places",
+                              "matching several rooms with different seat counts in KTH Places")}
         by_status: dict[str, list[str]] = {}
         for r in sorted(unknown):
             by_status.setdefault(ctx.rooms.lookup(r).status, []).append(r)
-        parts = [f"{len(rs)} room(s) {why.get(st, st)} ({', '.join(rs[:12])}"
-                 + (f" +{len(rs) - 12} more)" if len(rs) > 12 else ")")
-                 for st, rs in sorted(by_status.items())]
+
+        def parts(lang):
+            more = "till" if lang == "sv" else "more"
+            return "; ".join(f"{len(rs)} {'lokal(er)' if lang == 'sv' else 'room(s)'} "
+                             f"{why.get(st, T(st, st))[lang]} ({', '.join(rs[:12])}"
+                             + (f" +{len(rs) - 12} {more})" if len(rs) > 12 else ")")
+                             for st, rs in sorted(by_status.items()))
+        ps = both(parts)
         issues.append(Issue("info", "rooms.unknown", ctx.new.term, None,
-                            "Room capacity not compared for occasions in " + "; ".join(parts)
-                            + ". Capacities can be added in a rooms file (--rooms).",
+                            T(f"Platserna jämfördes inte för tillfällen i {ps['sv']}. Antal platser kan "
+                              "anges i en lokalfil (--rooms).",
+                              f"Room capacity not compared for occasions in {ps['en']}. Capacities can be "
+                              "added in a rooms file (--rooms)."),
                             key="unknown", details={"rooms": {r: sorted(c) for r, c in unknown.items()}}))
     if getattr(ctx.rooms, "errors", None):
+        errs = "; ".join(ctx.rooms.errors[:3])
         issues.append(Issue("info", "rooms.unavailable", ctx.new.term, None,
-                            "Some KTH Places data could not be read: " + "; ".join(ctx.rooms.errors[:3]),
+                            T(f"Viss data från KTH Places kunde inte läsas: {errs}",
+                              f"Some KTH Places data could not be read: {errs}"),
                             key="errors"))
     return issues

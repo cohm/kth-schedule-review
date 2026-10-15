@@ -95,7 +95,8 @@ class Checks(unittest.TestCase):
     def test_syllabus_only_missing_exam_is_a_warning(self):
         hits = self.find("coverage.missing-exam", "AA2000")
         self.assertEqual([i.severity for i in hits], ["warning"])
-        self.assertIn("TEN2", hits[0].message)
+        self.assertIn("TEN2", hits[0].message["en"])
+        self.assertIn("kursplanen", hits[0].message["sv"])
 
     def test_alternative_code_not_reported_separately(self):
         self.assertEqual(self.find("coverage.missing-exam", "ZZ232V"), [])

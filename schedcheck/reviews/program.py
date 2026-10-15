@@ -5,6 +5,7 @@ from dataclasses import dataclass, field
 
 from ..checks import Context, YearPlan, run_checks
 from ..config import Config, apply_accepted
+from ..i18n import T
 from ..io.studyplan import PlanSource, PlanUnavailable, cohort_for
 from ..model import Issue, severity_rank
 from ..term import TermData
@@ -16,7 +17,7 @@ class ReviewResult:
     title: str
     ctx: Context
     issues: list[Issue]
-    notes: list[str] = field(default_factory=list)
+    notes: list[dict] = field(default_factory=list)   # {"sv", "en"} each
 
     def sorted_issues(self) -> list[Issue]:
         return sorted(self.issues, key=lambda i: (i.accepted is not None, severity_rank(i.severity),
@@ -46,23 +47,29 @@ def resolve_plans(td: TermData, source: PlanSource | None, program: str | None,
             continue
         if source is None or ex.year is None:
             plans[key] = YearPlan(ex.program, ex.year, ex.specialization, None, None,
-                                  "no study-plan source" if source is None else "programme year unknown")
+                                  T("ingen källa för utbildningsplaner", "no study-plan source") if source is None
+                                  else T("årskursen okänd", "programme year unknown"))
             continue
         cohort = cohort_for(td.term, ex.year)
         info = source.program_info(ex.program)
         try:
             plan = source.plan(ex.program, cohort)
         except PlanUnavailable as e:
-            plans[key] = YearPlan(ex.program, ex.year, ex.specialization, cohort, None, str(e))
+            plans[key] = YearPlan(ex.program, ex.year, ex.specialization, cohort, None,
+                                  T(f"hittades inte ({e})", str(e)))
             continue
         note = plan.year_confidence(ex.year)
         if info and not info.get("verified", False):
-            notes.append(f"Study plan data for {ex.program} is marked as not verified in "
-                         "ProgramVisualization; treat coverage results with care.")
+            notes.append(T(f"Utbildningsplanen för {ex.program} är inte markerad som verifierad i "
+                           "ProgramVisualization; tolka resultaten om kurstäckning med försiktighet.",
+                           f"Study plan data for {ex.program} is marked as not verified in "
+                           "ProgramVisualization; treat coverage results with care."))
         if info and info.get("disabled"):
-            notes.append(f"{ex.program} is disabled in ProgramVisualization.")
+            notes.append(T(f"{ex.program} är inaktiverat i ProgramVisualization.",
+                           f"{ex.program} is disabled in ProgramVisualization."))
+        exact = note["en"] == "exact"
         plans[key] = YearPlan(ex.program, ex.year, ex.specialization, cohort, plan,
-                              note if note != "exact" else "")
+                              None if exact else note, approximated=note["en"].startswith("approximated"))
     return plans
 
 
@@ -90,7 +97,11 @@ def program_review(new: TermData, old: TermData | None, config: Config,
     progs = sorted({k[0] for k in new.year_events})
     title = f"{', '.join(progs)} {new.term}" + (f" vs {old.term}" if old else "")
     for (p, y), yp in sorted(plans.items(), key=lambda kv: (kv[0][0], kv[0][1] or 0)):
-        notes.append(f"{p}{y or ''}: study plan cohort {yp.cohort or '?'}"
-                     + (f" — {yp.note}" if yp.note else "")
-                     + (f" ({yp.plan.source})" if yp.plan else ""))
-    return ReviewResult("program", title, ctx, issues, list(dict.fromkeys(notes)))
+        src = f" ({yp.plan.source})" if yp.plan else ""
+        nt = yp.note or {}
+        notes.append(T(f"{p}{y or ''}: utbildningsplan för kull {yp.cohort or '?'}"
+                       + (f" — {nt['sv']}" if nt else "") + src,
+                       f"{p}{y or ''}: study plan cohort {yp.cohort or '?'}"
+                       + (f" — {nt['en']}" if nt else "") + src))
+    unique = list({(n["sv"], n["en"]): n for n in notes}.values())
+    return ReviewResult("program", title, ctx, issues, unique)

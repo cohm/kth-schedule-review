@@ -1,6 +1,6 @@
 {
- "schema": 1,
- "generated": "2026-10-15T15:57:14",
+ "schema": 2,
+ "generated": "2026-10-15T16:44:21",
  "review": "program",
  "title": "CTFYS VT27 vs VT26",
  "term": "VT27",
@@ -90,169 +90,343 @@
   ],
   "exam_windows": [
    [
-    "P3 exams",
+    {
+     "sv": "P3 tentaperiod",
+     "en": "P3 exams"
+    },
     "2027-03-05",
     "2027-03-12"
    ],
    [
-    "P4 exams",
+    {
+     "sv": "P4 tentaperiod",
+     "en": "P4 exams"
+    },
     "2027-05-24",
     "2027-05-31"
    ]
   ],
   "reexam_windows": [
    [
-    "re-exams 03-30..04-02",
+    {
+     "sv": "omtentor 03-30..04-02",
+     "en": "re-exams 03-30..04-02"
+    },
     "2027-03-30",
     "2027-04-02"
    ],
    [
-    "re-exams 06-01..06-04",
+    {
+     "sv": "omtentor 06-01..06-04",
+     "en": "re-exams 06-01..06-04"
+    },
     "2027-06-01",
     "2027-06-04"
    ],
    [
-    "re-exams 08-16..08-27",
+    {
+     "sv": "omtentor 08-16..08-27",
+     "en": "re-exams 08-16..08-27"
+    },
     "2027-08-16",
     "2027-08-27"
    ]
   ]
  },
  "notes": [
-  "CTFYS1: study plan cohort HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2026.json)",
-  "CTFYS2: study plan cohort HT2025 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2025.json)",
-  "CTFYS3: study plan cohort HT2024 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2024.json)"
+  {
+   "sv": "CTFYS1: utbildningsplan för kull HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2026.json)",
+   "en": "CTFYS1: study plan cohort HT2026 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2026.json)"
+  },
+  {
+   "sv": "CTFYS2: utbildningsplan för kull HT2025 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2025.json)",
+   "en": "CTFYS2: study plan cohort HT2025 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2025.json)"
+  },
+  {
+   "sv": "CTFYS3: utbildningsplan för kull HT2024 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2024.json)",
+   "en": "CTFYS3: study plan cohort HT2024 (https://raw.githubusercontent.com/cohm/ProgramVisualization/main cohorts/CTFYS-HT2024.json)"
+  }
  ],
  "year_status": {
   "CTFYS1": [
    {
-    "check": "Study-plan courses",
+    "check": {
+     "sv": "Kurser i utbildningsplanen",
+     "en": "Study-plan courses"
+    },
     "status": "ok",
-    "text": "All 5 courses in the HT2026 study plan for VT27 are scheduled."
+    "text": {
+     "sv": "Alla 5 kurser i utbildningsplanen för kull HT2026 för VT27 är schemalagda.",
+     "en": "All 5 courses in the HT2026 study plan for VT27 are scheduled."
+    }
    },
    {
-    "check": "Exams scheduled",
+    "check": {
+     "sv": "Schemalagda tentamina",
+     "en": "Exams scheduled"
+    },
     "status": "ok",
-    "text": "Every course with an exam has an ordinary exam and a re-exam."
+    "text": {
+     "sv": "Varje kurs med tentamen har en ordinarie tentamen och en omtentamen.",
+     "en": "Every course with an exam has an ordinary exam and a re-exam."
+    }
    },
    {
-    "check": "Exam spacing (ordinary exams and KS)",
+    "check": {
+     "sv": "Avstånd mellan tentamina (ordinarie och KS)",
+     "en": "Exam spacing (ordinary exams and KS)"
+    },
     "status": "ok",
-    "text": "7 exams checked: none on the same day; none on consecutive days."
+    "text": {
+     "sv": "7 tentamina kontrollerade: inga samma dag; inga dagar i rad.",
+     "en": "7 exams checked: none on the same day; none on consecutive days."
+    }
    },
    {
-    "check": "Re-exam spacing",
+    "check": {
+     "sv": "Avstånd mellan omtentor",
+     "en": "Re-exam spacing"
+    },
     "status": "info",
-    "text": "6 exams checked: none on the same day; 2 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 2 info."
+    "text": {
+     "sv": "6 tentamina kontrollerade: inga samma dag; 2 par dagar i rad; 1 par med en dag emellan. Rapporterat: 2 info.",
+     "en": "6 exams checked: none on the same day; 2 pair(s) on consecutive days; 1 pair(s) two days apart. Reported: 2 info."
+    }
    },
    {
-    "check": "Teaching overlaps",
+    "check": {
+     "sv": "Krockar i undervisningen",
+     "en": "Teaching overlaps"
+    },
     "status": "warning",
-    "text": "180 sessions checked: no two sessions of different courses overlap. Within a course: 4 overlapping session pair(s) in SK1105."
+    "text": {
+     "sv": "180 tillfällen kontrollerade: inga tillfällen i olika kurser krockar. Inom en kurs: 4 par av tillfällen krockar i SK1105.",
+     "en": "180 sessions checked: no two sessions of different courses overlap. Within a course: 4 overlapping session pair(s) in SK1105."
+    }
    },
    {
-    "check": "Retaken by year 2",
+    "check": {
+     "sv": "Omtentor i årskurs 2",
+     "en": "Retaken by year 2"
+    },
     "status": "warning",
-    "text": "15 exam pair(s) close in time for year 2 students retaking CTFYS1 courses (6 warning, 9 info)."
+    "text": {
+     "sv": "15 par av tentamina ligger nära i tid för studenter i årskurs 2 som tenterar om kurser från CTFYS1 (6 varning, 9 info).",
+     "en": "15 exam pair(s) close in time for year 2 students retaking CTFYS1 courses (6 warning, 9 info)."
+    }
    },
    {
-    "check": "Structure vs VT26",
+    "check": {
+     "sv": "Struktur jämfört med VT26",
+     "en": "Structure vs VT26"
+    },
     "status": "review",
-    "text": "6 courses compared with VT26: 3 with differences to judge (SF1922, SG1112, SK1105)."
+    "text": {
+     "sv": "6 kurser jämförda med VT26: 3 med skillnader att bedöma (SF1922, SG1112, SK1105).",
+     "en": "6 courses compared with VT26: 3 with differences to judge (SF1922, SG1112, SK1105)."
+    }
    },
    {
-    "check": "Room seats vs VT26",
+    "check": {
+     "sv": "Lokalplatser jämfört med VT26",
+     "en": "Room seats vs VT26"
+    },
     "status": "warning",
-    "text": "161 occasions in 5 courses compared with VT26: 3 course(s) with ≥20% fewer seats on some occasion (SF1674, SF1922, SG1112)."
+    "text": {
+     "sv": "161 tillfällen i 5 kurser jämförda med VT26: 3 kurs(er) med minst 20 % färre platser vid något tillfälle (SF1674, SF1922, SG1112).",
+     "en": "161 occasions in 5 courses compared with VT26: 3 course(s) with ≥20% fewer seats on some occasion (SF1674, SF1922, SG1112)."
+    }
    }
   ],
   "CTFYS2": [
    {
-    "check": "Study-plan courses",
+    "check": {
+     "sv": "Kurser i utbildningsplanen",
+     "en": "Study-plan courses"
+    },
     "status": "ok",
-    "text": "All 5 courses in the HT2025 study plan for VT27 are scheduled."
+    "text": {
+     "sv": "Alla 5 kurser i utbildningsplanen för kull HT2025 för VT27 är schemalagda.",
+     "en": "All 5 courses in the HT2025 study plan for VT27 are scheduled."
+    }
    },
    {
-    "check": "Exams scheduled",
+    "check": {
+     "sv": "Schemalagda tentamina",
+     "en": "Exams scheduled"
+    },
     "status": "error",
-    "text": "1 missing exam/re-exam (1 error)."
+    "text": {
+     "sv": "1 saknad(e) tentamen/omtentamen (1 fel).",
+     "en": "1 missing exam/re-exam (1 error)."
+    }
    },
    {
-    "check": "Exam spacing (ordinary exams and KS)",
+    "check": {
+     "sv": "Avstånd mellan tentamina (ordinarie och KS)",
+     "en": "Exam spacing (ordinary exams and KS)"
+    },
     "status": "warning",
-    "text": "7 exams checked: none on the same day; 1 pair(s) on consecutive days. Reported: 1 warning."
+    "text": {
+     "sv": "7 tentamina kontrollerade: inga samma dag; 1 par dagar i rad. Rapporterat: 1 varning.",
+     "en": "7 exams checked: none on the same day; 1 pair(s) on consecutive days. Reported: 1 warning."
+    }
    },
    {
-    "check": "Re-exam spacing",
+    "check": {
+     "sv": "Avstånd mellan omtentor",
+     "en": "Re-exam spacing"
+    },
     "status": "info",
-    "text": "9 exams checked: none on the same day; 4 pair(s) on consecutive days; 2 pair(s) two days apart. Reported: 4 info."
+    "text": {
+     "sv": "9 tentamina kontrollerade: inga samma dag; 4 par dagar i rad; 2 par med en dag emellan. Rapporterat: 4 info.",
+     "en": "9 exams checked: none on the same day; 4 pair(s) on consecutive days; 2 pair(s) two days apart. Reported: 4 info."
+    }
    },
    {
-    "check": "Teaching overlaps",
+    "check": {
+     "sv": "Krockar i undervisningen",
+     "en": "Teaching overlaps"
+    },
     "status": "ok",
-    "text": "179 sessions checked: no two sessions of different courses overlap. No course overlaps with itself."
+    "text": {
+     "sv": "179 tillfällen kontrollerade: inga tillfällen i olika kurser krockar. Ingen kurs krockar med sig själv.",
+     "en": "179 sessions checked: no two sessions of different courses overlap. No course overlaps with itself."
+    }
    },
    {
-    "check": "Retaking year 1 courses",
+    "check": {
+     "sv": "Omtentor från årskurs 1",
+     "en": "Retaking year 1 courses"
+    },
     "status": "warning",
-    "text": "15 exam pair(s) close in time with year 1 courses that CTFYS2 students may be retaking (6 warning, 9 info)."
+    "text": {
+     "sv": "15 par av tentamina ligger nära kurser från årskurs 1 som studenter i CTFYS2 kan behöva tentera om (6 varning, 9 info).",
+     "en": "15 exam pair(s) close in time with year 1 courses that CTFYS2 students may be retaking (6 warning, 9 info)."
+    }
    },
    {
-    "check": "Retaken by year 3",
+    "check": {
+     "sv": "Omtentor i årskurs 3",
+     "en": "Retaken by year 3"
+    },
     "status": "warning",
-    "text": "4 exam pair(s) close in time for year 3 students retaking CTFYS2 courses (1 warning, 3 info)."
+    "text": {
+     "sv": "4 par av tentamina ligger nära i tid för studenter i årskurs 3 som tenterar om kurser från CTFYS2 (1 varning, 3 info).",
+     "en": "4 exam pair(s) close in time for year 3 students retaking CTFYS2 courses (1 warning, 3 info)."
+    }
    },
    {
-    "check": "Structure vs VT26",
+    "check": {
+     "sv": "Struktur jämfört med VT26",
+     "en": "Structure vs VT26"
+    },
     "status": "review",
-    "text": "9 courses compared with VT26: 6 with differences to judge (DD1327, DD132U, SE1055, SF1544, SI1155, SI1200)."
+    "text": {
+     "sv": "9 kurser jämförda med VT26: 6 med skillnader att bedöma (DD1327, DD132U, SE1055, SF1544, SI1155, SI1200).",
+     "en": "9 courses compared with VT26: 6 with differences to judge (DD1327, DD132U, SE1055, SF1544, SI1155, SI1200)."
+    }
    },
    {
-    "check": "Room seats vs VT26",
+    "check": {
+     "sv": "Lokalplatser jämfört med VT26",
+     "en": "Room seats vs VT26"
+    },
     "status": "warning",
-    "text": "146 occasions in 5 courses compared with VT26: 3 course(s) with ≥20% fewer seats on some occasion (DD1327, SF1544, SI1155)."
+    "text": {
+     "sv": "146 tillfällen i 5 kurser jämförda med VT26: 3 kurs(er) med minst 20 % färre platser vid något tillfälle (DD1327, SF1544, SI1155).",
+     "en": "146 occasions in 5 courses compared with VT26: 3 course(s) with ≥20% fewer seats on some occasion (DD1327, SF1544, SI1155)."
+    }
    }
   ],
   "CTFYS3": [
    {
-    "check": "Study-plan courses",
+    "check": {
+     "sv": "Kurser i utbildningsplanen",
+     "en": "Study-plan courses"
+    },
     "status": "info",
-    "text": "1 of 22 study-plan courses/groups not scheduled (1 info)."
+    "text": {
+     "sv": "1 av 22 kurser/kursgrupper i utbildningsplanen är inte schemalagda (1 info).",
+     "en": "1 of 22 study-plan courses/groups not scheduled (1 info)."
+    }
    },
    {
-    "check": "Exams scheduled",
+    "check": {
+     "sv": "Schemalagda tentamina",
+     "en": "Exams scheduled"
+    },
     "status": "error",
-    "text": "5 missing exam/re-exam (1 error, 3 warning, 1 info)."
+    "text": {
+     "sv": "5 saknad(e) tentamen/omtentamen (1 fel, 3 varning, 1 info).",
+     "en": "5 missing exam/re-exam (1 error, 3 warning, 1 info)."
+    }
    },
    {
-    "check": "Exam spacing (ordinary exams and KS)",
+    "check": {
+     "sv": "Avstånd mellan tentamina (ordinarie och KS)",
+     "en": "Exam spacing (ordinary exams and KS)"
+    },
     "status": "warning",
-    "text": "22 exams checked: 9 pair(s) on the same day; 3 pair(s) on consecutive days; 16 pair(s) two days apart. Reported: 4 warning, 6 info."
+    "text": {
+     "sv": "22 tentamina kontrollerade: 9 par samma dag; 3 par dagar i rad; 16 par med en dag emellan. Rapporterat: 4 varning, 6 info.",
+     "en": "22 exams checked: 9 pair(s) on the same day; 3 pair(s) on consecutive days; 16 pair(s) two days apart. Reported: 4 warning, 6 info."
+    }
    },
    {
-    "check": "Re-exam spacing",
+    "check": {
+     "sv": "Avstånd mellan omtentor",
+     "en": "Re-exam spacing"
+    },
     "status": "info",
-    "text": "16 exams checked: 5 pair(s) on the same day; 10 pair(s) on consecutive days; 8 pair(s) two days apart. Reported: 2 info."
+    "text": {
+     "sv": "16 tentamina kontrollerade: 5 par samma dag; 10 par dagar i rad; 8 par med en dag emellan. Rapporterat: 2 info.",
+     "en": "16 exams checked: 5 pair(s) on the same day; 10 pair(s) on consecutive days; 8 pair(s) two days apart. Reported: 2 info."
+    }
    },
    {
-    "check": "Teaching overlaps",
+    "check": {
+     "sv": "Krockar i undervisningen",
+     "en": "Teaching overlaps"
+    },
     "status": "error",
-    "text": "588 sessions checked: 549 overlapping session pair(s); reported for 32 course pair(s) (1 error, 8 warning, 23 info). No course overlaps with itself."
+    "text": {
+     "sv": "588 tillfällen kontrollerade: 549 par av tillfällen krockar; rapporterat för 32 kurspar (1 fel, 8 varning, 23 info). Ingen kurs krockar med sig själv.",
+     "en": "588 sessions checked: 549 overlapping session pair(s); reported for 32 course pair(s) (1 error, 8 warning, 23 info). No course overlaps with itself."
+    }
    },
    {
-    "check": "Retaking year 2 courses",
+    "check": {
+     "sv": "Omtentor från årskurs 2",
+     "en": "Retaking year 2 courses"
+    },
     "status": "warning",
-    "text": "4 exam pair(s) close in time with year 2 courses that CTFYS3 students may be retaking (1 warning, 3 info)."
+    "text": {
+     "sv": "4 par av tentamina ligger nära kurser från årskurs 2 som studenter i CTFYS3 kan behöva tentera om (1 varning, 3 info).",
+     "en": "4 exam pair(s) close in time with year 2 courses that CTFYS3 students may be retaking (1 warning, 3 info)."
+    }
    },
    {
-    "check": "Structure vs VT26",
+    "check": {
+     "sv": "Struktur jämfört med VT26",
+     "en": "Structure vs VT26"
+    },
     "status": "review",
-    "text": "30 courses compared with VT26: 22 with differences to judge (AK2011, AK2014, DD232V, DD2352, DD2421, EQ1120, FDD3431, MH1023, SA114X, SA115X, SA118X, SA120X, SF1691, SF1861, SF1904, SF1926, SF2701, SH2404, SI1142, SI1336, SI2360, SK2712)."
+    "text": {
+     "sv": "30 kurser jämförda med VT26: 22 med skillnader att bedöma (AK2011, AK2014, DD232V, DD2352, DD2421, EQ1120, FDD3431, MH1023, SA114X, SA115X, SA118X, SA120X, SF1691, SF1861, SF1904, SF1926, SF2701, SH2404, SI1142, SI1336, SI2360, SK2712).",
+     "en": "30 courses compared with VT26: 22 with differences to judge (AK2011, AK2014, DD232V, DD2352, DD2421, EQ1120, FDD3431, MH1023, SA114X, SA115X, SA118X, SA120X, SF1691, SF1861, SF1904, SF1926, SF2701, SH2404, SI1142, SI1336, SI2360, SK2712)."
+    }
    },
    {
-    "check": "Room seats vs VT26",
+    "check": {
+     "sv": "Lokalplatser jämfört med VT26",
+     "en": "Room seats vs VT26"
+    },
     "status": "warning",
-    "text": "532 occasions in 23 courses compared with VT26: 11 course(s) with ≥20% fewer seats on some occasion (DD2352, EQ1120, SF1677, SF1678, SF1679, SF1691, SF1904, SF2930, SH2404, SI1142, SI2360)."
+    "text": {
+     "sv": "532 tillfällen i 23 kurser jämförda med VT26: 11 kurs(er) med minst 20 % färre platser vid något tillfälle (DD2352, EQ1120, SF1677, SF1678, SF1679, SF1691, SF1904, SF2930, SH2404, SI1142, SI2360).",
+     "en": "532 occasions in 23 courses compared with VT26: 11 course(s) with ≥20% fewer seats on some occasion (DD2352, EQ1120, SF1677, SF1678, SF1679, SF1691, SF1904, SF2930, SH2404, SI1142, SI2360)."
+    }
    }
   ]
  },
@@ -270,7 +444,14 @@
    "scope": "CTFYS2",
    "course": "SF1544",
    "key": "SF1544",
-   "message": "SF1544 has no ordinary exam in an exam window, but the study plan has an exam in P3; it had an ordinary exam in VT26 (2026-03-12); its syllabus (valid from HT2021) has TEN1 – Tentamen, 3 hp.",
+   "message": {
+    "sv": "SF1544 har ingen ordinarie tentamen i tentamensperioden, men utbildningsplanen har tentamen i P3; den hade ordinarie tentamen VT26 (2026-03-12); kursplanen (giltig från HT2021) har TEN1 – Tentamen, 3 hp.",
+    "en": "SF1544 has no ordinary exam in an exam window, but the study plan has an exam in P3; it had an ordinary exam in VT26 (2026-03-12); its syllabus (valid from HT2021) has TEN1 – Tentamen, 3 hp."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:74 2027-02-19 10:00-12:00 Examination",
     "CTFYS2_VT27_remiss.xlsx:224 2027-06-02 14:00-17:00 Omtenta"
@@ -300,7 +481,14 @@
    "scope": "CTFYS3",
    "course": "DD2352",
    "key": "DD2352",
-   "message": "DD2352 has no ordinary exam in an exam window, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp.",
+   "message": {
+    "sv": "DD2352 har ingen ordinarie tentamen i tentamensperioden, men den hade ordinarie tentamen VT26 (2026-05-25); kursplanen (giltig från HT2026) har TEN2 – Skriftlig tentamen, 3 hp.",
+    "en": "DD2352 has no ordinary exam in an exam window, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "reference_term": "VT26",
@@ -324,7 +512,14 @@
    "scope": "CTFYS3",
    "course": "SF1677",
    "key": "SF1677+SF1678",
-   "message": "SF1677 and SF1678: 1 overlapping session(s): Fri 2027-01-15 15:00-17:00 Övning / Övning. Both are required for eligibility to TMAKM. The same pair overlapped 2 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF1678 har 1 tillfälle(n) som krockar: fre 2027-01-15 15:00-17:00 Övning / Övning. Båda kurserna krävs för behörighet till TMAKM, så många studenter läser båda. VT26: 2 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF1678: 1 overlapping session(s): Fri 2027-01-15 15:00-17:00 Övning / Övning. Both are required for eligibility to TMAKM. The same pair overlapped 2 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:40 2027-01-15 15:00-17:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:41 2027-01-15 15:00-17:00 Övning"
@@ -364,7 +559,14 @@
    "scope": "CTFYS1",
    "course": "SK1105",
    "key": "SK1105:4",
-   "message": "SK1105 clashes with itself: 4 overlapping session pair(s): Tue 2027-04-20 09:00-12:00 Laboration / 10:00-12:00 Seminarium; Wed 2027-04-21 09:00-12:00 Laboration / 10:00-12:00 Seminarium; Tue 2027-04-27 09:00-12:00 Laboration / 09:00-12:00 Redovisning; Wed 2027-04-28 09:00-12:00 Laboration / 09:00-12:00 Redovisning. Both sessions are marked as whole class, so either students are expected in two places or the group labels are wrong. The same pattern occurred 4 time(s) in VT26.",
+   "message": {
+    "sv": "SK1105 krockar med sig själv: 4 par av tillfällen överlappar: tis 2027-04-20 09:00-12:00 Laboration / 10:00-12:00 Seminarium; ons 2027-04-21 09:00-12:00 Laboration / 10:00-12:00 Seminarium; tis 2027-04-27 09:00-12:00 Laboration / 09:00-12:00 Redovisning; ons 2027-04-28 09:00-12:00 Laboration / 09:00-12:00 Redovisning. Båda tillfällena är markerade som helklass, så antingen förväntas studenterna vara på två ställen samtidigt eller så är gruppangivelserna fel. Samma mönster fanns VT26 (4 gång(er)).",
+    "en": "SK1105 clashes with itself: 4 overlapping session pair(s): Tue 2027-04-20 09:00-12:00 Laboration / 10:00-12:00 Seminarium; Wed 2027-04-21 09:00-12:00 Laboration / 10:00-12:00 Seminarium; Tue 2027-04-27 09:00-12:00 Laboration / 09:00-12:00 Redovisning; Wed 2027-04-28 09:00-12:00 Laboration / 09:00-12:00 Redovisning. Both sessions are marked as whole class, so either students are expected in two places or the group labels are wrong. The same pattern occurred 4 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Ska de delas upp i grupper eller flyttas?",
+    "en": "Should these be split into groups, or moved?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:162 2027-04-20 09:00-12:00 Laboration",
     "CTFYS1_VT27_remiss.xlsx:163 2027-04-20 10:00-12:00 Seminarium",
@@ -465,7 +667,14 @@
    "scope": "CTFYS2",
    "course": "SF1672",
    "key": "SF1672+SF1681:2027-04-01:2027-04-01",
-   "message": "SF1672 (reexam, Thu 2027-04-01 08:00) and SF1681 (reexam, Thu 2027-04-01 08:00): overlapping. Affects CTFYS2 students retaking SF1672 from year 1.",
+   "message": {
+    "sv": "SF1672 (omtentamen, tor 2027-04-01 08:00) och SF1681 (omtentamen, tor 2027-04-01 08:00) ligger samtidigt. Påverkar studenter i CTFYS2 som behöver tentera om SF1672 från årskurs 1.",
+    "en": "SF1672 (re-exam, Thu 2027-04-01 08:00) and SF1681 (re-exam, Thu 2027-04-01 08:00): overlapping. Affects CTFYS2 students retaking SF1672 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:132 2027-04-01 08:00-11:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:128 2027-04-01 08:00-13:00 Omtenta"
@@ -499,7 +708,14 @@
    "scope": "CTFYS2",
    "course": "SF1674",
    "key": "SF1674+SF1544:2027-06-02:2027-06-02",
-   "message": "SF1674 (reexam, Wed 2027-06-02 08:00) and SF1544 (reexam, Wed 2027-06-02 14:00): same day. Affects CTFYS2 students retaking SF1674 from year 1.",
+   "message": {
+    "sv": "SF1674 (omtentamen, ons 2027-06-02 08:00) och SF1544 (omtentamen, ons 2027-06-02 14:00) ligger samma dag. Påverkar studenter i CTFYS2 som behöver tentera om SF1674 från årskurs 1.",
+    "en": "SF1674 (re-exam, Wed 2027-06-02 08:00) and SF1544 (re-exam, Wed 2027-06-02 14:00): same day. Affects CTFYS2 students retaking SF1674 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:226 2027-06-02 08:00-13:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:224 2027-06-02 14:00-17:00 Omtenta"
@@ -533,7 +749,14 @@
    "scope": "CTFYS2",
    "course": "SF1683",
    "key": "SF1683+SK1104:2027-04-02:2027-04-02",
-   "message": "SF1683 (reexam, Fri 2027-04-02 14:00) and SK1104 (reexam, Fri 2027-04-02 14:00): overlapping. Affects CTFYS2 students retaking SK1104 from year 1.",
+   "message": {
+    "sv": "SF1683 (omtentamen, fre 2027-04-02 14:00) och SK1104 (omtentamen, fre 2027-04-02 14:00) ligger samtidigt. Påverkar studenter i CTFYS2 som behöver tentera om SK1104 från årskurs 1.",
+    "en": "SF1683 (re-exam, Fri 2027-04-02 14:00) and SK1104 (re-exam, Fri 2027-04-02 14:00): overlapping. Affects CTFYS2 students retaking SK1104 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:131 2027-04-02 14:00-18:00 Omtenta",
     "CTFYS1_VT27_remiss.xlsx:135 2027-04-02 14:00-17:00 Omtenta"
@@ -567,7 +790,14 @@
    "scope": "CTFYS2",
    "course": "SF1922",
    "key": "SF1922+SI1155:2027-08-23:2027-08-23",
-   "message": "SF1922 (reexam, Mon 2027-08-23 08:00) and SI1155 (reexam, Mon 2027-08-23 08:00): overlapping. Affects CTFYS2 students retaking SF1922 from year 1.",
+   "message": {
+    "sv": "SF1922 (omtentamen, mån 2027-08-23 08:00) och SI1155 (omtentamen, mån 2027-08-23 08:00) ligger samtidigt. Påverkar studenter i CTFYS2 som behöver tentera om SF1922 från årskurs 1.",
+    "en": "SF1922 (re-exam, Mon 2027-08-23 08:00) and SI1155 (re-exam, Mon 2027-08-23 08:00): overlapping. Affects CTFYS2 students retaking SF1922 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:238 2027-08-23 08:00-13:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:236 2027-08-23 08:00-13:00 Omtenta"
@@ -601,7 +831,14 @@
    "scope": "CTFYS2",
    "course": "SG1112",
    "key": "SG1112+DD1327:2027-08-24:2027-08-24",
-   "message": "SG1112 (reexam, Tue 2027-08-24 08:00) and DD1327 (reexam, Tue 2027-08-24 14:00): same day. Affects CTFYS2 students retaking SG1112 from year 1.",
+   "message": {
+    "sv": "SG1112 (omtentamen, tis 2027-08-24 08:00) och DD1327 (omtentamen, tis 2027-08-24 14:00) ligger samma dag. Påverkar studenter i CTFYS2 som behöver tentera om SG1112 från årskurs 1.",
+    "en": "SG1112 (re-exam, Tue 2027-08-24 08:00) and DD1327 (re-exam, Tue 2027-08-24 14:00): same day. Affects CTFYS2 students retaking SG1112 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:240 2027-08-24 08:00-13:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:239 2027-08-24 14:00-18:00 Examination"
@@ -635,7 +872,14 @@
    "scope": "CTFYS2",
    "course": "SI1155",
    "key": "SI1155+DD1327:2027-05-27:2027-05-28",
-   "message": "SI1155 (ordinary, Thu 2027-05-27 08:00) and DD1327 (ordinary, Fri 2027-05-28 14:00): consecutive days. Both are mandatory for this programme year.",
+   "message": {
+    "sv": "SI1155 (ordinarie tentamen, tor 2027-05-27 08:00) och DD1327 (ordinarie tentamen, fre 2027-05-28 14:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen.",
+    "en": "SI1155 (exam, Thu 2027-05-27 08:00) and DD1327 (exam, Fri 2027-05-28 14:00): consecutive days. Both are mandatory for this programme year."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:215 2027-05-27 08:00-13:00 Tentamen",
     "CTFYS2_VT27_remiss.xlsx:218 2027-05-28 14:00-18:00 Examination"
@@ -669,7 +913,14 @@
    "scope": "CTFYS2",
    "course": "SI1200",
    "key": "SI1200+SK1104:2027-03-08:2027-03-08",
-   "message": "SI1200 (ordinary, Mon 2027-03-08 08:00) and SK1104 (ordinary, Mon 2027-03-08 14:00): same day. Affects CTFYS2 students retaking SK1104 from year 1.",
+   "message": {
+    "sv": "SI1200 (ordinarie tentamen, mån 2027-03-08 08:00) och SK1104 (ordinarie tentamen, mån 2027-03-08 14:00) ligger samma dag. Påverkar studenter i CTFYS2 som behöver tentera om SK1104 från årskurs 1.",
+    "en": "SI1200 (exam, Mon 2027-03-08 08:00) and SK1104 (exam, Mon 2027-03-08 14:00): same day. Affects CTFYS2 students retaking SK1104 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:94 2027-03-08 08:00-13:00 Tentamen",
     "CTFYS1_VT27_remiss.xlsx:95 2027-03-08 14:00-17:00 Tentamen"
@@ -703,7 +954,14 @@
    "scope": "CTFYS3",
    "course": "AK2011",
    "key": "AK2011",
-   "message": "AK2011 has no ordinary exam in an exam window, but its syllabus (valid from HT2019) has TENA – Tentamen, 3 hp. (Only the syllabus says so; for a course outside the mandatory plan the exam may be scheduled without CTFYS3 and not appear in this export.)",
+   "message": {
+    "sv": "AK2011 har ingen ordinarie tentamen i tentamensperioden, men kursplanen (giltig från HT2019) har TENA – Tentamen, 3 hp. (Bara kursplanen säger det; för en kurs utanför den obligatoriska planen kan tentamen vara schemalagd utan CTFYS3 och då inte synas i denna export.)",
+    "en": "AK2011 has no ordinary exam in an exam window, but its syllabus (valid from HT2019) has TENA – Tentamen, 3 hp. (Only the syllabus says so; for a course outside the mandatory plan the exam may be scheduled without CTFYS3 and not appear in this export.)"
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "reference_term": "VT26",
@@ -723,7 +981,14 @@
    "scope": "CTFYS3",
    "course": "DD1380",
    "key": "DD1380+DD2352",
-   "message": "DD1380 and DD2352: 1 overlapping session(s): Fri 2027-01-15 08:00-10:00 Föreläsning / Övning. Both are required for eligibility to TCSCM. No overlap in VT26.",
+   "message": {
+    "sv": "DD1380 och DD2352 har 1 tillfälle(n) som krockar: fre 2027-01-15 08:00-10:00 Föreläsning / Övning. Båda kurserna krävs för behörighet till TCSCM, så många studenter läser båda. Inga krockar VT26.",
+    "en": "DD1380 and DD2352: 1 overlapping session(s): Fri 2027-01-15 08:00-10:00 Föreläsning / Övning. Both are required for eligibility to TCSCM. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:32 2027-01-15 08:00-10:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:33 2027-01-15 08:00-10:00 Övning"
@@ -763,7 +1028,14 @@
    "scope": "CTFYS3",
    "course": "DD2352",
    "key": "DD2352",
-   "message": "DD2352 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp.",
+   "message": {
+    "sv": "DD2352 har ingen omtentamen schemalagd denna termin, men den hade ordinarie tentamen VT26 (2026-05-25); kursplanen (giltig från HT2026) har TEN2 – Skriftlig tentamen, 3 hp.",
+    "en": "DD2352 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-05-25); its syllabus (valid from HT2026) has TEN2 – Skriftlig tentamen, 3 hp."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "reference_term": "VT26",
@@ -787,7 +1059,14 @@
    "scope": "CTFYS3",
    "course": "EI1320",
    "key": "EI1320+SF1683:2027-04-02:2027-04-02",
-   "message": "EI1320 (reexam, Fri 2027-04-02 14:00) and SF1683 (reexam, Fri 2027-04-02 14:00): overlapping. Affects CTFYS3 students retaking SF1683 from year 2.",
+   "message": {
+    "sv": "EI1320 (omtentamen, fre 2027-04-02 14:00) och SF1683 (omtentamen, fre 2027-04-02 14:00) ligger samtidigt. Påverkar studenter i CTFYS3 som behöver tentera om SF1683 från årskurs 2.",
+    "en": "EI1320 (re-exam, Fri 2027-04-02 14:00) and SF1683 (re-exam, Fri 2027-04-02 14:00): overlapping. Affects CTFYS3 students retaking SF1683 from year 2."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:365 2027-04-02 14:00-18:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:131 2027-04-02 14:00-18:00 Omtenta"
@@ -821,7 +1100,14 @@
    "scope": "CTFYS3",
    "course": "SF1677",
    "key": "SF1677+SF1861",
-   "message": "SF1677 and SF1861: 6 overlapping session(s): Wed 2027-03-24 10:00-12:00 Övning / Övning; Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Wed 2027-04-21 10:00-12:00 Föreläsning / Föreläsning; Thu 2027-04-29 10:00-12:00 Föreläsning / Föreläsning (+2 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF1861 har 6 tillfälle(n) som krockar: ons 2027-03-24 10:00-12:00 Övning / Övning; tis 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; ons 2027-04-21 10:00-12:00 Föreläsning / Föreläsning; tor 2027-04-29 10:00-12:00 Föreläsning / Föreläsning (+2 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF1861: 6 overlapping session(s): Wed 2027-03-24 10:00-12:00 Övning / Övning; Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Wed 2027-04-21 10:00-12:00 Föreläsning / Föreläsning; Thu 2027-04-29 10:00-12:00 Föreläsning / Föreläsning (+2 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:338 2027-03-24 10:00-12:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:339 2027-03-24 10:00-12:00 Övning",
@@ -940,7 +1226,14 @@
    "scope": "CTFYS3",
    "course": "SF1677",
    "key": "SF1677+SF1904",
-   "message": "SF1677 and SF1904: 4 overlapping session(s): Mon 2027-03-15 13:00-15:00 Föreläsning / Föreläsning; Thu 2027-03-18 10:00-12:00 Föreläsning / Övning; Wed 2027-04-14 10:00-12:00 Föreläsning / Övning; Wed 2027-05-26 08:00-13:00 Tentamen / Räknestuga. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF1904 har 4 tillfälle(n) som krockar: mån 2027-03-15 13:00-15:00 Föreläsning / Föreläsning; tor 2027-03-18 10:00-12:00 Föreläsning / Övning; ons 2027-04-14 10:00-12:00 Föreläsning / Övning; ons 2027-05-26 08:00-13:00 Tentamen / Räknestuga. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 1 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF1904: 4 overlapping session(s): Mon 2027-03-15 13:00-15:00 Föreläsning / Föreläsning; Thu 2027-03-18 10:00-12:00 Föreläsning / Övning; Wed 2027-04-14 10:00-12:00 Föreläsning / Övning; Wed 2027-05-26 08:00-13:00 Tentamen / Räknestuga. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:268 2027-03-15 13:00-15:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:269 2027-03-15 13:00-15:00 Föreläsning",
@@ -1029,7 +1322,14 @@
    "scope": "CTFYS3",
    "course": "SF1679",
    "key": "SF1679+SF1691",
-   "message": "SF1679 and SF1691: 2 overlapping session(s): Thu 2027-02-04 13:00-15:00 Övning / Övning; Thu 2027-02-11 13:00-15:00 Övning / Övning. Electives in the same subject (SF), plausibly taken together. No overlap in VT26.",
+   "message": {
+    "sv": "SF1679 och SF1691 har 2 tillfälle(n) som krockar: tor 2027-02-04 13:00-15:00 Övning / Övning; tor 2027-02-11 13:00-15:00 Övning / Övning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. Inga krockar VT26.",
+    "en": "SF1679 and SF1691: 2 overlapping session(s): Thu 2027-02-04 13:00-15:00 Övning / Övning; Thu 2027-02-11 13:00-15:00 Övning / Övning. Electives in the same subject (SF), plausibly taken together. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:138 2027-02-04 13:00-15:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:139 2027-02-04 13:00-15:00 Övning",
@@ -1086,7 +1386,14 @@
    "scope": "CTFYS3",
    "course": "SF1691",
    "key": "SF1691+SF1904:2027-05-28:2027-05-28",
-   "message": "SF1691 (ordinary, Fri 2027-05-28 08:00) and SF1904 (ordinary, Fri 2027-05-28 08:00): overlapping. Electives in the same subject (SF), plausibly taken together.",
+   "message": {
+    "sv": "SF1691 (ordinarie tentamen, fre 2027-05-28 08:00) och SF1904 (ordinarie tentamen, fre 2027-05-28 08:00) ligger samtidigt. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans.",
+    "en": "SF1691 (exam, Fri 2027-05-28 08:00) and SF1904 (exam, Fri 2027-05-28 08:00): overlapping. Electives in the same subject (SF), plausibly taken together."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:613 2027-05-28 08:00-13:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:614 2027-05-28 08:00-13:00 Tentamen"
@@ -1120,7 +1427,14 @@
    "scope": "CTFYS3",
    "course": "SF1691",
    "key": "SF1691+SF2930",
-   "message": "SF1691 and SF2930: 5 overlapping session(s): Thu 2027-01-28 10:00-12:00 Föreläsning / Lektion; Mon 2027-02-01 15:00-17:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Thu 2027-02-18 13:00-15:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SF2930 har 5 tillfälle(n) som krockar: tor 2027-01-28 10:00-12:00 Föreläsning / Lektion; mån 2027-02-01 15:00-17:00 Föreläsning / Lektion; tor 2027-02-04 13:00-15:00 Övning / Lektion; tor 2027-02-18 13:00-15:00 Övning / Lektion (+1 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 1 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SF2930: 5 overlapping session(s): Thu 2027-01-28 10:00-12:00 Föreläsning / Lektion; Mon 2027-02-01 15:00-17:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Thu 2027-02-18 13:00-15:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:99 2027-01-28 10:00-12:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:101 2027-01-28 10:00-12:00 Lektion",
@@ -1224,7 +1538,14 @@
    "scope": "CTFYS3",
    "course": "SF1861",
    "key": "SF1861",
-   "message": "SF1861 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-06-01); its syllabus (valid from HT2019) has TEN1 – Tentamen, 4,5 hp.",
+   "message": {
+    "sv": "SF1861 har ingen omtentamen schemalagd denna termin, men den hade ordinarie tentamen VT26 (2026-06-01); kursplanen (giltig från HT2019) har TEN1 – Tentamen, 4,5 hp.",
+    "en": "SF1861 has no re-exam scheduled this term, but it had an ordinary exam in VT26 (2026-06-01); its syllabus (valid from HT2019) has TEN1 – Tentamen, 4,5 hp."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "reference_term": "VT26",
@@ -1248,7 +1569,14 @@
    "scope": "CTFYS3",
    "course": "SF1861",
    "key": "SF1861+SF2701:2027-05-31:2027-05-31",
-   "message": "SF1861 (ordinary, Mon 2027-05-31 08:00) and SF2701 (ordinary, Mon 2027-05-31 08:00): overlapping. Electives in the same subject (SF), plausibly taken together.",
+   "message": {
+    "sv": "SF1861 (ordinarie tentamen, mån 2027-05-31 08:00) och SF2701 (ordinarie tentamen, mån 2027-05-31 08:00) ligger samtidigt. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans.",
+    "en": "SF1861 (exam, Mon 2027-05-31 08:00) and SF2701 (exam, Mon 2027-05-31 08:00): overlapping. Electives in the same subject (SF), plausibly taken together."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:619 2027-05-31 08:00-13:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:620 2027-05-31 08:00-13:00 Tentamen"
@@ -1282,7 +1610,14 @@
    "scope": "CTFYS3",
    "course": "SF1861",
    "key": "SF1861+SF1678:2027-05-31:2027-05-31",
-   "message": "SF1861 (ordinary, Mon 2027-05-31 08:00) and SF1678 (ordinary, Mon 2027-05-31 14:00): same day. Electives in the same subject (SF), plausibly taken together.",
+   "message": {
+    "sv": "SF1861 (ordinarie tentamen, mån 2027-05-31 08:00) och SF1678 (ordinarie tentamen, mån 2027-05-31 14:00) ligger samma dag. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans.",
+    "en": "SF1861 (exam, Mon 2027-05-31 08:00) and SF1678 (exam, Mon 2027-05-31 14:00): same day. Electives in the same subject (SF), plausibly taken together."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:619 2027-05-31 08:00-13:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:622 2027-05-31 14:00-18:00 Tentamen"
@@ -1316,7 +1651,14 @@
    "scope": "CTFYS3",
    "course": "SF1861",
    "key": "SF1861+SF2701",
-   "message": "SF1861 and SF2701: 6 overlapping session(s): Fri 2027-03-19 08:00-10:00 Övning / Föreläsning; Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Mon 2027-05-03 13:00-15:00 Övning / Föreläsning (+2 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26.",
+   "message": {
+    "sv": "SF1861 och SF2701 har 6 tillfälle(n) som krockar: fre 2027-03-19 08:00-10:00 Övning / Föreläsning; ons 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; tis 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; mån 2027-05-03 13:00-15:00 Övning / Föreläsning (+2 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 4 krock(ar) mellan samma kurser.",
+    "en": "SF1861 and SF2701: 6 overlapping session(s): Fri 2027-03-19 08:00-10:00 Övning / Föreläsning; Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Mon 2027-05-03 13:00-15:00 Övning / Föreläsning (+2 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:301 2027-03-19 08:00-10:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:299 2027-03-19 08:00-10:00 Föreläsning",
@@ -1435,7 +1777,14 @@
    "scope": "CTFYS3",
    "course": "SF1904",
    "key": "SF1904+SF2701",
-   "message": "SF1904 and SF2701: 3 overlapping session(s): Thu 2027-03-25 08:00-10:00 Övning / Övning; Tue 2027-04-20 13:00-15:00 Föreläsning / Föreläsning; Tue 2027-05-04 08:00-10:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26.",
+   "message": {
+    "sv": "SF1904 och SF2701 har 3 tillfälle(n) som krockar: tor 2027-03-25 08:00-10:00 Övning / Övning; tis 2027-04-20 13:00-15:00 Föreläsning / Föreläsning; tis 2027-05-04 08:00-10:00 Föreläsning / Föreläsning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 1 krock(ar) mellan samma kurser.",
+    "en": "SF1904 and SF2701: 3 overlapping session(s): Thu 2027-03-25 08:00-10:00 Övning / Övning; Tue 2027-04-20 13:00-15:00 Föreläsning / Föreläsning; Tue 2027-05-04 08:00-10:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 1 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:351 2027-03-25 08:00-10:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:352 2027-03-25 08:00-10:00 Övning",
@@ -1509,7 +1858,14 @@
    "scope": "CTFYS3",
    "course": "SF2701",
    "key": "SF2701+SF1678:2027-05-31:2027-05-31",
-   "message": "SF2701 (ordinary, Mon 2027-05-31 08:00) and SF1678 (ordinary, Mon 2027-05-31 14:00): same day. Electives in the same subject (SF), plausibly taken together.",
+   "message": {
+    "sv": "SF2701 (ordinarie tentamen, mån 2027-05-31 08:00) och SF1678 (ordinarie tentamen, mån 2027-05-31 14:00) ligger samma dag. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans.",
+    "en": "SF2701 (exam, Mon 2027-05-31 08:00) and SF1678 (exam, Mon 2027-05-31 14:00): same day. Electives in the same subject (SF), plausibly taken together."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:620 2027-05-31 08:00-13:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:622 2027-05-31 14:00-18:00 Tentamen"
@@ -1543,7 +1899,14 @@
    "scope": "CTFYS3",
    "course": "SI1142",
    "key": "SI1142+SI2360",
-   "message": "SI1142 and SI2360: 2 overlapping session(s): Tue 2027-03-23 15:00-17:00 Föreläsning / Övning; Mon 2027-04-12 13:00-15:00 Föreläsning / Föreläsning. Electives in the same subject (SI), plausibly taken together. The same pair overlapped 1 time(s) in VT26.",
+   "message": {
+    "sv": "SI1142 och SI2360 har 2 tillfälle(n) som krockar: tis 2027-03-23 15:00-17:00 Föreläsning / Övning; mån 2027-04-12 13:00-15:00 Föreläsning / Föreläsning. Valbara kurser inom samma ämne (SI), som ofta läses tillsammans. VT26: 1 krock(ar) mellan samma kurser.",
+    "en": "SI1142 and SI2360: 2 overlapping session(s): Tue 2027-03-23 15:00-17:00 Föreläsning / Övning; Mon 2027-04-12 13:00-15:00 Föreläsning / Föreläsning. Electives in the same subject (SI), plausibly taken together. The same pair overlapped 1 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:327 2027-03-23 15:00-17:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:329 2027-03-23 15:00-17:00 Övning",
@@ -1600,7 +1963,14 @@
    "scope": "DD2352",
    "course": "DD2352",
    "key": "capacity",
-   "message": "DD2352: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 11 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: F 2027-01-25: D2+K1 250 → K2 103; DL 2027-02-11: 4V4Gul+4V6 Bru 76 → 4V5Grö+4V6 Bru 56; Ö 2027-01-14: W43 140 → Q36+Q21 111; F 2027-01-27: D2 126 → B3 101.",
+   "message": {
+    "sv": "DD2352: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser, 2 med minst 20 % färre platser, 11 med minst 10 % färre platser, 1 med minst 50 % fler platser. Störst minskning: F 2027-01-25: D2+K1 250 → K2 103; DL 2027-02-11: 4V4Gul+4V6 Bru 76 → 4V5Grö+4V6 Bru 56; Ö 2027-01-14: W43 140 → Q36+Q21 111; F 2027-01-27: D2 126 → B3 101.",
+    "en": "DD2352: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 11 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: F 2027-01-25: D2+K1 250 → K2 103; DL 2027-02-11: 4V4Gul+4V6 Bru 76 → 4V5Grö+4V6 Bru 56; Ö 2027-01-14: W43 140 → Q36+Q21 111; F 2027-01-27: D2 126 → B3 101."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:77 2027-01-25 13:00-15:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:172 2027-02-11 09:00-12:00 Datorlaboration",
@@ -1680,7 +2050,14 @@
    "scope": "EQ1120",
    "course": "EQ1120",
    "key": "capacity",
-   "message": "EQ1120: room seats compared with VT26 per occasion: 4 with ≥40% fewer seats, 10 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: Ö 2027-03-18: Q15+Q17 80 → Q22 40; Ö 2027-03-23: Q15+Q17 80 → Q22 40; Ö 2027-03-24: Q15+Q17 80 → Q22 40; F 2027-03-17: M2 140 → Q2 80.",
+   "message": {
+    "sv": "EQ1120: lokalernas platser jämfört med VT26 per tillfälle: 4 med minst 40 % färre platser, 10 med minst 20 % färre platser, 1 med minst 10 % färre platser. Störst minskning: Ö 2027-03-18: Q15+Q17 80 → Q22 40; Ö 2027-03-23: Q15+Q17 80 → Q22 40; Ö 2027-03-24: Q15+Q17 80 → Q22 40; F 2027-03-17: M2 140 → Q2 80.",
+    "en": "EQ1120: room seats compared with VT26 per occasion: 4 with ≥40% fewer seats, 10 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: Ö 2027-03-18: Q15+Q17 80 → Q22 40; Ö 2027-03-23: Q15+Q17 80 → Q22 40; Ö 2027-03-24: Q15+Q17 80 → Q22 40; F 2027-03-17: M2 140 → Q2 80."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:296 2027-03-18 15:00-17:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:324 2027-03-23 13:00-15:00 Övning",
@@ -1759,7 +2136,14 @@
    "scope": "SF1677",
    "course": "SF1677",
    "key": "capacity",
-   "message": "SF1677: room seats compared with VT26 per occasion: 2 with ≥40% fewer seats, 2 with ≥20% fewer seats, 35 with ≥50% more seats. Largest reductions: Ö 2027-05-04: W42+W43 140 → M33 60; Ö 2027-04-07: Q33+Q34 120 → Q31 60; Ö 2027-02-26: V33+V35 96 → Q34 60; Ö 2027-02-05: Q22+Q26 80 → Q31 60.",
+   "message": {
+    "sv": "SF1677: lokalernas platser jämfört med VT26 per tillfälle: 2 med minst 40 % färre platser, 2 med minst 20 % färre platser, 35 med minst 50 % fler platser. Störst minskning: Ö 2027-05-04: W42+W43 140 → M33 60; Ö 2027-04-07: Q33+Q34 120 → Q31 60; Ö 2027-02-26: V33+V35 96 → Q34 60; Ö 2027-02-05: Q22+Q26 80 → Q31 60.",
+    "en": "SF1677: room seats compared with VT26 per occasion: 2 with ≥40% fewer seats, 2 with ≥20% fewer seats, 35 with ≥50% more seats. Largest reductions: Ö 2027-05-04: W42+W43 140 → M33 60; Ö 2027-04-07: Q33+Q34 120 → Q31 60; Ö 2027-02-26: V33+V35 96 → Q34 60; Ö 2027-02-05: Q22+Q26 80 → Q31 60."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:549 2027-05-04 13:00-15:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:393 2027-04-07 13:00-15:00 Övning",
@@ -1839,7 +2223,14 @@
    "scope": "SF1678",
    "course": "SF1678",
    "key": "capacity",
-   "message": "SF1678: room seats compared with VT26 per occasion: 8 with ≥40% fewer seats, 1 with ≥20% fewer seats, 5 with ≥10% fewer seats. Largest reductions: Ö 2027-01-28: Q34+Q36 120 → Q33 60; Ö 2027-02-18: Q31+Q33 120 → Q31 60; Ö 2027-03-19: Q34+Q36 120 → Q34 60; F 2027-05-10: Q33+Q34 120 → Q31 60.",
+   "message": {
+    "sv": "SF1678: lokalernas platser jämfört med VT26 per tillfälle: 8 med minst 40 % färre platser, 1 med minst 20 % färre platser, 5 med minst 10 % färre platser. Störst minskning: Ö 2027-01-28: Q34+Q36 120 → Q33 60; Ö 2027-02-18: Q31+Q33 120 → Q31 60; Ö 2027-03-19: Q34+Q36 120 → Q34 60; F 2027-05-10: Q33+Q34 120 → Q31 60.",
+    "en": "SF1678: room seats compared with VT26 per occasion: 8 with ≥40% fewer seats, 1 with ≥20% fewer seats, 5 with ≥10% fewer seats. Largest reductions: Ö 2027-01-28: Q34+Q36 120 → Q33 60; Ö 2027-02-18: Q31+Q33 120 → Q31 60; Ö 2027-03-19: Q34+Q36 120 → Q34 60; F 2027-05-10: Q33+Q34 120 → Q31 60."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:106 2027-01-28 15:00-17:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:210 2027-02-18 15:00-17:00 Övning",
@@ -1919,7 +2310,14 @@
    "scope": "SF1679",
    "course": "SF1679",
    "key": "capacity",
-   "message": "SF1679: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 3 with ≥10% fewer seats, 7 with ≥50% more seats. Largest reductions: F 2027-01-22: F2 238 → B3 101; F 2027-02-09: B2 131 → M3 98; F 2027-02-10: B2 131 → B1 101; F 2027-01-12: D2 126 → B3 101.",
+   "message": {
+    "sv": "SF1679: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser, 2 med minst 20 % färre platser, 3 med minst 10 % färre platser, 7 med minst 50 % fler platser. Störst minskning: F 2027-01-22: F2 238 → B3 101; F 2027-02-09: B2 131 → M3 98; F 2027-02-10: B2 131 → B1 101; F 2027-01-12: D2 126 → B3 101.",
+    "en": "SF1679: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 2 with ≥20% fewer seats, 3 with ≥10% fewer seats, 7 with ≥50% more seats. Largest reductions: F 2027-01-22: F2 238 → B3 101; F 2027-02-09: B2 131 → M3 98; F 2027-02-10: B2 131 → B1 101; F 2027-01-12: D2 126 → B3 101."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:70 2027-01-22 10:00-12:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:160 2027-02-09 13:00-15:00 Föreläsning",
@@ -1995,7 +2393,14 @@
    "scope": "SF1904",
    "course": "SF1904",
    "key": "capacity",
-   "message": "SF1904: room seats compared with VT26 per occasion: 6 with ≥40% fewer seats, 1 with ≥10% fewer seats. Largest reductions: F 2027-03-15: M1 262 → V3 72; F 2027-05-04: M1 262 → U41 72; F 2027-03-22: D1 216 → U31 70; F 2027-04-20: D1 216 → U21 70.",
+   "message": {
+    "sv": "SF1904: lokalernas platser jämfört med VT26 per tillfälle: 6 med minst 40 % färre platser, 1 med minst 10 % färre platser. Störst minskning: F 2027-03-15: M1 262 → V3 72; F 2027-05-04: M1 262 → U41 72; F 2027-03-22: D1 216 → U31 70; F 2027-04-20: D1 216 → U21 70.",
+    "en": "SF1904: room seats compared with VT26 per occasion: 6 with ≥40% fewer seats, 1 with ≥10% fewer seats. Largest reductions: F 2027-03-15: M1 262 → V3 72; F 2027-05-04: M1 262 → U41 72; F 2027-03-22: D1 216 → U31 70; F 2027-04-20: D1 216 → U21 70."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:269 2027-03-15 13:00-15:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:540 2027-05-04 08:00-10:00 Föreläsning",
@@ -2071,7 +2476,14 @@
    "scope": "SG1112",
    "course": "SG1112",
    "key": "capacity",
-   "message": "SG1112: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 1 with ≥20% fewer seats, 9 with ≥50% more seats. Largest reductions: F 2027-05-03: M1 262 → M2 140; Ö 2027-01-15: Q26+Q31+Q33 160 → M31+M35+M36 102.",
+   "message": {
+    "sv": "SG1112: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 40 % färre platser, 1 med minst 20 % färre platser, 9 med minst 50 % fler platser. Störst minskning: F 2027-05-03: M1 262 → M2 140; Ö 2027-01-15: Q26+Q31+Q33 160 → M31+M35+M36 102.",
+    "en": "SG1112: room seats compared with VT26 per occasion: 1 with ≥40% fewer seats, 1 with ≥20% fewer seats, 9 with ≥50% more seats. Largest reductions: F 2027-05-03: M1 262 → M2 140; Ö 2027-01-15: Q26+Q31+Q33 160 → M31+M35+M36 102."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:186 2027-05-03 15:00-17:00 Föreläsning",
     "CTFYS1_VT27_remiss.xlsx:15 2027-01-15 10:00-12:00 Övning"
@@ -2125,7 +2537,14 @@
    "scope": "SI1142",
    "course": "SI1142",
    "key": "2027-05-24:TEN2",
-   "message": "SI1142: Tentamen on 2027-05-24 is registered as TEN2, which the current syllabus (valid from VT2026) does not have; its exam modules are TENX – Skriftlig tentamen, 3 hp.",
+   "message": {
+    "sv": "SI1142: Tentamen 2027-05-24 är registrerad som TEN2, som den gällande kursplanen (giltig från VT2026) inte har; dess examinationsmoduler är TENX – Skriftlig tentamen, 3 hp.",
+    "en": "SI1142: Tentamen on 2027-05-24 is registered as TEN2, which the current syllabus (valid from VT2026) does not have; its exam modules are TENX – Skriftlig tentamen, 3 hp."
+   },
+   "ask": {
+    "sv": "Ska modulen ändras?",
+    "en": "Should the module be changed?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:604 2027-05-24 08:00-12:00 Tentamen"
    ],
@@ -2146,7 +2565,14 @@
    "scope": "SI1155",
    "course": "SI1155",
    "key": "capacity",
-   "message": "SI1155: room seats compared with VT26 per occasion: 20 with ≥40% fewer seats, 6 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: Ö 2027-04-12: FR4 267 → FA31+FA32 82; F 2027-03-16: FR4 267 → FD5 114; F 2027-03-17: FR4 267 → FD5 114; F 2027-03-19: FR4 267 → FD5 114.",
+   "message": {
+    "sv": "SI1155: lokalernas platser jämfört med VT26 per tillfälle: 20 med minst 40 % färre platser, 6 med minst 20 % färre platser, 1 med minst 10 % färre platser. Störst minskning: Ö 2027-04-12: FR4 267 → FA31+FA32 82; F 2027-03-16: FR4 267 → FD5 114; F 2027-03-17: FR4 267 → FD5 114; F 2027-03-19: FR4 267 → FD5 114.",
+    "en": "SI1155: room seats compared with VT26 per occasion: 20 with ≥40% fewer seats, 6 with ≥20% fewer seats, 1 with ≥10% fewer seats. Largest reductions: Ö 2027-04-12: FR4 267 → FA31+FA32 82; F 2027-03-16: FR4 267 → FD5 114; F 2027-03-17: FR4 267 → FD5 114; F 2027-03-19: FR4 267 → FD5 114."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:150 2027-04-12 15:00-17:00 Övning",
     "CTFYS2_VT27_remiss.xlsx:102 2027-03-16 08:00-10:00 Föreläsning",
@@ -2223,7 +2649,14 @@
    "scope": "SI2360",
    "course": "SI2360",
    "key": "capacity",
-   "message": "SI2360: room seats compared with VT26 per occasion: 2 with ≥40% fewer seats. Largest reductions: F 2027-04-07: FD41+FP22 54 → FB51 32; Ö 2027-04-07: FD41+FP22 54 → FB51 32.",
+   "message": {
+    "sv": "SI2360: lokalernas platser jämfört med VT26 per tillfälle: 2 med minst 40 % färre platser. Störst minskning: F 2027-04-07: FD41+FP22 54 → FB51 32; Ö 2027-04-07: FD41+FP22 54 → FB51 32.",
+    "en": "SI2360: room seats compared with VT26 per occasion: 2 with ≥40% fewer seats. Largest reductions: F 2027-04-07: FD41+FP22 54 → FB51 32; Ö 2027-04-07: FD41+FP22 54 → FB51 32."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:386 2027-04-07 08:00-10:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:390 2027-04-07 10:00-12:00 Övning"
@@ -2275,7 +2708,14 @@
    "scope": "SI2360",
    "course": "SI2360",
    "key": "2027-05-26:TEN1,TEN2",
-   "message": "SI2360: Tentamen on 2027-05-26 is registered as TEN1, TEN2, which the current syllabus (valid from VT2026) does not have; its exam modules are TENT – Skriftlig tentamen, 7,5 hp.",
+   "message": {
+    "sv": "SI2360: Tentamen 2027-05-26 är registrerad som TEN1, TEN2, som den gällande kursplanen (giltig från VT2026) inte har; dess examinationsmoduler är TENT – Skriftlig tentamen, 7,5 hp.",
+    "en": "SI2360: Tentamen on 2027-05-26 is registered as TEN1, TEN2, which the current syllabus (valid from VT2026) does not have; its exam modules are TENT – Skriftlig tentamen, 7,5 hp."
+   },
+   "ask": {
+    "sv": "Ska modulen ändras?",
+    "en": "Should the module be changed?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
    ],
@@ -2297,7 +2737,14 @@
    "scope": "AK2011",
    "course": "AK2011",
    "key": "AK2011",
-   "message": "AK2011 has teaching in VT27 but had none in VT26.",
+   "message": {
+    "sv": "AK2011 har undervisning VT27 men hade ingen VT26.",
+    "en": "AK2011 has teaching in VT27 but had none in VT26."
+   },
+   "ask": {
+    "sv": "Stämmer det att den ska ingå?",
+    "en": "Is it meant to be included?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -2308,7 +2755,14 @@
    "scope": "AK2014",
    "course": "AK2014",
    "key": "Övning:0>3",
-   "message": "AK2014: number of occasions changed (VT26→VT27): Övning 0→3. Sequence: P3 w2–w5: F F [–] S F … → F F [Ö F S F F Ö F S] S F …; P3 exams: … S F [F S F F F S] → … S F [Ö].",
+   "message": {
+    "sv": "AK2014: antalet tillfällen har ändrats (VT26→VT27): Övning 0→3. Sekvens (VT26 → VT27): P3 v2–5: F F [–] S F … → F F [Ö F S F F Ö F S] S F …; P3 tentaperiod: … S F [F S F F F S] → … S F [Ö].",
+    "en": "AK2014: number of occasions changed (VT26→VT27): Övning 0→3. Sequence: P3 w2–5: F F [–] S F … → F F [Ö F S F F Ö F S] S F …; P3 exams: … S F [F S F F F S] → … S F [Ö]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -2868,7 +3322,14 @@
    "scope": "AK2014",
    "course": "AK2014",
    "key": "shifts:5",
-   "message": "AK2014: 5 occasion(s) moved ≥2 teaching weeks: Seminarium P3 w2→P3 w6; Föreläsning P3 w2→P3 w6; Föreläsning P3 w3→P3 w7; Seminarium P3 w3→P3 w7; Föreläsning P3 w4→P3 w8.",
+   "message": {
+    "sv": "AK2014: 5 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Seminarium P3 v2→P3 v6; Föreläsning P3 v2→P3 v6; Föreläsning P3 v3→P3 v7; Seminarium P3 v3→P3 v7; Föreläsning P3 v4→P3 v8.",
+    "en": "AK2014: 5 occasion(s) moved ≥2 teaching weeks: Seminarium P3 w2→P3 w6; Föreläsning P3 w2→P3 w6; Föreläsning P3 w3→P3 w7; Seminarium P3 w3→P3 w7; Föreläsning P3 w4→P3 w8."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:193 2027-02-16 13:00-15:00 Seminarium",
     "CTFYS3_VT27_remiss.xlsx:205 2027-02-18 10:00-12:00 Föreläsning",
@@ -2887,7 +3348,14 @@
    "scope": "DD1327",
    "course": "DD1327",
    "key": "capacity",
-   "message": "DD1327: room seats compared with VT26 per occasion: 3 with ≥20% fewer seats, 1 with ≥50% more seats. Largest reductions: DL 2027-05-10: 4V2Röd+4V3Ora+4V4Gul 118 → 4V2Röd+4V3Ora 82; Ö 2027-04-22: V11+V21+V23+V33+V35 320 → B23+B24+B25+B26+B22 238; Ö 2027-05-17: E35+E51+E52+D34 324 → D32+D33+D35+E34+E31+E33+E36 258.",
+   "message": {
+    "sv": "DD1327: lokalernas platser jämfört med VT26 per tillfälle: 3 med minst 20 % färre platser, 1 med minst 50 % fler platser. Störst minskning: DL 2027-05-10: 4V2Röd+4V3Ora+4V4Gul 118 → 4V2Röd+4V3Ora 82; Ö 2027-04-22: V11+V21+V23+V33+V35 320 → B23+B24+B25+B26+B22 238; Ö 2027-05-17: E35+E51+E52+D34 324 → D32+D33+D35+E34+E31+E33+E36 258.",
+    "en": "DD1327: room seats compared with VT26 per occasion: 3 with ≥20% fewer seats, 1 with ≥50% more seats. Largest reductions: DL 2027-05-10: 4V2Röd+4V3Ora+4V4Gul 118 → 4V2Röd+4V3Ora 82; Ö 2027-04-22: V11+V21+V23+V33+V35 320 → B23+B24+B25+B26+B22 238; Ö 2027-05-17: E35+E51+E52+D34 324 → D32+D33+D35+E34+E31+E33+E36 258."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:192 2027-05-10 10:00-12:00 Datorlaboration",
     "CTFYS2_VT27_remiss.xlsx:165 2027-04-22 13:00-15:00 Övning",
@@ -2970,7 +3438,14 @@
    "scope": "DD1327",
    "course": "DD1327",
    "key": "Datorlaboration:7>6,Föreläsning:9>10,Workshop:1>3,Övning:7>4",
-   "message": "DD1327: number of occasions changed (VT26→VT27): Datorlaboration 7→6; Föreläsning 9→10; Workshop 1→3; Övning 7→4. Sequence: P4 w1: [–] F F … → [F] F F …; P4 w3–w4: … F F [Ö] DL F … → … F F [F Ö F F W] DL F …; P4 w6–w8: … DL F [Ö F DL Ö F DL Ö F DL Ö DL] Ö EX → … DL F [W DL Ö DL DL] Ö EX.",
+   "message": {
+    "sv": "DD1327: antalet tillfällen har ändrats (VT26→VT27): Datorlaboration 7→6; Föreläsning 9→10; Workshop 1→3; Övning 7→4. Sekvens (VT26 → VT27): P4 v1: [–] F F … → [F] F F …; P4 v3–4: … F F [Ö] DL F … → … F F [F Ö F F W] DL F …; P4 v6–8: … DL F [Ö F DL Ö F DL Ö F DL Ö DL] Ö EX → … DL F [W DL Ö DL DL] Ö EX.",
+    "en": "DD1327: number of occasions changed (VT26→VT27): Datorlaboration 7→6; Föreläsning 9→10; Workshop 1→3; Övning 7→4. Sequence: P4 w1: [–] F F … → [F] F F …; P4 w3–4: … F F [Ö] DL F … → … F F [F Ö F F W] DL F …; P4 w6–8: … DL F [Ö F DL Ö F DL Ö F DL Ö DL] Ö EX → … DL F [W DL Ö DL DL] Ö EX."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -3867,7 +4342,14 @@
    "scope": "DD1327",
    "course": "DD1327",
    "key": "shifts:5",
-   "message": "DD1327: 5 occasion(s) moved ≥2 teaching weeks: Datorlaboration P4 w3→P4 w5; Föreläsning P4 w3→P4 w5; Övning P4 w3→P4 w5; Datorlaboration P4 w4→P4 w6; Föreläsning P4 w4→P4 w6.",
+   "message": {
+    "sv": "DD1327: 5 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Datorlaboration P4 v3→P4 v5; Föreläsning P4 v3→P4 v5; Övning P4 v3→P4 v5; Datorlaboration P4 v4→P4 v6; Föreläsning P4 v4→P4 v6.",
+    "en": "DD1327: 5 occasion(s) moved ≥2 teaching weeks: Datorlaboration P4 w3→P4 w5; Föreläsning P4 w3→P4 w5; Övning P4 w3→P4 w5; Datorlaboration P4 w4→P4 w6; Föreläsning P4 w4→P4 w6."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:157 2027-04-19 10:00-12:00 Datorlaboration",
     "CTFYS2_VT27_remiss.xlsx:163 2027-04-21 13:00-15:00 Föreläsning",
@@ -3886,7 +4368,14 @@
    "scope": "DD132U",
    "course": "DD132U",
    "key": "DD132U",
-   "message": "DD132U has teaching in VT27 but had none in VT26.",
+   "message": {
+    "sv": "DD132U har undervisning VT27 men hade ingen VT26.",
+    "en": "DD132U has teaching in VT27 but had none in VT26."
+   },
+   "ask": {
+    "sv": "Stämmer det att den ska ingå?",
+    "en": "Is it meant to be included?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -3897,7 +4386,14 @@
    "scope": "DD232V",
    "course": "DD232V",
    "key": "DD232V",
-   "message": "DD232V has teaching in VT27 but had none in VT26.",
+   "message": {
+    "sv": "DD232V har undervisning VT27 men hade ingen VT26.",
+    "en": "DD232V has teaching in VT27 but had none in VT26."
+   },
+   "ask": {
+    "sv": "Stämmer det att den ska ingå?",
+    "en": "Is it meant to be included?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -3908,7 +4404,14 @@
    "scope": "DD2352",
    "course": "DD2352",
    "key": "Tentamen:1>0",
-   "message": "DD2352: number of occasions changed (VT26→VT27): Tentamen 1→0. Sequence: P4 w1–w5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F].",
+   "message": {
+    "sv": "DD2352: antalet tillfällen har ändrats (VT26→VT27): Tentamen 1→0. Sekvens (VT26 → VT27): P4 v1–5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F].",
+    "en": "DD2352: number of occasions changed (VT26→VT27): Tentamen 1→0. Sequence: P4 w1–5: … F F [Ö F F Ö DL F DL DL F F Ö F Ö TEN] → … F F [F Ö F Ö DL DL F Ö DL F Ö F F]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -4847,7 +5350,14 @@
    "scope": "DD2352",
    "course": "DD2352",
    "key": "shifts:2",
-   "message": "DD2352: 2 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w1→P3 w6; Datorlaboration P4 w2→P4 w4.",
+   "message": {
+    "sv": "DD2352: 2 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Föreläsning P4 v1→P3 v6; Datorlaboration P4 v2→P4 v4.",
+    "en": "DD2352: 2 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w1→P3 w6; Datorlaboration P4 w2→P4 w4."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:186 2027-02-15 13:00-15:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:432 2027-04-14 09:00-12:00 Datorlaboration"
@@ -4863,7 +5373,14 @@
    "scope": "DD2380",
    "course": "DD2380",
    "key": "DD2380",
-   "message": "DD2380 had teaching in VT26 but none in VT27.",
+   "message": {
+    "sv": "DD2380 hade undervisning VT26 men har ingen VT27.",
+    "en": "DD2380 had teaching in VT26 but none in VT27."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -4874,7 +5391,14 @@
    "scope": "DD2421",
    "course": "DD2421",
    "key": "EXA1,TEN1>TEN1",
-   "message": "DD2421: exam modules on ordinary exams changed: EXA1, TEN1 → TEN1.",
+   "message": {
+    "sv": "DD2421: examinationsmodulerna på ordinarie tentamen har ändrats: EXA1, TEN1 → TEN1.",
+    "en": "DD2421: exam modules on ordinary exams changed: EXA1, TEN1 → TEN1."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt? (Kontrollera kursplanen.)",
+    "en": "Is this intended? (Check the syllabus.)"
+   },
    "evidence": [],
    "details": {
     "old": [
@@ -4893,7 +5417,14 @@
    "scope": "EF112X",
    "course": "EF112X",
    "key": "EF112X",
-   "message": "EF112X had teaching in VT26 but none in VT27.",
+   "message": {
+    "sv": "EF112X hade undervisning VT26 men har ingen VT27.",
+    "en": "EF112X had teaching in VT26 but none in VT27."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -4904,7 +5435,14 @@
    "scope": "EQ1120",
    "course": "EQ1120",
    "key": "Datorlaboration:1>0",
-   "message": "EQ1120: number of occasions changed (VT26→VT27): Datorlaboration 1→0. Sequence: P4 w1: … F Ö [DL] F Ö … → … F Ö [–] F Ö ….",
+   "message": {
+    "sv": "EQ1120: antalet tillfällen har ändrats (VT26→VT27): Datorlaboration 1→0. Sekvens (VT26 → VT27): P4 v1: … F Ö [DL] F Ö … → … F Ö [–] F Ö ….",
+    "en": "EQ1120: number of occasions changed (VT26→VT27): Datorlaboration 1→0. Sequence: P4 w1: … F Ö [DL] F Ö … → … F Ö [–] F Ö …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -5637,7 +6175,14 @@
    "scope": "FDD3431",
    "course": "FDD3431",
    "key": "Föreläsning:0>12",
-   "message": "FDD3431: number of occasions changed (VT26→VT27): Föreläsning 0→12. Sequence: P3 w1–w7: [–] TEN → [F F F F F F F F F F F F] TEN.",
+   "message": {
+    "sv": "FDD3431: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 0→12. Sekvens (VT26 → VT27): P3 v1–7: [–] TEN → [F F F F F F F F F F F F] TEN.",
+    "en": "FDD3431: number of occasions changed (VT26→VT27): Föreläsning 0→12. Sequence: P3 w1–7: [–] TEN → [F F F F F F F F F F F F] TEN."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -5951,7 +6496,14 @@
    "scope": "FDD3431",
    "course": "FDD3431",
    "key": "EXA1,TEN1>TEN1",
-   "message": "FDD3431: exam modules on ordinary exams changed: EXA1, TEN1 → TEN1.",
+   "message": {
+    "sv": "FDD3431: examinationsmodulerna på ordinarie tentamen har ändrats: EXA1, TEN1 → TEN1.",
+    "en": "FDD3431: exam modules on ordinary exams changed: EXA1, TEN1 → TEN1."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt? (Kontrollera kursplanen.)",
+    "en": "Is this intended? (Check the syllabus.)"
+   },
    "evidence": [],
    "details": {
     "old": [
@@ -5970,7 +6522,14 @@
    "scope": "IL2240",
    "course": "IL2240",
    "key": "IL2240",
-   "message": "IL2240 had teaching in VT26 but none in VT27.",
+   "message": {
+    "sv": "IL2240 hade undervisning VT26 men har ingen VT27.",
+    "en": "IL2240 had teaching in VT26 but none in VT27."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -5981,7 +6540,14 @@
    "scope": "IL224V",
    "course": "IL224V",
    "key": "IL224V",
-   "message": "IL224V had teaching in VT26 but none in VT27.",
+   "message": {
+    "sv": "IL224V hade undervisning VT26 men har ingen VT27.",
+    "en": "IL224V had teaching in VT26 but none in VT27."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -5992,7 +6558,14 @@
    "scope": "MH1023",
    "course": "MH1023",
    "key": "Föreläsning:2>3,Seminarium:9>8",
-   "message": "MH1023: number of occasions changed (VT26→VT27): Föreläsning 2→3; Seminarium 9→8. Sequence: P3 w2: F [S] S S … → F [–] S S …; P4 w9: … S F [–] → … S F [F].",
+   "message": {
+    "sv": "MH1023: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 2→3; Seminarium 9→8. Sekvens (VT26 → VT27): P3 v2: F [S] S S … → F [–] S S …; P4 v9: … S F [–] → … S F [F].",
+    "en": "MH1023: number of occasions changed (VT26→VT27): Föreläsning 2→3; Seminarium 9→8. Sequence: P3 w2: F [S] S S … → F [–] S S …; P4 w9: … S F [–] → … S F [F]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -6474,7 +7047,14 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "Föreläsning:3>0,Möte:1>0,Projektarbete:47>64,Redovisning:0>2,Seminarium:9>0,Övrigt:1>0",
-   "message": "SA114X: number of occasions changed (VT26→VT27): Föreläsning 3→0; Möte 1→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 9→0; Övrigt 1→0. Sequence: P3 w1–P4 w2: Info Info [P P Övr P P F S P S P P P P P P P F S S S S P P P S P P P P P P P P P P P P Möte] P P … → Info Info [–] P P …; P3 w5–P4 w8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
+   "message": {
+    "sv": "SA114X: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 3→0; Möte 1→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 9→0; Övrigt 1→0. Sekvens (VT26 → VT27): P3 v1–P4 v2: Info Info [P P Övr P P F S P S P P P P P P P F S S S S P P P S P P P P P P P P P P P P Möte] P P … → Info Info [–] P P …; P3 v5–P4 v8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
+    "en": "SA114X: number of occasions changed (VT26→VT27): Föreläsning 3→0; Möte 1→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 9→0; Övrigt 1→0. Sequence: P3 w1–P4 w2: Info Info [P P Övr P P F S P S P P P P P P P F S S S S P P P S P P P P P P P P P P P P Möte] P P … → Info Info [–] P P …; P3 w5–P4 w8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -8547,7 +9127,14 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "shifts:18",
-   "message": "SA114X: 18 occasion(s) moved ≥2 teaching weeks: Projektarbete P4 w2→P3 w1; Projektarbete P4 w2→P3 w1; Projektarbete P4 w3→P3 w1; Projektarbete P4 w3→P3 w2; Projektarbete P4 w3→P3 w2; Projektarbete P4 w3→P3 w2 (+12 more).",
+   "message": {
+    "sv": "SA114X: 18 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Projektarbete P4 v2→P3 v1; Projektarbete P4 v2→P3 v1; Projektarbete P4 v3→P3 v1; Projektarbete P4 v3→P3 v2; Projektarbete P4 v3→P3 v2; Projektarbete P4 v3→P3 v2 (+12 till).",
+    "en": "SA114X: 18 occasion(s) moved ≥2 teaching weeks: Projektarbete P4 w2→P3 w1; Projektarbete P4 w2→P3 w1; Projektarbete P4 w3→P3 w1; Projektarbete P4 w3→P3 w2; Projektarbete P4 w3→P3 w2; Projektarbete P4 w3→P3 w2 (+12 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:17 2027-01-13 10:00-12:00 Projektarbete",
     "CTFYS3_VT27_remiss.xlsx:18 2027-01-13 13:00-17:00 Projektarbete",
@@ -8567,7 +9154,14 @@
    "scope": "SA115X",
    "course": "SA115X",
    "key": "Föreläsning:2>0,Projektarbete:47>64,Redovisning:0>2,Seminarium:5>0",
-   "message": "SA115X: number of occasions changed (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. Sequence: P3 w1–w6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 w6–P4 w8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
+   "message": {
+    "sv": "SA115X: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. Sekvens (VT26 → VT27): P3 v1–6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 v6–P4 v8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
+    "en": "SA115X: number of occasions changed (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. Sequence: P3 w1–6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 w6–P4 w8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -10509,7 +11103,14 @@
    "scope": "SA115X",
    "course": "SA115X",
    "key": "shifts:25",
-   "message": "SA115X: 25 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w6→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w8→P3 w1; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2 (+19 more).",
+   "message": {
+    "sv": "SA115X: 25 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Projektarbete P3 v6→P3 v1; Projektarbete P3 v7→P3 v1; Projektarbete P3 v8→P3 v1; Projektarbete P4 v1→P3 v2; Projektarbete P4 v1→P3 v2; Projektarbete P4 v1→P3 v2 (+19 till).",
+    "en": "SA115X: 25 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w6→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w8→P3 w1; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2 (+19 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:17 2027-01-13 10:00-12:00 Projektarbete",
     "CTFYS3_VT27_remiss.xlsx:18 2027-01-13 13:00-17:00 Projektarbete",
@@ -10529,7 +11130,14 @@
    "scope": "SA118X",
    "course": "SA118X",
    "key": "Föreläsning:2>0,Projektarbete:47>64,Redovisning:0>2,Seminarium:5>0",
-   "message": "SA118X: number of occasions changed (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. Sequence: P3 w1–w6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 w6–P4 w8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
+   "message": {
+    "sv": "SA118X: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. Sekvens (VT26 → VT27): P3 v1–6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 v6–P4 v8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
+    "en": "SA118X: number of occasions changed (VT26→VT27): Föreläsning 2→0; Projektarbete 47→64; Redovisning 0→2; Seminarium 5→0. Sequence: P3 w1–6: Info Info [P P P P F S P S P P P P P P P P P P P P P P P S] P P … → Info Info [–] P P …; P3 w6–P4 w8: … P P [S P S P F P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -12471,7 +13079,14 @@
    "scope": "SA118X",
    "course": "SA118X",
    "key": "shifts:25",
-   "message": "SA118X: 25 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w6→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w8→P3 w1; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2 (+19 more).",
+   "message": {
+    "sv": "SA118X: 25 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Projektarbete P3 v6→P3 v1; Projektarbete P3 v7→P3 v1; Projektarbete P3 v8→P3 v1; Projektarbete P4 v1→P3 v2; Projektarbete P4 v1→P3 v2; Projektarbete P4 v1→P3 v2 (+19 till).",
+    "en": "SA118X: 25 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w6→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w8→P3 w1; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2; Projektarbete P4 w1→P3 w2 (+19 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:17 2027-01-13 10:00-12:00 Projektarbete",
     "CTFYS3_VT27_remiss.xlsx:18 2027-01-13 13:00-17:00 Projektarbete",
@@ -12491,7 +13106,14 @@
    "scope": "SA120X",
    "course": "SA120X",
    "key": "Projektarbete:56>64,Redovisning:0>2,Seminarium:3>0",
-   "message": "SA120X: number of occasions changed (VT26→VT27): Projektarbete 56→64; Redovisning 0→2; Seminarium 3→0. Sequence: P3 w1–w6: Info [P P P P P P P P P P P P P P P P P P P P P P P S] P P … → Info [–] P P …; P3 w8–P4 w8: … P P [S P S P P P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
+   "message": {
+    "sv": "SA120X: antalet tillfällen har ändrats (VT26→VT27): Projektarbete 56→64; Redovisning 0→2; Seminarium 3→0. Sekvens (VT26 → VT27): P3 v1–6: Info [P P P P P P P P P P P P P P P P P P P P P P P S] P P … → Info [–] P P …; P3 v8–P4 v8: … P P [S P S P P P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red].",
+    "en": "SA120X: number of occasions changed (VT26→VT27): Projektarbete 56→64; Redovisning 0→2; Seminarium 3→0. Sequence: P3 w1–6: Info [P P P P P P P P P P P P P P P P P P P P P P P S] P P … → Info [–] P P …; P3 w8–P4 w8: … P P [S P S P P P P] → … P P [P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P P Red Red]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -14406,7 +15028,14 @@
    "scope": "SA120X",
    "course": "SA120X",
    "key": "shifts:32",
-   "message": "SA120X: 32 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w6→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w7→P3 w2; Projektarbete P3 w7→P3 w2; Projektarbete P3 w7→P3 w2 (+26 more).",
+   "message": {
+    "sv": "SA120X: 32 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Projektarbete P3 v6→P3 v1; Projektarbete P3 v7→P3 v1; Projektarbete P3 v7→P3 v1; Projektarbete P3 v7→P3 v2; Projektarbete P3 v7→P3 v2; Projektarbete P3 v7→P3 v2 (+26 till).",
+    "en": "SA120X: 32 occasion(s) moved ≥2 teaching weeks: Projektarbete P3 w6→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w7→P3 w1; Projektarbete P3 w7→P3 w2; Projektarbete P3 w7→P3 w2; Projektarbete P3 w7→P3 w2 (+26 more)."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:17 2027-01-13 10:00-12:00 Projektarbete",
     "CTFYS3_VT27_remiss.xlsx:18 2027-01-13 13:00-17:00 Projektarbete",
@@ -14426,7 +15055,14 @@
    "scope": "SE1055",
    "course": "SE1055",
    "key": "TEN1,TEN2>TEN1",
-   "message": "SE1055: exam modules on ordinary exams changed: TEN1, TEN2 → TEN1.",
+   "message": {
+    "sv": "SE1055: examinationsmodulerna på ordinarie tentamen har ändrats: TEN1, TEN2 → TEN1.",
+    "en": "SE1055: exam modules on ordinary exams changed: TEN1, TEN2 → TEN1."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt? (Kontrollera kursplanen.)",
+    "en": "Is this intended? (Check the syllabus.)"
+   },
    "evidence": [],
    "details": {
     "old": [
@@ -14445,7 +15081,14 @@
    "scope": "SF1544",
    "course": "SF1544",
    "key": "capacity",
-   "message": "SF1544: room seats compared with VT26 per occasion: 2 with ≥20% fewer seats, 1 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: Red 2027-02-25: 4V5Grö+4V6 Bru 56 → 4V5Grö+5V1Grå 40; Red 2027-02-25: 4V5Grö+4V6 Bru 56 → 4V5Grö+5V1Grå 40; Red 2027-03-23: 4V5Grö+4V6 Bru 56 → XW344 48.",
+   "message": {
+    "sv": "SF1544: lokalernas platser jämfört med VT26 per tillfälle: 2 med minst 20 % färre platser, 1 med minst 10 % färre platser, 1 med minst 50 % fler platser. Störst minskning: Red 2027-02-25: 4V5Grö+4V6 Bru 56 → 4V5Grö+5V1Grå 40; Red 2027-02-25: 4V5Grö+4V6 Bru 56 → 4V5Grö+5V1Grå 40; Red 2027-03-23: 4V5Grö+4V6 Bru 56 → XW344 48.",
+    "en": "SF1544: room seats compared with VT26 per occasion: 2 with ≥20% fewer seats, 1 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: Red 2027-02-25: 4V5Grö+4V6 Bru 56 → 4V5Grö+5V1Grå 40; Red 2027-02-25: 4V5Grö+4V6 Bru 56 → 4V5Grö+5V1Grå 40; Red 2027-03-23: 4V5Grö+4V6 Bru 56 → XW344 48."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:84 2027-02-25 08:00-10:00 Redovisning",
     "CTFYS2_VT27_remiss.xlsx:85 2027-02-25 10:00-12:00 Redovisning",
@@ -14513,7 +15156,14 @@
    "scope": "SF1544",
    "course": "SF1544",
    "key": "Tentamen:1>0",
-   "message": "SF1544: number of occasions changed (VT26→VT27): Tentamen 1→0. Sequence: P3 exams: … Red Red [TEN] Red Red → … Red Red [–] Red Red.",
+   "message": {
+    "sv": "SF1544: antalet tillfällen har ändrats (VT26→VT27): Tentamen 1→0. Sekvens (VT26 → VT27): P3 tentaperiod: … Red Red [TEN] Red Red → … Red Red [–] Red Red.",
+    "en": "SF1544: number of occasions changed (VT26→VT27): Tentamen 1→0. Sequence: P3 exams: … Red Red [TEN] Red Red → … Red Red [–] Red Red."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -15330,7 +15980,14 @@
    "scope": "SF1674",
    "course": "SF1674",
    "key": "capacity",
-   "message": "SF1674: room seats compared with VT26 per occasion: 3 with ≥20% fewer seats, 4 with ≥10% fewer seats. Largest reductions: Ö 2027-02-19: U61+V01+W38+W42+W43 288 → E35+E36+E51+E52+E53 212; Ö 2027-02-10: V21+V32+V33+V34+V35 256 → D32+D34+D41+E31+E36 196; Ö 2027-02-01: V11+V12+V21+V32+V34 230 → E31+E33+E34+E36+E52 182; F 2027-02-19: Q1 281 → F2 238.",
+   "message": {
+    "sv": "SF1674: lokalernas platser jämfört med VT26 per tillfälle: 3 med minst 20 % färre platser, 4 med minst 10 % färre platser. Störst minskning: Ö 2027-02-19: U61+V01+W38+W42+W43 288 → E35+E36+E51+E52+E53 212; Ö 2027-02-10: V21+V32+V33+V34+V35 256 → D32+D34+D41+E31+E36 196; Ö 2027-02-01: V11+V12+V21+V32+V34 230 → E31+E33+E34+E36+E52 182; F 2027-02-19: Q1 281 → F2 238.",
+    "en": "SF1674: room seats compared with VT26 per occasion: 3 with ≥20% fewer seats, 4 with ≥10% fewer seats. Largest reductions: Ö 2027-02-19: U61+V01+W38+W42+W43 288 → E35+E36+E51+E52+E53 212; Ö 2027-02-10: V21+V32+V33+V34+V35 256 → D32+D34+D41+E31+E36 196; Ö 2027-02-01: V11+V12+V21+V32+V34 230 → E31+E33+E34+E36+E52 182; F 2027-02-19: Q1 281 → F2 238."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:78 2027-02-19 15:00-17:00 Övning",
     "CTFYS1_VT27_remiss.xlsx:59 2027-02-10 13:00-15:00 Övning",
@@ -15430,7 +16087,14 @@
    "scope": "SF1691",
    "course": "SF1691",
    "key": "capacity",
-   "message": "SF1691: room seats compared with VT26 per occasion: 2 with ≥20% fewer seats, 5 with ≥10% fewer seats, 22 with ≥50% more seats. Largest reductions: Ö 2027-03-25: V33+V35 96 → U31 70; Ö 2027-02-17: V33+V35 96 → W37 72; Ö 2027-02-18: E51+E53 86 → U21 70; Ö 2027-04-28: E51+E53 86 → U21 70.",
+   "message": {
+    "sv": "SF1691: lokalernas platser jämfört med VT26 per tillfälle: 2 med minst 20 % färre platser, 5 med minst 10 % färre platser, 22 med minst 50 % fler platser. Störst minskning: Ö 2027-03-25: V33+V35 96 → U31 70; Ö 2027-02-17: V33+V35 96 → W37 72; Ö 2027-02-18: E51+E53 86 → U21 70; Ö 2027-04-28: E51+E53 86 → U21 70.",
+    "en": "SF1691: room seats compared with VT26 per occasion: 2 with ≥20% fewer seats, 5 with ≥10% fewer seats, 22 with ≥50% more seats. Largest reductions: Ö 2027-03-25: V33+V35 96 → U31 70; Ö 2027-02-17: V33+V35 96 → W37 72; Ö 2027-02-18: E51+E53 86 → U21 70; Ö 2027-04-28: E51+E53 86 → U21 70."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:350 2027-03-25 08:00-10:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:201 2027-02-17 13:00-15:00 Övning",
@@ -15510,7 +16174,14 @@
    "scope": "SF1691",
    "course": "SF1691",
    "key": "Övning:19>16",
-   "message": "SF1691: number of occasions changed (VT26→VT27): Övning 19→16. Sequence: P3 w7–P4 w1: … Ö Ö [Ö F F F Ö] Ö Ö … → … Ö Ö [F F F] Ö Ö …; P4 w3: … Ö F [Ö] Ö Ö … → … Ö F [–] Ö Ö ….",
+   "message": {
+    "sv": "SF1691: antalet tillfällen har ändrats (VT26→VT27): Övning 19→16. Sekvens (VT26 → VT27): P3 v7–P4 v1: … Ö Ö [Ö F F F Ö] Ö Ö … → … Ö Ö [F F F] Ö Ö …; P4 v3: … Ö F [Ö] Ö Ö … → … Ö F [–] Ö Ö ….",
+    "en": "SF1691: number of occasions changed (VT26→VT27): Övning 19→16. Sequence: P3 w7–P4 w1: … Ö Ö [Ö F F F Ö] Ö Ö … → … Ö Ö [F F F] Ö Ö …; P4 w3: … Ö F [Ö] Ö Ö … → … Ö F [–] Ö Ö …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -16662,7 +17333,14 @@
    "scope": "SF1861",
    "course": "SF1861",
    "key": "Examination:6>5",
-   "message": "SF1861: number of occasions changed (VT26→VT27): Examination 6→5. Sequence: P4 w4: … Ö F [EX] EX EX … → … Ö F [–] EX EX ….",
+   "message": {
+    "sv": "SF1861: antalet tillfällen har ändrats (VT26→VT27): Examination 6→5. Sekvens (VT26 → VT27): P4 v4: … Ö F [EX] EX EX … → … Ö F [–] EX EX ….",
+    "en": "SF1861: number of occasions changed (VT26→VT27): Examination 6→5. Sequence: P4 w4: … Ö F [EX] EX EX … → … Ö F [–] EX EX …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -17541,7 +18219,14 @@
    "scope": "SF1861",
    "course": "SF1861",
    "key": "shifts:1",
-   "message": "SF1861: 1 occasion(s) moved ≥2 teaching weeks: Datorlaboration P4 w9→P4 exams.",
+   "message": {
+    "sv": "SF1861: 1 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Datorlaboration P4 v9→P4 tentaperiod.",
+    "en": "SF1861: 1 occasion(s) moved ≥2 teaching weeks: Datorlaboration P4 w9→P4 exams."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:617 2027-05-28 14:00-16:00 Datorlaboration"
    ],
@@ -17556,7 +18241,14 @@
    "scope": "SF1904",
    "course": "SF1904",
    "key": "shifts:1",
-   "message": "SF1904: 1 occasion(s) moved ≥2 teaching weeks: Räknestuga P4 w9→P4 exams.",
+   "message": {
+    "sv": "SF1904: 1 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Räknestuga P4 v9→P4 tentaperiod.",
+    "en": "SF1904: 1 occasion(s) moved ≥2 teaching weeks: Räknestuga P4 w9→P4 exams."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:607 2027-05-26 08:00-11:00 Räknestuga"
    ],
@@ -17571,7 +18263,14 @@
    "scope": "SF1922",
    "course": "SF1922",
    "key": "capacity",
-   "message": "SF1922: room seats compared with VT26 per occasion: 2 with ≥20% fewer seats, 3 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: Ö 2027-04-12: W38+W42+W43 212 → M33+M35+M36 128; Ö 2027-04-05: U21+U41+U51 213 → Q21+Q22+Q26 131; Ö 2027-04-19: Q24+Q34+Q36 150 → M33+M35+M36 128; Ö 2027-03-22: V11+V21+V35 128 → D35+D41+E53 110.",
+   "message": {
+    "sv": "SF1922: lokalernas platser jämfört med VT26 per tillfälle: 2 med minst 20 % färre platser, 3 med minst 10 % färre platser, 1 med minst 50 % fler platser. Störst minskning: Ö 2027-04-12: W38+W42+W43 212 → M33+M35+M36 128; Ö 2027-04-05: U21+U41+U51 213 → Q21+Q22+Q26 131; Ö 2027-04-19: Q24+Q34+Q36 150 → M33+M35+M36 128; Ö 2027-03-22: V11+V21+V35 128 → D35+D41+E53 110.",
+    "en": "SF1922: room seats compared with VT26 per occasion: 2 with ≥20% fewer seats, 3 with ≥10% fewer seats, 1 with ≥50% more seats. Largest reductions: Ö 2027-04-12: W38+W42+W43 212 → M33+M35+M36 128; Ö 2027-04-05: U21+U41+U51 213 → Q21+Q22+Q26 131; Ö 2027-04-19: Q24+Q34+Q36 150 → M33+M35+M36 128; Ö 2027-03-22: V11+V21+V35 128 → D35+D41+E53 110."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:148 2027-04-12 13:00-15:00 Övning",
     "CTFYS1_VT27_remiss.xlsx:138 2027-04-05 15:00-17:00 Övning",
@@ -17663,7 +18362,14 @@
    "scope": "SF1922",
    "course": "SF1922",
    "key": "order",
-   "message": "SF1922: same occasions in a different order: P4 w4: … DL F [Ö F] KS Övr … → … DL F [F Ö] KS Övr ….",
+   "message": {
+    "sv": "SF1922: samma tillfällen som VT26 men i annan ordning (VT26 → VT27): P4 v4: … DL F [Ö F] KS Övr … → … DL F [F Ö] KS Övr ….",
+    "en": "SF1922: same occasions in a different order: P4 w4: … DL F [Ö F] KS Övr … → … DL F [F Ö] KS Övr …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -18729,7 +19435,14 @@
    "scope": "SF1926",
    "course": "SF1926",
    "key": "SF1926",
-   "message": "SF1926 has teaching in VT27 but had none in VT26.",
+   "message": {
+    "sv": "SF1926 har undervisning VT27 men hade ingen VT26.",
+    "en": "SF1926 has teaching in VT27 but had none in VT26."
+   },
+   "ask": {
+    "sv": "Stämmer det att den ska ingå?",
+    "en": "Is it meant to be included?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -18740,7 +19453,14 @@
    "scope": "SF2701",
    "course": "SF2701",
    "key": "order",
-   "message": "SF2701: same occasions in a different order: P4 w1: [–] F F … → [F] F F …; P4 w2: … F Ö [F] F F … → … F Ö [–] F F ….",
+   "message": {
+    "sv": "SF2701: samma tillfällen som VT26 men i annan ordning (VT26 → VT27): P4 v1: [–] F F … → [F] F F …; P4 v2: … F Ö [F] F F … → … F Ö [–] F F ….",
+    "en": "SF2701: same occasions in a different order: P4 w1: [–] F F … → [F] F F …; P4 w2: … F Ö [F] F F … → … F Ö [–] F F …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -19478,7 +20198,14 @@
    "scope": "SF2930",
    "course": "SF2930",
    "key": "capacity",
-   "message": "SF2930: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 5 with ≥10% fewer seats, 4 with ≥50% more seats. Largest reductions: Le 2027-01-19: Q1 281 → D1 216; Le 2027-01-28: M1+M31 296 → F2 238; Le 2027-01-22: E1+E51 260 → E1 212; Le 2027-02-09: M1 262 → D1 216.",
+   "message": {
+    "sv": "SF2930: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 20 % färre platser, 5 med minst 10 % färre platser, 4 med minst 50 % fler platser. Störst minskning: Le 2027-01-19: Q1 281 → D1 216; Le 2027-01-28: M1+M31 296 → F2 238; Le 2027-01-22: E1+E51 260 → E1 212; Le 2027-02-09: M1 262 → D1 216.",
+    "en": "SF2930: room seats compared with VT26 per occasion: 1 with ≥20% fewer seats, 5 with ≥10% fewer seats, 4 with ≥50% more seats. Largest reductions: Le 2027-01-19: Q1 281 → D1 216; Le 2027-01-28: M1+M31 296 → F2 238; Le 2027-01-22: E1+E51 260 → E1 212; Le 2027-02-09: M1 262 → D1 216."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:54 2027-01-19 15:00-17:00 Lektion",
     "CTFYS3_VT27_remiss.xlsx:101 2027-01-28 10:00-12:00 Lektion",
@@ -19556,7 +20283,14 @@
    "scope": "SG1112",
    "course": "SG1112",
    "key": "Övning:14>15",
-   "message": "SG1112: number of occasions changed (VT26→VT27): Övning 14→15. Sequence: P4 w3: … Ö F [Ö F] F Ö … → … Ö F [F Ö] F Ö …; P4 w9: … KS Övr [–] R TEN → … KS Övr [Ö] R TEN.",
+   "message": {
+    "sv": "SG1112: antalet tillfällen har ändrats (VT26→VT27): Övning 14→15. Sekvens (VT26 → VT27): P4 v3: … Ö F [Ö F] F Ö … → … Ö F [F Ö] F Ö …; P4 v9: … KS Övr [–] R TEN → … KS Övr [Ö] R TEN.",
+    "en": "SG1112: number of occasions changed (VT26→VT27): Övning 14→15. Sequence: P4 w3: … Ö F [Ö F] F Ö … → … Ö F [F Ö] F Ö …; P4 w9: … KS Övr [–] R TEN → … KS Övr [Ö] R TEN."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -20845,7 +21579,14 @@
    "scope": "SH2402",
    "course": "SH2402",
    "key": "SH2402",
-   "message": "SH2402 had teaching in VT26 but none in VT27.",
+   "message": {
+    "sv": "SH2402 hade undervisning VT26 men har ingen VT27.",
+    "en": "SH2402 had teaching in VT26 but none in VT27."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -20856,7 +21597,14 @@
    "scope": "SH2404",
    "course": "SH2404",
    "key": "capacity",
-   "message": "SH2404: room seats compared with VT26 per occasion: 19 with no room booked (had rooms in VT26).",
+   "message": {
+    "sv": "SH2404: lokalernas platser jämfört med VT26 per tillfälle: 19 utan bokad lokal (hade lokal VT26).",
+    "en": "SH2404: room seats compared with VT26 per occasion: 19 with no room booked (had rooms in VT26)."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -20878,7 +21626,14 @@
    "scope": "SH2404",
    "course": "SH2404",
    "key": "Datorlaboration:1>0,Seminarium:0>1",
-   "message": "SH2404: number of occasions changed (VT26→VT27): Datorlaboration 1→0; Seminarium 0→1. Sequence: P4 w4: … F R [DL] R F … → … F R [S] R F ….",
+   "message": {
+    "sv": "SH2404: antalet tillfällen har ändrats (VT26→VT27): Datorlaboration 1→0; Seminarium 0→1. Sekvens (VT26 → VT27): P4 v4: … F R [DL] R F … → … F R [S] R F ….",
+    "en": "SH2404: number of occasions changed (VT26→VT27): Datorlaboration 1→0; Seminarium 0→1. Sequence: P4 w4: … F R [DL] R F … → … F R [S] R F …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -21466,7 +22221,14 @@
    "scope": "SH2404",
    "course": "SH2404",
    "key": "TEN1>TEN2",
-   "message": "SH2404: exam modules on ordinary exams changed: TEN1 → TEN2.",
+   "message": {
+    "sv": "SH2404: examinationsmodulerna på ordinarie tentamen har ändrats: TEN1 → TEN2.",
+    "en": "SH2404: exam modules on ordinary exams changed: TEN1 → TEN2."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt? (Kontrollera kursplanen.)",
+    "en": "Is this intended? (Check the syllabus.)"
+   },
    "evidence": [],
    "details": {
     "old": [
@@ -21484,7 +22246,14 @@
    "scope": "SH2404",
    "course": "SH2404",
    "key": "TEN1",
-   "message": "SH2404: the syllabus (valid from VT2027) has TEN1 – Tentamen, 5 hp, but no scheduled ordinary exam lists it (scheduled: TEN2).",
+   "message": {
+    "sv": "SH2404: kursplanen (giltig från VT2027) har TEN1 – Tentamen, 5 hp, men ingen schemalagd ordinarie tentamen anger den (schemalagt: TEN2).",
+    "en": "SH2404: the syllabus (valid from VT2027) has TEN1 – Tentamen, 5 hp, but no scheduled ordinary exam lists it (scheduled: TEN2)."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:615 2027-05-28 08:00-13:00 Tentamen"
    ],
@@ -21505,7 +22274,14 @@
    "scope": "SI1142",
    "course": "SI1142",
    "key": "capacity",
-   "message": "SI1142: room seats compared with VT26 per occasion: 4 with ≥20% fewer seats. Largest reductions: F 2027-03-15: B25 30 → FP22 24; F 2027-03-22: B24 30 → FP22 24; F 2027-04-05: B26 30 → FP22 24; F 2027-04-12: Q11 30 → FP22 24.",
+   "message": {
+    "sv": "SI1142: lokalernas platser jämfört med VT26 per tillfälle: 4 med minst 20 % färre platser. Störst minskning: F 2027-03-15: B25 30 → FP22 24; F 2027-03-22: B24 30 → FP22 24; F 2027-04-05: B26 30 → FP22 24; F 2027-04-12: Q11 30 → FP22 24.",
+    "en": "SI1142: room seats compared with VT26 per occasion: 4 with ≥20% fewer seats. Largest reductions: F 2027-03-15: B25 30 → FP22 24; F 2027-03-22: B24 30 → FP22 24; F 2027-04-05: B26 30 → FP22 24; F 2027-04-12: Q11 30 → FP22 24."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:270 2027-03-15 13:00-15:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:313 2027-03-22 13:00-15:00 Föreläsning",
@@ -21581,7 +22357,14 @@
    "scope": "SI1142",
    "course": "SI1142",
    "key": "Tentamen:0>2",
-   "message": "SI1142: number of occasions changed (VT26→VT27): Tentamen 0→2. Sequence: P4 exams: … F F [–] → … F F [TEN TEN].",
+   "message": {
+    "sv": "SI1142: antalet tillfällen har ändrats (VT26→VT27): Tentamen 0→2. Sekvens (VT26 → VT27): P4 tentaperiod: … F F [–] → … F F [TEN TEN].",
+    "en": "SI1142: number of occasions changed (VT26→VT27): Tentamen 0→2. Sequence: P4 exams: … F F [–] → … F F [TEN TEN]."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -21854,7 +22637,14 @@
    "scope": "SI1142",
    "course": "SI1142",
    "key": "shifts:4",
-   "message": "SI1142: 4 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w4→P4 w2; Föreläsning P4 w5→P4 w2; Föreläsning P4 w7→P4 w3; Föreläsning P4 w8→P4 w4.",
+   "message": {
+    "sv": "SI1142: 4 tillfälle(n) har flyttats minst 2 undervisningsveckor jämfört med VT26: Föreläsning P4 v4→P4 v2; Föreläsning P4 v5→P4 v2; Föreläsning P4 v7→P4 v3; Föreläsning P4 v8→P4 v4.",
+    "en": "SI1142: 4 occasion(s) moved ≥2 teaching weeks: Föreläsning P4 w4→P4 w2; Föreläsning P4 w5→P4 w2; Föreläsning P4 w7→P4 w3; Föreläsning P4 w8→P4 w4."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:313 2027-03-22 13:00-15:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:327 2027-03-23 15:00-17:00 Föreläsning",
@@ -21872,7 +22662,14 @@
    "scope": "SI1142",
    "course": "SI1142",
    "key": "TENX",
-   "message": "SI1142: the syllabus (valid from VT2026) has TENX – Skriftlig tentamen, 3 hp, but no scheduled ordinary exam lists it (scheduled: TEN1, TEN2).",
+   "message": {
+    "sv": "SI1142: kursplanen (giltig från VT2026) har TENX – Skriftlig tentamen, 3 hp, men ingen schemalagd ordinarie tentamen anger den (schemalagt: TEN1, TEN2).",
+    "en": "SI1142: the syllabus (valid from VT2026) has TENX – Skriftlig tentamen, 3 hp, but no scheduled ordinary exam lists it (scheduled: TEN1, TEN2)."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:604 2027-05-24 08:00-12:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
@@ -21895,7 +22692,14 @@
    "scope": "SI1155",
    "course": "SI1155",
    "key": "order",
-   "message": "SI1155: same occasions in a different order: P4 w2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F ….",
+   "message": {
+    "sv": "SI1155: samma tillfällen som VT26 men i annan ordning (VT26 → VT27): P4 v2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F ….",
+    "en": "SI1155: same occasions in a different order: P4 w2: … F F [Ö F] Ö F … → … F F [F Ö] Ö F …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -22840,7 +23644,14 @@
    "scope": "SI1200",
    "course": "SI1200",
    "key": "order",
-   "message": "SI1200: same occasions in a different order: P3 w7: … Ö F [Ö F] R TEN → … Ö F [F Ö] R TEN.",
+   "message": {
+    "sv": "SI1200: samma tillfällen som VT26 men i annan ordning (VT26 → VT27): P3 v7: … Ö F [Ö F] R TEN → … Ö F [F Ö] R TEN.",
+    "en": "SI1200: same occasions in a different order: P3 w7: … Ö F [Ö F] R TEN → … Ö F [F Ö] R TEN."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -23617,7 +24428,14 @@
    "scope": "SI1336",
    "course": "SI1336",
    "key": "SI1336",
-   "message": "SI1336 has teaching in VT27 but had none in VT26.",
+   "message": {
+    "sv": "SI1336 har undervisning VT27 men hade ingen VT26.",
+    "en": "SI1336 has teaching in VT27 but had none in VT26."
+   },
+   "ask": {
+    "sv": "Stämmer det att den ska ingå?",
+    "en": "Is it meant to be included?"
+   },
    "evidence": [],
    "details": {},
    "accepted": null
@@ -23628,7 +24446,14 @@
    "scope": "SI2360",
    "course": "SI2360",
    "key": "TENT>TEN1-2",
-   "message": "SI2360: exam modules on ordinary exams changed: TENT → TEN1-2.",
+   "message": {
+    "sv": "SI2360: examinationsmodulerna på ordinarie tentamen har ändrats: TENT → TEN1-2.",
+    "en": "SI2360: exam modules on ordinary exams changed: TENT → TEN1-2."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt? (Kontrollera kursplanen.)",
+    "en": "Is this intended? (Check the syllabus.)"
+   },
    "evidence": [],
    "details": {
     "old": [
@@ -23646,7 +24471,14 @@
    "scope": "SI2360",
    "course": "SI2360",
    "key": "TENT",
-   "message": "SI2360: the syllabus (valid from VT2026) has TENT – Skriftlig tentamen, 7,5 hp, but no scheduled ordinary exam lists it (scheduled: TEN1, TEN2).",
+   "message": {
+    "sv": "SI2360: kursplanen (giltig från VT2026) har TENT – Skriftlig tentamen, 7,5 hp, men ingen schemalagd ordinarie tentamen anger den (schemalagt: TEN1, TEN2).",
+    "en": "SI2360: the syllabus (valid from VT2026) has TENT – Skriftlig tentamen, 7,5 hp, but no scheduled ordinary exam lists it (scheduled: TEN1, TEN2)."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
    ],
@@ -23668,7 +24500,14 @@
    "scope": "SK1105",
    "course": "SK1105",
    "key": "order",
-   "message": "SK1105: same occasions in a different order: P4 w6: … L L [L Red] L Red … → … L L [Red L] L Red ….",
+   "message": {
+    "sv": "SK1105: samma tillfällen som VT26 men i annan ordning (VT26 → VT27): P4 v6: … L L [L Red] L Red … → … L L [Red L] L Red ….",
+    "en": "SK1105: same occasions in a different order: P4 w6: … L L [L Red] L Red … → … L L [Red L] L Red …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -24505,7 +25344,14 @@
    "scope": "SK2712",
    "course": "SK2712",
    "key": "Föreläsning:15>17,Workshop:6>7",
-   "message": "SK2712: number of occasions changed (VT26→VT27): Föreläsning 15→17; Workshop 6→7. Sequence: P4 w1: [–] F F … → [F F W] F F ….",
+   "message": {
+    "sv": "SK2712: antalet tillfällen har ändrats (VT26→VT27): Föreläsning 15→17; Workshop 6→7. Sekvens (VT26 → VT27): P4 v1: [–] F F … → [F F W] F F ….",
+    "en": "SK2712: number of occasions changed (VT26→VT27): Föreläsning 15→17; Workshop 6→7. Sequence: P4 w1: [–] F F … → [F F W] F F …."
+   },
+   "ask": {
+    "sv": "Är detta avsiktligt?",
+    "en": "Is this intended?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -25154,7 +26000,14 @@
    "scope": "AK2014",
    "course": "AK2014",
    "key": "capacity",
-   "message": "AK2014: room seats compared with VT26 per occasion: 7 changed between digital and on campus.",
+   "message": {
+    "sv": "AK2014: lokalernas platser jämfört med VT26 per tillfälle: 7 som bytt mellan digitalt och på campus.",
+    "en": "AK2014: room seats compared with VT26 per occasion: 7 changed between digital and on campus."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -25176,7 +26029,14 @@
    "scope": "CTFYS1",
    "course": "SF1672",
    "key": "SF1672+SK1104:2027-04-01:2027-04-02",
-   "message": "SF1672 (reexam, Thu 2027-04-01 08:00) and SK1104 (reexam, Fri 2027-04-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "SF1672 (omtentamen, tor 2027-04-01 08:00) och SK1104 (omtentamen, fre 2027-04-02 14:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "SF1672 (re-exam, Thu 2027-04-01 08:00) and SK1104 (re-exam, Fri 2027-04-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:132 2027-04-01 08:00-11:00 Omtenta",
     "CTFYS1_VT27_remiss.xlsx:135 2027-04-02 14:00-17:00 Omtenta"
@@ -25210,7 +26070,14 @@
    "scope": "CTFYS1",
    "course": "SF1922",
    "key": "SF1922+SG1112:2027-08-23:2027-08-24",
-   "message": "SF1922 (reexam, Mon 2027-08-23 08:00) and SG1112 (reexam, Tue 2027-08-24 08:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "SF1922 (omtentamen, mån 2027-08-23 08:00) och SG1112 (omtentamen, tis 2027-08-24 08:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "SF1922 (re-exam, Mon 2027-08-23 08:00) and SG1112 (re-exam, Tue 2027-08-24 08:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:238 2027-08-23 08:00-13:00 Omtenta",
     "CTFYS1_VT27_remiss.xlsx:240 2027-08-24 08:00-13:00 Omtenta"
@@ -25244,7 +26111,14 @@
    "scope": "CTFYS2",
    "course": "DD1327",
    "key": "DD1327+SF1681:2027-08-24:2027-08-25",
-   "message": "DD1327 (reexam, Tue 2027-08-24 14:00) and SF1681 (reexam, Wed 2027-08-25 08:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "DD1327 (omtentamen, tis 2027-08-24 14:00) och SF1681 (omtentamen, ons 2027-08-25 08:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "DD1327 (re-exam, Tue 2027-08-24 14:00) and SF1681 (re-exam, Wed 2027-08-25 08:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:239 2027-08-24 14:00-18:00 Examination",
     "CTFYS2_VT27_remiss.xlsx:240 2027-08-25 08:00-13:00 Omtenta"
@@ -25278,7 +26152,11 @@
    "scope": "CTFYS2",
    "course": "DD132U",
    "key": "DD132U",
-   "message": "DD132U is scheduled for CTFYS2 but it is not in the study plan.",
+   "message": {
+    "sv": "DD132U är schemalagd för CTFYS2, men den finns inte i utbildningsplanen.",
+    "en": "DD132U is scheduled for CTFYS2 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -25289,7 +26167,14 @@
    "scope": "CTFYS2",
    "course": "SE1055",
    "key": "SE1055+SF1922:2027-05-24:2027-05-25",
-   "message": "SE1055 (ordinary, Mon 2027-05-24 08:00) and SF1922 (ordinary, Tue 2027-05-25 08:00): consecutive days. Affects CTFYS2 students retaking SF1922 from year 1.",
+   "message": {
+    "sv": "SE1055 (ordinarie tentamen, mån 2027-05-24 08:00) och SF1922 (ordinarie tentamen, tis 2027-05-25 08:00) ligger dagar i rad. Påverkar studenter i CTFYS2 som behöver tentera om SF1922 från årskurs 1.",
+    "en": "SE1055 (exam, Mon 2027-05-24 08:00) and SF1922 (exam, Tue 2027-05-25 08:00): consecutive days. Affects CTFYS2 students retaking SF1922 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:210 2027-05-24 08:00-13:00 Tentamen",
     "CTFYS1_VT27_remiss.xlsx:215 2027-05-25 08:00-13:00 Tentamen"
@@ -25323,7 +26208,14 @@
    "scope": "CTFYS2",
    "course": "SF1672",
    "key": "SF1672+SF1683:2027-04-01:2027-04-02",
-   "message": "SF1672 (reexam, Thu 2027-04-01 08:00) and SF1683 (reexam, Fri 2027-04-02 14:00): consecutive days. Affects CTFYS2 students retaking SF1672 from year 1.",
+   "message": {
+    "sv": "SF1672 (omtentamen, tor 2027-04-01 08:00) och SF1683 (omtentamen, fre 2027-04-02 14:00) ligger dagar i rad. Påverkar studenter i CTFYS2 som behöver tentera om SF1672 från årskurs 1.",
+    "en": "SF1672 (re-exam, Thu 2027-04-01 08:00) and SF1683 (re-exam, Fri 2027-04-02 14:00): consecutive days. Affects CTFYS2 students retaking SF1672 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:132 2027-04-01 08:00-11:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:131 2027-04-02 14:00-18:00 Omtenta"
@@ -25357,7 +26249,14 @@
    "scope": "CTFYS2",
    "course": "SF1681",
    "key": "SF1681+SK1104:2027-04-01:2027-04-02",
-   "message": "SF1681 (reexam, Thu 2027-04-01 08:00) and SK1104 (reexam, Fri 2027-04-02 14:00): consecutive days. Affects CTFYS2 students retaking SK1104 from year 1.",
+   "message": {
+    "sv": "SF1681 (omtentamen, tor 2027-04-01 08:00) och SK1104 (omtentamen, fre 2027-04-02 14:00) ligger dagar i rad. Påverkar studenter i CTFYS2 som behöver tentera om SK1104 från årskurs 1.",
+    "en": "SF1681 (re-exam, Thu 2027-04-01 08:00) and SK1104 (re-exam, Fri 2027-04-02 14:00): consecutive days. Affects CTFYS2 students retaking SK1104 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:128 2027-04-01 08:00-13:00 Omtenta",
     "CTFYS1_VT27_remiss.xlsx:135 2027-04-02 14:00-17:00 Omtenta"
@@ -25391,7 +26290,14 @@
    "scope": "CTFYS2",
    "course": "SF1681",
    "key": "SF1681+SF1683:2027-04-01:2027-04-02",
-   "message": "SF1681 (reexam, Thu 2027-04-01 08:00) and SF1683 (reexam, Fri 2027-04-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "SF1681 (omtentamen, tor 2027-04-01 08:00) och SF1683 (omtentamen, fre 2027-04-02 14:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "SF1681 (re-exam, Thu 2027-04-01 08:00) and SF1683 (re-exam, Fri 2027-04-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:128 2027-04-01 08:00-13:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:131 2027-04-02 14:00-18:00 Omtenta"
@@ -25425,7 +26331,14 @@
    "scope": "CTFYS2",
    "course": "SF1922",
    "key": "SF1922+DD1327:2027-08-23:2027-08-24",
-   "message": "SF1922 (reexam, Mon 2027-08-23 08:00) and DD1327 (reexam, Tue 2027-08-24 14:00): consecutive days. Affects CTFYS2 students retaking SF1922 from year 1.",
+   "message": {
+    "sv": "SF1922 (omtentamen, mån 2027-08-23 08:00) och DD1327 (omtentamen, tis 2027-08-24 14:00) ligger dagar i rad. Påverkar studenter i CTFYS2 som behöver tentera om SF1922 från årskurs 1.",
+    "en": "SF1922 (re-exam, Mon 2027-08-23 08:00) and DD1327 (re-exam, Tue 2027-08-24 14:00): consecutive days. Affects CTFYS2 students retaking SF1922 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:238 2027-08-23 08:00-13:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:239 2027-08-24 14:00-18:00 Examination"
@@ -25459,7 +26372,14 @@
    "scope": "CTFYS2",
    "course": "SG1112",
    "key": "SG1112+SI1200:2027-05-31:2027-06-01",
-   "message": "SG1112 (ordinary, Mon 2027-05-31 08:00) and SI1200 (reexam, Tue 2027-06-01 08:00): consecutive days. Affects CTFYS2 students retaking SG1112 from year 1.",
+   "message": {
+    "sv": "SG1112 (ordinarie tentamen, mån 2027-05-31 08:00) och SI1200 (omtentamen, tis 2027-06-01 08:00) ligger dagar i rad. Påverkar studenter i CTFYS2 som behöver tentera om SG1112 från årskurs 1.",
+    "en": "SG1112 (exam, Mon 2027-05-31 08:00) and SI1200 (re-exam, Tue 2027-06-01 08:00): consecutive days. Affects CTFYS2 students retaking SG1112 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:222 2027-05-31 08:00-13:00 Tentamen",
     "CTFYS2_VT27_remiss.xlsx:221 2027-06-01 08:00-13:00 Omtenta"
@@ -25493,7 +26413,14 @@
    "scope": "CTFYS2",
    "course": "SG1112",
    "key": "SG1112+SF1681:2027-08-24:2027-08-25",
-   "message": "SG1112 (reexam, Tue 2027-08-24 08:00) and SF1681 (reexam, Wed 2027-08-25 08:00): consecutive days. Affects CTFYS2 students retaking SG1112 from year 1.",
+   "message": {
+    "sv": "SG1112 (omtentamen, tis 2027-08-24 08:00) och SF1681 (omtentamen, ons 2027-08-25 08:00) ligger dagar i rad. Påverkar studenter i CTFYS2 som behöver tentera om SG1112 från årskurs 1.",
+    "en": "SG1112 (re-exam, Tue 2027-08-24 08:00) and SF1681 (re-exam, Wed 2027-08-25 08:00): consecutive days. Affects CTFYS2 students retaking SG1112 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:240 2027-08-24 08:00-13:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:240 2027-08-25 08:00-13:00 Omtenta"
@@ -25527,7 +26454,14 @@
    "scope": "CTFYS2",
    "course": "SI1155",
    "key": "SI1155+SG1112:2027-08-23:2027-08-24",
-   "message": "SI1155 (reexam, Mon 2027-08-23 08:00) and SG1112 (reexam, Tue 2027-08-24 08:00): consecutive days. Affects CTFYS2 students retaking SG1112 from year 1.",
+   "message": {
+    "sv": "SI1155 (omtentamen, mån 2027-08-23 08:00) och SG1112 (omtentamen, tis 2027-08-24 08:00) ligger dagar i rad. Påverkar studenter i CTFYS2 som behöver tentera om SG1112 från årskurs 1.",
+    "en": "SI1155 (re-exam, Mon 2027-08-23 08:00) and SG1112 (re-exam, Tue 2027-08-24 08:00): consecutive days. Affects CTFYS2 students retaking SG1112 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:236 2027-08-23 08:00-13:00 Omtenta",
     "CTFYS1_VT27_remiss.xlsx:240 2027-08-24 08:00-13:00 Omtenta"
@@ -25561,7 +26495,14 @@
    "scope": "CTFYS2",
    "course": "SI1155",
    "key": "SI1155+DD1327:2027-08-23:2027-08-24",
-   "message": "SI1155 (reexam, Mon 2027-08-23 08:00) and DD1327 (reexam, Tue 2027-08-24 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "SI1155 (omtentamen, mån 2027-08-23 08:00) och DD1327 (omtentamen, tis 2027-08-24 14:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "SI1155 (re-exam, Mon 2027-08-23 08:00) and DD1327 (re-exam, Tue 2027-08-24 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:236 2027-08-23 08:00-13:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:239 2027-08-24 14:00-18:00 Examination"
@@ -25595,7 +26536,14 @@
    "scope": "CTFYS2",
    "course": "SI1200",
    "key": "SI1200+SF1674:2027-06-01:2027-06-02",
-   "message": "SI1200 (reexam, Tue 2027-06-01 08:00) and SF1674 (reexam, Wed 2027-06-02 08:00): consecutive days. Affects CTFYS2 students retaking SF1674 from year 1.",
+   "message": {
+    "sv": "SI1200 (omtentamen, tis 2027-06-01 08:00) och SF1674 (omtentamen, ons 2027-06-02 08:00) ligger dagar i rad. Påverkar studenter i CTFYS2 som behöver tentera om SF1674 från årskurs 1.",
+    "en": "SI1200 (re-exam, Tue 2027-06-01 08:00) and SF1674 (re-exam, Wed 2027-06-02 08:00): consecutive days. Affects CTFYS2 students retaking SF1674 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:221 2027-06-01 08:00-13:00 Omtenta",
     "CTFYS1_VT27_remiss.xlsx:226 2027-06-02 08:00-13:00 Omtenta"
@@ -25629,7 +26577,14 @@
    "scope": "CTFYS2",
    "course": "SI1200",
    "key": "SI1200+SF1544:2027-06-01:2027-06-02",
-   "message": "SI1200 (reexam, Tue 2027-06-01 08:00) and SF1544 (reexam, Wed 2027-06-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "SI1200 (omtentamen, tis 2027-06-01 08:00) och SF1544 (omtentamen, ons 2027-06-02 14:00) ligger dagar i rad. Båda kurserna är obligatoriska för årskursen. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "SI1200 (re-exam, Tue 2027-06-01 08:00) and SF1544 (re-exam, Wed 2027-06-02 14:00): consecutive days. Both are mandatory for this programme year. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:221 2027-06-01 08:00-13:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:224 2027-06-02 14:00-17:00 Omtenta"
@@ -25663,7 +26618,14 @@
    "scope": "CTFYS2",
    "course": "SK1104",
    "key": "SK1104+SI1200:2027-05-31:2027-06-01",
-   "message": "SK1104 (reexam, Mon 2027-05-31 14:00) and SI1200 (reexam, Tue 2027-06-01 08:00): consecutive days. Affects CTFYS2 students retaking SK1104 from year 1.",
+   "message": {
+    "sv": "SK1104 (omtentamen, mån 2027-05-31 14:00) och SI1200 (omtentamen, tis 2027-06-01 08:00) ligger dagar i rad. Påverkar studenter i CTFYS2 som behöver tentera om SK1104 från årskurs 1.",
+    "en": "SK1104 (re-exam, Mon 2027-05-31 14:00) and SI1200 (re-exam, Tue 2027-06-01 08:00): consecutive days. Affects CTFYS2 students retaking SK1104 from year 1."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:224 2027-05-31 14:00-17:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:221 2027-06-01 08:00-13:00 Omtenta"
@@ -25697,7 +26659,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+AK2011",
-   "message": "8XCDEPR and AK2011: 1 overlapping session(s): Tue 2027-03-23 08:00-12:00 Övrigt / Information. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och AK2011 har 1 tillfälle(n) som krockar: tis 2027-03-23 08:00-12:00 Övrigt / Information. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and AK2011: 1 overlapping session(s): Tue 2027-03-23 08:00-12:00 Övrigt / Information. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:318 2027-03-23 08:00-12:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:320 2027-03-23 10:00-11:00 Information"
@@ -25737,7 +26706,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+DD2352",
-   "message": "8XCDEPR and DD2352: 3 overlapping session(s): Tue 2027-03-16 08:00-12:00 Övrigt / Föreläsning; Tue 2027-03-23 08:00-12:00 Övrigt / Övning; Fri 2027-04-09 13:00-17:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och DD2352 har 3 tillfälle(n) som krockar: tis 2027-03-16 08:00-12:00 Övrigt / Föreläsning; tis 2027-03-23 08:00-12:00 Övrigt / Övning; fre 2027-04-09 13:00-17:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and DD2352: 3 overlapping session(s): Tue 2027-03-16 08:00-12:00 Övrigt / Föreläsning; Tue 2027-03-23 08:00-12:00 Övrigt / Övning; Fri 2027-04-09 13:00-17:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:272 2027-03-16 08:00-12:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:273 2027-03-16 10:00-12:00 Föreläsning",
@@ -25811,7 +26787,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+EQ1120",
-   "message": "8XCDEPR and EQ1120: 8 overlapping session(s): Wed 2027-03-24 13:00-17:00 Övrigt / Föreläsning; Wed 2027-03-24 13:00-17:00 Övrigt / Övning; Wed 2027-04-07 13:00-17:00 Övrigt / Föreläsning; Wed 2027-04-07 13:00-17:00 Övrigt / Övning (+4 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och EQ1120 har 8 tillfälle(n) som krockar: ons 2027-03-24 13:00-17:00 Övrigt / Föreläsning; ons 2027-03-24 13:00-17:00 Övrigt / Övning; ons 2027-04-07 13:00-17:00 Övrigt / Föreläsning; ons 2027-04-07 13:00-17:00 Övrigt / Övning (+4 till). Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and EQ1120: 8 overlapping session(s): Wed 2027-03-24 13:00-17:00 Övrigt / Föreläsning; Wed 2027-03-24 13:00-17:00 Övrigt / Övning; Wed 2027-04-07 13:00-17:00 Övrigt / Föreläsning; Wed 2027-04-07 13:00-17:00 Övrigt / Övning (+4 more). At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:345 2027-03-24 13:00-17:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:342 2027-03-24 13:00-15:00 Föreläsning",
@@ -25960,7 +26943,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+SA114X",
-   "message": "8XCDEPR and SA114X: 27 overlapping session(s): Mon 2027-03-15 08:00-12:00 Övrigt / Projektarbete; Tue 2027-03-16 08:00-12:00 Övrigt / Projektarbete; Wed 2027-03-17 13:00-17:00 Övrigt / Projektarbete; Fri 2027-03-19 13:00-17:00 Övrigt / Projektarbete (+23 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och SA114X har 27 tillfälle(n) som krockar: mån 2027-03-15 08:00-12:00 Övrigt / Projektarbete; tis 2027-03-16 08:00-12:00 Övrigt / Projektarbete; ons 2027-03-17 13:00-17:00 Övrigt / Projektarbete; fre 2027-03-19 13:00-17:00 Övrigt / Projektarbete (+23 till). Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and SA114X: 27 overlapping session(s): Mon 2027-03-15 08:00-12:00 Övrigt / Projektarbete; Tue 2027-03-16 08:00-12:00 Övrigt / Projektarbete; Wed 2027-03-17 13:00-17:00 Övrigt / Projektarbete; Fri 2027-03-19 13:00-17:00 Övrigt / Projektarbete (+23 more). At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:265 2027-03-15 08:00-12:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:264 2027-03-15 08:00-12:00 Projektarbete",
@@ -26394,7 +27384,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+SF1677",
-   "message": "8XCDEPR and SF1677: 7 overlapping session(s): Fri 2027-03-19 13:00-17:00 Övrigt / Övning; Mon 2027-03-22 08:00-12:00 Övrigt / Föreläsning; Tue 2027-03-23 08:00-12:00 Övrigt / Föreläsning; Wed 2027-04-07 13:00-17:00 Övrigt / Övning (+3 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och SF1677 har 7 tillfälle(n) som krockar: fre 2027-03-19 13:00-17:00 Övrigt / Övning; mån 2027-03-22 08:00-12:00 Övrigt / Föreläsning; tis 2027-03-23 08:00-12:00 Övrigt / Föreläsning; ons 2027-04-07 13:00-17:00 Övrigt / Övning (+3 till). Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and SF1677: 7 overlapping session(s): Fri 2027-03-19 13:00-17:00 Övrigt / Övning; Mon 2027-03-22 08:00-12:00 Övrigt / Föreläsning; Tue 2027-03-23 08:00-12:00 Övrigt / Föreläsning; Wed 2027-04-07 13:00-17:00 Övrigt / Övning (+3 more). At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:307 2027-03-19 13:00-17:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:306 2027-03-19 13:00-15:00 Övning",
@@ -26528,7 +27525,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+SF1678",
-   "message": "8XCDEPR and SF1678: 9 overlapping session(s): Mon 2027-03-15 08:00-12:00 Övrigt / Föreläsning; Mon 2027-03-22 08:00-12:00 Övrigt / Föreläsning; Mon 2027-04-05 08:00-12:00 Övrigt / Föreläsning; Mon 2027-04-12 08:00-12:00 Övrigt / Föreläsning (+5 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och SF1678 har 9 tillfälle(n) som krockar: mån 2027-03-15 08:00-12:00 Övrigt / Föreläsning; mån 2027-03-22 08:00-12:00 Övrigt / Föreläsning; mån 2027-04-05 08:00-12:00 Övrigt / Föreläsning; mån 2027-04-12 08:00-12:00 Övrigt / Föreläsning (+5 till). Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and SF1678: 9 overlapping session(s): Mon 2027-03-15 08:00-12:00 Övrigt / Föreläsning; Mon 2027-03-22 08:00-12:00 Övrigt / Föreläsning; Mon 2027-04-05 08:00-12:00 Övrigt / Föreläsning; Mon 2027-04-12 08:00-12:00 Övrigt / Föreläsning (+5 more). At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:265 2027-03-15 08:00-12:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:266 2027-03-15 10:00-12:00 Föreläsning",
@@ -26692,7 +27696,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+SF1691",
-   "message": "8XCDEPR and SF1691: 3 overlapping session(s): Wed 2027-03-17 13:00-17:00 Övrigt / Föreläsning; Wed 2027-03-24 13:00-17:00 Övrigt / Föreläsning; Wed 2027-04-28 13:00-17:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och SF1691 har 3 tillfälle(n) som krockar: ons 2027-03-17 13:00-17:00 Övrigt / Föreläsning; ons 2027-03-24 13:00-17:00 Övrigt / Föreläsning; ons 2027-04-28 13:00-17:00 Övrigt / Övning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and SF1691: 3 overlapping session(s): Wed 2027-03-17 13:00-17:00 Övrigt / Föreläsning; Wed 2027-03-24 13:00-17:00 Övrigt / Föreläsning; Wed 2027-04-28 13:00-17:00 Övrigt / Övning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:288 2027-03-17 13:00-17:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:289 2027-03-17 15:00-17:00 Föreläsning",
@@ -26766,7 +27777,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+SF1861",
-   "message": "8XCDEPR and SF1861: 3 overlapping session(s): Tue 2027-05-11 08:00-12:00 Övrigt / Examination; Tue 2027-05-11 08:00-12:00 Övrigt / Examination; Tue 2027-05-11 08:00-12:00 Övrigt / Examination. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och SF1861 har 3 tillfälle(n) som krockar: tis 2027-05-11 08:00-12:00 Övrigt / Examination; tis 2027-05-11 08:00-12:00 Övrigt / Examination; tis 2027-05-11 08:00-12:00 Övrigt / Examination. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and SF1861: 3 overlapping session(s): Tue 2027-05-11 08:00-12:00 Övrigt / Examination; Tue 2027-05-11 08:00-12:00 Övrigt / Examination; Tue 2027-05-11 08:00-12:00 Övrigt / Examination. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:566 2027-05-11 08:00-12:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:567 2027-05-11 09:00-10:00 Examination",
@@ -26840,7 +27858,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+SF1904",
-   "message": "8XCDEPR and SF1904: 3 overlapping session(s): Tue 2027-04-06 08:00-12:00 Övrigt / Övning; Tue 2027-04-27 08:00-12:00 Övrigt / Övning; Tue 2027-05-04 08:00-12:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och SF1904 har 3 tillfälle(n) som krockar: tis 2027-04-06 08:00-12:00 Övrigt / Övning; tis 2027-04-27 08:00-12:00 Övrigt / Övning; tis 2027-05-04 08:00-12:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and SF1904: 3 overlapping session(s): Tue 2027-04-06 08:00-12:00 Övrigt / Övning; Tue 2027-04-27 08:00-12:00 Övrigt / Övning; Tue 2027-05-04 08:00-12:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:374 2027-04-06 08:00-12:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:375 2027-04-06 10:00-12:00 Övning",
@@ -26914,7 +27939,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+SF2701",
-   "message": "8XCDEPR and SF2701: 4 overlapping session(s): Mon 2027-04-05 08:00-12:00 Övrigt / Föreläsning; Mon 2027-04-12 08:00-12:00 Övrigt / Föreläsning; Wed 2027-04-21 13:00-17:00 Övrigt / Föreläsning; Tue 2027-05-04 08:00-12:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och SF2701 har 4 tillfälle(n) som krockar: mån 2027-04-05 08:00-12:00 Övrigt / Föreläsning; mån 2027-04-12 08:00-12:00 Övrigt / Föreläsning; ons 2027-04-21 13:00-17:00 Övrigt / Föreläsning; tis 2027-05-04 08:00-12:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and SF2701: 4 overlapping session(s): Mon 2027-04-05 08:00-12:00 Övrigt / Föreläsning; Mon 2027-04-12 08:00-12:00 Övrigt / Föreläsning; Wed 2027-04-21 13:00-17:00 Övrigt / Föreläsning; Tue 2027-05-04 08:00-12:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:368 2027-04-05 08:00-12:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:366 2027-04-05 08:00-10:00 Föreläsning",
@@ -27003,7 +28035,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+SH2404",
-   "message": "8XCDEPR and SH2404: 3 overlapping session(s): Tue 2027-03-23 08:00-12:00 Övrigt / Föreläsning; Fri 2027-04-23 13:00-17:00 Övrigt / Föreläsning; Tue 2027-05-04 08:00-12:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och SH2404 har 3 tillfälle(n) som krockar: tis 2027-03-23 08:00-12:00 Övrigt / Föreläsning; fre 2027-04-23 13:00-17:00 Övrigt / Föreläsning; tis 2027-05-04 08:00-12:00 Övrigt / Föreläsning. Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and SH2404: 3 overlapping session(s): Tue 2027-03-23 08:00-12:00 Övrigt / Föreläsning; Fri 2027-04-23 13:00-17:00 Övrigt / Föreläsning; Tue 2027-05-04 08:00-12:00 Övrigt / Föreläsning. At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:318 2027-03-23 08:00-12:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:319 2027-03-23 10:00-12:00 Föreläsning",
@@ -27077,7 +28116,14 @@
    "scope": "CTFYS3",
    "course": "8XCDEPR",
    "key": "8XCDEPR+SK2712",
-   "message": "8XCDEPR and SK2712: 9 overlapping session(s): Wed 2027-03-24 13:00-17:00 Övrigt / Workshop; Wed 2027-03-24 13:00-17:00 Övrigt / Föreläsning; Wed 2027-04-14 13:00-17:00 Övrigt / Föreläsning; Fri 2027-04-16 13:00-17:00 Övrigt / Workshop (+5 more). At least one course is not in the study plan for this year. No overlap in VT26.",
+   "message": {
+    "sv": "8XCDEPR och SK2712 har 9 tillfälle(n) som krockar: ons 2027-03-24 13:00-17:00 Övrigt / Workshop; ons 2027-03-24 13:00-17:00 Övrigt / Föreläsning; ons 2027-04-14 13:00-17:00 Övrigt / Föreläsning; fre 2027-04-16 13:00-17:00 Övrigt / Workshop (+5 till). Minst en av kurserna finns inte i utbildningsplanen för årskursen. Inga krockar VT26.",
+    "en": "8XCDEPR and SK2712: 9 overlapping session(s): Wed 2027-03-24 13:00-17:00 Övrigt / Workshop; Wed 2027-03-24 13:00-17:00 Övrigt / Föreläsning; Wed 2027-04-14 13:00-17:00 Övrigt / Föreläsning; Fri 2027-04-16 13:00-17:00 Övrigt / Workshop (+5 more). At least one course is not in the study plan for this year. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:345 2027-03-24 13:00-17:00 Övrigt",
     "CTFYS3_VT27_remiss.xlsx:344 2027-03-24 13:00-15:00 Workshop",
@@ -27241,7 +28287,14 @@
    "scope": "CTFYS3",
    "course": "AK2011",
    "key": "AK2011",
-   "message": "AK2011 has no re-exam scheduled this term, but its syllabus (valid from HT2019) has TENA – Tentamen, 3 hp. (Only the syllabus says so; for a course outside the mandatory plan the exam may be scheduled without CTFYS3 and not appear in this export.)",
+   "message": {
+    "sv": "AK2011 har ingen omtentamen schemalagd denna termin, men kursplanen (giltig från HT2019) har TENA – Tentamen, 3 hp. (Bara kursplanen säger det; för en kurs utanför den obligatoriska planen kan tentamen vara schemalagd utan CTFYS3 och då inte synas i denna export.)",
+    "en": "AK2011 has no re-exam scheduled this term, but its syllabus (valid from HT2019) has TENA – Tentamen, 3 hp. (Only the syllabus says so; for a course outside the mandatory plan the exam may be scheduled without CTFYS3 and not appear in this export.)"
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "reference_term": "VT26",
@@ -27261,7 +28314,11 @@
    "scope": "CTFYS3",
    "course": "DD232V",
    "key": "DD232V",
-   "message": "DD232V is scheduled for CTFYS3 but it is not in the study plan.",
+   "message": {
+    "sv": "DD232V är schemalagd för CTFYS3, men den finns inte i utbildningsplanen.",
+    "en": "DD232V is scheduled for CTFYS3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -27272,7 +28329,14 @@
    "scope": "CTFYS3",
    "course": "DD2421",
    "key": "DD2421+SI1336",
-   "message": "DD2421 and SI1336: 1 overlapping session(s): Thu 2027-01-14 13:00-15:00 Föreläsning / Räknestuga. One mandatory course and one elective. No overlap in VT26.",
+   "message": {
+    "sv": "DD2421 och SI1336 har 1 tillfälle(n) som krockar: tor 2027-01-14 13:00-15:00 Föreläsning / Räknestuga. Den ena kursen är obligatorisk, den andra valbar. Inga krockar VT26.",
+    "en": "DD2421 and SI1336: 1 overlapping session(s): Thu 2027-01-14 13:00-15:00 Föreläsning / Räknestuga. One mandatory course and one elective. No overlap in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:28 2027-01-14 13:00-15:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:29 2027-01-14 13:00-15:00 Räknestuga"
@@ -27312,7 +28376,14 @@
    "scope": "CTFYS3",
    "course": "EF112X",
    "key": "EF112X",
-   "message": "EF112X Examensarbete inom elektroteknik, grundnivå [conditionallyElective] (option in 'Kandidatexamensarbete') is in the study plan for CTFYS3 in P3/P4 but not in the schedule.",
+   "message": {
+    "sv": "EF112X Examensarbete inom elektroteknik, grundnivå [villkorligt valfri] (alternativ i 'Kandidatexamensarbete') ingår i utbildningsplanen för CTFYS3 i P3/P4 men finns inte i schemat.",
+    "en": "EF112X Examensarbete inom elektroteknik, grundnivå [conditionally elective] (option in 'Kandidatexamensarbete') is in the study plan for CTFYS3 in P3/P4 but not in the schedule."
+   },
+   "ask": {
+    "sv": "Ska den läggas in?",
+    "en": "Should it be added?"
+   },
    "evidence": [],
    "details": {
     "name": "Examensarbete inom elektroteknik, grundnivå",
@@ -27331,7 +28402,14 @@
    "scope": "CTFYS3",
    "course": "EQ1120",
    "key": "EQ1120+SI1142:2027-05-24:2027-05-24",
-   "message": "EQ1120 (ordinary, Mon 2027-05-24 08:00) and SI1142 (ordinary, Mon 2027-05-24 08:00): overlapping. Electives; only a problem for students taking both.",
+   "message": {
+    "sv": "EQ1120 (ordinarie tentamen, mån 2027-05-24 08:00) och SI1142 (ordinarie tentamen, mån 2027-05-24 08:00) ligger samtidigt. Valbara kurser – påverkar bara studenter som läser båda.",
+    "en": "EQ1120 (exam, Mon 2027-05-24 08:00) and SI1142 (exam, Mon 2027-05-24 08:00): overlapping. Electives; only a problem for students taking both."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:603 2027-05-24 08:00-13:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:604 2027-05-24 08:00-12:00 Tentamen"
@@ -27365,7 +28443,11 @@
    "scope": "CTFYS3",
    "course": "FDD3431",
    "key": "FDD3431",
-   "message": "FDD3431 is scheduled for CTFYS3 but it is not in the study plan.",
+   "message": {
+    "sv": "FDD3431 är schemalagd för CTFYS3, men den finns inte i utbildningsplanen.",
+    "en": "FDD3431 is scheduled for CTFYS3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -27376,7 +28458,14 @@
    "scope": "CTFYS3",
    "course": "FDD3431",
    "key": "FDD3431+SI1162:2027-03-11:2027-03-12",
-   "message": "FDD3431 (ordinary, Thu 2027-03-11 08:00) and SI1162 (ordinary, Fri 2027-03-12 08:00): consecutive days. At least one course is not in the study plan for this year.",
+   "message": {
+    "sv": "FDD3431 (ordinarie tentamen, tor 2027-03-11 08:00) och SI1162 (ordinarie tentamen, fre 2027-03-12 08:00) ligger dagar i rad. Minst en av kurserna finns inte i utbildningsplanen för årskursen.",
+    "en": "FDD3431 (exam, Thu 2027-03-11 08:00) and SI1162 (exam, Fri 2027-03-12 08:00): consecutive days. At least one course is not in the study plan for this year."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:259 2027-03-11 08:00-12:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:261 2027-03-12 08:00-13:00 Tentamen"
@@ -27410,7 +28499,11 @@
    "scope": "CTFYS3",
    "course": "SA115X",
    "key": "SA115X",
-   "message": "SA115X is scheduled for CTFYS3 but it is not in the study plan.",
+   "message": {
+    "sv": "SA115X är schemalagd för CTFYS3, men den finns inte i utbildningsplanen.",
+    "en": "SA115X is scheduled for CTFYS3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -27421,7 +28514,11 @@
    "scope": "CTFYS3",
    "course": "SA118X",
    "key": "SA118X",
-   "message": "SA118X is scheduled for CTFYS3 but it is not in the study plan.",
+   "message": {
+    "sv": "SA118X är schemalagd för CTFYS3, men den finns inte i utbildningsplanen.",
+    "en": "SA118X is scheduled for CTFYS3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -27432,7 +28529,11 @@
    "scope": "CTFYS3",
    "course": "SA120X",
    "key": "SA120X",
-   "message": "SA120X is scheduled for CTFYS3 but it is not in the study plan.",
+   "message": {
+    "sv": "SA120X är schemalagd för CTFYS3, men den finns inte i utbildningsplanen.",
+    "en": "SA120X is scheduled for CTFYS3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -27443,7 +28544,14 @@
    "scope": "CTFYS3",
    "course": "SF1677",
    "key": "SF1677+SI1142:2027-05-26:2027-05-26",
-   "message": "SF1677 (ordinary, Wed 2027-05-26 08:00) and SI1142 (ordinary, Wed 2027-05-26 08:00): overlapping. Electives; only a problem for students taking both.",
+   "message": {
+    "sv": "SF1677 (ordinarie tentamen, ons 2027-05-26 08:00) och SI1142 (ordinarie tentamen, ons 2027-05-26 08:00) ligger samtidigt. Valbara kurser – påverkar bara studenter som läser båda.",
+    "en": "SF1677 (exam, Wed 2027-05-26 08:00) and SI1142 (exam, Wed 2027-05-26 08:00): overlapping. Electives; only a problem for students taking both."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:608 2027-05-26 08:00-13:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
@@ -27477,7 +28585,14 @@
    "scope": "CTFYS3",
    "course": "SF1677",
    "key": "SF1677+SF2701",
-   "message": "SF1677 and SF2701: 3 overlapping session(s): Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Thu 2027-04-08 10:00-12:00 Föreläsning / Övning; Thu 2027-04-29 13:00-15:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 8 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF2701 har 3 tillfälle(n) som krockar: tis 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; tor 2027-04-08 10:00-12:00 Föreläsning / Övning; tor 2027-04-29 13:00-15:00 Föreläsning / Föreläsning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 8 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF2701: 3 overlapping session(s): Tue 2027-04-06 13:00-15:00 Föreläsning / Föreläsning; Thu 2027-04-08 10:00-12:00 Föreläsning / Övning; Thu 2027-04-29 13:00-15:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 8 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:377 2027-04-06 13:00-15:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:379 2027-04-06 13:00-15:00 Föreläsning",
@@ -27551,7 +28666,14 @@
    "scope": "CTFYS3",
    "course": "SF1677",
    "key": "SF1677+SF2930",
-   "message": "SF1677 and SF2930: 5 overlapping session(s): Tue 2027-01-12 15:00-17:00 Föreläsning / Lektion; Thu 2027-01-14 08:00-10:00 Föreläsning / Lektion; Tue 2027-01-26 15:00-17:00 Föreläsning / Lektion; Wed 2027-01-27 15:00-17:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1677 och SF2930 har 5 tillfälle(n) som krockar: tis 2027-01-12 15:00-17:00 Föreläsning / Lektion; tor 2027-01-14 08:00-10:00 Föreläsning / Lektion; tis 2027-01-26 15:00-17:00 Föreläsning / Lektion; ons 2027-01-27 15:00-17:00 Övning / Lektion (+1 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1677 and SF2930: 5 overlapping session(s): Tue 2027-01-12 15:00-17:00 Föreläsning / Lektion; Thu 2027-01-14 08:00-10:00 Föreläsning / Lektion; Tue 2027-01-26 15:00-17:00 Föreläsning / Lektion; Wed 2027-01-27 15:00-17:00 Övning / Lektion (+1 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:10 2027-01-12 15:00-17:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:12 2027-01-12 15:00-17:00 Lektion",
@@ -27655,7 +28777,14 @@
    "scope": "CTFYS3",
    "course": "SF1678",
    "key": "SF1678+SF1861",
-   "message": "SF1678 and SF1861: 3 overlapping session(s): Wed 2027-03-17 10:00-12:00 Föreläsning / Föreläsning; Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Tue 2027-05-11 08:00-10:00 Övning / Examination. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26.",
+   "message": {
+    "sv": "SF1678 och SF1861 har 3 tillfälle(n) som krockar: ons 2027-03-17 10:00-12:00 Föreläsning / Föreläsning; ons 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; tis 2027-05-11 08:00-10:00 Övning / Examination. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 4 krock(ar) mellan samma kurser.",
+    "en": "SF1678 and SF1861: 3 overlapping session(s): Wed 2027-03-17 10:00-12:00 Föreläsning / Föreläsning; Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Tue 2027-05-11 08:00-10:00 Övning / Examination. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 4 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:282 2027-03-17 10:00-12:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:283 2027-03-17 10:00-12:00 Föreläsning",
@@ -27729,7 +28858,14 @@
    "scope": "CTFYS3",
    "course": "SF1678",
    "key": "SF1678+SF1904",
-   "message": "SF1678 and SF1904: 1 overlapping session(s): Wed 2027-04-14 08:00-10:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1678 och SF1904 har 1 tillfälle(n) som krockar: ons 2027-04-14 08:00-10:00 Föreläsning / Föreläsning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1678 and SF1904: 1 overlapping session(s): Wed 2027-04-14 08:00-10:00 Föreläsning / Föreläsning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:430 2027-04-14 08:00-10:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:431 2027-04-14 08:00-10:00 Föreläsning"
@@ -27769,7 +28905,14 @@
    "scope": "CTFYS3",
    "course": "SF1678",
    "key": "SF1678+SF2701",
-   "message": "SF1678 and SF2701: 4 overlapping session(s): Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Thu 2027-04-15 10:00-12:00 Övning / Föreläsning; Wed 2027-04-21 13:00-15:00 Föreläsning / Föreläsning; Tue 2027-04-27 13:00-15:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1678 och SF2701 har 4 tillfälle(n) som krockar: ons 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; tor 2027-04-15 10:00-12:00 Övning / Föreläsning; ons 2027-04-21 13:00-15:00 Föreläsning / Föreläsning; tis 2027-04-27 13:00-15:00 Föreläsning / Övning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1678 and SF2701: 4 overlapping session(s): Wed 2027-03-24 08:00-10:00 Föreläsning / Föreläsning; Thu 2027-04-15 10:00-12:00 Övning / Föreläsning; Wed 2027-04-21 13:00-15:00 Föreläsning / Föreläsning; Tue 2027-04-27 13:00-15:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:331 2027-03-24 08:00-10:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:333 2027-03-24 08:00-10:00 Föreläsning",
@@ -27858,7 +29001,14 @@
    "scope": "CTFYS3",
    "course": "SF1678",
    "key": "SF1678+SF2930",
-   "message": "SF1678 and SF2930: 4 overlapping session(s): Tue 2027-01-19 15:00-17:00 Föreläsning / Lektion; Mon 2027-02-08 10:00-12:00 Föreläsning / Lektion; Thu 2027-02-11 08:00-10:00 Övning / Lektion; Thu 2027-02-25 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26.",
+   "message": {
+    "sv": "SF1678 och SF2930 har 4 tillfälle(n) som krockar: tis 2027-01-19 15:00-17:00 Föreläsning / Lektion; mån 2027-02-08 10:00-12:00 Föreläsning / Lektion; tor 2027-02-11 08:00-10:00 Övning / Lektion; tor 2027-02-25 13:00-15:00 Övning / Lektion. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 6 krock(ar) mellan samma kurser.",
+    "en": "SF1678 and SF2930: 4 overlapping session(s): Tue 2027-01-19 15:00-17:00 Föreläsning / Lektion; Mon 2027-02-08 10:00-12:00 Föreläsning / Lektion; Thu 2027-02-11 08:00-10:00 Övning / Lektion; Thu 2027-02-25 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:53 2027-01-19 15:00-17:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:54 2027-01-19 15:00-17:00 Lektion",
@@ -27947,7 +29097,14 @@
    "scope": "CTFYS3",
    "course": "SF1679",
    "key": "SF1679+SF2930:2027-03-08:2027-03-09",
-   "message": "SF1679 (ordinary, Mon 2027-03-08 14:00) and SF2930 (ordinary, Tue 2027-03-09 08:00): consecutive days. Electives in the same subject (SF), plausibly taken together.",
+   "message": {
+    "sv": "SF1679 (ordinarie tentamen, mån 2027-03-08 14:00) och SF2930 (ordinarie tentamen, tis 2027-03-09 08:00) ligger dagar i rad. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans.",
+    "en": "SF1679 (exam, Mon 2027-03-08 14:00) and SF2930 (exam, Tue 2027-03-09 08:00): consecutive days. Electives in the same subject (SF), plausibly taken together."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:252 2027-03-08 14:00-17:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:254 2027-03-09 08:00-13:00 Tentamen"
@@ -27981,7 +29138,14 @@
    "scope": "CTFYS3",
    "course": "SF1679",
    "key": "SF1679+SF2930",
-   "message": "SF1679 and SF2930: 4 overlapping session(s): Fri 2027-01-15 13:00-15:00 Övning / Lektion; Fri 2027-01-22 10:00-12:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Fri 2027-02-12 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1679 och SF2930 har 4 tillfälle(n) som krockar: fre 2027-01-15 13:00-15:00 Övning / Lektion; fre 2027-01-22 10:00-12:00 Föreläsning / Lektion; tor 2027-02-04 13:00-15:00 Övning / Lektion; fre 2027-02-12 13:00-15:00 Övning / Lektion. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1679 and SF2930: 4 overlapping session(s): Fri 2027-01-15 13:00-15:00 Övning / Lektion; Fri 2027-01-22 10:00-12:00 Föreläsning / Lektion; Thu 2027-02-04 13:00-15:00 Övning / Lektion; Fri 2027-02-12 13:00-15:00 Övning / Lektion. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:38 2027-01-15 13:00-15:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:37 2027-01-15 13:00-15:00 Lektion",
@@ -28070,7 +29234,14 @@
    "scope": "CTFYS3",
    "course": "SF1681",
    "key": "SF1681+EI1320:2027-04-01:2027-04-02",
-   "message": "SF1681 (reexam, Thu 2027-04-01 08:00) and EI1320 (reexam, Fri 2027-04-02 14:00): consecutive days. Affects CTFYS3 students retaking SF1681 from year 2.",
+   "message": {
+    "sv": "SF1681 (omtentamen, tor 2027-04-01 08:00) och EI1320 (omtentamen, fre 2027-04-02 14:00) ligger dagar i rad. Påverkar studenter i CTFYS3 som behöver tentera om SF1681 från årskurs 2.",
+    "en": "SF1681 (re-exam, Thu 2027-04-01 08:00) and EI1320 (re-exam, Fri 2027-04-02 14:00): consecutive days. Affects CTFYS3 students retaking SF1681 from year 2."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:128 2027-04-01 08:00-13:00 Omtenta",
     "CTFYS3_VT27_remiss.xlsx:365 2027-04-02 14:00-18:00 Omtenta"
@@ -28104,7 +29275,14 @@
    "scope": "CTFYS3",
    "course": "SF1691",
    "key": "SF1691+SH2404:2027-05-28:2027-05-28",
-   "message": "SF1691 (ordinary, Fri 2027-05-28 08:00) and SH2404 (ordinary, Fri 2027-05-28 08:00): overlapping. Electives; only a problem for students taking both.",
+   "message": {
+    "sv": "SF1691 (ordinarie tentamen, fre 2027-05-28 08:00) och SH2404 (ordinarie tentamen, fre 2027-05-28 08:00) ligger samtidigt. Valbara kurser – påverkar bara studenter som läser båda.",
+    "en": "SF1691 (exam, Fri 2027-05-28 08:00) and SH2404 (exam, Fri 2027-05-28 08:00): overlapping. Electives; only a problem for students taking both."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:613 2027-05-28 08:00-13:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:615 2027-05-28 08:00-13:00 Tentamen"
@@ -28138,7 +29316,14 @@
    "scope": "CTFYS3",
    "course": "SF1691",
    "key": "SF1691+SF1861",
-   "message": "SF1691 and SF1861: 10 overlapping session(s): Tue 2027-03-16 15:00-17:00 Föreläsning / Föreläsning; Fri 2027-03-19 08:00-10:00 Övning / Övning; Tue 2027-03-23 15:00-17:00 Föreläsning / Föreläsning; Thu 2027-04-08 15:00-17:00 Övning / Övning (+6 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 14 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SF1861 har 10 tillfälle(n) som krockar: tis 2027-03-16 15:00-17:00 Föreläsning / Föreläsning; fre 2027-03-19 08:00-10:00 Övning / Övning; tis 2027-03-23 15:00-17:00 Föreläsning / Föreläsning; tor 2027-04-08 15:00-17:00 Övning / Övning (+6 till). Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 14 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SF1861: 10 overlapping session(s): Tue 2027-03-16 15:00-17:00 Föreläsning / Föreläsning; Fri 2027-03-19 08:00-10:00 Övning / Övning; Tue 2027-03-23 15:00-17:00 Föreläsning / Föreläsning; Thu 2027-04-08 15:00-17:00 Övning / Övning (+6 more). Electives in the same subject (SF), plausibly taken together. The same pair overlapped 14 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:277 2027-03-16 15:00-17:00 Föreläsning",
     "CTFYS3_VT27_remiss.xlsx:278 2027-03-16 15:00-17:00 Föreläsning",
@@ -28317,7 +29502,14 @@
    "scope": "CTFYS3",
    "course": "SF1691",
    "key": "SF1691+SF1904",
-   "message": "SF1691 and SF1904: 2 overlapping session(s): Thu 2027-03-25 08:00-10:00 Övning / Övning; Fri 2027-05-28 08:00-13:00 Tentamen / Tentamen. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SF1904 har 2 tillfälle(n) som krockar: tor 2027-03-25 08:00-10:00 Övning / Övning; fre 2027-05-28 08:00-13:00 Tentamen / Tentamen. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 5 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SF1904: 2 overlapping session(s): Thu 2027-03-25 08:00-10:00 Övning / Övning; Fri 2027-05-28 08:00-13:00 Tentamen / Tentamen. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 5 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:350 2027-03-25 08:00-10:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:351 2027-03-25 08:00-10:00 Övning",
@@ -28374,7 +29566,14 @@
    "scope": "CTFYS3",
    "course": "SF1691",
    "key": "SF1691+SF2701",
-   "message": "SF1691 and SF2701: 3 overlapping session(s): Fri 2027-03-19 08:00-10:00 Övning / Föreläsning; Thu 2027-03-25 08:00-10:00 Övning / Övning; Fri 2027-04-23 08:00-10:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26.",
+   "message": {
+    "sv": "SF1691 och SF2701 har 3 tillfälle(n) som krockar: fre 2027-03-19 08:00-10:00 Övning / Föreläsning; tor 2027-03-25 08:00-10:00 Övning / Övning; fre 2027-04-23 08:00-10:00 Föreläsning / Övning. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. VT26: 6 krock(ar) mellan samma kurser.",
+    "en": "SF1691 and SF2701: 3 overlapping session(s): Fri 2027-03-19 08:00-10:00 Övning / Föreläsning; Thu 2027-03-25 08:00-10:00 Övning / Övning; Fri 2027-04-23 08:00-10:00 Föreläsning / Övning. Electives in the same subject (SF), plausibly taken together. The same pair overlapped 6 time(s) in VT26."
+   },
+   "ask": {
+    "sv": "Går det att flytta något av dem?",
+    "en": "Could one be moved?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:300 2027-03-19 08:00-10:00 Övning",
     "CTFYS3_VT27_remiss.xlsx:299 2027-03-19 08:00-10:00 Föreläsning",
@@ -28448,7 +29647,14 @@
    "scope": "CTFYS3",
    "course": "SF1904",
    "key": "SF1904+SH2404:2027-05-28:2027-05-28",
-   "message": "SF1904 (ordinary, Fri 2027-05-28 08:00) and SH2404 (ordinary, Fri 2027-05-28 08:00): overlapping. Electives; only a problem for students taking both.",
+   "message": {
+    "sv": "SF1904 (ordinarie tentamen, fre 2027-05-28 08:00) och SH2404 (ordinarie tentamen, fre 2027-05-28 08:00) ligger samtidigt. Valbara kurser – påverkar bara studenter som läser båda.",
+    "en": "SF1904 (exam, Fri 2027-05-28 08:00) and SH2404 (exam, Fri 2027-05-28 08:00): overlapping. Electives; only a problem for students taking both."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:614 2027-05-28 08:00-13:00 Tentamen",
     "CTFYS3_VT27_remiss.xlsx:615 2027-05-28 08:00-13:00 Tentamen"
@@ -28482,7 +29688,11 @@
    "scope": "CTFYS3",
    "course": "SF1926",
    "key": "SF1926",
-   "message": "SF1926 is scheduled for CTFYS3 but it is not in the study plan.",
+   "message": {
+    "sv": "SF1926 är schemalagd för CTFYS3, men den finns inte i utbildningsplanen.",
+    "en": "SF1926 is scheduled for CTFYS3 but it is not in the study plan."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -28493,7 +29703,14 @@
    "scope": "CTFYS3",
    "course": "SF2930",
    "key": "SF2930+SF1679:2027-06-04:2027-06-04",
-   "message": "SF2930 (reexam, Fri 2027-06-04 08:00) and SF1679 (reexam, Fri 2027-06-04 14:00): same day. Electives in the same subject (SF), plausibly taken together. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "SF2930 (omtentamen, fre 2027-06-04 08:00) och SF1679 (omtentamen, fre 2027-06-04 14:00) ligger samma dag. Valbara kurser inom samma ämne (SF), som ofta läses tillsammans. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "SF2930 (re-exam, Fri 2027-06-04 08:00) and SF1679 (re-exam, Fri 2027-06-04 14:00): same day. Electives in the same subject (SF), plausibly taken together. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:628 2027-06-04 08:00-13:00 Omtenta",
     "CTFYS3_VT27_remiss.xlsx:630 2027-06-04 14:00-17:00 Omtenta"
@@ -28527,7 +29744,14 @@
    "scope": "CTFYS3",
    "course": "SG1218",
    "key": "SG1218+SF1681:2027-03-31:2027-04-01",
-   "message": "SG1218 (reexam, Wed 2027-03-31 08:00) and SF1681 (reexam, Thu 2027-04-01 08:00): consecutive days. Affects CTFYS3 students retaking SF1681 from year 2.",
+   "message": {
+    "sv": "SG1218 (omtentamen, ons 2027-03-31 08:00) och SF1681 (omtentamen, tor 2027-04-01 08:00) ligger dagar i rad. Påverkar studenter i CTFYS3 som behöver tentera om SF1681 från årskurs 2.",
+    "en": "SG1218 (re-exam, Wed 2027-03-31 08:00) and SF1681 (re-exam, Thu 2027-04-01 08:00): consecutive days. Affects CTFYS3 students retaking SF1681 from year 2."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:361 2027-03-31 08:00-13:00 Omtenta",
     "CTFYS2_VT27_remiss.xlsx:128 2027-04-01 08:00-13:00 Omtenta"
@@ -28561,7 +29785,14 @@
    "scope": "CTFYS3",
    "course": "SH1014",
    "key": "SH1014+SG1218:2027-03-30:2027-03-31",
-   "message": "SH1014 (reexam, Tue 2027-03-30 08:00) and SG1218 (reexam, Wed 2027-03-31 08:00): consecutive days. Affects CTFYS3 students retaking SH1014 from year 2.",
+   "message": {
+    "sv": "SH1014 (omtentamen, tis 2027-03-30 08:00) och SG1218 (omtentamen, ons 2027-03-31 08:00) ligger dagar i rad. Påverkar studenter i CTFYS3 som behöver tentera om SH1014 från årskurs 2.",
+    "en": "SH1014 (re-exam, Tue 2027-03-30 08:00) and SG1218 (re-exam, Wed 2027-03-31 08:00): consecutive days. Affects CTFYS3 students retaking SH1014 from year 2."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:124 2027-03-30 08:00-13:00 Omtenta",
     "CTFYS3_VT27_remiss.xlsx:361 2027-03-31 08:00-13:00 Omtenta"
@@ -28595,7 +29826,14 @@
    "scope": "CTFYS3",
    "course": "SI1142",
    "key": "SI1142+SI2360:2027-08-17:2027-08-17",
-   "message": "SI1142 (reexam, Tue 2027-08-17 08:00) and SI2360 (reexam, Tue 2027-08-17 08:00): overlapping. Electives in the same subject (SI), plausibly taken together. Re-exams (affects students retaking both).",
+   "message": {
+    "sv": "SI1142 (omtentamen, tis 2027-08-17 08:00) och SI2360 (omtentamen, tis 2027-08-17 08:00) ligger samtidigt. Valbara kurser inom samma ämne (SI), som ofta läses tillsammans. Omtentor (påverkar studenter som tenterar om båda).",
+    "en": "SI1142 (re-exam, Tue 2027-08-17 08:00) and SI2360 (re-exam, Tue 2027-08-17 08:00): overlapping. Electives in the same subject (SI), plausibly taken together. Re-exams (affects students retaking both)."
+   },
+   "ask": {
+    "sv": "Går det att sprida ut dem mer?",
+    "en": "Could they be spread further apart?"
+   },
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:637 2027-08-17 08:00-12:00 Omtenta",
     "CTFYS3_VT27_remiss.xlsx:638 2027-08-17 08:00-13:00 Omtenta"
@@ -28629,7 +29867,11 @@
    "scope": "CTFYS3",
    "course": "SI1336",
    "key": "SI1336",
-   "message": "SI1336 is scheduled for CTFYS3 but the plan has no credits for it this term.",
+   "message": {
+    "sv": "SI1336 är schemalagd för CTFYS3, men utbildningsplanen ger inga poäng för den denna termin.",
+    "en": "SI1336 is scheduled for CTFYS3 but the plan has no credits for it this term."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -28640,7 +29882,11 @@
    "scope": "DD1327",
    "course": "DD1327",
    "key": "['P4 day 5 (Fri 13:00)']>['P4 day 5 (Fri 14:00)']",
-   "message": "DD1327: ordinary exam position in the exam window changed: VT26 P4 day 5 (Fri 13:00) → VT27 P4 day 5 (Fri 14:00).",
+   "message": {
+    "sv": "DD1327: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 5 (fre 13:00) → VT27 P4 dag 5 (fre 14:00).",
+    "en": "DD1327: ordinary exam position in the exam window changed: VT26 P4 day 5 (Fri 13:00) → VT27 P4 day 5 (Fri 14:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:218 2027-05-28 14:00-18:00 Examination"
    ],
@@ -28653,7 +29899,11 @@
    "scope": "DD1327",
    "course": "DD1327",
    "key": "Datorlaboration 1→2",
-   "message": "DD1327: max number of parallel group sessions changed: Datorlaboration 1→2.",
+   "message": {
+    "sv": "DD1327: största antalet parallella grupptillfällen har ändrats: Datorlaboration 1→2.",
+    "en": "DD1327: max number of parallel group sessions changed: Datorlaboration 1→2."
+   },
+   "ask": null,
    "evidence": [],
    "details": {},
    "accepted": null
@@ -28664,7 +29914,11 @@
    "scope": "DD2421",
    "course": "DD2421",
    "key": "['P3 day 4 (Wed 14:00)']>['P3 day 5 (Thu 08:00)']",
-   "message": "DD2421: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 14:00) → VT27 P3 day 5 (Thu 08:00).",
+   "message": {
+    "sv": "DD2421: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 4 (ons 14:00) → VT27 P3 dag 5 (tor 08:00).",
+    "en": "DD2421: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 14:00) → VT27 P3 day 5 (Thu 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:259 2027-03-11 08:00-12:00 Tentamen"
    ],
@@ -28677,7 +29931,11 @@
    "scope": "EQ1120",
    "course": "EQ1120",
    "key": "['P4 day 3 (Wed 08:00)']>['P4 day 1 (Mon 08:00)']",
-   "message": "EQ1120: ordinary exam position in the exam window changed: VT26 P4 day 3 (Wed 08:00) → VT27 P4 day 1 (Mon 08:00).",
+   "message": {
+    "sv": "EQ1120: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 3 (ons 08:00) → VT27 P4 dag 1 (mån 08:00).",
+    "en": "EQ1120: ordinary exam position in the exam window changed: VT26 P4 day 3 (Wed 08:00) → VT27 P4 day 1 (Mon 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:603 2027-05-24 08:00-13:00 Tentamen"
    ],
@@ -28690,7 +29948,11 @@
    "scope": "FDD3431",
    "course": "FDD3431",
    "key": "['P3 day 4 (Wed 14:00)']>['P3 day 5 (Thu 08:00)']",
-   "message": "FDD3431: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 14:00) → VT27 P3 day 5 (Thu 08:00).",
+   "message": {
+    "sv": "FDD3431: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 4 (ons 14:00) → VT27 P3 dag 5 (tor 08:00).",
+    "en": "FDD3431: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 14:00) → VT27 P3 day 5 (Thu 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:259 2027-03-11 08:00-12:00 Tentamen"
    ],
@@ -28703,7 +29965,14 @@
    "scope": "MH1023",
    "course": "MH1023",
    "key": "capacity",
-   "message": "MH1023: room seats compared with VT26 per occasion: 3 changed between digital and on campus.",
+   "message": {
+    "sv": "MH1023: lokalernas platser jämfört med VT26 per tillfälle: 3 som bytt mellan digitalt och på campus.",
+    "en": "MH1023: room seats compared with VT26 per occasion: 3 changed between digital and on campus."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -28725,7 +29994,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-02-04 08:00:00",
-   "message": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:134 2027-02-04 08:00-12:00 Projektarbete: “Ett extra tillfälle, ska detta vara med i vecka 5?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS3_VT27_remiss.xlsx:134 2027-02-04 08:00-12:00 Projektarbete: ”Ett extra tillfälle, ska detta vara med i vecka 5?”",
+    "en": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:134 2027-02-04 08:00-12:00 Projektarbete: “Ett extra tillfälle, ska detta vara med i vecka 5?”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:134 2027-02-04 08:00-12:00 Projektarbete"
    ],
@@ -28738,7 +30011,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-03-02 08:00:00",
-   "message": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:241 2027-03-02 08:00-12:00 Projektarbete: “Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS3_VT27_remiss.xlsx:241 2027-03-02 08:00-12:00 Projektarbete: ”Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”",
+    "en": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:241 2027-03-02 08:00-12:00 Projektarbete: “Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:241 2027-03-02 08:00-12:00 Projektarbete"
    ],
@@ -28751,7 +30028,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-03-02 13:00:00",
-   "message": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:243 2027-03-02 13:00-17:00 Projektarbete: “Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS3_VT27_remiss.xlsx:243 2027-03-02 13:00-17:00 Projektarbete: ”Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”",
+    "en": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:243 2027-03-02 13:00-17:00 Projektarbete: “Detta pass ligger här då det är Eget arbete ons och fre...Ska det vara så?”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:243 2027-03-02 13:00-17:00 Projektarbete"
    ],
@@ -28764,7 +30045,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-03-08 08:00:00",
-   "message": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:250 2027-03-08 08:00-12:00 Projektarbete: “Ska dessa tillfällen verkligen ligga i vecka 10 när det är Tentavecka?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS3_VT27_remiss.xlsx:250 2027-03-08 08:00-12:00 Projektarbete: ”Ska dessa tillfällen verkligen ligga i vecka 10 när det är Tentavecka?”",
+    "en": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:250 2027-03-08 08:00-12:00 Projektarbete: “Ska dessa tillfällen verkligen ligga i vecka 10 när det är Tentavecka?”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:250 2027-03-08 08:00-12:00 Projektarbete"
    ],
@@ -28777,7 +30062,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-03-25 08:00:00",
-   "message": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:349 2027-03-25 08:00-12:00 Projektarbete: “Fredagen är långfredagen...”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS3_VT27_remiss.xlsx:349 2027-03-25 08:00-12:00 Projektarbete: ”Fredagen är långfredagen...”",
+    "en": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:349 2027-03-25 08:00-12:00 Projektarbete: “Fredagen är långfredagen...”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:349 2027-03-25 08:00-12:00 Projektarbete"
    ],
@@ -28790,7 +30079,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-04-30 13:00:00",
-   "message": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:529 2027-04-30 13:00-17:00 Projektarbete: “Detta pass ligger på Valborgmässoafton...ska det vara kvar?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS3_VT27_remiss.xlsx:529 2027-04-30 13:00-17:00 Projektarbete: ”Detta pass ligger på Valborgmässoafton...ska det vara kvar?”",
+    "en": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:529 2027-04-30 13:00-17:00 Projektarbete: “Detta pass ligger på Valborgmässoafton...ska det vara kvar?”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:529 2027-04-30 13:00-17:00 Projektarbete"
    ],
@@ -28803,7 +30096,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-05-07 13:00:00",
-   "message": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:558 2027-05-07 13:00-17:00 Projektarbete: “Detta pass ligger på fre när det är Eget arbete, klämdag. Ska det ligga kvar?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS3_VT27_remiss.xlsx:558 2027-05-07 13:00-17:00 Projektarbete: ”Detta pass ligger på fre när det är Eget arbete, klämdag. Ska det ligga kvar?”",
+    "en": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:558 2027-05-07 13:00-17:00 Projektarbete: “Detta pass ligger på fre när det är Eget arbete, klämdag. Ska det ligga kvar?”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:558 2027-05-07 13:00-17:00 Projektarbete"
    ],
@@ -28816,7 +30113,11 @@
    "scope": "SA114X",
    "course": "SA114X",
    "key": "2027-05-10 08:00:00",
-   "message": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:559 2027-05-10 08:00-17:00 Redovisning: “Onsdagen gick inte, därför må och tis”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS3_VT27_remiss.xlsx:559 2027-05-10 08:00-17:00 Redovisning: ”Onsdagen gick inte, därför må och tis”",
+    "en": "Existing remiss comment on CTFYS3_VT27_remiss.xlsx:559 2027-05-10 08:00-17:00 Redovisning: “Onsdagen gick inte, därför må och tis”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:559 2027-05-10 08:00-17:00 Redovisning"
    ],
@@ -28829,7 +30130,11 @@
    "scope": "SE1055",
    "course": "SE1055",
    "key": "['P4 day 1 (Mon 14:00)']>['P4 day 1 (Mon 08:00)']",
-   "message": "SE1055: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 14:00) → VT27 P4 day 1 (Mon 08:00).",
+   "message": {
+    "sv": "SE1055: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 1 (mån 14:00) → VT27 P4 dag 1 (mån 08:00).",
+    "en": "SE1055: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 14:00) → VT27 P4 day 1 (Mon 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:210 2027-05-24 08:00-13:00 Tentamen"
    ],
@@ -28842,7 +30147,14 @@
    "scope": "SE1055",
    "course": "SE1055",
    "key": "capacity",
-   "message": "SE1055: room seats compared with VT26 per occasion: 1 with ≥50% more seats.",
+   "message": {
+    "sv": "SE1055: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 50 % fler platser.",
+    "en": "SE1055: room seats compared with VT26 per occasion: 1 with ≥50% more seats."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -28864,7 +30176,14 @@
    "scope": "SF1861",
    "course": "SF1861",
    "key": "capacity",
-   "message": "SF1861: room seats compared with VT26 per occasion: 3 with ≥50% more seats.",
+   "message": {
+    "sv": "SF1861: lokalernas platser jämfört med VT26 per tillfälle: 3 med minst 50 % fler platser.",
+    "en": "SF1861: room seats compared with VT26 per occasion: 3 with ≥50% more seats."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -28886,7 +30205,11 @@
    "scope": "SF1904",
    "course": "SF1904",
    "key": "2027-05-28",
-   "message": "SF1904: Tentamen on 2027-05-28 has no exam module (Examinationsmodul) set.",
+   "message": {
+    "sv": "SF1904: Tentamen 2027-05-28 saknar examinationsmodul.",
+    "en": "SF1904: Tentamen on 2027-05-28 has no exam module (Examinationsmodul) set."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:614 2027-05-28 08:00-13:00 Tentamen"
    ],
@@ -28899,7 +30222,11 @@
    "scope": "SF1922",
    "course": "SF1922",
    "key": "2027-03-19 10:00:00",
-   "message": "Existing remiss comment on CTFYS1_VT27_remiss.xlsx:112 2027-03-19 10:00-12:00 Föreläsning: “i v 11 pga v 12 är kort”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS1_VT27_remiss.xlsx:112 2027-03-19 10:00-12:00 Föreläsning: ”i v 11 pga v 12 är kort”",
+    "en": "Existing remiss comment on CTFYS1_VT27_remiss.xlsx:112 2027-03-19 10:00-12:00 Föreläsning: “i v 11 pga v 12 är kort”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:112 2027-03-19 10:00-12:00 Föreläsning"
    ],
@@ -28912,7 +30239,11 @@
    "scope": "SF1922",
    "course": "SF1922",
    "key": "2027-04-15 08:00:00",
-   "message": "Existing remiss comment on CTFYS1_VT27_remiss.xlsx:154 2027-04-15 08:00-10:00 Kontrollskrivning: “Examinationsmodul, vilken?”",
+   "message": {
+    "sv": "Befintlig remisskommentar på CTFYS1_VT27_remiss.xlsx:154 2027-04-15 08:00-10:00 Kontrollskrivning: ”Examinationsmodul, vilken?”",
+    "en": "Existing remiss comment on CTFYS1_VT27_remiss.xlsx:154 2027-04-15 08:00-10:00 Kontrollskrivning: “Examinationsmodul, vilken?”"
+   },
+   "ask": null,
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:154 2027-04-15 08:00-10:00 Kontrollskrivning"
    ],
@@ -28925,7 +30256,11 @@
    "scope": "SF1922",
    "course": "SF1922",
    "key": "['P4 day 1 (Mon 08:00)']>['P4 day 2 (Tue 08:00)']",
-   "message": "SF1922: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 08:00) → VT27 P4 day 2 (Tue 08:00).",
+   "message": {
+    "sv": "SF1922: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 1 (mån 08:00) → VT27 P4 dag 2 (tis 08:00).",
+    "en": "SF1922: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 08:00) → VT27 P4 day 2 (Tue 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:215 2027-05-25 08:00-13:00 Tentamen"
    ],
@@ -28938,7 +30273,14 @@
    "scope": "SF2701",
    "course": "SF2701",
    "key": "capacity",
-   "message": "SF2701: room seats compared with VT26 per occasion: 10 with ≥50% more seats.",
+   "message": {
+    "sv": "SF2701: lokalernas platser jämfört med VT26 per tillfälle: 10 med minst 50 % fler platser.",
+    "en": "SF2701: room seats compared with VT26 per occasion: 10 with ≥50% more seats."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [],
    "details": {
     "counts": {
@@ -28960,7 +30302,11 @@
    "scope": "SG1112",
    "course": "SG1112",
    "key": "['P4 day 5 (Fri 08:00)']>['P4 day 6 (Mon 08:00)']",
-   "message": "SG1112: ordinary exam position in the exam window changed: VT26 P4 day 5 (Fri 08:00) → VT27 P4 day 6 (Mon 08:00).",
+   "message": {
+    "sv": "SG1112: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 5 (fre 08:00) → VT27 P4 dag 6 (mån 08:00).",
+    "en": "SG1112: ordinary exam position in the exam window changed: VT26 P4 day 5 (Fri 08:00) → VT27 P4 day 6 (Mon 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:222 2027-05-31 08:00-13:00 Tentamen"
    ],
@@ -28973,7 +30319,11 @@
    "scope": "SH2404",
    "course": "SH2404",
    "key": "['P4 day 4 (Thu 08:00)']>['P4 day 5 (Fri 08:00)']",
-   "message": "SH2404: ordinary exam position in the exam window changed: VT26 P4 day 4 (Thu 08:00) → VT27 P4 day 5 (Fri 08:00).",
+   "message": {
+    "sv": "SH2404: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 4 (tor 08:00) → VT27 P4 dag 5 (fre 08:00).",
+    "en": "SH2404: ordinary exam position in the exam window changed: VT26 P4 day 4 (Thu 08:00) → VT27 P4 day 5 (Fri 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:615 2027-05-28 08:00-13:00 Tentamen"
    ],
@@ -28986,7 +30336,11 @@
    "scope": "SI1142",
    "course": "SI1142",
    "key": "SI1142-60308 (VT25)",
-   "message": "1 exam row(s) reference course round SI1142-60308 (VT25) (plausible for re-exams of an older round).",
+   "message": {
+    "sv": "1 examinationsrad(er) är kopplade till kurstillfälle SI1142-60308 (VT25) (rimligt för omtentor av ett äldre tillfälle).",
+    "en": "1 exam row(s) reference course round SI1142-60308 (VT25) (plausible for re-exams of an older round)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
    ],
@@ -28999,7 +30353,11 @@
    "scope": "SI1155",
    "course": "SI1155",
    "key": "['P4 day 4 (Thu 14:00)']>['P4 day 4 (Thu 08:00)']",
-   "message": "SI1155: ordinary exam position in the exam window changed: VT26 P4 day 4 (Thu 14:00) → VT27 P4 day 4 (Thu 08:00).",
+   "message": {
+    "sv": "SI1155: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 4 (tor 14:00) → VT27 P4 dag 4 (tor 08:00).",
+    "en": "SI1155: ordinary exam position in the exam window changed: VT26 P4 day 4 (Thu 14:00) → VT27 P4 day 4 (Thu 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:215 2027-05-27 08:00-13:00 Tentamen"
    ],
@@ -29012,7 +30370,11 @@
    "scope": "SI1162",
    "course": "SI1162",
    "key": "['P3 day 5 (Thu 08:00)']>['P3 day 6 (Fri 08:00)']",
-   "message": "SI1162: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 08:00) → VT27 P3 day 6 (Fri 08:00).",
+   "message": {
+    "sv": "SI1162: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 5 (tor 08:00) → VT27 P3 dag 6 (fre 08:00).",
+    "en": "SI1162: ordinary exam position in the exam window changed: VT26 P3 day 5 (Thu 08:00) → VT27 P3 day 6 (Fri 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:261 2027-03-12 08:00-13:00 Tentamen"
    ],
@@ -29025,7 +30387,11 @@
    "scope": "SI1200",
    "course": "SI1200",
    "key": "['P3 day 4 (Wed 08:00)']>['P3 day 2 (Mon 08:00)']",
-   "message": "SI1200: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 08:00) → VT27 P3 day 2 (Mon 08:00).",
+   "message": {
+    "sv": "SI1200: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P3 dag 4 (ons 08:00) → VT27 P3 dag 2 (mån 08:00).",
+    "en": "SI1200: ordinary exam position in the exam window changed: VT26 P3 day 4 (Wed 08:00) → VT27 P3 day 2 (Mon 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:94 2027-03-08 08:00-13:00 Tentamen"
    ],
@@ -29038,7 +30404,14 @@
    "scope": "SI1200",
    "course": "SI1200",
    "key": "capacity",
-   "message": "SI1200: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats, 2 with ≥50% more seats. Largest reductions: Ö 2027-01-14: FB52+FB53+FB54 160 → FB53+FB54+FB55 132.",
+   "message": {
+    "sv": "SI1200: lokalernas platser jämfört med VT26 per tillfälle: 1 med minst 10 % färre platser, 2 med minst 50 % fler platser. Störst minskning: Ö 2027-01-14: FB52+FB53+FB54 160 → FB53+FB54+FB55 132.",
+    "en": "SI1200: room seats compared with VT26 per occasion: 1 with ≥10% fewer seats, 2 with ≥50% more seats. Largest reductions: Ö 2027-01-14: FB52+FB53+FB54 160 → FB53+FB54+FB55 132."
+   },
+   "ask": {
+    "sv": "Räcker platserna?",
+    "en": "Are there enough seats?"
+   },
    "evidence": [
     "CTFYS2_VT27_remiss.xlsx:13 2027-01-14 08:00-10:00 Övning"
    ],
@@ -29079,7 +30452,11 @@
    "scope": "SI2360",
    "course": "SI2360",
    "key": "['P4 day 1 (Mon 14:00)']>['P4 day 3 (Wed 08:00)']",
-   "message": "SI2360: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 14:00) → VT27 P4 day 3 (Wed 08:00).",
+   "message": {
+    "sv": "SI2360: ordinarie tentamens plats i tentamensperioden har ändrats: VT26 P4 dag 1 (mån 14:00) → VT27 P4 dag 3 (ons 08:00).",
+    "en": "SI2360: ordinary exam position in the exam window changed: VT26 P4 day 1 (Mon 14:00) → VT27 P4 day 3 (Wed 08:00)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS3_VT27_remiss.xlsx:609 2027-05-26 08:00-13:00 Tentamen"
    ],
@@ -29092,7 +30469,11 @@
    "scope": "SK1104",
    "course": "SK1104",
    "key": "SK1104-51000 (HT25)",
-   "message": "1 exam row(s) reference course round SK1104-51000 (HT25) (plausible for re-exams of an older round).",
+   "message": {
+    "sv": "1 examinationsrad(er) är kopplade till kurstillfälle SK1104-51000 (HT25) (rimligt för omtentor av ett äldre tillfälle).",
+    "en": "1 exam row(s) reference course round SK1104-51000 (HT25) (plausible for re-exams of an older round)."
+   },
+   "ask": null,
    "evidence": [
     "CTFYS1_VT27_remiss.xlsx:95 2027-03-08 14:00-17:00 Tentamen"
    ],
@@ -29105,7 +30486,11 @@
    "scope": "VT27",
    "course": null,
    "key": "unknown",
-   "message": "Room capacity not compared for occasions in 5 room(s) without a seat count in KTH Places (012:024, 012:025, 013:009, 013:012, 013:013A). Capacities can be added in a rooms file (--rooms).",
+   "message": {
+    "sv": "Platserna jämfördes inte för tillfällen i 5 lokal(er) utan antal platser i KTH Places (012:024, 012:025, 013:009, 013:012, 013:013A). Antal platser kan anges i en lokalfil (--rooms).",
+    "en": "Room capacity not compared for occasions in 5 room(s) without a seat count in KTH Places (012:024, 012:025, 013:009, 013:012, 013:013A). Capacities can be added in a rooms file (--rooms)."
+   },
+   "ask": null,
    "evidence": [],
    "details": {
     "rooms": {

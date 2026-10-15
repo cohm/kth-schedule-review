@@ -42,6 +42,11 @@ the domain and the judgement rules. Do not invent rules that contradict it.
 
    It writes `<out>/issues.json`, an HTML report and a comment draft.
 
+   Texts in `issues.json` (`message`, `ask`, `notes`, `year_status`) are
+   `{"sv": ..., "en": ...}`; write to the user in their language and to the
+   schedulers in Swedish unless told otherwise. `--lang en` writes the
+   comment draft in English (`*_comments.md`).
+
 3. **Read `year_status`** in `issues.json` first: per programme year, what was
    checked and the outcome (including explicit "no clashes"). Then read the
    notes (`notes`): study-plan cohorts used, whether

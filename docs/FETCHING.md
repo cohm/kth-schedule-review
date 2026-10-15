@@ -1,5 +1,7 @@
 # Fetching exports from TimeEdit
 
+[Svenska](FETCHING.sv.md) · **English**
+
 Instead of exporting each programme year by hand, `schedcheck fetch` opens the
 right export links in your default browser (or the one given with
 `--browser`, e.g. `--browser Safari`), and `schedcheck collect` files the

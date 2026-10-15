@@ -30,6 +30,16 @@ class Window:
     end: dt.date
     kind: str            # "exam" or "reexam"
     label: str           # e.g. "P3 exams", "re-exams 2027-06-01..06-04"
+    period: str = ""     # e.g. "P3" for an ordinary exam window
+
+    def text(self, lang: str = "en") -> str:
+        """The label in Swedish or English."""
+        sv = lang == "sv"
+        if self.kind == "exam" and self.period:
+            return f"{self.period} {'tentaperiod' if sv else 'exams'}"
+        what = ("tentor" if self.kind == "exam" else "omtentor") if sv else \
+               ("exams" if self.kind == "exam" else "re-exams")
+        return f"{what} {self.start:%m-%d}..{self.end:%m-%d}"
 
     def __contains__(self, d: dt.date) -> bool:
         return self.start <= d <= self.end
@@ -120,7 +130,7 @@ def build_calendar(exports: list[Export]) -> TermCalendar:
     pstart = start
     for i, (s, e) in enumerate(exam_w):
         if i < len(pnames):
-            cal.exam_windows.append(Window(s, e, "exam", f"{pnames[i]} exams"))
+            cal.exam_windows.append(Window(s, e, "exam", f"{pnames[i]} exams", pnames[i]))
             cal.periods.append((pnames[i], pstart, e))
             # The next period starts on the Monday after the exam window.
             pstart = e + dt.timedelta(days=7 - e.weekday())
